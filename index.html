@@ -5893,53 +5893,53 @@ window.printWS = function(uid) {
 })();
 
 
-// 大家說英語 9/22：Barbecue Around the World — 45 題中英雙語
+// 大家說英語 9/22：Barbecue Around the World — 45 選擇題
 var TU_QZ = [
-  {q:"Do you like barbecue? 你喜歡烤肉嗎？\nWhat kind of food do you like to grill?（喜歡烤什麼？）", hint:"Yes, I like BBQ. I like to grill..."},
-  {q:"Which country's BBQ sounds most delicious to you — USA, Argentina, Korea, or South Africa?\n你最想吃哪個國家的烤肉？為什麼？", hint:"I think ____'s BBQ sounds most delicious because..."},
-  {q:"What do Americans usually grill at a barbecue?\n美國人烤肉時通常烤什麼？至少說兩樣。", hint:"Americans usually grill... and..."},
-  {q:"How is Korean BBQ different from American BBQ?\n韓式烤肉跟美式烤肉有什麼不同？", hint:"In Korean BBQ... but in American BBQ..."},
-  {q:"What does Argentina use to cook BBQ? How do they cook the meat?\n阿根廷人用什麼來烤肉？怎麼烤的？", hint:"In Argentina, people use wood or charcoal. They cook the meat slowly..."},
-  {q:"What is a 'grill'? Can you explain it in English?\n用英文說說看 grill 是什麼？", hint:"A grill is... You use it to cook meat over heat."},
-  {q:"Have you ever had a barbecue with your family or friends?\n你曾經跟家人或朋友烤過肉嗎？說說看。", hint:"Yes! We... / No, but I want to try..."},
-  {q:"What is charcoal? Why do people use it for BBQ?\n木炭是什麼？為什麼用木炭烤肉？", hint:"Charcoal is black material made from wood. People use it because..."},
-  {q:"According to the article, BBQ is not just about food.\n文章說烤肉不只是食物，還有什麼重要的意義？", hint:"BBQ is also about bringing people together and..."},
-  {q:"Name three types of meat mentioned in the article.\n說出文章提到的三種肉。", hint:"The article mentions steak, chicken, and..."},
-  {q:"If you could create your own BBQ dish, what would it be?\n如果你能創造一道烤肉料理，會是什麼？", hint:"My BBQ dish would be... It would have..."},
-  {q:"What does 'slow-cooked' mean? Give an example.\n'Slow-cooked' 是什麼意思？舉個例子。", hint:"Slow-cooked means cooking food for a long time over low heat. For example..."},
-  {q:"Why do you think people all over the world enjoy barbecue?\n為什麼全世界的人都喜歡烤肉？", hint:"I think people enjoy BBQ because it is fun and..."},
-  {q:"What is one new English word you learned? Use it in a sentence.\n說一個你從文章學到的新單字，造一個句子。", hint:"I learned '___'. For example: ..."},
-  {q:"In Taiwan, when do families usually have a barbecue?\n台灣家庭通常什麼時候烤肉？", hint:"In Taiwan, families usually BBQ on... because..."},
-  {q:"What is the difference between 'grill' and 'barbecue'?\n'Grill' 和 'barbecue' 有什麼不同？", hint:"Grilling is fast and uses high heat. BBQ is usually slow and..."},
-  {q:"Describe the Korean BBQ style in 2–3 sentences.\n用2到3句話描述韓式烤肉。", hint:"In Korea, people... The meat is cut into... and cooked at..."},
-  {q:"What foods are popular at an American backyard BBQ party?\n美式後院烤肉派對有哪些受歡迎的食物？", hint:"At an American BBQ, you can find burgers, hot dogs, and..."},
-  {q:"Why might Argentina be famous for its BBQ?\n阿根廷為什麼以烤肉聞名？", hint:"Argentina is famous for BBQ because they have a lot of... and they cook..."},
-  {q:"What does 'bring people together' mean? Can you give an example?\n'Bring people together' 是什麼意思？舉個例子。", hint:"It means... For example, BBQ parties bring families..."},
-  {q:"Is BBQ popular in Taiwan? How is Taiwanese BBQ different from Korean BBQ?\n台灣也流行烤肉嗎？台灣烤肉跟韓式有何不同？", hint:"Yes! In Taiwan, we usually BBQ during... Korean BBQ is different because..."},
-  {q:"What vegetables can you put on a grill?\n你可以在烤架上烤哪些蔬菜？", hint:"You can grill vegetables like corn, peppers, mushrooms, and..."},
-  {q:"Name one country from the article and explain its BBQ style.\n說一個文章提到的國家，並解釋它的烤肉風格。", hint:"In ____, people barbecue by... They usually use... and grill..."},
-  {q:"What does 'marinate' mean? Do you think marinating meat makes it taste better?\n'Marinate'（醃肉）是什麼意思？醃過的肉比較好吃嗎？", hint:"Marinate means to soak meat in a sauce before cooking. I think..."},
-  {q:"If you were hosting a BBQ party, what would you prepare?\n如果你舉辦烤肉派對，你會準備什麼？", hint:"I would prepare... I would invite... We would grill..."},
-  {q:"What season is best for a barbecue and why?\n哪個季節最適合烤肉？為什麼？", hint:"I think ____ is the best season for BBQ because the weather is..."},
-  {q:"What are some safety rules you should follow when having a BBQ?\n烤肉時應該注意哪些安全規則？", hint:"When having a BBQ, you should be careful about fire. Also, don't..."},
-  {q:"What is 'pork'? What is 'steak'? Can you tell the difference?\n'Pork' 和 'steak' 分別是什麼？有什麼不同？", hint:"Pork is meat from a pig. Steak is... They are different because..."},
-  {q:"Would you prefer to eat at a restaurant or have a home BBQ? Why?\n你比較喜歡去餐廳吃飯還是在家烤肉？為什麼？", hint:"I prefer... because it is more... Also, I can..."},
-  {q:"What does the article say about South African BBQ?\n文章說南非的烤肉有什麼特色？", hint:"In South Africa, people usually grill... along with meat and vegetables."},
-  {q:"What does 'social activity' mean? Is BBQ a social activity? Why?\n'Social activity'（社交活動）是什麼意思？烤肉算嗎？", hint:"A social activity is something people do together. BBQ is a social activity because..."},
-  {q:"Can you use 'grill' as a verb in a sentence?\n你能用 grill 當動詞造一個句子嗎？", hint:"For example: We grilled... yesterday. / I want to grill..."},
-  {q:"What does 'tender' mean when talking about meat?\n形容肉的時候，'tender' 是什麼意思？", hint:"Tender means soft and easy to chew. Slow-cooked meat is usually tender because..."},
-  {q:"What is the main idea of the article 'Barbecue Around the World'?\n'Barbecue Around the World' 這篇文章的主旨是什麼？", hint:"The main idea is that BBQ is enjoyed in many countries around the world, and it..."},
-  {q:"How do you say '烤肉' in English? Can you say 3 English words from today's lesson?\n'烤肉' 的英文怎麼說？再說3個今天學的英文單字。", hint:"BBQ! Three words I learned are: grill, charcoal, and..."},
-  {q:"What kind of sauce would you put on grilled meat? Why?\n你會在烤肉上放什麼醬料？為什麼？", hint:"I would put... sauce because I like the taste of..."},
-  {q:"Translate this sentence: 'People grill burgers and hot dogs in the USA.'\n翻譯這個句子：'People grill burgers and hot dogs in the USA.'", hint:"美國人... 在烤架上烤漢堡和熱狗。"},
-  {q:"If you visited Argentina, would you want to try their BBQ? Why or why not?\n如果你去阿根廷，你想試試他們的烤肉嗎？為什麼？", hint:"Yes, I would because... / No, I would not because..."},
-  {q:"What is 'wood' in Chinese? What is 'charcoal' in Chinese?\n'Wood' 和 'charcoal' 的中文是什麼？", hint:"Wood means 木頭. Charcoal means 木炭."},
-  {q:"Make up a short conversation about BBQ (at least 3 lines).\n編一段關於烤肉的短對話（至少3句）。", hint:"A: Are you going to the BBQ party? B: Yes! I love... A: What will you grill?"},
-  {q:"What do you think is the hardest part about having a BBQ?\n你覺得辦烤肉派對最難的是什麼？", hint:"I think the hardest part is... because..."},
-  {q:"Can you name two countries mentioned in the article and one thing each country does differently?\n說出文章提到的兩個國家，各一個不同的烤肉特點。", hint:"In Korea,... In Argentina,..."},
-  {q:"What does 'flavor' mean? What flavors do you like in grilled food?\n'Flavor'（口味/風味）是什麼意思？你喜歡烤肉什麼口味？", hint:"Flavor means the taste of food. I like... flavor because..."},
-  {q:"Why is fire important for a barbecue? What can you use to make fire for BBQ?\n火為什麼對烤肉很重要？可以用什麼來生火？", hint:"Fire is important because it... You can use charcoal, wood, or..."},
-  {q:"Finish this sentence: 'Barbecue is popular around the world because...'\n完成這個句子：'Barbecue is popular around the world because...'", hint:"...it brings people together / ...the food is delicious / ...it is fun to cook outdoors"},
+  {q:"What does 'barbecue' mean?\n'Barbecue' 是什麼意思？", opts:["A. 游泳活動","B. 烤肉","C. 野餐","D. 派對遊戲"], ans:1, zh:"Barbecue 就是烤肉！"},
+  {q:"What do Americans usually grill at a BBQ?\n美國人烤肉通常烤什麼？", opts:["A. Noodles 麵條","B. Sushi 壽司","C. Burgers and hot dogs 漢堡和熱狗","D. Dumplings 水餃"], ans:2, zh:"美國人愛烤漢堡 (burger) 和熱狗 (hot dog)！"},
+  {q:"What does Argentina use to slow-cook their BBQ?\n阿根廷用什麼慢火烤肉？", opts:["A. Electricity 電","B. Gas 瓦斯","C. Wood or charcoal 木頭或木炭","D. Microwave 微波爐"], ans:2, zh:"阿根廷用 wood（木頭）或 charcoal（木炭）慢慢烤！"},
+  {q:"In Korean BBQ, where is the meat cooked?\n韓式烤肉，肉是在哪裡烤的？", opts:["A. On a big outdoor grill 大型戶外烤架","B. At the table 桌面上","C. In an oven 烤箱","D. In a pot 鍋子裡"], ans:1, zh:"韓式烤肉是直接在餐桌上烤的，超酷！"},
+  {q:"What is 'grill'?\n'Grill' 是什麼？", opts:["A. 一種醬料","B. 烤架","C. 木炭","D. 蔬菜"], ans:1, zh:"Grill 是烤架，也可以當動詞「烤」。"},
+  {q:"What is 'charcoal'?\n'Charcoal' 是什麼？", opts:["A. 木炭","B. 木頭","C. 煤氣","D. 鹽"], ans:0, zh:"Charcoal = 木炭，燒烤必備！"},
+  {q:"According to the article, BBQ is also a way to ___.\n根據文章，烤肉也是一種 ___ 的方式。", opts:["A. lose weight 減肥","B. make money 賺錢","C. bring people together 讓人聚在一起","D. study English 學英文"], ans:2, zh:"BBQ brings people together — 讓大家聚在一起！"},
+  {q:"Which country is famous for slow-cooked BBQ with wood or charcoal?\n哪個國家以木頭或木炭慢火烤肉聞名？", opts:["A. Korea 韓國","B. USA 美國","C. Argentina 阿根廷","D. Japan 日本"], ans:2, zh:"Argentina（阿根廷）用 wood 或 charcoal 慢慢烤，超有名！"},
+  {q:"What does 'slow-cooked' mean?\n'Slow-cooked' 是什麼意思？", opts:["A. 快速料理","B. 用微波爐","C. 慢火長時間烹煮","D. 冷凍食品"], ans:2, zh:"Slow-cooked = 慢慢煮，讓肉更軟嫩。"},
+  {q:"What is 'meat'?\n'Meat' 是什麼？", opts:["A. 蔬菜","B. 肉類","C. 飲料","D. 水果"], ans:1, zh:"Meat = 肉類，BBQ 的主角！"},
+  {q:"Which of these is NOT a type of meat?\n下面哪一個不是肉類？", opts:["A. Steak 牛排","B. Pork 豬肉","C. Charcoal 木炭","D. Chicken 雞肉"], ans:2, zh:"Charcoal（木炭）是燃料，不是食物！"},
+  {q:"What does 'tender' mean when talking about meat?\n形容肉時，'tender' 是什麼意思？", opts:["A. 很辣","B. 很硬","C. 很軟嫩","D. 很鹹"], ans:2, zh:"Tender = 軟嫩，好吃的肉通常是 tender 的！"},
+  {q:"What is 'steak'?\n'Steak' 是什麼？", opts:["A. 雞翅","B. 牛排","C. 豬腳","D. 羊肉"], ans:1, zh:"Steak = 牛排，阿根廷烤牛排超有名！"},
+  {q:"In which country do people grill thin slices of meat at the table?\n哪個國家的人在桌上烤薄肉片？", opts:["A. USA 美國","B. Argentina 阿根廷","C. South Africa 南非","D. Korea 韓國"], ans:3, zh:"韓式烤肉（Korean BBQ）就是在桌上烤薄薄的肉片！"},
+  {q:"What is a 'hot dog'?\n'Hot dog' 是什麼？", opts:["A. 很熱的狗","B. 熱狗（食物）","C. 一種飲料","D. 烤雞"], ans:1, zh:"Hot dog 是熱狗，美式烤肉的經典食物！"},
+  {q:"What does 'flavor' mean?\n'Flavor' 是什麼意思？", opts:["A. 顏色","B. 大小","C. 口味/風味","D. 形狀"], ans:2, zh:"Flavor = 口味，例如 sweet flavor（甜味）。"},
+  {q:"Which country's BBQ style often includes meat AND vegetables together?\n哪個國家的烤肉常同時有肉和蔬菜？", opts:["A. USA 美國","B. South Africa 南非","C. Korea 韓國","D. Argentina 阿根廷"], ans:1, zh:"South Africa（南非）的烤肉常搭配蔬菜一起烤！"},
+  {q:"What is 'pork'?\n'Pork' 是什麼肉？", opts:["A. 牛肉","B. 羊肉","C. 豬肉","D. 雞肉"], ans:2, zh:"Pork = 豬肉，BBQ 的常見食材！"},
+  {q:"What does 'social activity' mean?\n'Social activity' 是什麼意思？", opts:["A. 一個人做的事","B. 大家一起參與的活動","C. 體育競賽","D. 讀書活動"], ans:1, zh:"Social activity = 社交活動，大家一起做的事！"},
+  {q:"What does 'grill' mean as a VERB?\n'Grill' 當動詞是什麼意思？", opts:["A. 吃","B. 切","C. 烤","D. 煮（水煮）"], ans:2, zh:"Grill 當動詞 = 用烤架烤。We grill burgers. 我們烤漢堡。"},
+  {q:"Which sentence is correct?\n哪個句子是對的？", opts:["A. I grill my homework.","B. Americans like to grill burgers.","C. BBQ means swimming.","D. Charcoal is a vegetable."], ans:1, zh:"Americans like to grill burgers. 美國人喜歡烤漢堡。✅"},
+  {q:"What does 'marinate' mean?\n'Marinate' 是什麼意思？", opts:["A. 切肉","B. 醃肉","C. 吃肉","D. 賣肉"], ans:1, zh:"Marinate = 醃肉，在烤之前先泡在醬料裡讓它入味！"},
+  {q:"Why is fire important for BBQ?\n為什麼火對烤肉很重要？", opts:["A. 讓食物變冷","B. 用來洗肉","C. 讓食物煮熟","D. 讓肉變生"], ans:2, zh:"Fire（火）讓食物 cook（煮熟）！沒有火就不能烤肉！"},
+  {q:"Which of these is a sentence about BBQ?\n哪個是關於烤肉的句子？", opts:["A. I swim in the pool.","B. She reads a book.","C. We grill chicken at the park.","D. He plays the piano."], ans:2, zh:"We grill chicken at the park. 我們在公園烤雞肉。✅"},
+  {q:"What is the main idea of 'Barbecue Around the World'?\n'Barbecue Around the World' 的主旨是什麼？", opts:["A. 如何減肥","B. 各國都有自己的烤肉文化","C. 美國最好","D. 烤肉很危險"], ans:1, zh:"主旨：世界各地都有烤肉文化！Different countries, different BBQ styles!"},
+  {q:"What does 'burger' mean?\n'Burger' 是什麼？", opts:["A. 披薩","B. 漢堡","C. 炸雞","D. 三明治"], ans:1, zh:"Burger = 漢堡，美式烤肉必備！"},
+  {q:"How do you say '木炭' in English?\n'木炭' 的英文是？", opts:["A. Wood","B. Stone","C. Charcoal","D. Coal mine"], ans:2, zh:"木炭 = Charcoal！用來烤肉的黑色燃料。"},
+  {q:"How do you say '烤架' in English?\n'烤架' 的英文是？", opts:["A. Table","B. Pan","C. Oven","D. Grill"], ans:3, zh:"烤架 = Grill！可以是名詞（烤架）或動詞（用烤架烤）。"},
+  {q:"What do people in Argentina often grill?\n阿根廷人常烤什麼？", opts:["A. Sushi and ramen","B. Steak, chicken, or pork","C. Pizza and pasta","D. Noodles and dumplings"], ans:1, zh:"阿根廷人常烤 steak（牛排）、chicken（雞肉）、pork（豬肉）！"},
+  {q:"In Taiwan, when do families most often have a BBQ?\n台灣家庭最常在什麼時候烤肉？", opts:["A. New Year's Day 元旦","B. Mid-Autumn Festival 中秋節","C. Children's Day 兒童節","D. Christmas 聖誕節"], ans:1, zh:"中秋節（Mid-Autumn Festival）是台灣烤肉的超大節日！"},
+  {q:"Which word means 'to cook food on a grill'?\n哪個詞的意思是「在烤架上烤食物」？", opts:["A. Boil 水煮","B. Steam 蒸","C. Grill 烤","D. Freeze 冷凍"], ans:2, zh:"Grill = 用烤架烤！這是本課最重要的動詞！"},
+  {q:"What does 'bring people together' mean?\n'Bring people together' 是什麼意思？", opts:["A. 把東西帶來","B. 讓人們聚在一起","C. 一個人旅行","D. 搬家"], ans:1, zh:"Bring people together = 讓人們聚在一起，BBQ 就有這個功能！"},
+  {q:"Which is NOT mentioned in the article as a BBQ country?\n文章沒有提到哪個國家的烤肉？", opts:["A. USA 美國","B. Korea 韓國","C. Japan 日本","D. Argentina 阿根廷"], ans:2, zh:"文章提到 USA、Korea、Argentina、South Africa，但沒提到 Japan！"},
+  {q:"What does 'wood' mean?\n'Wood' 是什麼意思？", opts:["A. 水","B. 木頭","C. 石頭","D. 土"], ans:1, zh:"Wood = 木頭，阿根廷用它來生火烤肉！"},
+  {q:"Finish the sentence: 'Korean BBQ is cooked at ___'\n完成句子：'Korean BBQ is cooked at ___'", opts:["A. a campfire 營火","B. a restaurant kitchen 餐廳廚房","C. the table 桌子上","D. a beach 海邊"], ans:2, zh:"Korean BBQ is cooked at the table — 韓式烤肉在桌上烤！"},
+  {q:"Which word is an ADJECTIVE (形容詞)?\n哪個是形容詞？", opts:["A. Grill 烤","B. Charcoal 木炭","C. Tender 軟嫩的","D. Barbecue 烤肉"], ans:2, zh:"Tender（軟嫩的）是形容詞，用來形容肉的口感！"},
+  {q:"What is the opposite of 'tough' (meat)?\n肉質 'tough'（硬）的反義詞是？", opts:["A. Spicy 辣的","B. Tender 軟嫩的","C. Salty 鹹的","D. Sweet 甜的"], ans:1, zh:"Tough（硬）的反義詞是 Tender（軟嫩）！好吃的烤肉是 tender 的。"},
+  {q:"Which sentence uses 'grill' correctly?\n哪個句子正確使用了 'grill'？", opts:["A. I grill my phone.","B. We grill at the library.","C. Dad grills chicken every weekend.","D. She grills her homework."], ans:2, zh:"Dad grills chicken every weekend. 爸爸每週末烤雞肉。✅"},
+  {q:"What is 'South Africa' in Chinese?\n'South Africa' 的中文是？", opts:["A. 南美洲","B. 南非","C. 南韓","D. 南極洲"], ans:1, zh:"South Africa = 南非，文章中提到南非的烤肉文化！"},
+  {q:"What does 'outdoor' mean?\n'Outdoor' 是什麼意思？", opts:["A. 在室內","B. 在地下","C. 在戶外","D. 在教室"], ans:2, zh:"Outdoor = 戶外，BBQ 通常是 outdoor activity（戶外活動）！"},
+  {q:"How do you say '世界各地' in English?\n'世界各地' 的英文是？", opts:["A. Far away","B. In my country","C. Around the world","D. In the sky"], ans:2, zh:"Around the world = 世界各地，這也是課文標題的一部分！"},
+  {q:"Which animal does 'pork' come from?\n'Pork' 是哪種動物的肉？", opts:["A. Cow 牛","B. Chicken 雞","C. Fish 魚","D. Pig 豬"], ans:3, zh:"Pork 是 pig（豬）的肉！Beef = 牛肉，Chicken = 雞肉。"},
+  {q:"What does 'slice' mean?\n'Slice' 是什麼意思？", opts:["A. 一整塊","B. 一薄片","C. 一碗","D. 一鍋"], ans:1, zh:"Slice = 薄片！韓式烤肉用 slices of meat（薄肉片）。"},
+  {q:"According to the article, what makes BBQ special?\n根據文章，是什麼讓烤肉特別？", opts:["A. 它很便宜","B. 每個人都能自己做","C. 它能讓人聚在一起分享食物和快樂時光","D. 它只在特定國家才有"], ans:2, zh:"BBQ 特別的地方：bringing people together to share food and enjoy a good time！"},
+  {q:"What is 'Argentina'?\n'Argentina' 是什麼地方？", opts:["A. 亞洲國家","B. 歐洲國家","C. 南美洲國家","D. 非洲國家"], ans:2, zh:"Argentina（阿根廷）是南美洲（South America）的國家，以烤肉聞名！"},
 ];
 var tu_used = [];
 var tu_dm = {};
@@ -5973,12 +5973,26 @@ function spinQ(u) {
       tu_used.push(qi);
       var q = TU_QZ[qi];
       var box = document.getElementById('qbox_tu');
-      document.getElementById('qtext_tu').innerHTML = q.q.replace(/\n/g,'<br>');
-      document.getElementById('qhint_tu').textContent = '\ud83d\udcac ' + q.hint;
+      var labels='ABCD';
+      var optsHtml = q.opts.map(function(o,i){
+        return '<button onclick="checkAns(this,'+i+','+q.ans+',\''+q.zh.replace(/'/g,"\\'")+'\')" style="display:block;width:100%;margin:6px 0;padding:12px 18px;font-size:24px;font-weight:700;text-align:left;background:#fff;border:3px solid #e2e8f0;border-radius:12px;cursor:pointer">'+o+'</button>';
+      }).join('');
+      document.getElementById('qtext_tu').innerHTML = '<div style="font-size:28px;font-weight:900;margin-bottom:12px">'+q.q.replace(/\n/g,'<br>')+'</div>' + optsHtml + '<div id="qa_result" style="margin-top:10px;font-size:20px;display:none"></div>';
       box.style.display = 'block';
       box.scrollIntoView({behavior:'smooth', block:'nearest'});
     }
   }, 70);
+}
+function checkAns(btn,i,ans,zh){
+  var btns=btn.parentNode.querySelectorAll('button');
+  btns.forEach(function(b,idx){
+    b.disabled=true;
+    if(idx===ans){b.style.background='#dcfce7';b.style.borderColor='#16a34a';b.style.color='#166534';}
+    else if(idx===i){b.style.background='#fee2e2';b.style.borderColor='#dc2626';b.style.color='#991b1b';}
+  });
+  var res=document.getElementById('qa_result');
+  res.style.display='block';
+  res.innerHTML=(i===ans?'<span style="color:#16a34a;font-weight:900">&#x2705; 答對了！</span>':'<span style="color:#dc2626;font-weight:900">&#x274C; 答錯了！</span>') + ' <span style="color:#1e293b">'+zh+'</span>';
 }
 
 </script></body></html>
