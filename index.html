@@ -276,6 +276,109 @@ body { padding-top: 44px !important; }
   padding-bottom: 8px !important;
 }
 </style>
+
+<style id="cheatcode-css">
+/* ═══ Cheat Code Button ═══ */
+.cc-btn {
+  display:inline-flex;align-items:center;gap:5px;
+  background:#1A1A1A;color:#E8A020;
+  border:2px solid #E8A020;border-radius:0;
+  padding:5px 12px;font-size:15px;font-weight:900;
+  cursor:pointer;margin-left:10px;
+  box-shadow:3px 3px 0 #E8A020;
+  transition:transform .1s,box-shadow .1s;
+  font-family:'Nunito',sans-serif;
+  vertical-align:middle;
+}
+.cc-btn:hover{transform:translate(1px,1px);box-shadow:2px 2px 0 #E8A020;}
+.cc-btn:active{transform:translate(3px,3px);box-shadow:0 0 0 #E8A020;}
+
+/* ═══ Modal Overlay ═══ */
+#cc-modal {
+  display:none;position:fixed;inset:0;z-index:9800;
+  background:rgba(0,0,0,.7);backdrop-filter:blur(4px);
+  overflow-y:auto;padding:20px;box-sizing:border-box;
+}
+#cc-modal.open{display:flex;align-items:flex-start;justify-content:center;}
+#cc-box {
+  width:100%;max-width:860px;margin:auto;
+  background:#1A1A1A;border:4px solid #E8A020;
+  box-shadow:8px 8px 0 #E8A020;
+  font-family:'Nunito',sans-serif;
+}
+/* Header */
+#cc-header {
+  background:#E8A020;color:#1A1A1A;
+  padding:14px 20px;font-size:28px;font-weight:900;
+  display:flex;align-items:center;justify-content:space-between;
+}
+/* Sections */
+.cc-section {
+  padding:16px 20px;border-bottom:2px solid #333;
+}
+.cc-section-title {
+  font-size:18px;font-weight:900;color:#E8A020;
+  letter-spacing:1px;margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+/* Vocab table */
+#cc-vocab-table {
+  width:100%;border-collapse:collapse;
+}
+#cc-vocab-table th {
+  background:#333;color:#E8A020;font-size:15px;
+  padding:8px 12px;text-align:left;font-weight:900;
+}
+#cc-vocab-table td {
+  padding:8px 12px;border-bottom:1px solid #2a2a2a;
+  font-size:20px;color:#fff;
+}
+#cc-vocab-table td:first-child{font-weight:900;color:#4ADE80;}
+#cc-vocab-table td:nth-child(2){color:#94A3B8;font-size:15px;}
+#cc-vocab-table td:last-child {
+  background:#111;
+}
+.cc-fill {
+  width:100%;background:transparent;border:none;
+  border-bottom:2px solid #444;color:#FCD34D;
+  font-size:18px;font-family:'Nunito',sans-serif;
+  font-weight:700;padding:2px 4px;outline:none;
+}
+.cc-fill:focus{border-bottom-color:#E8A020;}
+/* Quick Fire */
+.qf-card {
+  background:#111;border:2px solid #333;
+  margin-bottom:10px;padding:12px 16px;
+}
+.qf-q {font-size:20px;font-weight:700;color:#fff;margin-bottom:10px;}
+.qf-opts {display:flex;flex-wrap:wrap;gap:8px;}
+.qf-opt {
+  padding:8px 16px;font-size:17px;font-weight:700;
+  border:2px solid #444;background:#1a1a1a;color:#e2e8f0;
+  cursor:pointer;border-radius:0;font-family:'Nunito',sans-serif;
+  transition:all .1s;
+}
+.qf-opt:hover{border-color:#E8A020;color:#E8A020;}
+.qf-opt.correct{background:#14532d;border-color:#4ADE80;color:#4ADE80;}
+.qf-opt.wrong{background:#7f1d1d;border-color:#F87171;color:#F87171;}
+.qf-hint{margin-top:8px;font-size:15px;color:#94A3B8;display:none;}
+.qf-hint.show{display:block;}
+/* My Sentence */
+.cc-mysentence {
+  background:#111;border:2px dashed #444;
+  padding:10px 14px;min-height:44px;
+  font-size:22px;color:#FCD34D;font-weight:700;
+  outline:none;font-family:'Nunito',sans-serif;
+}
+.cc-mysentence:focus{border-color:#E8A020;}
+.cc-mysentence:empty::before{content:attr(data-ph);color:#444;font-weight:400;}
+/* Close btn */
+#cc-close {
+  background:transparent;border:none;color:#1A1A1A;
+  font-size:28px;cursor:pointer;font-weight:900;line-height:1;
+}
+#cc-close:hover{color:#7f1d1d;}
+</style>
 </head>
 <body>
 
@@ -465,7 +568,7 @@ renderBB();
 ③ 或直接在 iPad 打開各課 PDF 檔案
 </div></div></details>
 <details class="lb" open>
-<summary class="ls" style="background:linear-gradient(135deg,#eff6ff,#dbeafe)"><span class="lt"><span class="av av-s av-hook" role="img"></span> L1 — What&#x27;s This? (31 字)</span><span>▼</span></summary>
+<summary class="ls" style="background:linear-gradient(135deg,#eff6ff,#dbeafe)"><span class="lt"><span class="av av-s av-hook" role="img"></span> L1 — What&#x27;s This? (31 字)</span><button class="cc-btn" onclick="openCC('g7-l1')">🧠 Cheat Code</button><span style="margin-left:auto">▼</span></summary>
 <div class="lbd">
 <details class="stg" open><summary class="st">📖 課本原文</summary><div class="sb">
 <div style="background:#eff6ff;padding:20px;border-radius:16px;text-align:center;border:2px solid #bfdbfe">
@@ -542,7 +645,7 @@ renderBB();
 </div></details>
 </div></details>
 <details class="lb" >
-<summary class="ls" style="background:linear-gradient(135deg,#eff6ff,#dbeafe)"><span class="lt"><span class="av av-s av-super" role="img"></span> L2 — Lesson 2 Dialogue (28 字)</span><span>▼</span></summary>
+<summary class="ls" style="background:linear-gradient(135deg,#eff6ff,#dbeafe)"><span class="lt"><span class="av av-s av-super" role="img"></span> L2 — Lesson 2 Dialogue (28 字)</span><button class="cc-btn" onclick="openCC('g7-l2')">🧠 Cheat Code</button><span style="margin-left:auto">▼</span></summary>
 <div class="lbd">
 <details class="stg" open><summary class="st">📖 課本原文</summary><div class="sb">
 <div style="background:#eff6ff;padding:20px;border-radius:16px;text-align:center;border:2px solid #bfdbfe">
@@ -911,7 +1014,7 @@ renderBB();
 ③ 或直接在 iPad 打開各課 PDF 檔案
 </div></div></details>
 <details class="lb" open>
-<summary class="ls" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7)"><span class="lt"><span class="av av-s av-heart" role="img"></span> L1 — It Rained a Lot Yesterday (38 字)</span><span>▼</span></summary>
+<summary class="ls" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7)"><span class="lt"><span class="av av-s av-heart" role="img"></span> L1 — It Rained a Lot Yesterday (38 字)</span><button class="cc-btn" onclick="openCC('g8-l1')">🧠 Cheat Code</button><span style="margin-left:auto">▼</span></summary>
 <div class="lbd">
 <details class="stg" open><summary class="st">📖 課本原文</summary><div class="sb">
 <div style="background:#f0fdf4;padding:20px;border-radius:16px;text-align:center;border:2px solid #86efac">
@@ -1619,7 +1722,7 @@ renderBB();
 <div class="lbd" style="background:#faf5ff">
 <div style="padding:12px 16px;background:#f5f3ff;border-radius:12px;margin-bottom:16px;font-size:22px;color:#4c1d95;line-height:1.8">「銜接（Cohesion）」是指句子之間在字面和文法上的連結，確保文意順暢；「連貫（Coherence）」則是指整段文章在邏輯思想上的連貫性與合理性。掌握這兩者能讓你的英文寫作更清晰易懂，是高中英文作文得高分的關鍵！</div><details class="stg" open><summary class="st" style="color:#7c3aed">📌 1. Cohesion 銜接</summary><div class="sb"><p style="font-size:22px;color:#374151;margin-bottom:12px">銜接是指字詞和文法上的連結，幫助讀者在句子之間流暢地閱讀，不會覺得卡卡的。</p><div style="margin:12px 0;padding:12px 16px;background:#fff;border-radius:12px;border-left:4px solid #7c3aed"><div style="font-size:24px;font-weight:700;color:#7c3aed;margin-bottom:6px">🔹 Reference（指稱）</div><div style="font-size:20px;color:#6b7280;margin-bottom:8px">使用代名詞（如 he, she, it, they）或限定詞（如 this, that）來指回前面提過的人事物，避免重複。</div><div style="background:#f8fafc;border-radius:8px;padding:8px 12px;margin:6px 0;font-size:20px"><em style="color:#1e40af">"Tom loves playing basketball. He practices it every day after school."</em> <span style="color:#9ca3af;font-size:18px">← He 指回 Tom，it 指回 basketball</span><br><span style="color:#6b7280">Tom 喜歡打籃球。他每天放學後都會練習。</span></div><div style="background:#f8fafc;border-radius:8px;padding:8px 12px;margin:6px 0;font-size:20px"><em style="color:#1e40af">"Many teenagers are addicted to TikTok. This trend worries their parents."</em> <span style="color:#9ca3af;font-size:18px">← This trend 指回前面整句話的意思</span><br><span style="color:#6b7280">許多少年沉迷於抖音。這個趨勢讓他們的父母很擔心。</span></div></div><div style="margin:12px 0;padding:12px 16px;background:#fff;border-radius:12px;border-left:4px solid #7c3aed"><div style="font-size:24px;font-weight:700;color:#7c3aed;margin-bottom:6px">🔹 Conjunction（連接詞）</div><div style="font-size:20px;color:#6b7280;margin-bottom:8px">使用連接詞（如 and, but, or, because, although）將句子連結起來，表達語氣上的關聯。</div><div style="background:#f8fafc;border-radius:8px;padding:8px 12px;margin:6px 0;font-size:20px"><em style="color:#1e40af">"I wanted to buy some bubble tea, but the shop was already closed."</em> <span style="color:#9ca3af;font-size:18px">← but 表達語氣轉折</span><br><span style="color:#6b7280">我想買些珍珠奶茶，但店已經關了。</span></div><div style="background:#f8fafc;border-radius:8px;padding:8px 12px;margin:6px 0;font-size:20px"><em style="color:#1e40af">"Because it was raining heavily, the school sports day was canceled."</em> <span style="color:#9ca3af;font-size:18px">← Because 表達原因</span><br><span style="color:#6b7280">因為雨下得很大，學校的運動會被取消了。</span></div></div><div style="margin:12px 0;padding:12px 16px;background:#fff;border-radius:12px;border-left:4px solid #7c3aed"><div style="font-size:24px;font-weight:700;color:#7c3aed;margin-bottom:6px">🔹 Lexical Cohesion（詞彙銜接）</div><div style="font-size:20px;color:#6b7280;margin-bottom:8px">利用同義詞、反義詞或相關詞彙來連結上下文，讓文章的字彙更豐富且緊密相連。</div><div style="background:#f8fafc;border-radius:8px;padding:8px 12px;margin:6px 0;font-size:20px"><em style="color:#1e40af">"My smartphone is broken. The device won&#x27;t even turn on."</em> <span style="color:#9ca3af;font-size:18px">← The device 作為 smartphone 的同義詞</span><br><span style="color:#6b7280">我的智慧型手機壞了。這台裝置連開機都沒辦法。</span></div><div style="background:#f8fafc;border-radius:8px;padding:8px 12px;margin:6px 0;font-size:20px"><em style="color:#1e40af">"We saw a lot of animals at the Taipei Zoo. The monkeys were especially funny."</em> <span style="color:#9ca3af;font-size:18px">← monkeys 屬於 animals 的一種，透過相關詞彙連結</span><br><span style="color:#6b7280">我們在台北動物園看到了很多動物。那些猴子特別有趣。</span></div></div></div></details><details class="stg" open><summary class="st" style="color:#7c3aed">📌 2. Coherence 連貫</summary><div class="sb"><p style="font-size:22px;color:#374151;margin-bottom:12px">連貫是指文章在邏輯上的條理與統一。每一句話都應該跟主題相關，而且句與句之間的意思要能順利推導。</p><div style="margin:12px 0;padding:12px 16px;background:#fff;border-radius:12px;border-left:4px solid #7c3aed"><div style="font-size:24px;font-weight:700;color:#7c3aed;margin-bottom:6px">🔹 Topic Sentence（主題句）</div><div style="font-size:20px;color:#6b7280;margin-bottom:8px">段落的第一句或核心句子，用來點出整段的重點，後面的句子都要圍繞著這個主題發揮。</div><div style="background:#f8fafc;border-radius:8px;padding:8px 12px;margin:6px 0;font-size:20px"><em style="color:#1e40af">"There are several benefits to joining a school club. First, you can make new friends. Second, you can learn new skills."</em> <span style="color:#9ca3af;font-size:18px">← 第一句就是主題句，後面的句子都在支持這個主題</span><br><span style="color:#6b7280">參加學校社團有好幾個好處。第一，你可以交到新朋友。第二，你可以學到新技能。</span></div><div style="background:#f8fafc;border-radius:8px;padding:8px 12px;margin:6px 0;font-size:20px"><em style="color:#1e40af">"Studying abroad offers a unique experience. It exposes you to different cultures and forces you to be independent."</em> <span style="color:#9ca3af;font-size:18px">← 第一句是主題句，點出留學的獨特經驗</span><br><span style="color:#6b7280">出國留學提供了一種獨特的經驗。它讓你接觸不同文化，並強迫你獨立。</span></div></div><div style="margin:12px 0;padding:12px 16px;background:#fff;border-radius:12px;border-left:4px solid #7c3aed"><div style="font-size:24px;font-weight:700;color:#7c3aed;margin-bottom:6px">🔹 Transition Words（轉承語）</div><div style="font-size:20px;color:#6b7280;margin-bottom:8px">在句子或段落之間使用的詞語或片語，用來標示邏輯關係，像是引導讀者思考方向的路標。</div><div style="margin:4px 0;font-size:20px"><strong style="color:#7c3aed">表遞進：</strong><code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">furthermore</code> ／ <code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">in addition</code> ／ <code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">moreover</code> ／ <code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">besides</code></div><div style="margin:4px 0;font-size:20px"><strong style="color:#7c3aed">表對比：</strong><code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">however</code> ／ <code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">on the other hand</code> ／ <code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">nevertheless</code> ／ <code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">in contrast</code></div><div style="margin:4px 0;font-size:20px"><strong style="color:#7c3aed">表因果：</strong><code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">therefore</code> ／ <code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">as a result</code> ／ <code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">consequently</code> ／ <code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">thus</code></div><div style="margin:4px 0;font-size:20px"><strong style="color:#7c3aed">表舉例：</strong><code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">for example</code> ／ <code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">for instance</code> ／ <code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">such as</code> ／ <code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">namely</code></div><div style="margin:4px 0;font-size:20px"><strong style="color:#7c3aed">表總結：</strong><code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">in conclusion</code> ／ <code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">to sum up</code> ／ <code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">in short</code> ／ <code style="background:#e0e7ff;padding:2px 6px;border-radius:4px;font-size:18px">briefly</code></div><div style="background:#f8fafc;border-radius:8px;padding:8px 12px;margin:6px 0;font-size:20px"><em style="color:#1e40af">"The math exam was extremely difficult. As a result, most students failed."</em> <span style="color:#9ca3af;font-size:18px">← As a result 表示因果關係</span><br><span style="color:#6b7280">那場數學考試超級難。結果，大部分的學生都不及格。</span></div><div style="background:#f8fafc;border-radius:8px;padding:8px 12px;margin:6px 0;font-size:20px"><em style="color:#1e40af">"Eating fast food every day is bad for your health. Furthermore, it costs a lot of money."</em> <span style="color:#9ca3af;font-size:18px">← Furthermore 表示遞進（補充另一個缺點）</span><br><span style="color:#6b7280">每天吃速食對你的健康有害。此外，它還很花錢。</span></div></div></div></details><details class="stg" open><summary class="st" style="color:#7c3aed">📌 3. Practice 練習題</summary><div class="sb"><div class="qc" style="margin:12px 0;padding:14px;background:#fff;border-radius:12px;border:2px solid #e9d5ff"><p style="font-size:24px;color:#1e293b;margin-bottom:8px"><strong>Q1.</strong> I studied hard for the midterm exams. ___, I still failed the physics test.</p><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q1" value="Therefore" onchange="ccAns(this,'However','為了期中考我很認真讀書。然而，我的物理還是不及格。')"> Therefore</label><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q1" value="However" onchange="ccAns(this,'However','為了期中考我很認真讀書。然而，我的物理還是不及格。')"> However</label><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q1" value="Moreover" onchange="ccAns(this,'However','為了期中考我很認真讀書。然而，我的物理還是不及格。')"> Moreover</label></div><div class="qc" style="margin:12px 0;padding:14px;background:#fff;border-radius:12px;border:2px solid #e9d5ff"><p style="font-size:24px;color:#1e293b;margin-bottom:8px"><strong>Q2.</strong> Taking the MRT is convenient. ___, it is environmentally friendly.</p><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q2" value="In contrast" onchange="ccAns(this,'In addition','搭捷運很方便。此外，它也很環保。')"> In contrast</label><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q2" value="As a result" onchange="ccAns(this,'In addition','搭捷運很方便。此外，它也很環保。')"> As a result</label><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q2" value="In addition" onchange="ccAns(this,'In addition','搭捷運很方便。此外，它也很環保。')"> In addition</label></div><div class="qc" style="margin:12px 0;padding:14px;background:#fff;border-radius:12px;border:2px solid #e9d5ff"><p style="font-size:24px;color:#1e293b;margin-bottom:8px"><strong>Q3.</strong> Kevin forgot to set his alarm clock last night. ___, he was late for school today.</p><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q3" value="Therefore" onchange="ccAns(this,'Therefore','Kevin 昨晚忘記設鬧鐘。因此，他今天上學遲到了。')"> Therefore</label><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q3" value="However" onchange="ccAns(this,'Therefore','Kevin 昨晚忘記設鬧鐘。因此，他今天上學遲到了。')"> However</label><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q3" value="For example" onchange="ccAns(this,'Therefore','Kevin 昨晚忘記設鬧鐘。因此，他今天上學遲到了。')"> For example</label></div><div class="qc" style="margin:12px 0;padding:14px;background:#fff;border-radius:12px;border:2px solid #e9d5ff"><p style="font-size:24px;color:#1e293b;margin-bottom:8px"><strong>Q4.</strong> Many Taiwanese night market snacks are famous worldwide, ___ bubble tea and stinky tofu.</p><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q4" value="such as" onchange="ccAns(this,'such as','很多台灣夜市小吃在全世界都很出名，例如珍珠奶茶和臭豆腐。')"> such as</label><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q4" value="moreover" onchange="ccAns(this,'such as','很多台灣夜市小吃在全世界都很出名，例如珍珠奶茶和臭豆腐。')"> moreover</label><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q4" value="in conclusion" onchange="ccAns(this,'such as','很多台灣夜市小吃在全世界都很出名，例如珍珠奶茶和臭豆腐。')"> in conclusion</label></div><div class="qc" style="margin:12px 0;padding:14px;background:#fff;border-radius:12px;border:2px solid #e9d5ff"><p style="font-size:24px;color:#1e293b;margin-bottom:8px"><strong>Q5.</strong> Lisa enjoys outdoor activities like hiking and surfing. ___, her brother prefers staying home and playing video games.</p><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q5" value="Furthermore" onchange="ccAns(this,'On the other hand','Lisa 喜歡像爬山和衝浪這類的戶外活動。另一方面，她的哥哥比較喜歡待在家打電動。')"> Furthermore</label><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q5" value="On the other hand" onchange="ccAns(this,'On the other hand','Lisa 喜歡像爬山和衝浪這類的戶外活動。另一方面，她的哥哥比較喜歡待在家打電動。')"> On the other hand</label><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q5" value="Consequently" onchange="ccAns(this,'On the other hand','Lisa 喜歡像爬山和衝浪這類的戶外活動。另一方面，她的哥哥比較喜歡待在家打電動。')"> Consequently</label></div><div class="qc" style="margin:12px 0;padding:14px;background:#fff;border-radius:12px;border:2px solid #e9d5ff"><p style="font-size:24px;color:#1e293b;margin-bottom:8px"><strong>Q6.</strong> To be a good class leader, you need to be responsible. ___, you must be willing to help others.</p><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q6" value="Nevertheless" onchange="ccAns(this,'Moreover','要成為一個好的班級幹部，你需要有責任感。此外，你也必須樂意幫助別人。')"> Nevertheless</label><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q6" value="Moreover" onchange="ccAns(this,'Moreover','要成為一個好的班級幹部，你需要有責任感。此外，你也必須樂意幫助別人。')"> Moreover</label><label style="display:block;padding:6px 10px;margin:4px 0;border-radius:8px;cursor:pointer;font-size:22px"><input type="radio" name="cc_q6" value="For instance" onchange="ccAns(this,'Moreover','要成為一個好的班級幹部，你需要有責任感。此外，你也必須樂意幫助別人。')"> For instance</label></div></div></details></div></details>
 <details class="lb" open>
-<summary class="ls" style="background:linear-gradient(135deg,#f0fdfa,#ccfbf1)"><span class="lt"><span class="av av-s av-cafe" role="img"></span> U01 — The First Day of School Around the World (20 字)</span><span>▼</span></summary>
+<summary class="ls" style="background:linear-gradient(135deg,#f0fdfa,#ccfbf1)"><span class="lt"><span class="av av-s av-cafe" role="img"></span> U01 — The First Day of School Around the World (20 字)</span><button class="cc-btn" onclick="openCC('g10-u01')">🧠 Cheat Code</button><span style="margin-left:auto">▼</span></summary>
 <div class="lbd">
 <details class="stg" open><summary class="st">📖 課本原文</summary><div class="sb">
 <div style="background:#faf5ff;padding:20px;border-radius:16px;text-align:center;border:2px solid #e9d5ff">
@@ -2086,7 +2189,7 @@ To: The Principal<br>From: [My Name]<br>Subject: Proposal for a New First-Day Tr
 </div></details>
 </div></details>
 <details class="lb" >
-<summary class="ls" style="background:linear-gradient(135deg,#f0fdfa,#ccfbf1)"><span class="lt"><span class="av av-s av-think" role="img"></span> U02 — U02 (20 字)</span><span>▼</span></summary>
+<summary class="ls" style="background:linear-gradient(135deg,#f0fdfa,#ccfbf1)"><span class="lt"><span class="av av-s av-think" role="img"></span> U02 — U02 (20 字)</span><button class="cc-btn" onclick="openCC('g10-u02')">🧠 Cheat Code</button><span style="margin-left:auto">▼</span></summary>
 <div class="lbd">
 <details class="stg" open><summary class="st">📖 課本原文</summary><div class="sb">
 <div style="background:#faf5ff;padding:20px;border-radius:16px;text-align:center;border:2px solid #e9d5ff">
@@ -2255,7 +2358,7 @@ Dear [Name or Myself],<br><br>I am writing this letter to express my feelings ab
 </div></details>
 </div></details>
 <details class="lb" >
-<summary class="ls" style="background:linear-gradient(135deg,#f0fdfa,#ccfbf1)"><span class="lt"><span class="av av-s av-teach" role="img"></span> U03 — Making Society Work (21 字)</span><span>▼</span></summary>
+<summary class="ls" style="background:linear-gradient(135deg,#f0fdfa,#ccfbf1)"><span class="lt"><span class="av av-s av-teach" role="img"></span> U03 — Making Society Work (21 字)</span><button class="cc-btn" onclick="openCC('g10-u03')">🧠 Cheat Code</button><span style="margin-left:auto">▼</span></summary>
 <div class="lbd">
 <details class="stg" open><summary class="st">📖 課本原文</summary><div class="sb">
 <div style="background:#faf5ff;padding:20px;border-radius:16px;text-align:center;border:2px solid #e9d5ff">
@@ -2433,7 +2536,7 @@ Spotlight on an Unsung Hero! 🌟<br><br>Today, I want to appreciate the amazing
 </div></details>
 </div></details>
 <details class="lb" >
-<summary class="ls" style="background:linear-gradient(135deg,#f0fdfa,#ccfbf1)"><span class="lt"><span class="av av-s av-cafe" role="img"></span> U04 — U04 (21 字)</span><span>▼</span></summary>
+<summary class="ls" style="background:linear-gradient(135deg,#f0fdfa,#ccfbf1)"><span class="lt"><span class="av av-s av-cafe" role="img"></span> U04 — U04 (21 字)</span><button class="cc-btn" onclick="openCC('g10-u04')">🧠 Cheat Code</button><span style="margin-left:auto">▼</span></summary>
 <div class="lbd">
 <details class="stg" open><summary class="st">📖 課本原文</summary><div class="sb">
 <div style="background:#faf5ff;padding:20px;border-radius:16px;text-align:center;border:2px solid #e9d5ff">
@@ -5770,6 +5873,71 @@ var TJ_WS = {
   <span>Miffy Teacher © 2026 ｜ 從台江看世界英文學習單</span>
   <span>📸 期末拍照上傳 Google Classroom</span>
 </div>
+
+<script id="cheatcode-js">
+var CC_DATA = {"g10-u01": {"title": "U01 — The First Day of School Around the World", "vocab": [["hallway", "n."], ["footstep", "n."], ["senior", "adj./n."], ["perform", "v."], ["ceremony", "n."], ["semester", "n."], ["meanwhile", "adv."], ["tradition", "n."], ["military", "adj."], ["decorate", "v."]], "qf": [{"q": "The student ___ won the prize is my friend.", "opts": ["who", "which", "whom", "whose"], "ans": 0, "hint": "先行詞是人 → who"}, {"q": "She is the teacher ___ class I enjoy most.", "opts": ["who", "which", "that", "whose"], "ans": 3, "hint": "whose 表所有格關係"}, {"q": "The book ___ I borrowed is great.", "opts": ["who", "whom", "that", "whose"], "ans": 2, "hint": "先行詞是物 → that/which"}, {"q": "Look at ___ beautiful mountain over there!", "opts": ["this", "that", "these", "those"], "ans": 1, "hint": "over there（遠）→ that"}, {"q": "It is the tradition ___ makes us special.", "opts": ["who", "that", "whose", "whom"], "ans": 1, "hint": "先行詞是物/抽象 → that"}]}, "g10-u02": {"title": "U02 — City Living", "vocab": [["eventually", "adv."], ["decade", "n."], ["luxury", "n."], ["convenient", "adj."], ["pollute", "v."], ["urban", "adj."], ["commute", "v./n."], ["vehicle", "n."], ["pedestrian", "n."], ["emission", "n."]], "qf": [{"q": "I ___ here for three years already.", "opts": ["live", "lived", "have lived", "will live"], "ans": 2, "hint": "for + 時間段 → 現在完成式"}, {"q": "By the time she arrived, the train ___.", "opts": ["leaves", "left", "had left", "has left"], "ans": 2, "hint": "By the time + 過去 → 過去完成式"}, {"q": "He ___ never been to Japan.", "opts": ["is", "was", "have", "has"], "ans": 3, "hint": "He 第三人稱單數 → has"}, {"q": "___ she finishes, we will leave.", "opts": ["Since", "Although", "Once", "Despite"], "ans": 2, "hint": "Once = 一旦...就"}, {"q": "The city ___ rapidly over the past decade.", "opts": ["grows", "grew", "has grown", "will grow"], "ans": 2, "hint": "over the past decade → 現在完成式"}]}, "g10-u03": {"title": "U03 — The Power of Positivity", "vocab": [["grateful", "adj."], ["pursue", "v."], ["achievement", "n."], ["optimistic", "adj."], ["perspective", "n."], ["regardless", "adv."], ["inspire", "v."], ["strengthen", "v."], ["overcome", "v."], ["obstacle", "n."]], "qf": [{"q": "Not only the students but also the teacher ___ excited.", "opts": ["are", "is", "were", "be"], "ans": 1, "hint": "Not only A but also B → 動詞配合 B"}, {"q": "Either you or I ___ responsible.", "opts": ["am", "is", "are", "be"], "ans": 0, "hint": "Either A or B → 動詞配合 B（I→am）"}, {"q": "She is ___ optimistic that she never gives up.", "opts": ["very", "too", "so", "such"], "ans": 2, "hint": "so + adj. + that → 如此...以至於"}, {"q": "It is ___ wonderful day that I cried.", "opts": ["very", "so", "too", "such a"], "ans": 3, "hint": "such a + adj. + n. + that"}, {"q": "___ grateful she felt made her cry.", "opts": ["How", "What", "Such", "So"], "ans": 0, "hint": "How + adj. → 感嘆句"}]}, "g10-u04": {"title": "U04 — Wild Nature", "vocab": [["wilderness", "n."], ["survive", "v."], ["predator", "n."], ["habitat", "n."], ["endangered", "adj."], ["extinct", "adj."], ["migration", "n."], ["ecosystem", "n."], ["conservation", "n."], ["biodiversity", "n."]], "qf": [{"q": "The panda, which ___ in China, is endangered.", "opts": ["lives", "live", "lived", "is living"], "ans": 0, "hint": "非限定關係子句，單數 → lives"}, {"q": "Animals ___ in cold climates need thick fur.", "opts": ["live", "that live", "which lives", "who live"], "ans": 1, "hint": "先行詞 Animals（複數物）→ that live"}, {"q": "The forest ___ we camped was beautiful.", "opts": ["which", "that", "where", "when"], "ans": 2, "hint": "先行詞是地點 → where"}, {"q": "The reason ___ he left was a mystery.", "opts": ["which", "that", "why", "when"], "ans": 2, "hint": "先行詞是 reason → why"}, {"q": "___ species disappear every year.", "opts": ["Many", "Much", "A little", "A few"], "ans": 0, "hint": "species 可數複數 → many"}]}, "g7-l1": {"title": "L1 — What's This?", "vocab": [["pencil", "n."], ["eraser", "n."], ["ruler", "n."], ["notebook", "n."], ["backpack", "n."], ["desk", "n."], ["chair", "n."], ["board", "n."], ["classroom", "n."], ["teacher", "n."]], "qf": [{"q": "___ is this? — It is a pencil.", "opts": ["Who", "What", "Where", "How"], "ans": 1, "hint": "問「這是什麼」→ What"}, {"q": "This ___ a ruler.", "opts": ["am", "is", "are", "be"], "ans": 1, "hint": "This（單數）+ is"}, {"q": "These ___ notebooks.", "opts": ["am", "is", "are", "be"], "ans": 2, "hint": "These（複數）+ are"}, {"q": "A: Is that a backpack? B: Yes, ___ is.", "opts": ["it", "this", "that", "they"], "ans": 0, "hint": "that 的代名詞回答用 it"}, {"q": "___ an eraser on the desk.", "opts": ["It is", "There is", "This is", "That is"], "ans": 1, "hint": "「有一個」→ There is"}]}, "g7-l2": {"title": "L2 — My Family", "vocab": [["father", "n."], ["mother", "n."], ["brother", "n."], ["sister", "n."], ["grandfather", "n."], ["grandmother", "n."], ["uncle", "n."], ["aunt", "n."], ["cousin", "n."], ["family", "n."]], "qf": [{"q": "___ is your father? — He is a doctor.", "opts": ["What", "Who", "Where", "When"], "ans": 1, "hint": "問身份 → Who"}, {"q": "My sister ___ a student.", "opts": ["am", "is", "are", "be"], "ans": 1, "hint": "My sister = she → is"}, {"q": "A: Do you have a brother? B: No, I ___ not.", "opts": ["am", "is", "do", "have"], "ans": 2, "hint": "Do 問句 → do 回答"}, {"q": "___ are your grandparents from?", "opts": ["Who", "What", "Where", "When"], "ans": 2, "hint": "問「從哪裡」→ Where"}, {"q": "She ___ two cousins.", "opts": ["have", "has", "is", "are"], "ans": 1, "hint": "She 第三人稱 → has"}]}, "g8-l1": {"title": "L1 — Free Time Activities", "vocab": [["hobby", "n."], ["collect", "v."], ["activity", "n."], ["outdoor", "adj."], ["indoor", "adj."], ["photography", "n."], ["painting", "n."], ["gardening", "n."], ["leisure", "n."], ["creative", "adj."]], "qf": [{"q": "She ___ stamps since she was ten.", "opts": ["collects", "collected", "has collected", "is collecting"], "ans": 2, "hint": "since she was ten → 現在完成式"}, {"q": "He enjoys ___ photos in the mountains.", "opts": ["take", "takes", "took", "taking"], "ans": 3, "hint": "enjoy + V-ing"}, {"q": "I am good ___ drawing.", "opts": ["at", "in", "for", "of"], "ans": 0, "hint": "be good at + N/V-ing"}, {"q": "___ they gone camping before?", "opts": ["Did", "Have", "Are", "Do"], "ans": 1, "hint": "Have + 主詞 + p.p. → 現在完成式"}, {"q": "What ___ you usually do on weekends?", "opts": ["is", "are", "do", "does"], "ans": 2, "hint": "you → do（助動詞）"}]}};
+
+function openCC(lessonId) {
+  var d = CC_DATA[lessonId];
+  if (!d) { alert('Cheat Code coming soon for this lesson! 🚧'); return; }
+  
+  // Unit title
+  document.getElementById('cc-unit-title').textContent = d.title;
+  
+  // Vocab
+  var tbody = document.getElementById('cc-vocab-body');
+  tbody.innerHTML = '';
+  d.vocab.forEach(function(v) {
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + v[0] + '</td><td>' + v[1] + '</td>'
+      + '<td><input class="cc-fill" type="text" placeholder="中文..." spellcheck="false"></td>';
+    tbody.appendChild(tr);
+  });
+  
+  // Quick Fire
+  var qfDiv = document.getElementById('cc-qf-body');
+  qfDiv.innerHTML = '';
+  d.qf.forEach(function(q, qi) {
+    var card = document.createElement('div');
+    card.className = 'qf-card';
+    var optsHtml = q.opts.map(function(o, oi) {
+      return '<button class="qf-opt" onclick="checkQF(this,' + qi + ',' + oi + ',' + q.ans + ',\'' + q.hint.replace(/'/g,"\\'") + '\')">' + o + '</button>';
+    }).join('');
+    card.innerHTML = '<div class="qf-q">' + (qi+1) + '. ' + q.q + '</div>'
+      + '<div class="qf-opts">' + optsHtml + '</div>'
+      + '<div class="qf-hint" id="qfhint-' + qi + '">💡 ' + q.hint + '</div>';
+    qfDiv.appendChild(card);
+  });
+  
+  // Clear my sentence
+  document.querySelector('.cc-mysentence').textContent = '';
+  
+  // Show modal
+  document.getElementById('cc-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function checkQF(btn, qi, oi, ans, hint) {
+  var card = btn.closest('.qf-card');
+  var btns = card.querySelectorAll('.qf-opt');
+  btns.forEach(function(b, i) {
+    b.disabled = true;
+    if (i === ans) b.classList.add('correct');
+    else if (i === oi) b.classList.add('wrong');
+  });
+  var hintEl = document.getElementById('qfhint-' + qi);
+  if (hintEl) hintEl.classList.add('show');
+}
+
+function closeCC() {
+  document.getElementById('cc-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('cc-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeCC();
+});
+</script>
+
 </body></html>`,
   'theme2_landscape': `<!DOCTYPE html><html lang="zh-TW"><head>
 <meta charset="utf-8">
