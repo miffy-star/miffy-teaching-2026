@@ -128,8 +128,310 @@ label{font-size:24px!important}
 .g12grid{grid-template-columns:1fr!important}
 }
 @media print{.no-print,.tabs,.sbox,.spb,.qb,.rta,.ws{display:none!important}.tc{display:block!important}.aw{grid-template-columns:1fr}}
-</style></head>
+</style>
+<style id="matisse-override">
+/* ═══════════════════════════════════════
+   MATISSE REDESIGN — Jazz Series palette
+   Cobalt #1B4F8A | Vermillion #D4380D
+   Forest #2E5E3E | Amber #E8A020
+   Cream #FFF8F0  | Charcoal #1A1A1A
+═══════════════════════════════════════ */
+
+/* ── Base ── */
+body {
+  background: #FFF8F0 !important;
+  color: #1A1A1A !important;
+}
+
+/* ── Navigation tabs ── */
+.tabs {
+  background: #1A1A1A !important;
+  padding: 6px 8px !important;
+  gap: 4px !important;
+  border-bottom: 4px solid #E8A020 !important;
+}
+.tab {
+  background: #2a2a2a !important;
+  color: #FFF8F0 !important;
+  border: 2px solid #555 !important;
+  border-radius: 0 !important;
+  font-weight: 900 !important;
+  font-size: 22px !important;
+  padding: 10px 20px !important;
+  letter-spacing: .5px !important;
+  transition: all .15s !important;
+}
+.tab:hover { background:#3a3a3a !important; border-color:#E8A020 !important; }
+.tab.on[onclick*="g7"]  { background:#1B4F8A !important; border-color:#1B4F8A !important; color:#fff !important; }
+.tab.on[onclick*="g8"]  { background:#2E5E3E !important; border-color:#2E5E3E !important; color:#fff !important; }
+.tab.on[onclick*="g10"] { background:#7C1D1D !important; border-color:#7C1D1D !important; color:#fff !important; }
+.tab.on[onclick*="g12"] { background:#2C3E7A !important; border-color:#2C3E7A !important; color:#fff !important; }
+.tab.on[onclick*="tu"]  { background:#D4680A !important; border-color:#D4680A !important; color:#fff !important; }
+
+/* ── Lesson blocks (details.lb) ── */
+details.lb {
+  border-radius: 0 !important;
+  border: 2px solid #1A1A1A !important;
+  margin: 8px 0 !important;
+  box-shadow: 4px 4px 0 #1A1A1A !important;
+}
+details.lb > summary.ls {
+  border-radius: 0 !important;
+  font-weight: 900 !important;
+  font-size: 26px !important;
+  padding: 14px 18px !important;
+  border-bottom: 2px solid #1A1A1A !important;
+}
+/* G7 accent */
+#t-g7 details.lb { border-left: 6px solid #1B4F8A !important; }
+#t-g7 details.lb > summary.ls { background: #EBF1FB !important; }
+/* G8 accent */
+#t-g8 details.lb { border-left: 6px solid #2E5E3E !important; }
+#t-g8 details.lb > summary.ls { background: #E8F5EC !important; }
+/* G10 accent */
+#t-g10 details.lb { border-left: 6px solid #7C1D1D !important; }
+#t-g10 details.lb > summary.ls { background: #FEF2F2 !important; }
+/* G12 accent */
+#t-g12 details.lb { border-left: 6px solid #2C3E7A !important; }
+#t-g12 details.lb > summary.ls { background: #EEF1FB !important; }
+/* Tu accent */
+#t-tu details.lb { border-left: 6px solid #D4680A !important; }
+#t-tu details.lb > summary.ls { background: #FEF3E8 !important; }
+
+/* ── Sub-sections (details.stg) ── */
+details.stg {
+  border-radius: 0 !important;
+  border: 1.5px solid #1A1A1A !important;
+  margin: 6px 0 !important;
+  box-shadow: 3px 3px 0 #D1D5DB !important;
+  transition: transform .1s !important;
+}
+details.stg:hover { transform: translateX(2px) !important; }
+details.stg > summary.st {
+  border-radius: 0 !important;
+  font-weight: 800 !important;
+  font-size: 24px !important;
+  padding: 10px 14px !important;
+  background: #F5F0E8 !important;
+  border-bottom: 1.5px solid #1A1A1A !important;
+}
+
+/* ── Grammar cards ── */
+.gc {
+  border-radius: 0 !important;
+  border: 1.5px solid #1A1A1A !important;
+  margin: 6px 0 !important;
+  box-shadow: 3px 3px 0 #1A1A1A !important;
+}
+
+/* ── Vocabulary table ── */
+.vt th { background: #1A1A1A !important; color: #FFF8F0 !important; }
+.vt tr:nth-child(even) td { background: #F5F0E8 !important; }
+
+/* ── Wheel section ── */
+.ws {
+  border-radius: 0 !important;
+  border: 2px solid #1A1A1A !important;
+  box-shadow: 4px 4px 0 #1A1A1A !important;
+}
+.ws h5 { font-size: 22px !important; font-weight: 900 !important; }
+.wr {
+  border-radius: 0 !important;
+  border: 2px solid #1A1A1A !important;
+  font-weight: 900 !important;
+}
+.spb {
+  border-radius: 0 !important;
+  border: 2px solid #1A1A1A !important;
+  box-shadow: 3px 3px 0 #1A1A1A !important;
+  font-weight: 900 !important;
+  font-size: 24px !important;
+}
+.spb:active { transform: translate(2px,2px) !important; box-shadow: 1px 1px 0 #1A1A1A !important; }
+
+/* ── Quiz buttons ── */
+.qb {
+  border-radius: 0 !important;
+  border: 2px solid #1A1A1A !important;
+  box-shadow: 3px 3px 0 #1A1A1A !important;
+  font-weight: 900 !important;
+}
+
+/* ── Body top padding for floating blackboard ── */
+body { padding-top: 44px !important; }
+
+/* ── Matisse leaf decoration on main headers ── */
+#t-g7  > div > h2::before { content: "🔵 "; }
+#t-g8  > div > h2::before { content: "🟢 "; }
+#t-g10 > div > h2::before { content: "🔴 "; }
+#t-g12 > div > h2::before { content: "🟣 "; }
+#t-tu  > div > h2::before { content: "🟠 "; }
+
+/* ── Section H2 ── */
+.tc > div > h2 {
+  font-size: 32px !important;
+  font-weight: 900 !important;
+  letter-spacing: 1px !important;
+  border-bottom: 4px solid #1A1A1A !important;
+  padding-bottom: 8px !important;
+}
+</style>
+</head>
 <body>
+
+<!-- ═══════ 句構板書 Floating Blackboard ═══════ -->
+<div id="bb-panel" style="position:fixed;top:0;left:0;right:0;z-index:9500;background:#1B4A2E;border-bottom:3px solid #E8A020;font-family:'Nunito',sans-serif;transition:all .25s">
+  <!-- Collapsed bar -->
+  <div onclick="toggleBB()" style="display:flex;align-items:center;padding:8px 16px;cursor:pointer;user-select:none">
+    <span style="color:#4ADE80;font-weight:900;font-size:18px">📗 句構板書</span>
+    <span id="bb-arrow" style="color:#A3E635;margin-left:12px;font-size:13px">▲ 展開</span>
+    <span style="color:rgba(255,255,255,.5);font-size:13px;margin-left:auto">S V O C adj adv prep ｜ 關代 名詞 副詞子句</span>
+  </div>
+  <!-- Expanded content -->
+  <div id="bb-content" style="display:none;padding:8px 16px 12px">
+    <!-- Display area -->
+    <div id="bb-display" style="min-height:50px;margin-bottom:8px;line-height:2;padding:4px 0"></div>
+    <!-- Input row -->
+    <div style="display:flex;gap:6px;align-items:center;margin-bottom:8px;flex-wrap:wrap">
+      <input id="bb-input" type="text" placeholder="輸入英文句子，按 Enter 標記..."
+        style="flex:1;min-width:200px;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.35);border-radius:0;padding:7px 12px;color:#fff;font-size:20px;font-family:Nunito,sans-serif;outline:none"
+        onkeydown="if(event.key==='Enter')parseBB()">
+      <button onclick="parseBB()" style="background:#E8A020;color:#fff;border:2px solid #1A1A1A;padding:7px 14px;font-size:17px;font-weight:900;cursor:pointer;border-radius:0;box-shadow:3px 3px 0 #1A1A1A">標記 →</button>
+      <button onclick="newLineBB()" title="新的一行" style="background:#1B4F8A;color:#fff;border:2px solid #1A1A1A;padding:7px 12px;font-size:17px;cursor:pointer;border-radius:0;box-shadow:3px 3px 0 #1A1A1A">↵ 換行</button>
+      <button onclick="undoBB()" title="復原" style="background:#4B5563;color:#fff;border:2px solid #1A1A1A;padding:7px 12px;font-size:17px;cursor:pointer;border-radius:0;box-shadow:3px 3px 0 #1A1A1A">↩ 復原</button>
+      <button onclick="clearBB()" style="background:#7f1d1d;color:#fff;border:2px solid #1A1A1A;padding:7px 12px;font-size:17px;cursor:pointer;border-radius:0;box-shadow:3px 3px 0 #1A1A1A">🗑 清除</button>
+    </div>
+    <!-- Tag buttons -->
+    <div style="display:flex;flex-wrap:wrap;gap:5px">
+      <button onclick="tagBB('S','主詞','#1B4F8A')"    style="background:#1B4F8A;color:#fff;border:2px solid #0f2d50;padding:5px 10px;font-size:15px;font-weight:900;cursor:pointer;border-radius:0">S 主詞</button>
+      <button onclick="tagBB('V','動詞','#D4380D')"    style="background:#D4380D;color:#fff;border:2px solid #7f1d1d;padding:5px 10px;font-size:15px;font-weight:900;cursor:pointer;border-radius:0">V 動詞</button>
+      <button onclick="tagBB('O','受詞','#2E7D32')"    style="background:#2E7D32;color:#fff;border:2px solid #14532d;padding:5px 10px;font-size:15px;font-weight:900;cursor:pointer;border-radius:0">O 受詞</button>
+      <button onclick="tagBB('C','補語','#B45309')"    style="background:#B45309;color:#fff;border:2px solid #7c2d12;padding:5px 10px;font-size:15px;font-weight:900;cursor:pointer;border-radius:0">C 補語</button>
+      <button onclick="tagBB('adj','形容詞','#C2410C')"style="background:#C2410C;color:#fff;border:2px solid #7c2d12;padding:5px 10px;font-size:15px;font-weight:900;cursor:pointer;border-radius:0">adj</button>
+      <button onclick="tagBB('adv','副詞','#A16207')"  style="background:#A16207;color:#fff;border:2px solid #713f12;padding:5px 10px;font-size:15px;font-weight:900;cursor:pointer;border-radius:0">adv</button>
+      <button onclick="tagBB('prep','介系詞','#6D28D9')"style="background:#6D28D9;color:#fff;border:2px solid #3b0764;padding:5px 10px;font-size:15px;font-weight:900;cursor:pointer;border-radius:0">prep</button>
+      <span style="color:rgba(255,255,255,.4);align-self:center;margin:0 2px">｜</span>
+      <button onclick="tagClauseBB('關代子句','#312E81')" style="background:#312E81;color:#fff;border:2px solid #1e1b4b;padding:5px 10px;font-size:15px;font-weight:900;cursor:pointer;border-radius:0">[ 關代子句 ]</button>
+      <button onclick="tagClauseBB('名詞子句','#0F766E')" style="background:#0F766E;color:#fff;border:2px solid #042f2e;padding:5px 10px;font-size:15px;font-weight:900;cursor:pointer;border-radius:0">[ 名詞子句 ]</button>
+      <button onclick="tagClauseBB('副詞子句','#9D174D')" style="background:#9D174D;color:#fff;border:2px solid #500724;padding:5px 10px;font-size:15px;font-weight:900;cursor:pointer;border-radius:0">[ 副詞子句 ]</button>
+    </div>
+  </div>
+</div>
+<!-- Tag popup -->
+<div id="bb-popup" style="display:none;position:fixed;z-index:9999;background:#1A1A1A;border:3px solid #E8A020;box-shadow:4px 4px 0 #E8A020;padding:8px;border-radius:0">
+  <div style="color:#E8A020;font-size:13px;font-weight:700;margin-bottom:6px">詞性標記</div>
+  <div style="display:flex;flex-wrap:wrap;gap:4px;max-width:320px">
+    <button onclick="applyTag('S','主詞','#1B4F8A')"    style="background:#1B4F8A;color:#fff;border:none;padding:4px 8px;font-size:14px;font-weight:700;cursor:pointer">S主詞</button>
+    <button onclick="applyTag('V','動詞','#D4380D')"    style="background:#D4380D;color:#fff;border:none;padding:4px 8px;font-size:14px;font-weight:700;cursor:pointer">V動詞</button>
+    <button onclick="applyTag('O','受詞','#2E7D32')"    style="background:#2E7D32;color:#fff;border:none;padding:4px 8px;font-size:14px;font-weight:700;cursor:pointer">O受詞</button>
+    <button onclick="applyTag('C','補語','#B45309')"    style="background:#B45309;color:#fff;border:none;padding:4px 8px;font-size:14px;font-weight:700;cursor:pointer">C補語</button>
+    <button onclick="applyTag('adj','形容詞','#C2410C')"style="background:#C2410C;color:#fff;border:none;padding:4px 8px;font-size:14px;font-weight:700;cursor:pointer">adj</button>
+    <button onclick="applyTag('adv','副詞','#A16207')"  style="background:#A16207;color:#fff;border:none;padding:4px 8px;font-size:14px;font-weight:700;cursor:pointer">adv</button>
+    <button onclick="applyTag('prep','介系詞','#6D28D9')"style="background:#6D28D9;color:#fff;border:none;padding:4px 8px;font-size:14px;font-weight:700;cursor:pointer">prep</button>
+    <button onclick="applyTag('[關代子句]','關代子句','#312E81')" style="background:#312E81;color:#fff;border:none;padding:4px 8px;font-size:13px;font-weight:700;cursor:pointer">[關代子句]</button>
+    <button onclick="applyTag('[名詞子句]','名詞子句','#0F766E')" style="background:#0F766E;color:#fff;border:none;padding:4px 8px;font-size:13px;font-weight:700;cursor:pointer">[名詞子句]</button>
+    <button onclick="applyTag('[副詞子句]','副詞子句','#9D174D')" style="background:#9D174D;color:#fff;border:none;padding:4px 8px;font-size:13px;font-weight:700;cursor:pointer">[副詞子句]</button>
+    <button onclick="applyTag('','','');" style="background:#374151;color:#fff;border:none;padding:4px 8px;font-size:14px;cursor:pointer">✕ 清除</button>
+  </div>
+  <button onclick="document.getElementById('bb-popup').style.display='none'" style="margin-top:6px;background:#374151;color:#fff;border:none;padding:3px 8px;font-size:12px;cursor:pointer">關閉</button>
+</div>
+
+<script>
+// ═══════ 句構板書 JS ═══════
+var bbExpanded = false;
+var bbLines = [[]]; // array of lines, each line = [{text,tag,tagLabel,color}]
+var bbPending = null; // {li,wi} pending tag assignment
+
+function toggleBB() {
+  bbExpanded = !bbExpanded;
+  document.getElementById('bb-content').style.display = bbExpanded ? 'block' : 'none';
+  document.getElementById('bb-arrow').textContent = bbExpanded ? '▼ 收合' : '▲ 展開';
+  document.body.style.paddingTop = bbExpanded ? '210px' : '44px';
+}
+
+function parseBB() {
+  var inp = document.getElementById('bb-input');
+  var txt = inp.value.trim();
+  if (!txt) return;
+  // Tokenise: words + punctuation
+  var tokens = txt.match(/[A-Za-z']+|[^A-Za-z'\s]/g) || [txt];
+  var words = tokens.map(function(t){ return {text:t, tag:'', tagLabel:'', color:''}; });
+  bbLines[bbLines.length-1] = bbLines[bbLines.length-1].concat(words);
+  inp.value = '';
+  renderBB();
+}
+
+function newLineBB() { bbLines.push([]); renderBB(); }
+
+function undoBB() {
+  var lastLine = bbLines[bbLines.length-1];
+  if (lastLine.length > 0) { lastLine.pop(); }
+  else if (bbLines.length > 1) { bbLines.pop(); }
+  renderBB();
+}
+
+function clearBB() { bbLines = [[]]; document.getElementById('bb-popup').style.display='none'; renderBB(); }
+
+function renderBB() {
+  var d = document.getElementById('bb-display');
+  if (bbLines.every(function(l){return l.length===0;})) {
+    d.innerHTML = '<span style="color:rgba(255,255,255,.3);font-size:18px">輸入英文句子 → 點詞語標記詞性</span>';
+    return;
+  }
+  var html = '';
+  bbLines.forEach(function(line, li) {
+    html += '<div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:4px;margin-bottom:4px">';
+    line.forEach(function(w, wi) {
+      var isClause = w.tag.indexOf('[') === 0;
+      var tagHtml = w.tag
+        ? '<div style="font-size:11px;font-weight:900;text-align:center;background:'+w.color+';color:#fff;padding:1px 5px;margin-bottom:3px;letter-spacing:.3px">'+w.tagLabel+'</div>'
+        : '<div style="height:16px"></div>';
+      var borderStyle = isClause ? 'border:2px dashed '+w.color+';padding:2px 4px;' : '';
+      html += '<span onclick="openPopup(event,'+li+','+wi+')" style="display:inline-flex;flex-direction:column;align-items:center;cursor:pointer;'+borderStyle+'transition:opacity .1s" onmouseover="this.style.opacity=.75" onmouseout="this.style.opacity=1">'
+             + tagHtml
+             + '<span style="font-size:26px;font-weight:700;color:#fff;line-height:1">'+w.text+'</span>'
+             + '</span>';
+    });
+    html += '</div>';
+  });
+  d.innerHTML = html;
+}
+
+function openPopup(e, li, wi) {
+  bbPending = {li:li, wi:wi};
+  var p = document.getElementById('bb-popup');
+  p.style.display = 'block';
+  var x = Math.min(e.clientX, window.innerWidth - 340);
+  var y = e.clientY + 10;
+  p.style.left = x+'px';
+  p.style.top = y+'px';
+  e.stopPropagation();
+}
+document.addEventListener('click', function(e){
+  if (!e.target.closest('#bb-popup')) document.getElementById('bb-popup').style.display='none';
+});
+
+function applyTag(tag, label, color) {
+  if (!bbPending) return;
+  bbLines[bbPending.li][bbPending.wi].tag = tag;
+  bbLines[bbPending.li][bbPending.wi].tagLabel = label;
+  bbLines[bbPending.li][bbPending.wi].color = color;
+  bbPending = null;
+  document.getElementById('bb-popup').style.display='none';
+  renderBB();
+}
+
+// Quick tag buttons (tag selected word via pending)
+function tagBB(tag, label, color) {
+  if (bbPending) { applyTag(tag, label, color); }
+}
+function tagClauseBB(label, color) {
+  if (bbPending) { applyTag('['+label+']', label, color); }
+}
+
+renderBB();
+</script>
+
 <div class="hd"><span class="av av-l av-super" role="img"></span>
 <h1>📚 Miffy's English Studio</h1>
 <p>115 學年度第一學期 ▸ 649 字 ▸ 22 課</p>
@@ -5818,79 +6120,6 @@ window.printWS = function(uid) {
   });
 })();
 
-// ===== ANNOTATION SYSTEM =====
-(function(){
-  var cvs=document.createElement('canvas');
-  cvs.id='draw-canvas';
-  cvs.style.cssText='position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;pointer-events:none;display:none;';
-  document.body.appendChild(cvs);
-  var tb=document.createElement('div');
-  tb.id='draw-toolbar';
-  tb.style.cssText='position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.96);border:3px solid #e5e7eb;border-radius:20px;padding:10px 14px;z-index:10000;box-shadow:0 8px 32px rgba(0,0,0,.18);display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;';
-  tb.innerHTML='<button id="btn-pen" onclick="toggleDraw()" style="background:#e11d48;color:#fff;border:none;border-radius:12px;padding:10px 20px;font-size:22px;font-weight:900;cursor:pointer;">✏️ 畫筆</button>'
-    +'<button onclick="window.aTool=\'pen\'" style="background:#3b82f6;color:#fff;border:none;border-radius:10px;padding:10px 14px;font-size:22px;cursor:pointer;" title="筆">🖊️</button>'
-    +'<button onclick="window.aTool=\'hl\'" style="background:#fbbf24;color:#fff;border:none;border-radius:10px;padding:10px 14px;font-size:22px;cursor:pointer;" title="螢光">🖌️</button>'
-    +'<button onclick="window.aTool=\'erase\'" style="background:#6b7280;color:#fff;border:none;border-radius:10px;padding:10px 14px;font-size:22px;cursor:pointer;" title="橡皮">⬜</button>'
-    +'<input type="color" id="pen-col" value="#e11d48" oninput="window.aCol=this.value" style="width:44px;height:44px;border:3px solid #e5e7eb;border-radius:10px;cursor:pointer;padding:2px;">'
-    +'<select onchange="window.aSz=+this.value" style="border:2px solid #e5e7eb;border-radius:10px;padding:8px;font-size:20px;"><option value="4">細</option><option value="8" selected>中</option><option value="16">粗</option><option value="32">超粗</option></select>'
-    +'<button onclick="window.aUndo()" style="background:#8b5cf6;color:#fff;border:none;border-radius:10px;padding:10px 14px;font-size:22px;cursor:pointer;" title="復原">↩️</button>'
-    +'<button onclick="window.aClear()" style="background:#f59e0b;color:#fff;border:none;border-radius:10px;padding:10px 14px;font-size:22px;cursor:pointer;" title="清除">🗑️</button>';
-  document.body.appendChild(tb);
-
-  var ctx=cvs.getContext('2d'),drawing=false,strokes=[],cur=null;
-  window.aActive=false;window.aTool='pen';window.aCol='#e11d48';window.aSz=8;
-
-  function rsz(){cvs.width=window.innerWidth;cvs.height=window.innerHeight;rdraw();}
-  window.addEventListener('resize',rsz);rsz();
-
-  function pos(e){var t=e.touches?e.touches[0]:e;return[t.clientX,t.clientY];}
-  function drawS(s){
-    if(!s||s.pts.length<2)return;
-    ctx.beginPath();ctx.strokeStyle=s.c;ctx.lineWidth=s.sz;ctx.lineCap='round';ctx.lineJoin='round';
-    ctx.globalCompositeOperation=s.t==='erase'?'destination-out':'source-over';
-    ctx.globalAlpha=s.t==='hl'?.35:1;
-    ctx.moveTo(s.pts[0][0],s.pts[0][1]);
-    for(var i=1;i<s.pts.length;i++)ctx.lineTo(s.pts[i][0],s.pts[i][1]);
-    ctx.stroke();ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';
-  }
-  function rdraw(){ctx.clearRect(0,0,cvs.width,cvs.height);strokes.forEach(drawS);}
-
-  function onMD(e){if(e.target.closest('#draw-toolbar'))return;drawing=true;cur={t:window.aTool,c:window.aCol,sz:window.aTool==='hl'?window.aSz*3:window.aTool==='erase'?window.aSz*4:window.aSz,pts:[pos(e)]};}
-  function onMM(e){if(!drawing)return;cur.pts.push(pos(e));rdraw();drawS(cur);}
-  function onMU(){if(!drawing)return;drawing=false;if(cur&&cur.pts.length>1)strokes.push(cur);cur=null;}
-  function onTS(e){if(e.target.closest('#draw-toolbar'))return;e.preventDefault();drawing=true;cur={t:window.aTool,c:window.aCol,sz:window.aTool==='hl'?window.aSz*3:window.aTool==='erase'?window.aSz*4:window.aSz,pts:[pos(e)]};}
-  function onTM(e){e.preventDefault();if(!drawing)return;cur.pts.push(pos(e));rdraw();drawS(cur);}
-  function onTE(){if(!drawing)return;drawing=false;if(cur&&cur.pts.length>1)strokes.push(cur);cur=null;}
-
-  window.aClear=function(){strokes=[];rdraw();};
-  window.aUndo=function(){if(strokes.length){strokes.pop();rdraw();}};
-
-  window.toggleDraw=function(){
-    window.aActive=!window.aActive;
-    if(window.aActive){
-      document.addEventListener('mousedown',onMD);
-      document.addEventListener('mousemove',onMM);
-      document.addEventListener('mouseup',onMU);
-      document.addEventListener('touchstart',onTS,{passive:false});
-      document.addEventListener('touchmove',onTM,{passive:false});
-      document.addEventListener('touchend',onTE);
-    }else{
-      document.removeEventListener('mousedown',onMD);
-      document.removeEventListener('mousemove',onMM);
-      document.removeEventListener('mouseup',onMU);
-      document.removeEventListener('touchstart',onTS);
-      document.removeEventListener('touchmove',onTM);
-      document.removeEventListener('touchend',onTE);
-      drawing=false;cur=null;
-    }
-    cvs.style.display=window.aActive?'block':'none';
-    document.body.style.userSelect=window.aActive?'none':'';
-    document.body.style.overflow=window.aActive?'hidden':'';
-    var b=document.getElementById('btn-pen');
-    b.style.background=window.aActive?'#16a34a':'#e11d48';
-    b.textContent=window.aActive?'✅ 畫中（再按停止）':'✏️ 畫筆';
-  };
-})();
 
 
 // 大家說英語 9/22：Barbecue Around the World — 45 選擇題
