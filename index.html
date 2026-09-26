@@ -5785,6 +5785,86 @@ var TJ_WS = {
 
 
 
+
+<script id="matisse-js">
+(function(){
+  function applyMatisse(){
+    // Body
+    document.body.style.cssText += ';background:#FFF8F0!important;color:#1A1A1A';
+
+    // Tab bar
+    var tabs=document.querySelector('.tabs');
+    if(tabs){tabs.style.background='#1A1A1A';tabs.style.borderBottom='5px solid #E8A020';}
+
+    // All tab buttons
+    document.querySelectorAll('button.tab').forEach(function(t){
+      if(!t.classList.contains('on')){
+        t.style.background='#2a2a2a';
+        t.style.color='#FFF8F0';
+      }
+      t.style.borderRadius='0';
+      t.style.fontWeight='900';
+    });
+
+    // Per-class lesson cards
+    var cfg={
+      'g7' :{bg:'#EBF1FB',fg:'#1B4F8A',acc:'#1B4F8A'},
+      'g8' :{bg:'#E8F5EC',fg:'#2E5E3E',acc:'#2E5E3E'},
+      'g10':{bg:'#FEF2F2',fg:'#7C1D1D',acc:'#7C1D1D'},
+      'g12':{bg:'#EEF1FB',fg:'#2C3E7A',acc:'#2C3E7A'},
+      'tu' :{bg:'#FEF3E8',fg:'#D4680A',acc:'#D4680A'},
+      'tj' :{bg:'#ECFDF5',fg:'#166534',acc:'#166534'}
+    };
+    Object.keys(cfg).forEach(function(k){
+      var tab=document.getElementById('t-'+k);
+      if(!tab)return;
+      var c=cfg[k];
+      tab.querySelectorAll('details.lb').forEach(function(d){
+        d.style.borderRadius='0';
+        d.style.border='2.5px solid #1A1A1A';
+        d.style.boxShadow='6px 6px 0 #1A1A1A';
+        d.style.borderLeft='8px solid '+c.acc;
+        d.style.margin='10px 0';
+        d.style.background='#fff';
+      });
+      tab.querySelectorAll('summary.ls').forEach(function(s){
+        s.style.background=c.bg;
+        s.style.color=c.fg;
+        s.style.fontWeight='900';
+        s.style.borderRadius='0';
+        s.style.padding='12px 16px';
+        s.style.borderBottom='2px solid #1A1A1A';
+        s.style.listStyle='none';
+      });
+      tab.querySelectorAll('summary.ls::marker').forEach(function(s){
+        s.style.display='none';
+      });
+    });
+
+    // Active tab highlight
+    document.querySelectorAll('button.tab.on').forEach(function(t){
+      t.style.background='#E8A020';
+      t.style.color='#1A1A1A';
+      t.style.borderBottom='5px solid #E8A020';
+    });
+  }
+
+  // Run now + patch sw() to re-apply after tab switch
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',applyMatisse);
+  } else {
+    applyMatisse();
+  }
+
+  // Also patch sw() to re-apply after tab change
+  var _origSw=window.sw;
+  window.sw=function(id,btn){
+    if(_origSw)_origSw(id,btn);
+    setTimeout(applyMatisse,50);
+  };
+})();
+</script>
+
 </body></html>`,
   'theme2_landscape': `<!DOCTYPE html><html lang="zh-TW"><head>
 <meta charset="utf-8">
