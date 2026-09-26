@@ -29,7 +29,7 @@ body{font-family:'Nunito','Noto Serif TC',serif;margin:0;padding:0;background:#F
 .hd h1{font-size:50px;margin:10px 0 6px;color:#78350f;letter-spacing:2px}
 .hd p{font-size:26px;color:#92400e}
 .tabs{display:flex;border-bottom:5px solid #E8A020;overflow-x:auto;background:#1A1A1A;position:sticky;top:44px;z-index:50}
-.tab{cursor:pointer;padding:20px 28px;border:none;background:none;font-size:32px;white-space:nowrap;border-bottom:5px solid transparent;font-weight:700;color:#78350f;font-family:Nunito,sans-serif}
+.tab{cursor:pointer;padding:10px 22px;border:none;border-bottom:5px solid transparent;background:#2a2a2a;color:#FFF8F0;font-size:24px;white-space:nowrap;font-weight:900;font-family:Nunito,sans-serif;transition:all .15s;flex-shrink:0}
 .tab:hover{background:#3a3a3a;border-bottom-color:#E8A020;color:#E8A020}.tab.on{border-bottom-color:#E8A020;color:#E8A020;background:#1A1A1A;box-shadow:inset 0 -4px 0 #E8A020}
 .tc{display:none}.tc.on{display:block}
 .sbox{padding:14px 20px;background:#fef9f0;border-bottom:1px solid #e8d5b7}
@@ -113,7 +113,7 @@ body{font-family:'Nunito','Noto Serif TC',serif;margin:0;padding:0;background:#F
 @media(max-width:768px){
 body{font-size:40px!important}
 .hd h1{font-size:36px!important}
-.tab{font-size:22px!important;padding:10px 14px!important}
+.tab{font-size:20px!important;padding:8px 12px!important}
 .ls{padding:14px!important}
 .lt{font-size:28px!important}
 .st{font-size:28px!important;padding:12px!important}
@@ -5786,37 +5786,48 @@ document.getElementById('cc-modal').addEventListener('click', function(e) {
 
 
 
+
+
 <style id="matisse-override">
-/* Per-class colour accents */
-#t-g7 details.lb{border-left:8px solid #1B4F8A}
-#t-g7 summary.ls{background:#EBF1FB;color:#1B4F8A}
-#t-g8 details.lb{border-left:8px solid #2E5E3E}
-#t-g8 summary.ls{background:#E8F5EC;color:#2E5E3E}
-#t-g10 details.lb{border-left:8px solid #7C1D1D}
-#t-g10 summary.ls{background:#FEF2F2;color:#7C1D1D}
-#t-g12 details.lb{border-left:8px solid #2C3E7A}
-#t-g12 summary.ls{background:#EEF1FB;color:#2C3E7A}
-#t-tu details.lb{border-left:8px solid #D4680A}
-#t-tu summary.ls{background:#FEF3E8;color:#D4680A}
-/* details hover */
-details.stg:hover{transform:translateX(3px)}
-summary.st:hover{background:#EAE4D8}
-/* vocab table header */
-.hg7{background:#1B4F8A!important;color:#fff!important}
-.hg8{background:#2E5E3E!important;color:#fff!important}
-.hg10{background:#7C1D1D!important;color:#fff!important}
-.hg12{background:#2C3E7A!important;color:#fff!important}
-/* Section headings */
-.tc>div>h2{border-bottom:4px solid #1A1A1A;padding-bottom:6px;color:#1A1A1A;font-weight:900}
-/* Tab active color per class */
+/* ═══ Per-class lesson card accents ═══ */
+#t-g7 details.lb{border-left:8px solid #1B4F8A!important}
+#t-g7 summary.ls{background:#EBF1FB!important;color:#1B4F8A!important}
+#t-g8 details.lb{border-left:8px solid #2E5E3E!important}
+#t-g8 summary.ls{background:#E8F5EC!important;color:#2E5E3E!important}
+#t-g10 details.lb{border-left:8px solid #7C1D1D!important}
+#t-g10 summary.ls{background:#FEF2F2!important;color:#7C1D1D!important}
+#t-g12 details.lb{border-left:8px solid #2C3E7A!important}
+#t-g12 summary.ls{background:#EEF1FB!important;color:#2C3E7A!important}
+#t-tu details.lb{border-left:8px solid #D4680A!important}
+#t-tu summary.ls{background:#FEF3E8!important;color:#D4680A!important}
+/* ═══ Force .tab dark style (extra specificity) ═══ */
+div.tabs button.tab{
+  background:#2a2a2a!important;color:#FFF8F0!important;
+  border:none!important;border-bottom:5px solid transparent!important;
+  font-weight:900!important;font-size:22px!important;
+  padding:10px 20px!important;cursor:pointer!important
+}
+div.tabs button.tab:hover{
+  background:#3a3a3a!important;
+  border-bottom-color:#E8A020!important;
+  color:#E8A020!important
+}
+div.tabs button.tab.on{background:#1A1A1A!important;border-bottom-color:#E8A020!important;color:#E8A020!important}
 button.tab.on[onclick*="'g7'"]{background:#1B4F8A!important;color:#fff!important;border-bottom-color:#1B4F8A!important}
 button.tab.on[onclick*="'g8'"]{background:#2E5E3E!important;color:#fff!important;border-bottom-color:#2E5E3E!important}
 button.tab.on[onclick*="'g10'"]{background:#7C1D1D!important;color:#fff!important;border-bottom-color:#7C1D1D!important}
 button.tab.on[onclick*="'g12'"]{background:#2C3E7A!important;color:#fff!important;border-bottom-color:#2C3E7A!important}
 button.tab.on[onclick*="'tu'"]{background:#D4680A!important;color:#fff!important;border-bottom-color:#D4680A!important}
 button.tab.on[onclick*="'tj'"]{background:#166534!important;color:#fff!important;border-bottom-color:#166534!important}
+/* ═══ Vocab table headers ═══ */
+.hg7{background:#1B4F8A!important;color:#fff!important}
+.hg8{background:#2E5E3E!important;color:#fff!important}
+.hg10{background:#7C1D1D!important;color:#fff!important}
+.hg12{background:#2C3E7A!important;color:#fff!important}
+/* ═══ Sub-section hover ═══ */
+details.stg:hover{transform:translateX(2px)}
+summary.st:hover{background:#EAE4D8!important}
 </style>
-
 </body></html>`,
   'theme2_landscape': `<!DOCTYPE html><html lang="zh-TW"><head>
 <meta charset="utf-8">
