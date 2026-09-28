@@ -5903,7 +5903,14 @@ Ladies and gentlemen, today I want to honor the unsung heroes of Taiwan: the ___
 
 
 
-function sw(id,btn){document.querySelectorAll('.tc').forEach(e=>e.classList.remove('on'));document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));document.getElementById('t-'+id).classList.add('on');btn.classList.add('on')}
+function sw(id,btn){
+  document.querySelectorAll('.tc').forEach(function(e){e.classList.remove('on');e.style.display='none';});
+  document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('on');});
+  var t=document.getElementById('t-'+id);
+  if(t){t.classList.add('on');t.style.display='block';}
+  if(btn){btn.classList.add('on');}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 function fv(q){q=q.toLowerCase();document.querySelectorAll('.vt tbody tr').forEach(r=>{if(!q){r.style.display='';return}r.style.display=r.textContent.toLowerCase().includes(q)?'':'none'})}
 const dm={};
 function spin(u){const ta=document.getElementById('ro_'+u);const ls=ta.value.trim().split('\n').filter(l=>l.trim());if(!ls.length){alert('請先輸入名條！');return}if(!dm[u])dm[u]=[];let a=ls.filter(l=>!dm[u].includes(l));if(!a.length){dm[u]=[];a=ls}const r=document.getElementById('re_'+u);const h=document.getElementById('hi_'+u);let c=0;const iv=setInterval(()=>{r.textContent=a[Math.floor(Math.random()*a.length)];r.style.animation='bounce .15s';c++;if(c>18){clearInterval(iv);const ch=a[Math.floor(Math.random()*a.length)];r.textContent='🎯 '+ch;r.style.animation='bounce .4s';dm[u].push(ch);h.innerHTML='已抽: '+dm[u].map(n=>'<span style="background:#fef3c7;padding:2px 8px;border-radius:6px;margin:2px;display:inline-block;font-size:16px">'+n+'</span>').join(' ')}},70)}
@@ -6177,89 +6184,19 @@ function rqAns(el, correct, chosen) {
 </script>
 <script id="matisse-js">
 (function(){
-  /* ══ STEP 1: Hide all tabs immediately (inline style = highest priority) ══ */
   function initTabs(){
-    var tcs = document.querySelectorAll('.tc');
-    tcs.forEach(function(e){ e.style.display='none'; });
-    // Show only the one with class 'on'
+    document.querySelectorAll('.tc').forEach(function(e){ e.style.display='none'; });
     var on = document.querySelector('.tc.on');
     if(on) on.style.display='block';
-    console.log('[Miffy] initTabs: hidden '+tcs.length+', showing '+(on?on.id:'none'));
   }
-
-  /* ══ STEP 2: Patch sw() so tab switching uses inline style ══ */
-  function patchSw(){
-    var orig = window.sw;
-    if(!orig){ setTimeout(patchSw, 30); return; }
-    window.sw = function(id, btn){
-      // Hide all
-      document.querySelectorAll('.tc').forEach(function(e){ e.style.display='none'; });
-      // Remove on class from all tabs
-      document.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('on'); });
-      document.querySelectorAll('.tc').forEach(function(e){ e.classList.remove('on'); });
-      // Show target
-      var target = document.getElementById('t-'+id);
-      if(target){ target.style.display='block'; target.classList.add('on'); }
-      if(btn) btn.classList.add('on');
-      // Scroll to top
-      window.scrollTo({top:0, behavior:'smooth'});
-      // Reapply Matisse
-      setTimeout(applyMatisse, 20);
-    };
-    console.log('[Miffy] sw() patched');
-  }
-
-  /* ══ STEP 3: Matisse visual styles ══ */
   function applyMatisse(){
-    document.body.style.background = '#FFF8F0';
-    var tabs = document.querySelector('div.tabs');
-    if(tabs){ tabs.style.background='#1A1A1A'; tabs.style.borderBottom='5px solid #E8A020'; }
-
-    var cfg = {
-      g7:{bg:'#EBF1FB',fg:'#1B4F8A',acc:'#1B4F8A'},
-      g8:{bg:'#E8F5EC',fg:'#2E5E3E',acc:'#2E5E3E'},
-      g10:{bg:'#FEF2F2',fg:'#7C1D1D',acc:'#7C1D1D'},
-      g12:{bg:'#EEF1FB',fg:'#2C3E7A',acc:'#2C3E7A'},
-      tu:{bg:'#FEF3E8',fg:'#D4680A',acc:'#D4680A'},
-      tj:{bg:'#ECFDF5',fg:'#166534',acc:'#166534'}
-    };
-
-    document.querySelectorAll('button.tab').forEach(function(btn){
-      var m = (btn.getAttribute('onclick')||'').match(/'(\w+)'/);
-      var k = m ? m[1] : null;
-      var c = cfg[k]||{};
-      var on = btn.classList.contains('on');
-      Object.assign(btn.style, {
-        fontWeight:'900', borderRadius:'0', fontSize:'20px', padding:'10px 18px',
-        background: on ? (c.acc||'#E8A020') : '#2a2a2a',
-        color: on ? '#fff' : '#FFF8F0',
-        borderBottom: on ? '5px solid '+(c.acc||'#E8A020') : '5px solid transparent'
-      });
-    });
-
-    Object.keys(cfg).forEach(function(k){
-      var tab = document.getElementById('t-'+k);
-      if(!tab) return;
-      var c = cfg[k];
-      tab.querySelectorAll('details.lb').forEach(function(d){
-        Object.assign(d.style,{borderRadius:'0',border:'2.5px solid #1A1A1A',
-          boxShadow:'6px 6px 0 #1A1A1A',borderLeft:'8px solid '+c.acc,
-          margin:'10px 0',background:'#fff'});
-      });
-      tab.querySelectorAll('summary.ls').forEach(function(s){
-        Object.assign(s.style,{background:c.bg,color:c.fg,fontWeight:'900',
-          borderRadius:'0',padding:'12px 16px',borderBottom:'2px solid #1A1A1A',
-          listStyle:'none'});
-      });
-    });
+    document.body.style.background='#FFF8F0';
+    var tb=document.querySelector('div.tabs');
+    if(tb){tb.style.background='#1A1A1A';tb.style.borderBottom='5px solid #E8A020';}
   }
-
-  /* ══ INIT ══ */
   if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',function(){ initTabs(); applyMatisse(); patchSw(); });
-  } else {
-    initTabs(); applyMatisse(); patchSw();
-  }
+    document.addEventListener('DOMContentLoaded',function(){ initTabs(); applyMatisse(); });
+  } else { initTabs(); applyMatisse(); }
 })();
 </script>
 </body></html>`,
