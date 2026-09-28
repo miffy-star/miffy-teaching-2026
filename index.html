@@ -5903,6 +5903,8 @@ Ladies and gentlemen, today I want to honor the unsung heroes of Taiwan: the ___
 
 
 
+
+
 function sw(id,btn){
   document.querySelectorAll('.tc').forEach(function(e){e.classList.remove('on');e.style.display='none';});
   document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('on');});
@@ -6019,7 +6021,23 @@ window.openPDF = function(path) {
 
 
 // ===== PRINT TAIJIANG WORKSHEET (iframe modal, mobile-friendly) =====
-var TJ_WS = {
+var TJ_WS = 
+
+function rqAns(el, correct, chosen) {
+  var container = el.closest('div[style*="border-left:4px solid #7C1D1D"]') || el.parentElement.parentElement;
+  el.parentElement.querySelectorAll('.rq-opt').forEach(function(d) {
+    var letter = d.querySelector('b').textContent.replace('.','').trim();
+    d.style.background = (letter === correct) ? '#dcfce7' : (letter === chosen && chosen !== correct ? '#fee2e2' : '');
+    d.style.borderColor = (letter === correct) ? '#16a34a' : (letter === chosen && chosen !== correct ? '#dc2626' : '#e2e8f0');
+    d.style.pointerEvents = 'none';
+  });
+  var hint = el.closest('div[style*="border-left:4px solid #7C1D1D"]');
+  if(hint) { var h = hint.querySelector('.rq-hint'); if(h) h.style.display='block'; }
+}
+
+</script>
+
+<script>{
   'theme1_wetland': `<!DOCTYPE html><html lang="zh-TW"><head>
 <meta charset="utf-8">
 <title>台江英文學習單 — 🌊 Wonders of the Wetland</title>
@@ -6169,31 +6187,15 @@ var TJ_WS = {
 
 
 
-<script id="rq-js">
-function rqAns(el, correct, chosen) {
-  var container = el.closest('div[style*="border-left:4px solid #7C1D1D"]') || el.parentElement.parentElement;
-  el.parentElement.querySelectorAll('.rq-opt').forEach(function(d) {
-    var letter = d.querySelector('b').textContent.replace('.','').trim();
-    d.style.background = (letter === correct) ? '#dcfce7' : (letter === chosen && chosen !== correct ? '#fee2e2' : '');
-    d.style.borderColor = (letter === correct) ? '#16a34a' : (letter === chosen && chosen !== correct ? '#dc2626' : '#e2e8f0');
-    d.style.pointerEvents = 'none';
-  });
-  var hint = el.closest('div[style*="border-left:4px solid #7C1D1D"]');
-  if(hint) { var h = hint.querySelector('.rq-hint'); if(h) h.style.display='block'; }
-}
-</script>
+<script 
 <script id="matisse-js">
 (function(){
   function initTabs(){
     document.querySelectorAll('.tc').forEach(function(e){ e.style.display='none'; });
-    var on = document.querySelector('.tc.on');
+    var on=document.querySelector('.tc.on');
     if(on) on.style.display='block';
   }
-  function applyMatisse(){
-    document.body.style.background='#FFF8F0';
-    var tb=document.querySelector('div.tabs');
-    if(tb){tb.style.background='#1A1A1A';tb.style.borderBottom='5px solid #E8A020';}
-  }
+  function applyMatisse(){ document.body.style.background='#FFF8F0'; }
   if(document.readyState==='loading'){
     document.addEventListener('DOMContentLoaded',function(){ initTabs(); applyMatisse(); });
   } else { initTabs(); applyMatisse(); }
