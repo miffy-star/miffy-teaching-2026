@@ -6177,110 +6177,88 @@ function rqAns(el, correct, chosen) {
 </script>
 <script id="matisse-js">
 (function(){
-  // ── Tab switching: intercept sw() and scroll + style ──────────────────
-  function patchSw(){
-    var orig = window.sw;
-    if(!orig){ setTimeout(patchSw, 50); return; }
-    window.sw = function(id, btn){
-      // Hide ALL tc divs inline
-      document.querySelectorAll('.tc').forEach(function(e){
-        e.style.display = 'none';
-      });
-      // Call original
-      orig(id, btn);
-      // Show target inline
-      var target = document.getElementById('t-'+id);
-      if(target){ target.style.display = 'block'; }
-      // Scroll to top of content
-      window.scrollTo({top: 44, behavior: 'smooth'});
-      // Re-apply matisse styles
-      setTimeout(applyMatisse, 30);
-    };
-    console.log('✅ sw() patched');
+  /* ══ STEP 1: Hide all tabs immediately (inline style = highest priority) ══ */
+  function initTabs(){
+    var tcs = document.querySelectorAll('.tc');
+    tcs.forEach(function(e){ e.style.display='none'; });
+    // Show only the one with class 'on'
+    var on = document.querySelector('.tc.on');
+    if(on) on.style.display='block';
+    console.log('[Miffy] initTabs: hidden '+tcs.length+', showing '+(on?on.id:'none'));
   }
 
-  // ── Matisse style applier ─────────────────────────────────────────────
+  /* ══ STEP 2: Patch sw() so tab switching uses inline style ══ */
+  function patchSw(){
+    var orig = window.sw;
+    if(!orig){ setTimeout(patchSw, 30); return; }
+    window.sw = function(id, btn){
+      // Hide all
+      document.querySelectorAll('.tc').forEach(function(e){ e.style.display='none'; });
+      // Remove on class from all tabs
+      document.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('on'); });
+      document.querySelectorAll('.tc').forEach(function(e){ e.classList.remove('on'); });
+      // Show target
+      var target = document.getElementById('t-'+id);
+      if(target){ target.style.display='block'; target.classList.add('on'); }
+      if(btn) btn.classList.add('on');
+      // Scroll to top
+      window.scrollTo({top:0, behavior:'smooth'});
+      // Reapply Matisse
+      setTimeout(applyMatisse, 20);
+    };
+    console.log('[Miffy] sw() patched');
+  }
+
+  /* ══ STEP 3: Matisse visual styles ══ */
   function applyMatisse(){
-    // Body
     document.body.style.background = '#FFF8F0';
+    var tabs = document.querySelector('div.tabs');
+    if(tabs){ tabs.style.background='#1A1A1A'; tabs.style.borderBottom='5px solid #E8A020'; }
 
-    // Tab bar
-    var tabs = document.querySelector('.tabs');
-    if(tabs){
-      tabs.style.background = '#1A1A1A';
-      tabs.style.borderBottom = '5px solid #E8A020';
-      tabs.style.position = 'sticky';
-      tabs.style.top = '44px';
-      tabs.style.zIndex = '500';
-    }
-
-    // Per-class config
     var cfg = {
-      g7 : {bg:'#EBF1FB', fg:'#1B4F8A', acc:'#1B4F8A'},
-      g8 : {bg:'#E8F5EC', fg:'#2E5E3E', acc:'#2E5E3E'},
-      g10: {bg:'#FEF2F2', fg:'#7C1D1D', acc:'#7C1D1D'},
-      g12: {bg:'#EEF1FB', fg:'#2C3E7A', acc:'#2C3E7A'},
-      tu : {bg:'#FEF3E8', fg:'#D4680A', acc:'#D4680A'},
-      tj : {bg:'#ECFDF5', fg:'#166534', acc:'#166534'}
+      g7:{bg:'#EBF1FB',fg:'#1B4F8A',acc:'#1B4F8A'},
+      g8:{bg:'#E8F5EC',fg:'#2E5E3E',acc:'#2E5E3E'},
+      g10:{bg:'#FEF2F2',fg:'#7C1D1D',acc:'#7C1D1D'},
+      g12:{bg:'#EEF1FB',fg:'#2C3E7A',acc:'#2C3E7A'},
+      tu:{bg:'#FEF3E8',fg:'#D4680A',acc:'#D4680A'},
+      tj:{bg:'#ECFDF5',fg:'#166534',acc:'#166534'}
     };
 
-    // Style buttons
-    var activeId = null;
     document.querySelectorAll('button.tab').forEach(function(btn){
-      var m = btn.getAttribute('onclick') && btn.getAttribute('onclick').match(/'(\w+)'/);
-      var id = m ? m[1] : null;
-      var isOn = btn.classList.contains('on');
-      if(isOn && id) activeId = id;
-      var c = cfg[id] || {};
-      btn.style.fontWeight = '900';
-      btn.style.borderRadius = '0';
-      btn.style.fontSize = '20px';
-      btn.style.padding = '10px 18px';
-      if(isOn){
-        btn.style.background = c.acc || '#E8A020';
-        btn.style.color = '#fff';
-        btn.style.borderBottom = '5px solid ' + (c.acc || '#E8A020');
-      } else {
-        btn.style.background = '#2a2a2a';
-        btn.style.color = '#FFF8F0';
-        btn.style.borderBottom = '5px solid transparent';
-      }
+      var m = (btn.getAttribute('onclick')||'').match(/'(\w+)'/);
+      var k = m ? m[1] : null;
+      var c = cfg[k]||{};
+      var on = btn.classList.contains('on');
+      Object.assign(btn.style, {
+        fontWeight:'900', borderRadius:'0', fontSize:'20px', padding:'10px 18px',
+        background: on ? (c.acc||'#E8A020') : '#2a2a2a',
+        color: on ? '#fff' : '#FFF8F0',
+        borderBottom: on ? '5px solid '+(c.acc||'#E8A020') : '5px solid transparent'
+      });
     });
 
-    // Style lesson cards
     Object.keys(cfg).forEach(function(k){
       var tab = document.getElementById('t-'+k);
       if(!tab) return;
       var c = cfg[k];
       tab.querySelectorAll('details.lb').forEach(function(d){
-        d.style.borderRadius = '0';
-        d.style.border = '2.5px solid #1A1A1A';
-        d.style.boxShadow = '6px 6px 0 #1A1A1A';
-        d.style.borderLeft = '8px solid ' + c.acc;
-        d.style.margin = '10px 0';
-        d.style.background = '#fff';
+        Object.assign(d.style,{borderRadius:'0',border:'2.5px solid #1A1A1A',
+          boxShadow:'6px 6px 0 #1A1A1A',borderLeft:'8px solid '+c.acc,
+          margin:'10px 0',background:'#fff'});
       });
       tab.querySelectorAll('summary.ls').forEach(function(s){
-        s.style.background = c.bg;
-        s.style.color = c.fg;
-        s.style.fontWeight = '900';
-        s.style.borderRadius = '0';
-        s.style.padding = '12px 16px';
-        s.style.borderBottom = '2px solid #1A1A1A';
-        s.style.listStyle = 'none';
+        Object.assign(s.style,{background:c.bg,color:c.fg,fontWeight:'900',
+          borderRadius:'0',padding:'12px 16px',borderBottom:'2px solid #1A1A1A',
+          listStyle:'none'});
       });
     });
   }
 
-  // ── Init ──────────────────────────────────────────────────────────────
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', function(){
-      applyMatisse();
-      patchSw();
-    });
+  /* ══ INIT ══ */
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',function(){ initTabs(); applyMatisse(); patchSw(); });
   } else {
-    applyMatisse();
-    patchSw();
+    initTabs(); applyMatisse(); patchSw();
   }
 })();
 </script>
