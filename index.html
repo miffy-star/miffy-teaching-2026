@@ -6037,6 +6037,10 @@ function rqAns(el, correct, chosen) {
 }
 
 </script>
+<script>
+// Expose rqAns globally (was accidentally assigned to TJ_WS)
+if(typeof TJ_WS === "function") { window.rqAns = TJ_WS; }
+</script>
 
 <script>{
   'theme1_wetland': `<!DOCTYPE html><html lang="zh-TW"><head>
