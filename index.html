@@ -261,6 +261,120 @@ summary.ls::marker,summary.ls::-webkit-details-marker{display:none}
 })();
 </script>
 
+
+<script id="bb-inline-annotator">
+(function(){
+  var BB_LABELS=[
+    {k:'S',   lb:'主詞 S',       c:'#1B4F8A',t:'#fff'},
+    {k:'V',   lb:'動詞 V',       c:'#D4380D',t:'#fff'},
+    {k:'O',   lb:'受詞 O',       c:'#2E5E3E',t:'#fff'},
+    {k:'SC',  lb:'主詞補語 SC',  c:'#7C1D1D',t:'#fff'},
+    {k:'OC',  lb:'受詞補語 OC',  c:'#6B21A8',t:'#fff'},
+    {k:'AUX', lb:'助動詞',       c:'#0369a1',t:'#fff'},
+    {k:'ADJ', lb:'形容詞子句',   c:'#b45309',t:'#fff'},
+    {k:'ADV', lb:'副詞子句',     c:'#166534',t:'#fff'},
+    {k:'NCL', lb:'名詞子句',     c:'#9d174d',t:'#fff'},
+    {k:'PP',  lb:'介系詞片語',   c:'#374151',t:'#fff'},
+    {k:'REL', lb:'關係代名詞',   c:'#1e3a5f',t:'#fff'},
+    {k:'LOC', lb:'地方副詞',     c:'#0f766e',t:'#fff'},
+    {k:'TMP', lb:'時間副詞',     c:'#7e22ce',t:'#fff'},
+    {k:'INV', lb:'倒裝句型',     c:'#be185d',t:'#fff'},
+    {k:'NEG', lb:'否定副詞',     c:'#b91c1c',t:'#fff'},
+    {k:'PART',lb:'分詞構句',     c:'#c2410c',t:'#fff'}
+  ];
+
+  var activeRange = null;
+
+  // Create popup toolbar container inside document
+  function createPopup(){
+    var pop = document.createElement('div');
+    pop.id = 'bb-inline-popup';
+    pop.style.cssText = 'display:none;position:absolute;z-index:99999;background:#1A1A1A;padding:8px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.4);border:2px solid #E8A020;max-width:92vw;flex-wrap:wrap;gap:6px;font-family:Nunito,sans-serif;';
+    
+    BB_LABELS.forEach(function(lbl){
+      var btn = document.createElement('button');
+      btn.textContent = lbl.lb;
+      btn.style.cssText = 'background:'+lbl.c+';color:'+lbl.t+';border:none;padding:6px 10px;font-weight:900;font-size:12px;cursor:pointer;border-radius:4px;white-space:nowrap;';
+      btn.onpointerdown = function(e){ e.preventDefault(); };
+      btn.onclick = function(e){
+        e.stopPropagation();
+        applyInlineLabel(lbl);
+      };
+      pop.appendChild(btn);
+    });
+
+    // Add clear button
+    var clsBtn = document.createElement('button');
+    clsBtn.textContent = '✕ 關閉';
+    clsBtn.style.cssText = 'background:#374151;color:#fff;border:none;padding:6px 10px;font-weight:900;font-size:12px;cursor:pointer;border-radius:4px;';
+    clsBtn.onclick = function(e){ e.stopPropagation(); hidePopup(); };
+    pop.appendChild(clsBtn);
+
+    document.body.appendChild(pop);
+    return pop;
+  }
+
+  function hidePopup(){
+    var pop = document.getElementById('bb-inline-popup');
+    if(pop) pop.style.display = 'none';
+    activeRange = null;
+  }
+
+  function showPopupForSelection(){
+    var sel = window.getSelection();
+    if(!sel || sel.isCollapsed || !sel.toString().trim()){
+      hidePopup();
+      return;
+    }
+    activeRange = sel.getRangeAt(0).cloneRange();
+    var rect = activeRange.getBoundingClientRect();
+    var pop = document.getElementById('bb-inline-popup') || createPopup();
+    
+    pop.style.display = 'flex';
+    var left = Math.max(10, rect.left + window.scrollX);
+    var top = rect.bottom + window.scrollY + 8;
+    pop.style.left = left + 'px';
+    pop.style.top = top + 'px';
+  }
+
+  function applyInlineLabel(lbl){
+    if(!activeRange) return;
+
+    var span = document.createElement('span');
+    span.className = 'bb-in-text-tag';
+    span.style.cssText = 'display:inline-flex;flex-direction:column;align-items:center;vertical-align:bottom;margin:0 2px;cursor:pointer;';
+
+    var txtSpan = document.createElement('span');
+    txtSpan.style.cssText = 'font-weight:700;border-bottom:4px solid '+lbl.c+';padding:0 2px;color:#1e293b;line-height:1.2;';
+    txtSpan.appendChild(activeRange.extractContents());
+
+    var tagSpan = document.createElement('span');
+    tagSpan.style.cssText = 'background:'+lbl.c+';color:'+lbl.t+';font-size:11px;padding:1px 6px;border-radius:3px;font-weight:900;margin-top:2px;white-space:nowrap;font-family:sans-serif;';
+    tagSpan.textContent = lbl.lb;
+
+    span.appendChild(txtSpan);
+    span.appendChild(tagSpan);
+
+    // Allow clicking tag to remove it
+    span.onclick = function(e){
+      e.stopPropagation();
+      var parent = span.parentNode;
+      while(txtSpan.firstChild){
+        parent.insertBefore(txtSpan.firstChild, span);
+      }
+      parent.removeChild(span);
+    };
+
+    activeRange.insertNode(span);
+    window.getSelection().removeAllRanges();
+    hidePopup();
+  }
+
+  document.addEventListener('mouseup', function(){ setTimeout(showPopupForSelection, 100); });
+  document.addEventListener('touchend', function(){ setTimeout(showPopupForSelection, 200); });
+})();
+</script>
+
 </head>
 <body style="background:#FFF8F0">
 
@@ -6202,6 +6316,120 @@ var TJ_WS = {};  // worksheet data loaded separately
 })();
 </script>
 
+
+<script id="bb-inline-annotator">
+(function(){
+  var BB_LABELS=[
+    {k:'S',   lb:'主詞 S',       c:'#1B4F8A',t:'#fff'},
+    {k:'V',   lb:'動詞 V',       c:'#D4380D',t:'#fff'},
+    {k:'O',   lb:'受詞 O',       c:'#2E5E3E',t:'#fff'},
+    {k:'SC',  lb:'主詞補語 SC',  c:'#7C1D1D',t:'#fff'},
+    {k:'OC',  lb:'受詞補語 OC',  c:'#6B21A8',t:'#fff'},
+    {k:'AUX', lb:'助動詞',       c:'#0369a1',t:'#fff'},
+    {k:'ADJ', lb:'形容詞子句',   c:'#b45309',t:'#fff'},
+    {k:'ADV', lb:'副詞子句',     c:'#166534',t:'#fff'},
+    {k:'NCL', lb:'名詞子句',     c:'#9d174d',t:'#fff'},
+    {k:'PP',  lb:'介系詞片語',   c:'#374151',t:'#fff'},
+    {k:'REL', lb:'關係代名詞',   c:'#1e3a5f',t:'#fff'},
+    {k:'LOC', lb:'地方副詞',     c:'#0f766e',t:'#fff'},
+    {k:'TMP', lb:'時間副詞',     c:'#7e22ce',t:'#fff'},
+    {k:'INV', lb:'倒裝句型',     c:'#be185d',t:'#fff'},
+    {k:'NEG', lb:'否定副詞',     c:'#b91c1c',t:'#fff'},
+    {k:'PART',lb:'分詞構句',     c:'#c2410c',t:'#fff'}
+  ];
+
+  var activeRange = null;
+
+  // Create popup toolbar container inside document
+  function createPopup(){
+    var pop = document.createElement('div');
+    pop.id = 'bb-inline-popup';
+    pop.style.cssText = 'display:none;position:absolute;z-index:99999;background:#1A1A1A;padding:8px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.4);border:2px solid #E8A020;max-width:92vw;flex-wrap:wrap;gap:6px;font-family:Nunito,sans-serif;';
+    
+    BB_LABELS.forEach(function(lbl){
+      var btn = document.createElement('button');
+      btn.textContent = lbl.lb;
+      btn.style.cssText = 'background:'+lbl.c+';color:'+lbl.t+';border:none;padding:6px 10px;font-weight:900;font-size:12px;cursor:pointer;border-radius:4px;white-space:nowrap;';
+      btn.onpointerdown = function(e){ e.preventDefault(); };
+      btn.onclick = function(e){
+        e.stopPropagation();
+        applyInlineLabel(lbl);
+      };
+      pop.appendChild(btn);
+    });
+
+    // Add clear button
+    var clsBtn = document.createElement('button');
+    clsBtn.textContent = '✕ 關閉';
+    clsBtn.style.cssText = 'background:#374151;color:#fff;border:none;padding:6px 10px;font-weight:900;font-size:12px;cursor:pointer;border-radius:4px;';
+    clsBtn.onclick = function(e){ e.stopPropagation(); hidePopup(); };
+    pop.appendChild(clsBtn);
+
+    document.body.appendChild(pop);
+    return pop;
+  }
+
+  function hidePopup(){
+    var pop = document.getElementById('bb-inline-popup');
+    if(pop) pop.style.display = 'none';
+    activeRange = null;
+  }
+
+  function showPopupForSelection(){
+    var sel = window.getSelection();
+    if(!sel || sel.isCollapsed || !sel.toString().trim()){
+      hidePopup();
+      return;
+    }
+    activeRange = sel.getRangeAt(0).cloneRange();
+    var rect = activeRange.getBoundingClientRect();
+    var pop = document.getElementById('bb-inline-popup') || createPopup();
+    
+    pop.style.display = 'flex';
+    var left = Math.max(10, rect.left + window.scrollX);
+    var top = rect.bottom + window.scrollY + 8;
+    pop.style.left = left + 'px';
+    pop.style.top = top + 'px';
+  }
+
+  function applyInlineLabel(lbl){
+    if(!activeRange) return;
+
+    var span = document.createElement('span');
+    span.className = 'bb-in-text-tag';
+    span.style.cssText = 'display:inline-flex;flex-direction:column;align-items:center;vertical-align:bottom;margin:0 2px;cursor:pointer;';
+
+    var txtSpan = document.createElement('span');
+    txtSpan.style.cssText = 'font-weight:700;border-bottom:4px solid '+lbl.c+';padding:0 2px;color:#1e293b;line-height:1.2;';
+    txtSpan.appendChild(activeRange.extractContents());
+
+    var tagSpan = document.createElement('span');
+    tagSpan.style.cssText = 'background:'+lbl.c+';color:'+lbl.t+';font-size:11px;padding:1px 6px;border-radius:3px;font-weight:900;margin-top:2px;white-space:nowrap;font-family:sans-serif;';
+    tagSpan.textContent = lbl.lb;
+
+    span.appendChild(txtSpan);
+    span.appendChild(tagSpan);
+
+    // Allow clicking tag to remove it
+    span.onclick = function(e){
+      e.stopPropagation();
+      var parent = span.parentNode;
+      while(txtSpan.firstChild){
+        parent.insertBefore(txtSpan.firstChild, span);
+      }
+      parent.removeChild(span);
+    };
+
+    activeRange.insertNode(span);
+    window.getSelection().removeAllRanges();
+    hidePopup();
+  }
+
+  document.addEventListener('mouseup', function(){ setTimeout(showPopupForSelection, 100); });
+  document.addEventListener('touchend', function(){ setTimeout(showPopupForSelection, 200); });
+})();
+</script>
+
 </head><body>
 <h1>📚 從台江看世界 English Worksheet</h1>
 <div style="font-size:11pt;color:#374151;margin-bottom:8px">水水台江 ｜ 🌊 Wonders of the Wetland</div>
@@ -6339,6 +6567,120 @@ fb.onclick=function(){if(typeof bbOpen==='function')bbOpen();};document.body.app
 })();
 </script>
 
+
+<script id="bb-inline-annotator">
+(function(){
+  var BB_LABELS=[
+    {k:'S',   lb:'主詞 S',       c:'#1B4F8A',t:'#fff'},
+    {k:'V',   lb:'動詞 V',       c:'#D4380D',t:'#fff'},
+    {k:'O',   lb:'受詞 O',       c:'#2E5E3E',t:'#fff'},
+    {k:'SC',  lb:'主詞補語 SC',  c:'#7C1D1D',t:'#fff'},
+    {k:'OC',  lb:'受詞補語 OC',  c:'#6B21A8',t:'#fff'},
+    {k:'AUX', lb:'助動詞',       c:'#0369a1',t:'#fff'},
+    {k:'ADJ', lb:'形容詞子句',   c:'#b45309',t:'#fff'},
+    {k:'ADV', lb:'副詞子句',     c:'#166534',t:'#fff'},
+    {k:'NCL', lb:'名詞子句',     c:'#9d174d',t:'#fff'},
+    {k:'PP',  lb:'介系詞片語',   c:'#374151',t:'#fff'},
+    {k:'REL', lb:'關係代名詞',   c:'#1e3a5f',t:'#fff'},
+    {k:'LOC', lb:'地方副詞',     c:'#0f766e',t:'#fff'},
+    {k:'TMP', lb:'時間副詞',     c:'#7e22ce',t:'#fff'},
+    {k:'INV', lb:'倒裝句型',     c:'#be185d',t:'#fff'},
+    {k:'NEG', lb:'否定副詞',     c:'#b91c1c',t:'#fff'},
+    {k:'PART',lb:'分詞構句',     c:'#c2410c',t:'#fff'}
+  ];
+
+  var activeRange = null;
+
+  // Create popup toolbar container inside document
+  function createPopup(){
+    var pop = document.createElement('div');
+    pop.id = 'bb-inline-popup';
+    pop.style.cssText = 'display:none;position:absolute;z-index:99999;background:#1A1A1A;padding:8px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.4);border:2px solid #E8A020;max-width:92vw;flex-wrap:wrap;gap:6px;font-family:Nunito,sans-serif;';
+    
+    BB_LABELS.forEach(function(lbl){
+      var btn = document.createElement('button');
+      btn.textContent = lbl.lb;
+      btn.style.cssText = 'background:'+lbl.c+';color:'+lbl.t+';border:none;padding:6px 10px;font-weight:900;font-size:12px;cursor:pointer;border-radius:4px;white-space:nowrap;';
+      btn.onpointerdown = function(e){ e.preventDefault(); };
+      btn.onclick = function(e){
+        e.stopPropagation();
+        applyInlineLabel(lbl);
+      };
+      pop.appendChild(btn);
+    });
+
+    // Add clear button
+    var clsBtn = document.createElement('button');
+    clsBtn.textContent = '✕ 關閉';
+    clsBtn.style.cssText = 'background:#374151;color:#fff;border:none;padding:6px 10px;font-weight:900;font-size:12px;cursor:pointer;border-radius:4px;';
+    clsBtn.onclick = function(e){ e.stopPropagation(); hidePopup(); };
+    pop.appendChild(clsBtn);
+
+    document.body.appendChild(pop);
+    return pop;
+  }
+
+  function hidePopup(){
+    var pop = document.getElementById('bb-inline-popup');
+    if(pop) pop.style.display = 'none';
+    activeRange = null;
+  }
+
+  function showPopupForSelection(){
+    var sel = window.getSelection();
+    if(!sel || sel.isCollapsed || !sel.toString().trim()){
+      hidePopup();
+      return;
+    }
+    activeRange = sel.getRangeAt(0).cloneRange();
+    var rect = activeRange.getBoundingClientRect();
+    var pop = document.getElementById('bb-inline-popup') || createPopup();
+    
+    pop.style.display = 'flex';
+    var left = Math.max(10, rect.left + window.scrollX);
+    var top = rect.bottom + window.scrollY + 8;
+    pop.style.left = left + 'px';
+    pop.style.top = top + 'px';
+  }
+
+  function applyInlineLabel(lbl){
+    if(!activeRange) return;
+
+    var span = document.createElement('span');
+    span.className = 'bb-in-text-tag';
+    span.style.cssText = 'display:inline-flex;flex-direction:column;align-items:center;vertical-align:bottom;margin:0 2px;cursor:pointer;';
+
+    var txtSpan = document.createElement('span');
+    txtSpan.style.cssText = 'font-weight:700;border-bottom:4px solid '+lbl.c+';padding:0 2px;color:#1e293b;line-height:1.2;';
+    txtSpan.appendChild(activeRange.extractContents());
+
+    var tagSpan = document.createElement('span');
+    tagSpan.style.cssText = 'background:'+lbl.c+';color:'+lbl.t+';font-size:11px;padding:1px 6px;border-radius:3px;font-weight:900;margin-top:2px;white-space:nowrap;font-family:sans-serif;';
+    tagSpan.textContent = lbl.lb;
+
+    span.appendChild(txtSpan);
+    span.appendChild(tagSpan);
+
+    // Allow clicking tag to remove it
+    span.onclick = function(e){
+      e.stopPropagation();
+      var parent = span.parentNode;
+      while(txtSpan.firstChild){
+        parent.insertBefore(txtSpan.firstChild, span);
+      }
+      parent.removeChild(span);
+    };
+
+    activeRange.insertNode(span);
+    window.getSelection().removeAllRanges();
+    hidePopup();
+  }
+
+  document.addEventListener('mouseup', function(){ setTimeout(showPopupForSelection, 100); });
+  document.addEventListener('touchend', function(){ setTimeout(showPopupForSelection, 200); });
+})();
+</script>
+
 </head><body>
 <h1>📚 從台江看世界 English Worksheet</h1>
 <div style="font-size:11pt;color:#374151;margin-bottom:8px">地景之旅 ｜ 🏞️ Stories in the Landscape</div>
@@ -6410,6 +6752,120 @@ fb.onclick=function(){if(typeof bbOpen==='function')bbOpen();};document.body.app
   document.addEventListener('touchend', function(e){
     setTimeout(sendSel, 250);
   });
+})();
+</script>
+
+
+<script id="bb-inline-annotator">
+(function(){
+  var BB_LABELS=[
+    {k:'S',   lb:'主詞 S',       c:'#1B4F8A',t:'#fff'},
+    {k:'V',   lb:'動詞 V',       c:'#D4380D',t:'#fff'},
+    {k:'O',   lb:'受詞 O',       c:'#2E5E3E',t:'#fff'},
+    {k:'SC',  lb:'主詞補語 SC',  c:'#7C1D1D',t:'#fff'},
+    {k:'OC',  lb:'受詞補語 OC',  c:'#6B21A8',t:'#fff'},
+    {k:'AUX', lb:'助動詞',       c:'#0369a1',t:'#fff'},
+    {k:'ADJ', lb:'形容詞子句',   c:'#b45309',t:'#fff'},
+    {k:'ADV', lb:'副詞子句',     c:'#166534',t:'#fff'},
+    {k:'NCL', lb:'名詞子句',     c:'#9d174d',t:'#fff'},
+    {k:'PP',  lb:'介系詞片語',   c:'#374151',t:'#fff'},
+    {k:'REL', lb:'關係代名詞',   c:'#1e3a5f',t:'#fff'},
+    {k:'LOC', lb:'地方副詞',     c:'#0f766e',t:'#fff'},
+    {k:'TMP', lb:'時間副詞',     c:'#7e22ce',t:'#fff'},
+    {k:'INV', lb:'倒裝句型',     c:'#be185d',t:'#fff'},
+    {k:'NEG', lb:'否定副詞',     c:'#b91c1c',t:'#fff'},
+    {k:'PART',lb:'分詞構句',     c:'#c2410c',t:'#fff'}
+  ];
+
+  var activeRange = null;
+
+  // Create popup toolbar container inside document
+  function createPopup(){
+    var pop = document.createElement('div');
+    pop.id = 'bb-inline-popup';
+    pop.style.cssText = 'display:none;position:absolute;z-index:99999;background:#1A1A1A;padding:8px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.4);border:2px solid #E8A020;max-width:92vw;flex-wrap:wrap;gap:6px;font-family:Nunito,sans-serif;';
+    
+    BB_LABELS.forEach(function(lbl){
+      var btn = document.createElement('button');
+      btn.textContent = lbl.lb;
+      btn.style.cssText = 'background:'+lbl.c+';color:'+lbl.t+';border:none;padding:6px 10px;font-weight:900;font-size:12px;cursor:pointer;border-radius:4px;white-space:nowrap;';
+      btn.onpointerdown = function(e){ e.preventDefault(); };
+      btn.onclick = function(e){
+        e.stopPropagation();
+        applyInlineLabel(lbl);
+      };
+      pop.appendChild(btn);
+    });
+
+    // Add clear button
+    var clsBtn = document.createElement('button');
+    clsBtn.textContent = '✕ 關閉';
+    clsBtn.style.cssText = 'background:#374151;color:#fff;border:none;padding:6px 10px;font-weight:900;font-size:12px;cursor:pointer;border-radius:4px;';
+    clsBtn.onclick = function(e){ e.stopPropagation(); hidePopup(); };
+    pop.appendChild(clsBtn);
+
+    document.body.appendChild(pop);
+    return pop;
+  }
+
+  function hidePopup(){
+    var pop = document.getElementById('bb-inline-popup');
+    if(pop) pop.style.display = 'none';
+    activeRange = null;
+  }
+
+  function showPopupForSelection(){
+    var sel = window.getSelection();
+    if(!sel || sel.isCollapsed || !sel.toString().trim()){
+      hidePopup();
+      return;
+    }
+    activeRange = sel.getRangeAt(0).cloneRange();
+    var rect = activeRange.getBoundingClientRect();
+    var pop = document.getElementById('bb-inline-popup') || createPopup();
+    
+    pop.style.display = 'flex';
+    var left = Math.max(10, rect.left + window.scrollX);
+    var top = rect.bottom + window.scrollY + 8;
+    pop.style.left = left + 'px';
+    pop.style.top = top + 'px';
+  }
+
+  function applyInlineLabel(lbl){
+    if(!activeRange) return;
+
+    var span = document.createElement('span');
+    span.className = 'bb-in-text-tag';
+    span.style.cssText = 'display:inline-flex;flex-direction:column;align-items:center;vertical-align:bottom;margin:0 2px;cursor:pointer;';
+
+    var txtSpan = document.createElement('span');
+    txtSpan.style.cssText = 'font-weight:700;border-bottom:4px solid '+lbl.c+';padding:0 2px;color:#1e293b;line-height:1.2;';
+    txtSpan.appendChild(activeRange.extractContents());
+
+    var tagSpan = document.createElement('span');
+    tagSpan.style.cssText = 'background:'+lbl.c+';color:'+lbl.t+';font-size:11px;padding:1px 6px;border-radius:3px;font-weight:900;margin-top:2px;white-space:nowrap;font-family:sans-serif;';
+    tagSpan.textContent = lbl.lb;
+
+    span.appendChild(txtSpan);
+    span.appendChild(tagSpan);
+
+    // Allow clicking tag to remove it
+    span.onclick = function(e){
+      e.stopPropagation();
+      var parent = span.parentNode;
+      while(txtSpan.firstChild){
+        parent.insertBefore(txtSpan.firstChild, span);
+      }
+      parent.removeChild(span);
+    };
+
+    activeRange.insertNode(span);
+    window.getSelection().removeAllRanges();
+    hidePopup();
+  }
+
+  document.addEventListener('mouseup', function(){ setTimeout(showPopupForSelection, 100); });
+  document.addEventListener('touchend', function(){ setTimeout(showPopupForSelection, 200); });
 })();
 </script>
 
