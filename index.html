@@ -395,7 +395,7 @@ summary.ls::marker,summary.ls::-webkit-details-marker{display:none}
 </div>
 
 <script id="bb-js">
-// ════ 句構板書 v8：全中文標籤 + 標籤置於文字下方 ════
+// ════ 句構板書 v9：支援跨 iframe / postMessage 全域呼叫 ════
 var BB_LABELS=[
   {k:'S',   lb:'主詞 S',       c:'#1B4F8A',t:'#fff'},
   {k:'V',   lb:'動詞 V',       c:'#D4380D',t:'#fff'},
@@ -416,12 +416,18 @@ var BB_LABELS=[
 ];
 var bbChunks=[], bbSS=-1, bbSE=-1, bbSelText='';
 
-function bbOpen(){
-  document.getElementById('bb-modal').style.display='flex';
-  setTimeout(function(){
-    var ta=document.getElementById('bb-ta');
-    if(ta){ta.focus();ta.select();}
-  },200);
+function bbOpen(presetText){
+  var modal=document.getElementById('bb-modal');
+  if(modal) modal.style.display='flex';
+  var ta=document.getElementById('bb-ta');
+  if(ta){
+    if(typeof presetText==='string' && presetText.trim().length>0){
+      ta.value=presetText.trim();
+      bbChunks=[];
+      bbRender(ta.value);
+    }
+    setTimeout(function(){ ta.focus(); ta.select(); }, 200);
+  }
 }
 function bbClose(){ document.getElementById('bb-modal').style.display='none'; }
 
@@ -455,7 +461,6 @@ function bbRender(sentence){
   bbChunks.forEach(function(c){
     if(c.s>p) r+=bbEsc(sentence.substring(p,c.s));
     var lbl=BB_LABELS.find(function(l){return l.k===c.k;})||{lb:c.k,c:'#666',t:'#fff'};
-    // Render text FIRST cleanly, then place label tag BELOW the underline so text is never covered!
     r+='<span style="display:inline-flex;flex-direction:column;align-items:center;vertical-align:bottom;margin:0 4px 10px 4px;">'
       +'<span style="font-size:30px;font-weight:700;padding:2px 8px;font-family:Georgia,serif;color:#1e293b;border-bottom:5px solid '+lbl.c+';line-height:1.2;">'+bbEsc(c.txt)+'</span>'
       +'<span style="background:'+lbl.c+';color:'+lbl.t+';font-size:13px;padding:2px 8px;border-radius:4px;font-weight:900;margin-top:4px;white-space:nowrap;font-family:Nunito,sans-serif;">'+lbl.lb+'</span>'
@@ -484,6 +489,13 @@ function bbInputChange(){
   bbChunks=[];
   bbRender(ta?ta.value:'');
 }
+
+// Global window message listener for iframe / external calls
+window.addEventListener('message', function(e){
+  if(e.data && e.data.action==='openBB'){
+    bbOpen(e.data.text || '');
+  }
+});
 </script>
 
 
