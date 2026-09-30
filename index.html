@@ -243,6 +243,24 @@ summary.ls::marker,summary.ls::-webkit-details-marker{display:none}
 }
 #cc-close:hover{color:#7f1d1d;}
 </style>
+
+<script id="bb-iframe-bridge">
+(function(){
+  function sendSel(){
+    var s = window.getSelection().toString().trim();
+    if(s.length > 3 && window.parent && window.parent !== window){
+      window.parent.postMessage({ action: 'openBB', text: s }, '*');
+    }
+  }
+  document.addEventListener('mouseup', function(e){
+    setTimeout(sendSel, 150);
+  });
+  document.addEventListener('touchend', function(e){
+    setTimeout(sendSel, 250);
+  });
+})();
+</script>
+
 </head>
 <body style="background:#FFF8F0">
 
@@ -6166,7 +6184,25 @@ var TJ_WS = {};  // worksheet data loaded separately
       button { display:none !important; }
     }
     
-}</style></head><body>
+}</style>
+<script id="bb-iframe-bridge">
+(function(){
+  function sendSel(){
+    var s = window.getSelection().toString().trim();
+    if(s.length > 3 && window.parent && window.parent !== window){
+      window.parent.postMessage({ action: 'openBB', text: s }, '*');
+    }
+  }
+  document.addEventListener('mouseup', function(e){
+    setTimeout(sendSel, 150);
+  });
+  document.addEventListener('touchend', function(e){
+    setTimeout(sendSel, 250);
+  });
+})();
+</script>
+
+</head><body>
 <h1>📚 從台江看世界 English Worksheet</h1>
 <div style="font-size:11pt;color:#374151;margin-bottom:8px">水水台江 ｜ 🌊 Wonders of the Wetland</div>
 
@@ -6285,6 +6321,24 @@ fb.onclick=function(){if(typeof bbOpen==='function')bbOpen();};document.body.app
 <meta charset="utf-8">
 <title>台江英文學習單 — 🏞️ Stories in the Landscape</title>
 
+
+<script id="bb-iframe-bridge">
+(function(){
+  function sendSel(){
+    var s = window.getSelection().toString().trim();
+    if(s.length > 3 && window.parent && window.parent !== window){
+      window.parent.postMessage({ action: 'openBB', text: s }, '*');
+    }
+  }
+  document.addEventListener('mouseup', function(e){
+    setTimeout(sendSel, 150);
+  });
+  document.addEventListener('touchend', function(e){
+    setTimeout(sendSel, 250);
+  });
+})();
+</script>
+
 </head><body>
 <h1>📚 從台江看世界 English Worksheet</h1>
 <div style="font-size:11pt;color:#374151;margin-bottom:8px">地景之旅 ｜ 🏞️ Stories in the Landscape</div>
@@ -6340,6 +6394,24 @@ fb.onclick=function(){if(typeof bbOpen==='function')bbOpen();};document.body.app
   'theme3_food': `<!DOCTYPE html><html lang="zh-TW"><head>
 <meta charset="utf-8">
 <title>台江英文學習單 — 🍽️ Flavors of Taijiang</title>
+
+
+<script id="bb-iframe-bridge">
+(function(){
+  function sendSel(){
+    var s = window.getSelection().toString().trim();
+    if(s.length > 3 && window.parent && window.parent !== window){
+      window.parent.postMessage({ action: 'openBB', text: s }, '*');
+    }
+  }
+  document.addEventListener('mouseup', function(e){
+    setTimeout(sendSel, 150);
+  });
+  document.addEventListener('touchend', function(e){
+    setTimeout(sendSel, 250);
+  });
+})();
+</script>
 
 </head><body>
 <h1>📚 從台江看世界 English Worksheet</h1>
