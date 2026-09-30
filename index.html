@@ -6191,6 +6191,23 @@ var TJ_WS = {};  // worksheet data loaded separately
   } else { initTabs(); applyMatisse(); }
 })();
 </script>
+
+<script id="proj-toggle">
+(function(){
+  var btn = document.createElement('button');
+  btn.id = 'proj-btn';
+  btn.textContent = '📽️ 投影模式';
+  btn.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;background:#1A1A1A;color:#E8A020;border:3px solid #E8A020;border-radius:0;font-weight:900;font-size:16px;padding:10px 18px;cursor:pointer;font-family:Nunito,sans-serif;box-shadow:4px 4px 0 #E8A020;';
+  btn.onclick = function(){
+    var on = document.body.classList.toggle('proj');
+    btn.textContent = on ? '✅ 投影中 (點擊關閉)' : '📽️ 投影模式';
+    btn.style.background = on ? '#E8A020' : '#1A1A1A';
+    btn.style.color = on ? '#1A1A1A' : '#E8A020';
+  };
+  document.body.appendChild(btn);
+})();
+</script>
+
 </body></html>`,
   'theme2_landscape': `<!DOCTYPE html><html lang="zh-TW"><head>
 <meta charset="utf-8">
@@ -6555,11 +6572,21 @@ summary.st::marker,summary.st::-webkit-details-marker{display:none!important}
 @media screen{.tc{display:none!important}.tc.on{display:block!important}}
 @media print{.tc{display:block!important}.tabs{display:none!important}}
 
-/* ══ Grace Post (楊苓週報) font sizes ══ */
-#g10-grace-post, #g10-grace-post-2, #g10-grace-post-3 { font-size:68px!important; }
 #g10-grace-post *, #g10-grace-post-2 *, #g10-grace-post-3 * { font-size:68px!important; line-height:1.6!important; }
 #g10-grace-post h3, #g10-grace-post-2 h3, #g10-grace-post-3 h3 { font-size:72px!important; }
 #g10-grace-post h4, #g10-grace-post-2 h4, #g10-grace-post-3 h4 { font-size:68px!important; }
+
+/* ══ 投影模式 Projection Mode ══ */
+body.proj *{font-size:68px!important;line-height:1.6!important;}
+body.proj h1,body.proj h2,body.proj h3{font-size:72px!important;}
+body.proj h4,body.proj h5{font-size:68px!important;}
+body.proj button.tab{font-size:32px!important;padding:14px 28px!important;}
+body.proj div.tabs{padding:8px!important;}
+body.proj summary.ls{font-size:68px!important;padding:20px!important;}
+body.proj table td,body.proj table th{font-size:60px!important;padding:16px!important;}
+body.proj .rq-q button{font-size:60px!important;padding:16px!important;}
+body.proj .rq-hint{font-size:56px!important;}
+body.proj #proj-btn{font-size:22px!important;padding:10px 18px!important;}
 </style>
 <style>@media print{
 
