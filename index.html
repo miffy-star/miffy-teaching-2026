@@ -318,6 +318,10 @@ summary.ls::marker,summary.ls::-webkit-details-marker{display:none}
       <span style="background:#9d174d;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">NCL 名子句</span>
       <span style="background:#1e3a5f;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">REL 關代</span>
       <span style="background:#374151;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">PP 介系詞</span>
+      <span style="background:#0f766e;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">LOC 地方副詞</span>
+      <span style="background:#7e22ce;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">TMP 時間副詞</span>
+      <span style="background:#be185d;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">INV 倒裝</span>
+      <span style="background:#b91c1c;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">NEG 否定副詞</span>
     </div>
     <div id="bb-display" style="min-height:130px;padding:20px 24px;display:flex;flex-wrap:wrap;align-items:flex-end;background:#fafafa">
       <span style="color:#94a3b8;font-style:italic;font-size:15px">貼上句子 → 用 / 切詞組 → 點「切字」→ 點詞組選標籤</span>
@@ -386,7 +390,11 @@ var BB_LABELS=[
   {k:'ADV',label:'ADV 副子句',color:'#166534',text:'#fff'},
   {k:'NCL',label:'NCL 名子句',color:'#9d174d',text:'#fff'},
   {k:'PP', label:'PP 介系詞', color:'#374151',text:'#fff'},
-  {k:'REL',label:'REL 關代',  color:'#1e3a5f',text:'#fff'}
+  {k:'REL',label:'REL 關代',  color:'#1e3a5f',text:'#fff'},
+  {k:'LOC',label:'地方副詞',  color:'#0f766e',text:'#fff'},
+  {k:'TMP',label:'時間副詞',  color:'#7e22ce',text:'#fff'},
+  {k:'INV',label:'倒裝',      color:'#be185d',text:'#fff'},
+  {k:'NEG',label:'否定副詞',  color:'#b91c1c',text:'#fff'}
 ];
 var bbTokens=[];
 function bbOpen(){document.getElementById('bb-modal').style.display='flex';}
