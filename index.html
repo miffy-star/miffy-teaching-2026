@@ -282,49 +282,55 @@ summary.ls::marker,summary.ls::-webkit-details-marker{display:none}
 <div id="bb-panel" style="background:#1A1A1A;padding:10px 20px;border-bottom:3px solid #E8A020;font-family:Nunito,sans-serif;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
   <span style="color:#E8A020;font-weight:900;font-size:15px;white-space:nowrap">⬛ 句構板書</span>
   <button onclick="bbOpen()" style="background:#E8A020;color:#1A1A1A;border:none;padding:8px 20px;font-weight:900;font-size:15px;cursor:pointer;font-family:Nunito,sans-serif">✂️ 開啟</button>
-  <span style="color:#64748b;font-size:13px">貼上句子，用 / 切詞組，點詞組標記</span>
+  <span style="color:#64748b;font-size:13px">點字選取 → 底部標籤列套用</span>
 </div>
 
 <div id="bb-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:10000;background:rgba(0,0,0,.75);align-items:flex-start;justify-content:center;overflow-y:auto;">
-  <div style="background:#fff;width:95%;max-width:900px;margin:20px auto;border:4px solid #1A1A1A;box-shadow:8px 8px 0 #E8A020;font-family:Nunito,sans-serif">
+  <div style="background:#fff;width:95%;max-width:960px;margin:20px auto;border:4px solid #1A1A1A;box-shadow:8px 8px 0 #E8A020;font-family:Nunito,sans-serif">
+    <!-- Header -->
     <div style="background:#1A1A1A;padding:14px 20px;display:flex;align-items:center;justify-content:space-between">
-      <span style="color:#E8A020;font-weight:900;font-size:18px">⬛ 句構板書</span>
+      <span style="color:#E8A020;font-weight:900;font-size:18px">⬛ 句構板書 v4</span>
       <button onclick="bbClose()" style="background:none;border:2px solid #E8A020;color:#E8A020;font-size:20px;cursor:pointer;padding:4px 14px;font-weight:900">✕</button>
     </div>
+    <!-- Input -->
     <div style="padding:16px 20px;border-bottom:2px solid #e2e8f0">
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px">
-        <textarea id="bb-input" rows="3" placeholder="貼上句子，用 / 標詞組界線&#10;例：The man who lives next door / is / a doctor." style="flex:1;min-width:200px;padding:10px;border:2px solid #1e3a5f;font-size:16px;font-family:Nunito,sans-serif;resize:vertical"></textarea>
+        <textarea id="bb-input" rows="3" placeholder="貼上句子…&#10;例：The man who lives next door is a doctor." style="flex:1;min-width:200px;padding:10px;border:2px solid #1e3a5f;font-size:16px;font-family:Nunito,sans-serif;resize:vertical"></textarea>
         <div style="display:flex;flex-direction:column;gap:6px;min-width:96px">
           <button onclick="bbParse()" style="background:#1e3a5f;color:#fff;border:none;padding:10px 12px;font-weight:900;font-size:15px;cursor:pointer">✂️ 切字</button>
+          <button onclick="bbDeselect()" style="background:#fef9c3;color:#92400e;border:2px solid #fbbf24;padding:8px;font-weight:700;font-size:13px;cursor:pointer">取消選取</button>
           <button onclick="bbReset()" style="background:#f1f5f9;color:#374151;border:2px solid #cbd5e1;padding:8px;font-weight:700;font-size:13px;cursor:pointer">重置標籤</button>
           <button onclick="bbClear()" style="background:#fee2e2;color:#dc2626;border:2px solid #dc2626;padding:8px;font-weight:700;font-size:13px;cursor:pointer">清除</button>
         </div>
       </div>
-      <p style="margin:4px 0 0;color:#64748b;font-size:13px">💡 用 <b>/</b> 分隔詞組：<code style="background:#f8fafc;padding:2px 6px;border:1px solid #e2e8f0">The book / that you read / is / great</code></p>
+      <p style="margin:4px 0 0;color:#64748b;font-size:13px">💡 <b>操作：</b>點字 → 變黃（選取）→ 底部出現標籤列 → 點標籤 → 合併成詞組　｜　已標記的詞組再點 → 換標籤</p>
     </div>
+    <!-- Original sentence -->
     <div style="padding:10px 20px;background:#fef9c3;border-bottom:2px solid #fde68a;min-height:34px">
       <span style="color:#92400e;font-size:13px;font-weight:700">原句：</span><span id="bb-original" style="color:#1e293b;font-size:15px;font-family:Georgia,serif;word-break:break-word"></span>
     </div>
-    <div style="padding:10px 20px;border-bottom:2px solid #e2e8f0;display:flex;flex-wrap:wrap;gap:5px;align-items:center">
-      <span style="color:#64748b;font-size:12px;font-weight:700;margin-right:2px">點詞組循環標記：</span>
-      <span style="background:#1B4F8A;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">S 主詞</span>
-      <span style="background:#D4380D;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">V 動詞</span>
-      <span style="background:#2E5E3E;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">O 受詞</span>
-      <span style="background:#7C1D1D;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">SC 主補</span>
-      <span style="background:#6B21A8;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">OC 受補</span>
-      <span style="background:#0369a1;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">AUX 助動</span>
-      <span style="background:#b45309;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">ADJ 形子句</span>
-      <span style="background:#166534;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">ADV 副子句</span>
-      <span style="background:#9d174d;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">NCL 名子句</span>
-      <span style="background:#1e3a5f;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">REL 關代</span>
-      <span style="background:#374151;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">PP 介系詞</span>
-      <span style="background:#0f766e;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">LOC 地方副詞</span>
-      <span style="background:#7e22ce;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">TMP 時間副詞</span>
-      <span style="background:#be185d;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">INV 倒裝</span>
-      <span style="background:#b91c1c;color:#fff;padding:2px 8px;font-size:12px;font-weight:700;border-radius:3px">NEG 否定副詞</span>
+    <!-- Display area -->
+    <div id="bb-display" style="min-height:140px;padding:20px 24px;display:flex;flex-wrap:wrap;align-items:flex-end;background:#fafafa;border-bottom:3px solid #1A1A1A">
+      <span style="color:#94a3b8;font-style:italic;font-size:15px">貼上句子 → 點「切字」→ 點字選取（變黃）→ 底部標籤列套用</span>
     </div>
-    <div id="bb-display" style="min-height:130px;padding:20px 24px;display:flex;flex-wrap:wrap;align-items:flex-end;background:#fafafa">
-      <span style="color:#94a3b8;font-style:italic;font-size:15px">貼上句子 → 用 / 切詞組 → 點「切字」→ 點詞組選標籤</span>
+    <!-- Label bar (hidden until words selected) -->
+    <div id="bb-label-bar" style="display:none;padding:12px 16px;background:#1A1A1A;flex-wrap:wrap;gap:8px;align-items:center">
+      <span style="color:#E8A020;font-size:13px;font-weight:900;white-space:nowrap">套用標籤：</span>
+      <button onclick="bbApplyLabel('S')"   style="background:#1B4F8A;color:#fff;border:none;padding:8px 14px;font-weight:900;font-size:14px;cursor:pointer;border-radius:4px">S 主詞</button>
+      <button onclick="bbApplyLabel('V')"   style="background:#D4380D;color:#fff;border:none;padding:8px 14px;font-weight:900;font-size:14px;cursor:pointer;border-radius:4px">V 動詞</button>
+      <button onclick="bbApplyLabel('O')"   style="background:#2E5E3E;color:#fff;border:none;padding:8px 14px;font-weight:900;font-size:14px;cursor:pointer;border-radius:4px">O 受詞</button>
+      <button onclick="bbApplyLabel('SC')"  style="background:#7C1D1D;color:#fff;border:none;padding:8px 14px;font-weight:900;font-size:14px;cursor:pointer;border-radius:4px">SC 主補</button>
+      <button onclick="bbApplyLabel('OC')"  style="background:#6B21A8;color:#fff;border:none;padding:8px 14px;font-weight:900;font-size:14px;cursor:pointer;border-radius:4px">OC 受補</button>
+      <button onclick="bbApplyLabel('AUX')" style="background:#0369a1;color:#fff;border:none;padding:8px 14px;font-weight:900;font-size:14px;cursor:pointer;border-radius:4px">AUX 助動</button>
+      <button onclick="bbApplyLabel('ADJ')" style="background:#b45309;color:#fff;border:none;padding:8px 14px;font-weight:900;font-size:14px;cursor:pointer;border-radius:4px">ADJ 形子句</button>
+      <button onclick="bbApplyLabel('ADV')" style="background:#166534;color:#fff;border:none;padding:8px 14px;font-weight:900;font-size:14px;cursor:pointer;border-radius:4px">ADV 副子句</button>
+      <button onclick="bbApplyLabel('NCL')" style="background:#9d174d;color:#fff;border:none;padding:8px 14px;font-weight:900;font-size:14px;cursor:pointer;border-radius:4px">NCL 名子句</button>
+      <button onclick="bbApplyLabel('PP')"  style="background:#374151;color:#fff;border:none;padding:8px 14px;font-weight:900;font-size:14px;cursor:pointer;border-radius:4px">PP 介系詞</button>
+      <button onclick="bbApplyLabel('REL')" style="background:#1e3a5f;color:#fff;border:none;padding:8px 14px;font-weight:900;font-size:14px;cursor:pointer;border-radius:4px">REL 關代</button>
+      <button onclick="bbApplyLabel('LOC')" style="background:#0f766e;color:#fff;border:none;padding:8px 14px;font-weight:900;font-size:14px;cursor:pointer;border-radius:4px">LOC 地方</button>
+      <button onclick="bbApplyLabel('TMP')" style="background:#7e22ce;color:#fff;border:none;padding:8px 14px;font-weight:900;font-size:14px;cursor:pointer;border-radius:4px">TMP 時間</button>
+      <button onclick="bbApplyLabel('INV')" style="background:#be185d;color:#fff;border:none;padding:8px 14px;font-weight:900;font-size:14px;cursor:pointer;border-radius:4px">INV 倒裝</button>
+      <button onclick="bbApplyLabel('NEG')" style="background:#b91c1c;color:#fff;border:none;padding:8px 14px;font-weight:900;font-size:14px;cursor:pointer;border-radius:4px">NEG 否定</button>
     </div>
   </div>
 </div></div>
@@ -378,62 +384,127 @@ summary.ls::marker,summary.ls::-webkit-details-marker{display:none}
 </div>
 
 <script id="bb-js">
+// ════════ 句構板書 v4：點字選取 → 底部標籤列套用 ════════
 var BB_LABELS=[
-  {k:'',   label:'',          color:'transparent',text:'#333'},
-  {k:'S',  label:'S 主詞',    color:'#1B4F8A',text:'#fff'},
-  {k:'V',  label:'V 動詞',    color:'#D4380D',text:'#fff'},
-  {k:'O',  label:'O 受詞',    color:'#2E5E3E',text:'#fff'},
-  {k:'SC', label:'SC 主補',   color:'#7C1D1D',text:'#fff'},
-  {k:'OC', label:'OC 受補',   color:'#6B21A8',text:'#fff'},
-  {k:'AUX',label:'AUX 助動',  color:'#0369a1',text:'#fff'},
-  {k:'ADJ',label:'ADJ 形子句',color:'#b45309',text:'#fff'},
-  {k:'ADV',label:'ADV 副子句',color:'#166534',text:'#fff'},
-  {k:'NCL',label:'NCL 名子句',color:'#9d174d',text:'#fff'},
-  {k:'PP', label:'PP 介系詞', color:'#374151',text:'#fff'},
-  {k:'REL',label:'REL 關代',  color:'#1e3a5f',text:'#fff'},
-  {k:'LOC',label:'地方副詞',  color:'#0f766e',text:'#fff'},
-  {k:'TMP',label:'時間副詞',  color:'#7e22ce',text:'#fff'},
-  {k:'INV',label:'倒裝',      color:'#be185d',text:'#fff'},
-  {k:'NEG',label:'否定副詞',  color:'#b91c1c',text:'#fff'}
+  {k:'S',   label:'S 主詞',    color:'#1B4F8A',text:'#fff'},
+  {k:'V',   label:'V 動詞',    color:'#D4380D',text:'#fff'},
+  {k:'O',   label:'O 受詞',    color:'#2E5E3E',text:'#fff'},
+  {k:'SC',  label:'SC 主補',   color:'#7C1D1D',text:'#fff'},
+  {k:'OC',  label:'OC 受補',   color:'#6B21A8',text:'#fff'},
+  {k:'AUX', label:'AUX 助動',  color:'#0369a1',text:'#fff'},
+  {k:'ADJ', label:'ADJ 形子句',color:'#b45309',text:'#fff'},
+  {k:'ADV', label:'ADV 副子句',color:'#166534',text:'#fff'},
+  {k:'NCL', label:'NCL 名子句',color:'#9d174d',text:'#fff'},
+  {k:'PP',  label:'PP 介系詞', color:'#374151',text:'#fff'},
+  {k:'REL', label:'REL 關代',  color:'#1e3a5f',text:'#fff'},
+  {k:'LOC', label:'LOC 地方',  color:'#0f766e',text:'#fff'},
+  {k:'TMP', label:'TMP 時間',  color:'#7e22ce',text:'#fff'},
+  {k:'INV', label:'INV 倒裝',  color:'#be185d',text:'#fff'},
+  {k:'NEG', label:'NEG 否定',  color:'#b91c1c',text:'#fff'}
 ];
+// Each token: {id, text, label, selected, order}
 var bbTokens=[];
+var bbNextId=0;
+
 function bbOpen(){document.getElementById('bb-modal').style.display='flex';}
 function bbClose(){document.getElementById('bb-modal').style.display='none';}
+
 function bbParse(){
   var raw=document.getElementById('bb-input').value.trim();
   if(!raw)return;
   document.getElementById('bb-original').textContent=raw;
-  var chunks=raw.indexOf('/')>-1 ? raw.split(/\s*\/\s*/).map(function(c){return c.trim();}).filter(Boolean) : raw.split(/\s+/).filter(Boolean);
-  bbTokens=chunks.map(function(w){return{word:w,label:''};});
+  // Always split into individual words first so user can freely select chunks
+  var words=raw.replace(/\s*\/\s*/g,' ').trim().split(/\s+/).filter(Boolean);
+  bbTokens=words.map(function(w,i){return{id:bbNextId++,text:w,label:'',selected:false,order:i};});
   bbRender();
 }
+
+function bbToggle(id){
+  var t=bbTokens.find(function(x){return x.id===id;});
+  if(!t)return;
+  if(t.label){
+    // Already labeled: tap cycles the label (or clears)
+    var cur=BB_LABELS.findIndex(function(l){return l.k===t.label;});
+    var next=(cur+1)%BB_LABELS.length;
+    t.label=BB_LABELS[next].k;
+  } else {
+    // Not labeled: toggle selection
+    t.selected=!t.selected;
+  }
+  bbRender();
+}
+
+function bbApplyLabel(labelKey){
+  var selected=bbTokens.filter(function(t){return t.selected;});
+  if(!selected.length)return;
+  var lbl=BB_LABELS.find(function(l){return l.k===labelKey;});
+  if(!lbl)return;
+  // Merge selected tokens into one
+  var minOrder=Math.min.apply(null,selected.map(function(t){return t.order;}));
+  var mergedText=selected.map(function(t){return t.text;}).join(' ');
+  var merged={id:bbNextId++,text:mergedText,label:labelKey,selected:false,order:minOrder};
+  // Remove selected, insert merged at min position
+  bbTokens=bbTokens.filter(function(t){return !t.selected;});
+  bbTokens.push(merged);
+  bbTokens.sort(function(a,b){return a.order-b.order;});
+  bbRender();
+}
+
+function bbClearLabel(id){
+  var t=bbTokens.find(function(x){return x.id===id;});
+  if(t){t.label='';t.selected=false;}
+  // If it was a merged chunk, optionally split back (advanced - skip for now)
+  bbRender();
+}
+
 function bbRender(){
-  var out=document.getElementById('bb-display');
-  if(!out)return;
-  out.innerHTML='';
-  if(!bbTokens.length){out.innerHTML='<span style="color:#94a3b8;font-style:italic;font-size:15px">貼上句子 → 用 / 切詞組 → 點「切字」→ 點詞組選標籤</span>';return;}
-  bbTokens.forEach(function(t,i){
-    var lbl=BB_LABELS.find(function(l){return l.k===t.label;})||BB_LABELS[0];
+  var display=document.getElementById('bb-display');
+  var labelBar=document.getElementById('bb-label-bar');
+  if(!display)return;
+
+  var hasSelected=bbTokens.some(function(t){return t.selected;});
+
+  // Show/hide label bar
+  if(labelBar) labelBar.style.display=hasSelected?'flex':'none';
+
+  display.innerHTML='';
+  if(!bbTokens.length){
+    display.innerHTML='<span style="color:#94a3b8;font-style:italic;font-size:15px">貼上句子 → 點「切字」→ 點字選取（變黃）→ 底部標籤列套用</span>';
+    return;
+  }
+
+  bbTokens.forEach(function(t){
+    var lbl=t.label?BB_LABELS.find(function(l){return l.k===t.label;}):null;
     var chip=document.createElement('span');
-    chip.style.cssText='display:inline-flex;flex-direction:column;align-items:center;margin:6px 8px;cursor:pointer;vertical-align:bottom;';
+    chip.style.cssText='display:inline-flex;flex-direction:column;align-items:center;margin:6px 8px;cursor:pointer;vertical-align:bottom;user-select:none;-webkit-user-select:none;';
+
     var tag=document.createElement('span');
-    tag.style.cssText='font-size:13px;font-weight:900;padding:3px 10px;border-radius:4px;min-width:32px;text-align:center;min-height:20px;background:'+(lbl.k?lbl.color:'#f1f5f9')+';color:'+(lbl.k?lbl.text:'#94a3b8')+';';
-    tag.textContent=lbl.label||'——';
+    if(lbl){
+      tag.style.cssText='font-size:13px;font-weight:900;padding:3px 10px;border-radius:4px;min-width:32px;text-align:center;min-height:20px;background:'+lbl.color+';color:'+lbl.text+';';
+      tag.textContent=lbl.label;
+    } else if(t.selected){
+      tag.style.cssText='font-size:13px;font-weight:900;padding:3px 10px;border-radius:4px;min-width:32px;text-align:center;min-height:20px;background:#FDE68A;color:#92400e;';
+      tag.textContent='已選取';
+    } else {
+      tag.style.cssText='font-size:13px;font-weight:900;padding:3px 10px;border-radius:4px;min-width:32px;text-align:center;min-height:20px;background:#f1f5f9;color:#94a3b8;';
+      tag.textContent='——';
+    }
+
     var word=document.createElement('span');
-    word.style.cssText='font-size:26px;font-weight:700;padding:6px 12px;margin-top:4px;font-family:Georgia,serif;'+(lbl.k?'border-bottom:5px solid '+lbl.color+';color:#1e293b;':'border-bottom:3px solid #e2e8f0;color:#374151;');
-    word.textContent=t.word;
+    var borderColor=lbl?lbl.color:(t.selected?'#FBBF24':'#e2e8f0');
+    var bg=t.selected?'#FEF9C3':'transparent';
+    word.style.cssText='font-size:26px;font-weight:700;padding:6px 12px;margin-top:4px;font-family:Georgia,serif;border-bottom:5px solid '+borderColor+';color:#1e293b;background:'+bg+';border-radius:4px 4px 0 0;';
+    word.textContent=t.text;
+
     chip.appendChild(tag);chip.appendChild(word);
-    chip.onclick=(function(idx){return function(){bbCycle(idx);};})(i);
-    out.appendChild(chip);
+    chip.onclick=(function(id){return function(e){e.stopPropagation();bbToggle(id);};})(t.id);
+    display.appendChild(chip);
   });
 }
-function bbCycle(idx){
-  var cur=BB_LABELS.findIndex(function(l){return l.k===bbTokens[idx].label;});
-  bbTokens[idx].label=BB_LABELS[(cur+1)%BB_LABELS.length].k;
-  bbRender();
-}
-function bbReset(){bbTokens.forEach(function(t){t.label='';});bbRender();}
+
+function bbReset(){bbTokens.forEach(function(t){t.label='';t.selected=false;});bbRender();}
 function bbClear(){bbTokens=[];document.getElementById('bb-input').value='';document.getElementById('bb-original').textContent='';bbRender();}
+function bbDeselect(){bbTokens.forEach(function(t){t.selected=false;});bbRender();}
 </script>
 
 
