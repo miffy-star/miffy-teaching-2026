@@ -195,6 +195,79 @@
             width: 4%;
             transition: width 0.4s ease;
         }
+
+        /* =========================================================
+           Mobile & Tablet (iPad) Friendly Responsive Optimizations
+           ========================================================= */
+        @media (max-width: 1024px) {
+            .slide {
+                padding: 1.25rem 1.5rem 5.5rem 1.5rem;
+                justify-content: flex-start;
+                overflow-y: auto;
+                overflow-x: hidden;
+                -webkit-overflow-scrolling: touch;
+            }
+            .slide > .my-auto {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+            }
+            .controls {
+                bottom: 14px;
+                right: 18px;
+                padding: 6px 14px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            body {
+                font-size: 16px;
+            }
+            .slide {
+                padding: 0.9rem 0.85rem 5.8rem 0.85rem;
+            }
+            .whitespace-nowrap {
+                white-space: normal !important;
+            }
+            h1 {
+                font-size: 2rem !important;
+                line-height: 1.25 !important;
+            }
+            h2 {
+                font-size: 1.4rem !important;
+                line-height: 1.3 !important;
+            }
+            .stage-badge {
+                font-size: 0.76rem;
+                padding: 0.3rem 0.75rem;
+                line-height: 1.35;
+                border-radius: 14px;
+            }
+            .quote-card {
+                padding: 0.75rem 1rem;
+            }
+            /* Allow stacked grids on mobile to expand naturally without clipping */
+            .slide .grid[class*="h-["] {
+                height: auto !important;
+            }
+            .slide .img-container {
+                min-height: 200px;
+                max-height: 46vh;
+            }
+            .controls {
+                right: 50%;
+                transform: translateX(50%);
+                bottom: 10px;
+                padding: 6px 14px;
+                gap: 8px;
+                max-width: 95vw;
+                width: max-content;
+            }
+            .btn-nav {
+                width: 38px;
+                height: 38px;
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-coral-400 selection:text-white">
@@ -2067,11 +2140,14 @@
     
     <!-- Global Floating Controls -->
     <div class="controls">
-        <div id="btnPrev" class="btn-nav" title="上一頁 (Left Arrow)"><i class="fa-solid fa-chevron-left"></i></div>
-        <div id="slideIndicator" class="font-mono font-bold text-base text-slate-700 min-w-[80px] text-center px-1">01 / 25</div>
-        <div id="btnNext" class="btn-nav" title="下一頁 (Right Arrow)"><i class="fa-solid fa-chevron-right"></i></div>
-        <div class="h-6 w-px bg-sand-300 mx-1"></div>
-        <div id="btnFullscreen" class="btn-nav" title="全螢幕簡報 (F)"><i class="fa-solid fa-expand"></i></div>
+        <div id="btnPrev" class="btn-nav" title="上一頁 (Left Arrow / 向右滑動)"><i class="fa-solid fa-chevron-left"></i></div>
+        <div id="slideIndicator" class="font-mono font-bold text-sm md:text-base text-slate-700 min-w-[68px] md:min-w-[80px] text-center px-1">01 / 25</div>
+        <div id="btnNext" class="btn-nav" title="下一頁 (Right Arrow / 向左滑動)"><i class="fa-solid fa-chevron-right"></i></div>
+        <div class="h-6 w-px bg-sand-300 mx-0.5 md:mx-1"></div>
+        <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="inline-flex items-center gap-1 bg-rose-600 hover:bg-rose-700 text-white text-xs font-black px-3 py-1.5 rounded-full shadow-sm transition whitespace-nowrap" title="開啟研習 Padlet 資源包與回饋牆">
+            <i class="fa-solid fa-heart"></i> <span>Padlet</span>
+        </a>
+        <div id="btnFullscreen" class="btn-nav hidden sm:flex" title="全螢幕簡報 (F)"><i class="fa-solid fa-expand"></i></div>
     </div>
 
     <!-- Fullscreen Video Modal for HD Viewing -->
@@ -2355,6 +2431,29 @@
             }
             window.addEventListener('hashchange', checkHashSlide);
             checkHashSlide();
+
+            // Mobile & Tablet Touch Swipe Left/Right Navigation
+            let touchStartX = 0;
+            let touchStartY = 0;
+            document.addEventListener('touchstart', (e) => {
+                if (!e.touches || e.touches.length !== 1) return;
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+
+            document.addEventListener('touchend', (e) => {
+                if (!e.changedTouches || e.changedTouches.length !== 1) return;
+                const dx = e.changedTouches[0].clientX - touchStartX;
+                const dy = e.changedTouches[0].clientY - touchStartY;
+                // Only trigger horizontal slide navigation when horizontal swipe clearly dominates vertical scroll
+                if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.6) {
+                    if (dx < 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                }
+            }, { passive: true });
 
             // Enable full-screen image lightbox on every photo container across all slides
             document.querySelectorAll('.img-container').forEach(container => {
