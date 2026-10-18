@@ -1,0 +1,2374 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林明芬老師 演講簡報 ── 從七股潟湖到世界的教育旅程 (25頁 大字清晰版)</title>
+    <!-- Local Offline Tailwind CSS & FontAwesome (100% 零網路離線支援) -->
+    <script src="web_photos/vendor/tailwindcss.js"></script>
+    <link rel="stylesheet" href="web_photos/vendor/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sand: { 50: '#fdfbf7', 100: '#f7f4ea', 200: '#efe8d3', 300: '#e2d7b5', 400: '#d1bf9d' },
+                        lagoon: { 50: '#f0fdfa', 100: '#ccfbf1', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e', 800: '#115e59' },
+                        coral: { 50: '#fff7ed', 100: '#ffedd5', 400: '#fb923c', 500: '#f97316', 600: '#ea580c' },
+                        earth: { 800: '#44403c', 900: '#292524' }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', '"PingFang TC"', '"Heiti TC"', '"Microsoft JhengHei"', 'sans-serif'],
+                        quote: ['"Playfair Display"', 'Georgia', '"PingFang TC"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fcfbf7;
+            color: #292524;
+            overflow: hidden;
+            font-size: 19px; /* Enlarge base font for senior eyes */
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-out;
+            transform: translateY(15px);
+            padding: 2.2rem 4rem;
+            background-color: #fdfbf7;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Large & Uncropped Image Container for Senior Eyes */
+        .img-container {
+            background-color: #f7f4ea;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.07);
+            border: 2px solid #efe8d3;
+            cursor: zoom-in;
+            min-height: 0;
+        }
+
+        .img-container > img {
+            flex: 1 1 0%;
+            min-height: 0;
+            max-width: 100%;
+            max-height: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.35s ease;
+        }
+
+        .img-container:hover > img {
+            transform: scale(1.02);
+        }
+
+        .img-container > div.bottom-0 {
+            position: relative !important;
+            inset: auto !important;
+            width: 100%;
+            flex-shrink: 0;
+            background-color: #0f172a !important;
+        }
+
+        .grid > * {
+            min-height: 0;
+            min-width: 0;
+        }
+
+        .quote-card {
+            background-color: rgba(248, 245, 235, 0.95);
+            border-left: 6px solid #f97316;
+            border-radius: 0 18px 18px 0;
+            padding: 1.25rem 2rem;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+        }
+
+        .stage-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.45rem 1.25rem;
+            border-radius: 9999px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            background-color: #efe8d3;
+            color: #0f766e;
+            margin-bottom: 0.85rem;
+        }
+
+        .yinghai-badge {
+            background-color: #0d9488;
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-left: 0.6rem;
+        }
+
+        .qr-box {
+            background: #ffffff;
+            border: 2px solid #efe8d3;
+            border-radius: 18px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 22px;
+            right: 28px;
+            z-index: 100;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 8px 20px;
+            border-radius: 999px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            border: 2px solid rgba(239, 232, 211, 0.9);
+        }
+
+        .btn-nav {
+            color: #0f766e;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.25rem;
+        }
+
+        .btn-nav:hover {
+            color: #ffffff;
+            background-color: #f97316;
+        }
+
+        .progress-bar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: rgba(239, 232, 211, 0.5);
+            z-index: 100;
+        }
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #0d9488, #f97316);
+            width: 4%;
+            transition: width 0.4s ease;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-coral-400 selection:text-white">
+
+    <!-- Top Progress Bar -->
+    <div class="progress-bar-container">
+        <div id="progressBar" class="progress-bar"></div>
+    </div>
+
+    <!-- ==========================================
+         STAGE 1: 第一階段：啟航 ── 向外連結，看見世界 (0-30 min)
+         ========================================== -->
+
+    <!-- Slide 1: 專案封面 (三民高中研習官方主題) -->
+    <section class="slide active" id="slide-1">
+        <div class="content-z max-w-5xl mx-auto text-center my-auto flex flex-col items-center justify-center space-y-6">
+            <div class="stage-badge mb-2 bg-amber-50 text-amber-900 border border-amber-300 shadow-sm">
+                <i class="fa-solid fa-graduation-cap text-lagoon-600"></i>
+                <span>高雄市立三民高中 雙語跨域教學研習</span>
+            </div>
+            
+            <h1  class="text-5xl md:text-6xl font-black text-slate-800 tracking-tight leading-tight">The World Is Your Oyster</h1>
+            <p class="text-slate-600 text-lg md:text-xl font-bold mb-3.5">從七股潟湖到世界的教育旅程</p>
+            <p class="text-2xl md:text-3xl font-bold text-lagoon-700 font-sans">
+                大綱：在地走讀 × 跨域共創 × 情緒陪伴 × 數位賦能
+            </p>
+            
+            <div class="pt-3 pb-1 flex flex-col items-center space-y-2">
+                <p class="text-3xl font-black text-slate-800 whitespace-nowrap">
+                    講師：台南瀛海國際高中 林明芬老師
+                </p>
+                <p class="text-lg text-slate-600 font-bold">
+                    主軸經緯：空間經緯（在地 ➔ 國際） × 工具經緯（紙本QR ➔ 網頁製作）
+                </p>
+            </div>
+
+            <div class="inline-flex items-center gap-3 bg-sand-100 px-7 py-3 rounded-full border border-sand-300 text-slate-800 font-extrabold text-lg shadow-sm">
+                <i class="fa-solid fa-calendar-day text-amber-600"></i>
+                <span>日期：115/10/27 (二) | 時間：13:30-15:30</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2: 講師簡介 ＆ 五年課程迭代主軸 (Speaker Profile & 5-Year Curriculum Iteration) -->
+    <section class="slide" id="slide-2">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200">
+                <i class="fa-solid fa-user-astronaut"></i>
+                <span>第一階段：啟航 | 講師自我介紹 ＆ 五年課程設計迭代之旅</span>
+            </div>
+            
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-1.5 whitespace-nowrap">台南瀛海國際高中 林明芬老師</h2>
+            <p class="text-slate-700 text-lg md:text-xl font-black mb-2">擔任雙語實驗班導師 5 年 ✕ 參與全英計畫 ✕ 國外姐妹校線上交流計畫 5 年 🌟</p>
+            <p class="text-slate-600 text-sm md:text-base font-bold mb-3 leading-relaxed">
+                每一套課程皆由自己從零發想、廣納素材打磨成形；2023 年赴新加坡短期進修的歷練，更讓我篤定對課程設計的熱愛——今天與大家分享的，正是這五年不斷實踐與迭代的軌跡。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center mb-3">
+                <!-- Left: 4 Uncropped Photos Grid (1 MC Photo + Singapore Photos 1, 3, 5) -->
+                <div class="md:col-span-6 grid grid-cols-2 gap-3 h-[47vh]">
+                    <div class="img-container relative group overflow-hidden rounded-xl border border-sand-200 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/國際交流MC.jpg', '擔任國際交流與全校活動大會司儀')">
+                        <img src="web_photos/國際交流MC.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_0148.jpg';" alt="Miffy 擔任大會司儀" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[11px] p-1.5 text-center font-bold">
+                            <i class="fa-solid fa-microphone text-amber-400"></i> 國際交流與大會司儀主持
+                        </div>
+                    </div>
+                    <div class="img-container relative group overflow-hidden rounded-xl border border-sand-200 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/新加坡1.jpg', '2023 獲派赴新加坡參加短期進修 1')">
+                        <img src="web_photos/新加坡1.jpg" alt="2023 新加坡進修 1" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[11px] p-1.5 text-center font-bold">
+                            <i class="fa-solid fa-plane-departure text-amber-400"></i> 2023 新加坡短期進修 1
+                        </div>
+                    </div>
+                    <div class="img-container relative group overflow-hidden rounded-xl border border-sand-200 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/新加坡3.jpg', '2023 獲派赴新加坡參加短期進修 2')">
+                        <img src="web_photos/新加坡3.jpg" alt="2023 新加坡進修 3" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[11px] p-1.5 text-center font-bold">
+                            <i class="fa-solid fa-school text-amber-400"></i> 2023 新加坡短期進修 2
+                        </div>
+                    </div>
+                    <div class="img-container relative group overflow-hidden rounded-xl border border-sand-200 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/新加坡5.jpg', '2023 新加坡短期進修結業 — 確認熱愛課程設計')">
+                        <img src="web_photos/新加坡5.jpg" alt="2023 新加坡進修 5" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[11px] p-1.5 text-center font-bold">
+                            <i class="fa-solid fa-certificate text-amber-400"></i> 2023 新加坡短期進修結業
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right: Miffy's 5-Year Journey & Curriculum Iteration -->
+                <div class="md:col-span-6 flex flex-col justify-center space-y-2.5">
+                    <div class="bg-white p-3.5 rounded-2xl border-l-4 border-lagoon-600 border border-sand-200 shadow-sm">
+                        <h4 class="font-black text-lagoon-700 text-base mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-seedling text-lagoon-600"></i> 1. 五年雙語導師與國際交流深耕
+                        </h4>
+                        <p class="text-slate-700 text-xs md:text-sm leading-relaxed font-medium">
+                            擔任<b>雙語實驗班導師 5 年</b>、持續投入<b>全英計畫</b>，並帶領學生參與<b>國外姐妹校線上交流計畫 5 年</b>，在第一線陪伴孩子用英文連結真實世界。
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-3.5 rounded-2xl border-l-4 border-coral-500 border border-sand-200 shadow-sm">
+                        <h4 class="font-black text-coral-600 text-base mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-lightbulb text-coral-500"></i> 2. 原創發想 × 2023 新加坡進修篤定初心
+                        </h4>
+                        <p class="text-slate-700 text-xs md:text-sm leading-relaxed font-medium">
+                            每一門課都從<b>自身靈感原創發想，再廣泛蒐集素材相輔而成</b>；直到 <b>2023 年獲派赴新加坡短期進修</b>，更確認自己真心熱愛設計課程！
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-3.5 rounded-2xl border-l-4 border-amber-500 border border-sand-200 shadow-sm">
+                        <h4 class="font-black text-amber-800 text-base mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-layer-group text-amber-600"></i> 3. 五年持續實踐與迭代的結晶
+                        </h4>
+                        <p class="text-slate-700 text-xs md:text-sm leading-relaxed font-medium">
+                            <b>緯線（空間）</b>：從七股潟湖、安順鹽場在地走讀 ➔ 跨國姐妹校共學發表。<br>
+                            <b>經線（工具）</b>：從紙本學習單、QR 單字尋寶 ➔ 自建互動網頁與雙教學網站。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2 px-4">
+                <p class="font-quote text-xs md:text-sm text-slate-700 italic font-bold">
+                    「每一套課程皆由自己從零發想、廣納素材打磨成形；2023 年赴新加坡短期進修的歷練，更讓我篤定對課程設計的熱愛——今天與大家分享的，正是這五年不斷實踐與迭代的軌跡。」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: 在地外交 V1.0 (2021年 馬公高中來訪 ── 跨校雙語交流 🤝) -->
+    <section class="slide" id="slide-3">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200">
+                <i class="fa-solid fa-handshake text-lagoon-600"></i>
+                <span>第一階段：啟航 | 2021 年 澎湖馬公高中來訪 ✕ 2026 年 10/9–10/11 跨海緣分延續</span>
+            </div>
+            
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-1">2021 年 澎湖馬公高中來訪</h2>
+            <p class="text-slate-600 text-lg md:text-xl font-bold mb-1">跨校雙語交流 ✕ Scavenger Hunt 尋寶解謎 🤝 從來訪台南到親赴澎湖朝聖</p>
+            <p class="text-slate-600 text-sm md:text-base mb-2.5">2021 年接待馬公高中師生來訪並設計校園 Scavenger Hunt 尋寶謎題；2026 年 10/9–10/11 更親自飛往澎湖馬公高中校門口留影！（點擊照片可全螢幕放大）</p>
+
+            <!-- Top Row: 3 Aspect-Ratio Matched Full Photos (4:3 + 4:3 + 3:4, 100% full uncropped images) -->
+            <div class="flex flex-col md:flex-row gap-3.5 h-[38vh] min-h-0 mb-2.5">
+                <div style="flex: 1.333;" class="flex flex-col min-h-0 overflow-hidden rounded-2xl border-2 border-amber-400 shadow-lg h-full bg-slate-900 cursor-zoom-in" onclick="openImageLightbox('web_photos/馬公高中門口.jpg', '1. 2026 年 10/9–10/11 親赴澎湖「國立馬公高中」校門朝聖合影')">
+                    <div class="flex-1 min-h-0 flex items-center justify-center bg-sand-100 overflow-hidden">
+                        <img src="web_photos/馬公高中門口.jpg" alt="明芬老師於國立馬公高級中學校門口合影" class="w-full h-full object-contain">
+                    </div>
+                    <div class="bg-slate-900 text-white text-xs py-1.5 px-2 text-center font-bold shrink-0">
+                        <i class="fa-solid fa-camera-retro text-amber-400"></i> 1. 2026 年 10/9–10/11 親赴澎湖「國立馬公高中」校門朝聖合影 🐴
+                    </div>
+                </div>
+
+                <div style="flex: 1.333;" class="flex flex-col min-h-0 overflow-hidden rounded-2xl border border-sand-300 shadow-md h-full bg-slate-900 cursor-zoom-in" onclick="openImageLightbox('web_photos/馬公高中來訪.jpg', '2. 2021 年馬公高中師生來訪大合照')">
+                    <div class="flex-1 min-h-0 flex items-center justify-center bg-sand-100 overflow-hidden">
+                        <img src="web_photos/馬公高中來訪.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_0042.jpg';" alt="馬公高中來訪雙語交流" class="w-full h-full object-contain">
+                    </div>
+                    <div class="bg-slate-900 text-white text-xs py-1.5 px-2 text-center font-bold shrink-0">
+                        <i class="fa-solid fa-users text-lagoon-400"></i> 2. 2021 年馬公高中師生來訪大合照
+                    </div>
+                </div>
+
+                <div style="flex: 0.75;" class="flex flex-col min-h-0 overflow-hidden rounded-2xl border border-sand-300 shadow-md h-full bg-slate-900 cursor-zoom-in" onclick="openImageLightbox('web_photos/IMG_1474.jpg?v=upright', '3. Scavenger Hunt 實戰：在校園埋謎題')">
+                    <div class="flex-1 min-h-0 flex items-center justify-center bg-sand-100 overflow-hidden">
+                        <img src="web_photos/IMG_1474.jpg?v=upright" alt="Scavenger Hunt 在埋謎題" class="w-full h-full object-contain">
+                    </div>
+                    <div class="bg-slate-900 text-white text-[11px] py-1.5 px-1.5 text-center font-bold shrink-0 whitespace-nowrap">
+                        <i class="fa-solid fa-magnifying-glass-location text-amber-400"></i> 3. Scavenger Hunt 實戰：在校園埋謎題
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Row: 2 Explanatory Content Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-2">
+                <div class="bg-white p-3 rounded-2xl border border-sand-200 shadow-sm">
+                    <h4 class="font-bold text-lagoon-700 text-sm mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-magnifying-glass-location"></i> 校園 Scavenger Hunt 埋謎題
+                    </h4>
+                    <p class="text-slate-600 text-xs leading-relaxed font-medium">為迎接澎湖馬公高中師生，我們事先在校園各角落「埋謎題」，讓兩校孩子透過英文尋寶解謎自然破冰互動！</p>
+                </div>
+
+                <div class="bg-white p-3 rounded-2xl border border-amber-300 shadow-sm">
+                    <h4 class="font-bold text-coral-600 text-sm mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-heart"></i> 跨越海峽的教學情誼（2021 ➔ 2026）
+                    </h4>
+                    <p class="text-slate-600 text-xs leading-relaxed font-medium">從 2021 年馬公高中來訪開啟在地外交第一步，到 2026 年 10/9–10/11 親訪澎湖馬公高中校門與飛馬校徽合影，這份教學的感動一直都在！</p>
+                </div>
+            </div>
+
+            <div class="quote-card py-2 px-4">
+                <p class="font-quote text-xs text-slate-700 italic">
+                    「2021 年馬公高中來訪開啟了我們在地外交的第一步；2026 年 10/9–10/11 親自飛往澎湖在馬公高中校門口拍下同款飛馬姿勢，這份教學的感動一直都在！」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: 在地外交 V1.1 (2022年 七股體驗蚵農在地生活 ── 生態踏查與採蚵 🦪) -->
+    <section class="slide" id="slide-4">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
+                <i class="fa-solid fa-ship text-amber-600"></i>
+                <span>第一階段：啟航 | 2022 年 七股體驗蚵農在地生活 (1/4)</span>
+            </div>
+            
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-2">2022 年 七股體驗蚵農在地生活</h2>
+            <p class="text-slate-600 text-lg md:text-xl font-bold mb-3">七股潟湖生態踏查與採蚵、挑蚵實作 🦪</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center mb-3">
+                <!-- Left: 4 Photos (2x2 Grid) -->
+                <div class="md:col-span-8 grid grid-cols-2 grid-rows-2 gap-2.5 h-[50vh]">
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/IMG_3984.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3986.jpg';" alt="七股潟湖生態搭船導覽" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
+                            <i class="fa-solid fa-ship text-lagoon-400"></i> 潟湖搭船生態考察
+                        </div>
+                    </div>
+
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/IMG_4032.jpg" onerror="this.onerror=null; this.src='web_photos/oyster_image4.jpeg';" alt="七股蚵田與潟湖實地踏查" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
+                            <i class="fa-solid fa-shoe-prints text-lagoon-400"></i> 蚵田腳踏泥濘考察
+                        </div>
+                    </div>
+
+                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md">
+                        <img src="web_photos/今日挑蚵.jpg" alt="學生分組挑蚵實作體驗" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
+                            <i class="fa-solid fa-hands-holding text-amber-400"></i> 學生分組挑蚵實作體驗
+                        </div>
+                    </div>
+
+                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md">
+                        <img src="web_photos/男生挑蚵.jpg" alt="學生專注挑蚵特寫" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
+                            <i class="fa-solid fa-user-check text-amber-400"></i> 學生專注挑蚵特寫
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Explanatory Content -->
+                <div class="md:col-span-4 flex flex-col justify-center space-y-3.5">
+                    <div class="bg-white p-4 rounded-2xl border border-sand-200 shadow-sm">
+                        <h4 class="font-bold text-amber-700 text-base mb-1.5 flex items-center gap-2">
+                            <i class="fa-solid fa-water text-lg"></i> 親臨七股蚵田與挑蚵
+                        </h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">穿著青蛙裝走入潟湖、圍坐竹簍親手挑蚵，讓孩子走出課本，親眼看見養蚵生態與漁村勞動。</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border border-sand-200 shadow-sm">
+                        <h4 class="font-bold text-lagoon-700 text-base mb-1.5 flex items-center gap-2">
+                            <i class="fa-solid fa-comments text-lg"></i> 蚵農對話與英文紀錄
+                        </h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">聆聽蚵農生活經驗，同步紀錄單字與觀察手稿，化為雙語寫作豐富素材。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2 px-4">
+                <p class="font-quote text-xs text-slate-700 italic">
+                    「2022 年七股體驗蚵農在地生活。我們帶孩子親踩潟湖泥濘、親手挑蚵，用感官與土地對話，讓語言有了真實的重量。」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: 在地外交 V1.2 (2022年 七股體驗蚵農在地生活 ── 串蚵文化與實作 🦪) -->
+    <section class="slide" id="slide-5">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
+                <i class="fa-solid fa-hands-holding-circle text-amber-600"></i>
+                <span>第一階段：啟航 | 2022 年 七股體驗蚵農在地生活 (2/4)</span>
+            </div>
+            
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-2">七股搭蚵架與串蚵實作</h2>
+            <p class="text-slate-600 text-lg md:text-xl font-bold mb-3">親手綁竹製蚵架與穿蚵殼 🦪</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center mb-3">
+                <!-- Left: 4 Photos (2x2 Grid) -->
+                <div class="md:col-span-8 grid grid-cols-2 grid-rows-2 gap-2.5 h-[50vh]">
+                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md">
+                        <img src="web_photos/搭蚵架.jpg" alt="學生親手搭設竹製蚵架實作" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
+                            <i class="fa-solid fa-hammer text-amber-400"></i> 親手搭設與綁竹製蚵架
+                        </div>
+                    </div>
+
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/串蚵.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3986.jpg';" alt="七股串蚵文化實體體驗" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
+                            七股串蚵文化實體體驗
+                        </div>
+                    </div>
+
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/串蚵殼.jpg" onerror="this.onerror=null; this.src='web_photos/串蚵準備工作.jpg';" alt="串蚵殼繩結綁法" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
+                            蚵殼繩結與蚵架細節
+                        </div>
+                    </div>
+
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/串蚵準備工作.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3987.jpg';" alt="串蚵準備與解說" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
+                            串蚵傳統工藝準備工作
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Explanatory Content -->
+                <div class="md:col-span-4 flex flex-col justify-center space-y-3.5">
+                    <div class="bg-white p-4 rounded-2xl border border-sand-200 shadow-sm">
+                        <h4 class="font-bold text-amber-700 text-base mb-1.5 flex items-center gap-2">
+                            <i class="fa-solid fa-hand-holding-heart text-lg"></i> 搭蚵架與五感體驗
+                        </h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">讓孩子分工合作綁製竹蚵架、觸摸蚵殼粗糙的紋理，在動手做中累積道地的真實英文詞彙。</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border border-sand-200 shadow-sm">
+                        <h4 class="font-bold text-lagoon-700 text-base mb-1.5 flex items-center gap-2">
+                            <i class="fa-solid fa-users-gear text-lg"></i> 蚵農協同教學
+                        </h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">邀請在地蚵農示範搭蚵架與串蚵訣竅，學生擔任英文翻譯助手，創造接地氣的產學合作。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2 px-4">
+                <p class="font-quote text-xs text-slate-700 italic">
+                    「體驗要極致狂野！親手串蚵繩、綁竹蚵架，讓語言不再是課本上的死符號，而是身體記住的活記憶。」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: 在地外交 V1.3 (2022年 七股體驗蚵農在地生活 ── 雙語學習單與導覽 📜) -->
+    <section class="slide" id="slide-6">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200">
+                <i class="fa-solid fa-file-signature text-lagoon-600"></i>
+                <span>第一階段：啟航 | 2022 年 七股體驗蚵農在地生活 (3/4)</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-2">七股雙語學習單與導覽</h2>
+            <p class="text-slate-600 text-lg md:text-xl font-bold mb-3">《蚵在你心裡的名字》雙語成果展示 📜</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center mb-3">
+                <!-- Left: 4 Photos (2x2 Grid) -->
+                <div class="md:col-span-8 grid grid-cols-2 grid-rows-2 gap-2.5 h-[50vh]">
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/七股學習單.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3984.jpg';" alt="七股雙語導覽學習單手稿" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
+                            雙語導覽學習單手稿
+                        </div>
+                    </div>
+
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/蚵P.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_1474.jpg';" alt="出海看蚵仔養殖前的烤蚵吃到飽" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
+                            <i class="fa-solid fa-fire-burner text-amber-400"></i> 出海看蚵仔養殖前的烤蚵🦪吃到飽
+                        </div>
+                    </div>
+
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/挑蚵.jpg" alt="蚵農挑蚵實作前導解說" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
+                            蚵農挑蚵實作前導解說
+                        </div>
+                    </div>
+
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/oyster_image3.jpeg" onerror="this.onerror=null; this.src='web_photos/IMG_4032.jpg';" alt="台江社區雙語告示與觀察" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
+                            台江社區雙語告示觀察
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Explanatory Content -->
+                <div class="md:col-span-4 flex flex-col justify-center space-y-3.5">
+                    <div class="bg-white p-4 rounded-2xl border border-sand-200 shadow-sm">
+                        <h4 class="font-bold text-lagoon-700 text-base mb-1.5 flex items-center gap-2">
+                            <i class="fa-solid fa-book-open text-lg"></i> 簡明雙語對照學習單
+                        </h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">將七股養蚵生態圖文轉化為英文對照詞彙，降階語言難度，建立講述家鄉自信。</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border border-sand-200 shadow-sm">
+                        <h4 class="font-bold text-coral-600 text-base mb-1.5 flex items-center gap-2">
+                            <i class="fa-solid fa-person-chalkboard text-lg"></i> 烤蚵吃到飽 ✕ 在地雙語體驗
+                        </h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">出海看蚵仔養殖前先來場熱騰騰的「烤蚵🦪吃到飽」補充能量，一邊品嚐海味、一邊對照雙語學習單紀錄！</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2 px-4">
+                <p class="font-quote text-xs text-slate-700 italic">
+                    「從產地五感體驗，寫下第一份屬於家鄉的雙語導覽稿，看見孩子的自信眼神。」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: 在地外交 V1.4 (2022年 七股體驗蚵農在地生活 ── 頒獎典禮與特色獎勵 🏆) -->
+    <section class="slide" id="slide-7">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
+                <i class="fa-solid fa-trophy text-amber-600"></i>
+                <span>第一階段：啟航 | 2022 年 七股體驗蚵農在地生活 (4/4)</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-2">七股雙語學習單頒獎典禮</h2>
+            <p class="text-slate-600 text-lg md:text-xl font-bold mb-3.5">《蚵在你心裡的名字》成果表揚與精緻獎項 🏆</p>
+            <p class="text-slate-600 text-base mb-3">學習單優秀表現獎勵：頒發最佳翻譯獎、最佳船長獎與莎士比亞獎！</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center mb-3">
+                <!-- Left: 4 Photos (主持蚵頒獎典禮, 最佳翻譯獎, 三位受獎人, 蚵抱枕) -->
+                <div class="md:col-span-8 grid grid-cols-2 gap-2.5 h-[48vh]">
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/主持蚵頒獎典禮.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_4352.jpg';" alt="林明芬老師主持頒獎典禮" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-2 text-center font-bold">
+                            <i class="fa-solid fa-microphone text-amber-400"></i> 明芬老師主持頒獎典禮
+                        </div>
+                    </div>
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/最佳翻譯獎.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_4357.jpg';" alt="頒發最佳翻譯獎" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-2 text-center font-bold">
+                            <i class="fa-solid fa-award text-amber-400"></i> 頒發最佳翻譯獎
+                        </div>
+                    </div>
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/三位受獎人.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_4370.jpg';" alt="三位獲獎學生合影" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-2 text-center font-bold">
+                            <i class="fa-solid fa-star text-amber-400"></i> 三位獲獎學生合影
+                        </div>
+                    </div>
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/蚵抱枕.jpg" onerror="this.onerror=null; this.src='web_photos/oyster_image2.jpeg';" alt="特製蚵抱枕" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-2 text-center font-bold">
+                            <i class="fa-solid fa-gift text-amber-400"></i> 特製「蚵抱枕」紀念禮
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="md:col-span-4 flex flex-col justify-center space-y-3.5">
+                    <div class="bg-white p-4 rounded-2xl border border-sand-200 shadow-sm">
+                        <h4 class="font-bold text-amber-700 text-base mb-1.5 flex items-center gap-2">
+                            <i class="fa-solid fa-gift text-amber-500"></i> 精心選取的特色獎勵
+                        </h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">學生前往七股體驗採蚵生活後撰寫學習單，優秀獲獎者獲頒精緻在地主題禮物，點亮學習成就感！</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border border-sand-200 shadow-sm">
+                        <h4 class="font-bold text-lagoon-700 text-base mb-1.5 flex items-center gap-2">
+                            <i class="fa-solid fa-crown text-lagoon-600"></i> 趣味多元獎項肯定
+                        </h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">設立最佳翻譯獎、最佳船長獎與莎士比亞獎，肯定學生在雙語翻譯與在地觀察上的卓越成果。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2 px-4">
+                <p class="font-quote text-xs text-slate-700 italic">
+                    「精緻主題禮物是送給優秀學生的肯定！鼓勵他們認真寫學習單，用最佳翻譯獎、最佳船長與莎士比亞獎建立滿滿自信。」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: 110學年難民議題發表 ✕ 2022.12.11 跨國線上國際交流 -->
+    <section class="slide" id="slide-8">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
+                <i class="fa-solid fa-globe text-amber-600"></i>
+                <span>第一階段：奠基 | 110學年 難民議題雙語發表 ✕ 2022.12.11 跨國線上國際交流</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-1.5">國際交流 2022.12.11 🌍 跨國線上發表</h2>
+            <p class="text-slate-600 text-base md:text-lg font-bold mb-3">跨國跨校合作計畫（台江社會 × 110學年難民英文 × 基因工程自然）✕ 台美線上即時雙語對談</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center mb-2.5">
+                <!-- Left: 5 Items Grid (Top Row = 2 Hero Photos, Bottom Row = 難民議題分享 + 交流主題 + Video Player) -->
+                <div class="md:col-span-8 grid grid-cols-12 grid-rows-12 gap-2.5 h-[50vh]">
+                    <!-- Top-Left (6 cols, 6 rows): key_takeaway.jpg -->
+                    <div class="col-span-6 row-span-6 img-container relative group overflow-hidden rounded-2xl border-2 border-coral-400 shadow-lg bg-black/5">
+                        <img src="web_photos/key_takeaway.jpg" alt="2022.12.11 國際交流 Key takeaways sharing" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-coral-600/95 text-white text-xs p-1.5 text-center font-black">
+                            <i class="fa-solid fa-lightbulb text-amber-200"></i> 2022.12.11 Key Takeaways Sharing 雙語發表
+                        </div>
+                    </div>
+
+                    <!-- Top-Right (6 cols, 6 rows): 線上交流.jpg -->
+                    <div class="col-span-6 row-span-6 img-container relative group overflow-hidden rounded-2xl border-2 border-amber-300 shadow-lg">
+                        <img src="web_photos/線上交流.jpg" onerror="this.onerror=null; this.src='web_photos/花美男.jpg';" alt="2022.12.11 線上交流發現一枚花美男" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-xs p-1.5 text-center font-bold">
+                            <i class="fa-solid fa-star text-amber-400"></i> 2022.12.11 線上交流發現一枚花美男 🌟
+                        </div>
+                    </div>
+
+                    <!-- Bottom-Left (4 cols, 6 rows): 難民議題分享.jpg (110學年) -->
+                    <div class="col-span-4 row-span-6 img-container relative group overflow-hidden rounded-2xl border-2 border-lagoon-400 shadow-md">
+                        <img src="web_photos/難民議題分享.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_6929.jpg';" alt="110學年 兩校國際交流 難民議題雙語發表" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-lagoon-700/95 text-white text-[11px] p-1 text-center font-black">
+                            <i class="fa-solid fa-earth-asia text-amber-200"></i> 110學年 難民議題雙語發表
+                        </div>
+                    </div>
+
+                    <!-- Bottom-Middle (4 cols, 6 rows): 交流主題.jpg -->
+                    <div class="col-span-4 row-span-6 img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/交流主題.jpg" alt="跨國跨校合作計畫 三大交流主題架構" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1 text-center font-bold">
+                            跨國合作：台江 × 難民 × 基因
+                        </div>
+                    </div>
+
+                    <!-- Bottom-Right (4 cols, 6 rows): Video Player -->
+                    <div class="col-span-4 row-span-6 relative overflow-hidden rounded-2xl border-2 border-lagoon-400 shadow-lg bg-black group h-full">
+                        <video id="exchangeVideo" controls playsinline preload="auto" src="web_photos/online_exchange_video.mp4" poster="web_photos/線上交流.jpg" class="w-full h-full object-contain bg-black">
+                            您的瀏覽器不支援 HTML5 影片播放。
+                        </video>
+                        <div class="absolute top-1.5 left-1.5 bg-black/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-sm flex items-center gap-1 border border-white/20 z-10 pointer-events-none">
+                            <i class="fa-solid fa-circle-play text-lagoon-400 animate-pulse"></i> 🎥 線上交流錄影
+                        </div>
+                        <button onclick="openVideoModal('web_photos/online_exchange_video.mp4')" class="absolute top-1.5 right-1.5 bg-lagoon-600 hover:bg-lagoon-700 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg transition z-10 flex items-center gap-1">
+                            <i class="fa-solid fa-expand"></i> 全螢幕
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right: 3 Key Highlights -->
+                <div class="md:col-span-4 grid grid-cols-1 gap-3">
+                    <div class="bg-white p-3.5 rounded-xl border-l-4 border-lagoon-600 border border-sand-200 shadow-sm">
+                        <h4 class="font-black text-lagoon-700 text-sm mb-1">🧭 110學年 難民議題雙語發表 × 跨國共備</h4>
+                        <p class="text-slate-600 text-xs font-medium leading-relaxed">
+                            串聯<b>「台江課程(社)、110學年難民議題雙語發表(英)、基因工程(自)」</b>三大主軸，從校內雙語簡報發表推進至跨國線上交流。
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-3.5 rounded-xl border-l-4 border-coral-500 border border-sand-200 shadow-sm">
+                        <h4 class="font-black text-coral-600 text-sm mb-1">📌 2022.12.11 Key Takeaways Sharing</h4>
+                        <p class="text-slate-600 text-xs font-medium leading-relaxed">
+                            台美超過 50 位師生於 Google Meet 同步連線，針對 <b>Energy、Pollution、Location specific issues、Climate change、Chemicals & toxics</b> 進行英文反思發表！
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-3.5 rounded-xl border-l-4 border-amber-500 border border-sand-200 shadow-sm">
+                        <h4 class="font-black text-amber-800 text-sm mb-1">🌟 真實對話展現雙語自信</h4>
+                        <p class="text-slate-600 text-xs font-medium leading-relaxed">
+                            與美國 SPIRAL International / Peggy Lovro 師生即時互動，讓孩子在鏡頭前自然開口、建立跨文化友誼。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2 px-4">
+                <p class="font-quote text-xs text-slate-700 italic">
+                    「從 110 學年全球難民議題雙語發表到 2022.12.11 跨國線上交流，孩子在鏡頭前雙眼發亮地與美國學伴分享彼此的世界。」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 9: 在地外交 V1.9 (2023.2.6 安順鹽場事先踏查：為美國高中來訪做準備 🧂) -->
+    <section class="slide" id="slide-9">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
+                <i class="fa-solid fa-compass-drafting text-amber-600"></i>
+                <span>在地外交 V2.0 | 2023.2.6 安順鹽場事先踏查：為美國高中來訪做準備 (1/4)</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-1.5">2023.2.6 安順鹽場事先踏查 🛠️</h2>
+            <p class="text-slate-600 text-base md:text-lg font-bold mb-3">為美國高中來訪做準備：集合探勘 × 認識扒鹽工具 × 瓦盤鹽田體驗 × 鹽滷豆腐與鹽滷豆花實作 🧂</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center mb-3">
+                <!-- Left: 5 Photos (Top Row = 2 Landscape/Hero, Bottom Row = 3 Portrait/Detail) -->
+                <div class="md:col-span-8 grid grid-cols-12 grid-rows-12 gap-2.5 h-[52vh]">
+                    <!-- Top-Left (6 cols, 6 rows): 安順鹽場集合探勘.jpg -->
+                    <div class="col-span-6 row-span-6 img-container relative group overflow-hidden rounded-2xl border-2 border-amber-400 shadow-lg">
+                        <img src="web_photos/安順鹽場集合探勘.jpg" alt="2023.2.6 安順鹽場集合探勘 為美國高中來訪做準備" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-amber-600/95 text-white text-xs p-1.5 text-center font-black">
+                            <i class="fa-solid fa-people-group text-yellow-200"></i> 2023.2.6 安順鹽場集合探勘
+                        </div>
+                    </div>
+
+                    <!-- Top-Right (6 cols, 6 rows): 扒鹽體驗.jpg -->
+                    <div class="col-span-6 row-span-6 img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/扒鹽體驗.jpg" onerror="this.onerror=null; this.src='web_photos/鹽場.jpg';" alt="2023.2.6 瓦盤鹽田扒鹽實作" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-xs p-1.5 text-center font-bold">
+                            傳統瓦盤鹽田扒鹽實作演練
+                        </div>
+                    </div>
+
+                    <!-- Bottom-Left (4 cols, 6 rows): 扒鹽工具.jpg -->
+                    <div class="col-span-4 row-span-6 img-container relative group overflow-hidden rounded-2xl border-2 border-coral-400 shadow-md">
+                        <img src="web_photos/扒鹽工具.jpg" alt="2023.2.6 認識傳統扒鹽工具與斗笠" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-coral-600/95 text-white text-xs p-1.5 text-center font-black">
+                            <i class="fa-solid fa-screwdriver-wrench text-amber-200"></i> 認識傳統扒鹽工具
+                        </div>
+                    </div>
+
+                    <!-- Bottom-Middle (4 cols, 6 rows): 鹽滷豆腐.jpg -->
+                    <div class="col-span-4 row-span-6 img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/鹽滷豆腐.jpg" alt="2023.2.6 手作鹽滷豆腐" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-xs p-1.5 text-center font-bold">
+                            傳統木模手作鹽滷豆腐
+                        </div>
+                    </div>
+
+                    <!-- Bottom-Right (4 cols, 6 rows): 鹽滷豆花.jpg -->
+                    <div class="col-span-4 row-span-6 img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/鹽滷豆花.jpg" alt="2023.2.6 手作鹽滷豆花" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-xs p-1.5 text-center font-bold">
+                            綿密傳統鹽滷豆花品嚐
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Explanatory Content -->
+                <div class="md:col-span-4 flex flex-col justify-center space-y-3.5">
+                    <div class="bg-white p-4 rounded-2xl border-l-4 border-amber-500 border border-sand-200 shadow-sm">
+                        <span class="text-xs font-extrabold text-amber-700 uppercase tracking-widest block mb-0.5">Step 1｜實地集合探勘 ＆ 扒鹽工具</span>
+                        <h4 class="font-bold text-slate-800 text-base mb-1.5 flex items-center gap-2">
+                            <i class="fa-solid fa-screwdriver-wrench text-amber-600"></i> 為美國高中來訪做萬全準備
+                        </h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">2023.2.6 提前一個月率領學生前往安順鹽場集合探勘，在台江國家公園解說員指導下認識傳統<b>扒鹽工具</b>、斗笠與瓦盤曬鹽工序，實地演練雙語導覽動線！</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border-l-4 border-coral-500 border border-sand-200 shadow-sm">
+                        <span class="text-xs font-extrabold text-coral-600 uppercase tracking-widest block mb-0.5">Step 2｜鹽滷飲食文化體驗</span>
+                        <h4 class="font-bold text-coral-600 text-base mb-1.5 flex items-center gap-2">
+                            <i class="fa-solid fa-bowl-rice"></i> 手作鹽滷豆腐 ✕ 鹽滷豆花
+                        </h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">親手體驗以天然鹽滷水凝固而成的傳統木模<b>鹽滷豆腐</b>與綿密<b>鹽滷豆花</b>，先一步掌握每個步驟的雙語解說詞彙，準備好熱情接待美國學伴。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2 px-4">
+                <p class="font-quote text-xs text-slate-700 italic">
+                    「台上一分鐘，台下十年功！2023.2.6 先帶孩子走進安順鹽場探勘、摸熟扒鹽工具、親嚐鹽滷豆腐與豆花，為一個月後的美國高中來訪做最足的準備。」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: 在地外交 V2.0 (2023.3.9 安順鹽場：花美男來了！台美實體國際交流) -->
+    <section class="slide" id="slide-10">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
+                <i class="fa-solid fa-handshake-angle text-amber-600"></i>
+                <span>在地外交 V2.0 | 2023.3.9 安順鹽場：花美男來了！台美實體國際交流 (2/4)</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-2">2023.3.9 安順鹽場：花美男來了！🌟</h2>
+            <p class="text-slate-600 text-lg md:text-xl font-bold mb-3">台美實體國際交流 ✕ 鹽田聚落挑鹽體驗與台美大合照 🧂</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center mb-3">
+                <!-- Left: 4 Large Photos (2x2 Grid) -->
+                <div class="md:col-span-8 grid grid-cols-2 grid-rows-2 gap-3 h-[50vh]">
+                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-coral-400 shadow-lg">
+                        <img src="web_photos/台美大合照.jpg" alt="2023.3.9 安順鹽場台美師生國際交流大合照" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-coral-600/95 text-white text-xs p-1.5 text-center font-black">
+                            <i class="fa-solid fa-earth-americas text-amber-200"></i> 2023.3.9 台美師生於安順鹽場溫馨大合照
+                        </div>
+                    </div>
+
+                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md">
+                        <img src="web_photos/安順鹽場挑鹽.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_9975.jpg';" alt="2023.3.9 花美男來了 安順鹽場挑鹽體驗" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-xs p-1.5 text-center font-bold">
+                            <i class="fa-solid fa-star text-amber-400"></i> 2023.3.9 花美男來了！挑鹽文化體驗
+                        </div>
+                    </div>
+
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/IMG_0042.jpg" alt="2023.3.9 台美學生赤腳踩鹽與扒鹽實作" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
+                            2023.3.9 台美學生赤腳踩鹽與扒鹽實作
+                        </div>
+                    </div>
+
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/鹽場.jpg" alt="安順鹽場瓦盤鹽田風光" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
+                            安順鹽場傳統瓦盤鹽田風光
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Explanatory Content -->
+                <div class="md:col-span-4 flex flex-col justify-center space-y-3.5">
+                    <div class="bg-white p-4 rounded-2xl border-l-4 border-coral-500 border border-sand-200 shadow-sm">
+                        <h4 class="font-bold text-coral-600 text-base mb-1.5 flex items-center gap-2">
+                            <i class="fa-solid fa-face-grin-stars"></i> 2023.3.9 安順鹽場：花美男來了！
+                        </h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">2022.12.11 線上交流發現的美國「花美男」與夥伴高中師生，繼 <b>2023.3.8 台美友宴</b>溫馨接風後，於 <b>2023.3.9</b> 正式走進台南安順鹽場，留下最珍貴的台美大合照！</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border-l-4 border-lagoon-600 border border-sand-200 shadow-sm">
+                        <h4 class="font-bold text-lagoon-800 text-base mb-1.5 flex items-center gap-2">
+                            <i class="fa-solid fa-cubes-stacked"></i> 挑鹽 × 踩鹽 × 雙語導覽
+                        </h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">透過 2023.2.6 事先踏查的紮實準備，學生自信帶領美國學伴扛起扁擔挑鹽、赤腳踩鹽與扒鹽，在陽光與汗水中自然開口說英文！</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2 px-4">
+                <p class="font-quote text-xs text-slate-700 italic">
+                    「當視訊鏡頭裡的花美男與美國師生於 2023.3.9 真正走進安順鹽場，最接地氣的挑鹽與扒鹽，瞬間變成最難忘的台美國際文化外交！」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 11: 在地外交 V2.1 (2023.3.8 台美友宴 ✕ 2023.3.9 安順鹽場尋寶總部 🍮) -->
+    <section class="slide" id="slide-11">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200">
+                <i class="fa-solid fa-bowl-food text-coral-500"></i>
+                <span>在地外交 V2.1 | 2023.3.8 台美友宴・府城甜味迎賓 ✕ 2023.3.9 安順鹽場尋寶總部 (3/4)</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-1.5">2023.3.8 台美友宴 ✕ 2023.3.9 尋寶總部 🍮</h2>
+            <p class="text-slate-600 text-base md:text-lg font-bold mb-3">以府城古早味豆花推車設席迎賓，款待遠道而來的美國學伴 ✕ 2023.3.9 安順鹽場尋寶總部 (Headquarters)</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+                <!-- Left: Tall 台美友宴 Photo + 3 Headquarters / Tofu Photos -->
+                <div class="md:col-span-8 grid grid-cols-12 gap-3 h-[54vh]">
+                    <!-- Big Hero Card: CGS到瀛海_請客.jpg -->
+                    <div class="col-span-5 img-container relative group overflow-hidden rounded-2xl border-2 border-coral-400 shadow-lg bg-sand-100/60 h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/CGS到瀛海_請客.jpg', '2023.3.8 台美友宴：以府城古早味傳統豆花推車迎賓接風')">
+                        <img src="web_photos/CGS到瀛海_請客.jpg" alt="2023.3.8 台美友宴 CGS 到訪瀛海 古早味豆花推車迎賓" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-coral-600/95 text-white text-xs p-1.5 text-center font-black shadow">
+                            <i class="fa-solid fa-mug-hot text-amber-200"></i> 2023.3.8 台美友宴：府城古早味豆花推車迎賓接風
+                        </div>
+                    </div>
+
+                    <!-- Right Half: 3 Headquarters & Tofu DIY Photos -->
+                    <div class="col-span-7 grid grid-cols-2 grid-rows-2 gap-2.5 h-full">
+                        <div class="col-span-2 img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/IMG_9976.jpg', '2023.3.9 安順鹽場尋寶總部全景 ✕ 鹽滷豆花 DIY')">
+                            <img src="web_photos/IMG_9976.jpg" alt="2023.3.9 安順鹽場尋寶總部全景" class="w-full h-full object-contain bg-sand-100/60">
+                            <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
+                                2023.3.9 安順鹽場尋寶總部全景 ✕ 鹽滷豆花 DIY
+                            </div>
+                        </div>
+                        <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/尋寶總部.jpg', '2023.3.9 尋寶總部與積分榜')">
+                            <img src="web_photos/尋寶總部.jpg" alt="2023.3.9 Headquarters counter 與 Leaderboard 積分榜" class="w-full h-full object-contain bg-sand-100/60">
+                            <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[11px] p-1 text-center font-bold">
+                                2023.3.9 尋寶總部與積分榜
+                            </div>
+                        </div>
+                        <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/IMG_9987.jpg', '2023.3.9 尋寶總部巧拼與獎牌')">
+                            <img src="web_photos/IMG_9987.jpg" alt="2023.3.9 尋寶總部字母巧拼與名次牌" class="w-full h-full object-contain bg-sand-100/60">
+                            <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[11px] p-1 text-center font-bold">
+                                2023.3.9 尋寶總部巧拼與獎牌
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="md:col-span-4 flex flex-col justify-center space-y-3.5">
+                    <div class="bg-white p-4 rounded-2xl border-l-4 border-coral-500 border border-sand-200 shadow-sm">
+                        <span class="text-xs font-extrabold text-coral-600 uppercase tracking-widest block mb-0.5">2023.3.8｜台美友宴・府城甜味迎賓</span>
+                        <h4 class="font-black text-coral-600 text-base mb-1.5">🍮 古早味豆花推車・溫馨接風</h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                            有朋自遠方來！<b>2023.3.8</b> 美國 CGS 夥伴師生初抵台南之夜，特別以極具台灣庶民風情的「古早味傳統豆花推車」設席迎賓，在一碗碗溫潤甘甜的府城風味中破冰寒暄，開啟台美學伴的情誼序幕。
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border-l-4 border-amber-500 border border-sand-200 shadow-sm">
+                        <span class="text-xs font-extrabold text-amber-700 uppercase tracking-widest block mb-0.5">2023.3.9｜安順鹽場實境闖關基地</span>
+                        <h4 class="font-black text-amber-700 text-base mb-1.5">🏕️ 尋寶總部 (Headquarters)</h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                            <b>2023.3.9</b> 於安順鹽場活動中心設立 <b>Headquarters Counter</b> 與 <b>Leaderboard 積分榜</b>，準備好巧拼字母與名次獎牌，迎接各小隊出發單字尋寶！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 12: 在地外交 V2.2 (2023.3.9 安順鹽場：單字尋寶謎紙與第一名隊伍 🎯) -->
+    <section class="slide" id="slide-12">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200">
+                <i class="fa-solid fa-trophy text-amber-500"></i>
+                <span>在地外交 V2.2 | 2023.3.9 安順鹽場：單字尋寶謎紙 ✕ 第一名隊伍 (4/4)</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-1.5">2023.3.9 單字尋寶 🎯 謎紙與第一名隊伍</h2>
+            <p class="text-slate-600 text-base md:text-lg font-bold mb-3">2023.3.9 安順鹽場實境解謎：《Salt Field Challenge》單字尋寶謎紙、掃碼破關與第一名隊伍 🏆</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+                <!-- Left: Large IMG_2967 Crossword Puzzle + 1st Place Team & Action Photos -->
+                <div class="md:col-span-8 grid grid-cols-12 gap-3 h-[54vh]">
+                    <!-- Big Hero Card: IMG_2967 單字尋寶謎紙 -->
+                    <div class="col-span-5 img-container relative group overflow-hidden rounded-2xl border-2 border-coral-400 shadow-lg bg-white h-full">
+                        <img src="web_photos/IMG_2967.jpg" alt="Salt Field Challenge 單字尋寶謎紙" class="w-full h-full object-contain bg-white p-1 pb-8">
+                        <div class="absolute bottom-0 inset-x-0 bg-coral-600/95 text-white text-xs p-1.5 text-center font-black shadow">
+                            <i class="fa-solid fa-puzzle-piece text-amber-200"></i> 2023.3.9 單字尋寶謎紙
+                        </div>
+                    </div>
+
+                    <!-- Right Half of Photo Area: 1st Place Team Hero + 2 Action Photos -->
+                    <div class="col-span-7 grid grid-cols-2 grid-rows-12 gap-2.5 h-full">
+                        <div class="col-span-2 row-span-7 img-container relative group overflow-hidden rounded-2xl border-2 border-amber-400 shadow-lg bg-sand-100/60">
+                            <img src="web_photos/單字尋寶第一名隊伍.jpg" alt="2023.3.9 單字尋寶第一名隊伍拼出 MONOPOLY" class="w-full h-full object-contain bg-sand-100/60">
+                            <div class="absolute bottom-0 inset-x-0 bg-amber-600/95 text-white text-xs p-1.5 text-center font-black shadow">
+                                <i class="fa-solid fa-crown text-yellow-200"></i> 🏆 單字尋寶第一名隊伍！合力拼出隱藏字 MONOPOLY
+                            </div>
+                        </div>
+                        <div class="col-span-1 row-span-5 img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                            <img src="web_photos/謎紙＋單字尋寶.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_9987.jpg';" alt="學生手持謎紙任務卡解題" class="w-full h-full object-contain bg-sand-100/60">
+                            <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[10px] p-1 text-center font-bold">
+                                台美學伴手持謎紙解題
+                            </div>
+                        </div>
+                        <div class="col-span-1 row-span-5 img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                            <img src="web_photos/掃碼單字尋寶.jpg" onerror="this.onerror=null; this.src='web_photos/文化體驗＋單字尋寶.jpg';" alt="掃碼單字尋寶 廟口柱子巧拼QR Code" class="w-full h-full object-contain bg-sand-100/60">
+                            <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[10px] p-1 text-center font-bold">
+                                實地掃描巧拼 QR 單字尋寶
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="md:col-span-4 flex flex-col justify-center space-y-3.5">
+                    <div class="bg-white p-4 rounded-2xl border-l-4 border-amber-500 border border-sand-200 shadow-sm">
+                        <h4 class="font-black text-amber-700 text-base mb-1.5">🏆 第一名隊伍：拼出 MONOPOLY</h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                            <b>2023.3.9</b> 台美學伴在安順鹽場並肩解開謎紙線索（<i>dormitory, promote, exchange, occupation, physical, lagoon, ecological</i>），第一名隊伍率先集齊巧拼字母，拼出第 10 個隱藏字 <b><code>MONOPOLY</code>（專賣制度）</b>！
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border-l-4 border-lagoon-600 border border-sand-200 shadow-sm">
+                        <h4 class="font-black text-lagoon-700 text-base mb-1.5">📱 紙本謎紙 ✕ 實地掃碼 ✕ Kahoot</h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                            學生在鹽田與廟口柱子尋找巧拼 QR Code 掃碼破關，再回尋寶總部兌換巧拼字母、輸入 Kahoot PIN 碼挑戰！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         STAGE 2: 第二階段：深化 ── 跨域共創，動手實踐 (30-65 min)
+         ========================================== -->
+
+    <!-- Slide 11: 跨域 V1.0 (112學年 The Tomato Project ── 食農雙語計畫) -->
+    <section class="slide" id="slide-13">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200">
+                <i class="fa-solid fa-seedling"></i>
+                <span>第二階段：深化 | 112學年 跨域 V1.0 食農雙語計畫</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-2">112學年 The Tomato Project 🍅</h2>
+            <p class="text-slate-600 text-lg md:text-xl font-bold mb-3.5">食農雙語計畫：從教師社群共備到跨國發布成果</p>
+            <p class="text-slate-600 text-base mb-3">教育部國際線上計畫：從產地到餐桌，讓台灣食農創意躍上國際舞台</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center mb-3">
+                <!-- Left: 2 Photo Grid (蕃茄社群上課 & 蕃茄手工書雛形) -->
+                <div class="md:col-span-7 grid grid-cols-2 gap-3 h-[46vh]">
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/蕃茄社群上課.jpg" onerror="this.onerror=null; this.src='web_photos/線上交流.jpg';" alt="蕃茄社群上課共備" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-2 text-center font-bold">
+                            蕃茄社群共備研討與課程設計
+                        </div>
+                    </div>
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/蕃茄手工書雛形.jpg" onerror="this.onerror=null; this.src='web_photos/線上交流.jpg';" alt="蕃茄手工書雛形發想" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-2 text-center font-bold">
+                            蕃茄手工書雛形構思發想
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Explanations -->
+                <div class="md:col-span-5 flex flex-col justify-center space-y-3.5">
+                    <div class="bg-white p-3.5 rounded-2xl border border-sand-200 shadow-sm">
+                        <span class="text-[11px] font-bold text-amber-600 uppercase tracking-widest block mb-0.5">Teacher Collaboration</span>
+                        <h4 class="font-bold text-slate-800 text-sm mb-1">教師社群共備與課程設計</h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">跨科教師社群共同投入發想，設計出結合在地農業特色與英文寫作的極致食農模組。</p>
+                    </div>
+
+                    <div class="bg-white p-3.5 rounded-2xl border border-sand-200 shadow-sm">
+                        <span class="text-[11px] font-bold text-coral-500 uppercase tracking-widest block mb-0.5">Project Focus</span>
+                        <h4 class="font-bold text-slate-800 text-sm mb-1">從產地到餐桌的手工圖書雛形</h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">從手工書雛形草稿構思，到完成精美的食農英文圖書，紀錄孩子的學習歷程。</p>
+                    </div>
+
+                    <div class="bg-white p-3.5 rounded-2xl border border-sand-200 shadow-sm">
+                        <span class="text-[11px] font-bold text-lagoon-600 uppercase tracking-widest block mb-0.5">Global Connection</span>
+                        <h4 class="font-bold text-slate-800 text-sm mb-1">語言是交流的通行證</h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">透過教育部國際線上平台連線，讓台灣孩子的食農創意直接發表演示。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2 px-4">
+                <p class="font-quote text-xs text-slate-700 italic">
+                    「教育部國際線上計畫。從教師社群共備到手工書雛形發想，讓食農創意躍上國際。語言是我們交流的通行證。」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 12: 跨域 V2.0 (113學年 Glow Up 美妝大聯盟 ── 化學成分與立體手工書) -->
+    <section class="slide" id="slide-14">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start">
+                <i class="fa-solid fa-sparkles"></i>
+                <span>第二階段：深化 | 113學年 跨域 V2.0 化學×美術</span>
+            </div>
+
+            <h2  class="text-4xl md:text-5xl font-black text-slate-800 mb-2">113學年 Glow Up 美妝大聯盟 ✨</h2>
+            <p class="text-slate-600 text-lg md:text-xl font-bold mb-3.5">化學成分與立體書 💄</p>
+            <p class="text-slate-600 text-lg mb-4">受邀至國立臺灣師範大學發表的心血結晶：將真實面膜化學實驗轉化為立體書</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center mb-4">
+                <!-- Left: 2 Huge Uncropped Photos (Product) -->
+                <div class="md:col-span-7 grid grid-cols-2 gap-3 h-[48vh]">
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/IMG_2195.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3984.jpg';" alt="美人魚手工封面" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-2 text-center font-bold">
+                            <i class="fa-solid fa-palette text-amber-400"></i> 美妝主題立體書封面與美學設計
+                        </div>
+                    </div>
+                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
+                        <img src="web_photos/IMG_3784.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3784.jpg';" alt="紫色立體書" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-2 text-center font-bold">
+                            <i class="fa-solid fa-flask text-coral-400"></i> 化學成分分析與立體手工書產出
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Explanations -->
+                <div class="md:col-span-5 flex flex-col justify-center space-y-4">
+                    <div class="bg-white p-4 rounded-2xl border border-sand-200 shadow-sm">
+                        <h4 class="font-bold text-slate-800 text-base mb-1.5">真實化學實驗 Process</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed font-medium">結合高中化學單元，讓學生進行美妝面膜成分分析與實驗數據紀錄。</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border border-sand-200 shadow-sm">
+                        <h4 class="font-bold text-slate-800 text-base mb-1.5">極致美學產出 Product</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed font-medium">結合美術課指導，將生硬的化學式與分子結構轉化為令人驚豔的立體手工圖書。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2.5 px-4">
+                <p class="font-quote text-sm text-slate-700 italic">
+                    「受邀至師大發表的心血。將真實的面膜實驗 (Process)，轉化為驚豔國際夥伴的立體書 (Product)。」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 15: 跨域 V3.0 (114學年 巧克力派對 STEAM 🏆 夢幻師資 × 社團行事曆全攻略) -->
+    <section class="slide" id="slide-15">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200 !mb-0">
+                    <i class="fa-solid fa-trophy text-amber-500"></i>
+                    <span>第二階段：深化 | 壓軸高潮 跨域 V3.0 (夢幻師資團隊 × 社團行事曆全攻略)</span>
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                    <button onclick="openCocoaLabModal('cocoa_lab_offline/intro.html')" class="inline-flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs md:text-sm font-black px-3.5 py-1.5 rounded-full shadow-md transition transform hover:scale-105 cursor-pointer">
+                        <i class="fa-solid fa-bolt text-amber-300"></i> ⚡ 離線展開《可可創新實驗室》網站
+                    </button>
+                    <a href="Cocoa_Innovation_Lab_Offline.html" target="_blank" class="inline-flex items-center gap-1.5 bg-amber-800 hover:bg-amber-900 text-white text-xs font-black px-3 py-1.5 rounded-full shadow-md transition">
+                        <i class="fa-solid fa-up-right-from-square"></i> 獨立視窗離線版
+                    </a>
+                </div>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-1">114學年 巧克力派對 STEAM 🏆</h2>
+            <p class="text-slate-600 text-sm md:text-base font-bold mb-2">全人跨域極致：「A Piece of Chocolate Cake」社團行事曆 × 英文・數學・化學・史地・家政跨科師資</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch mb-2">
+                <!-- Left: Video Player + 巧克力行事曆.jpg -->
+                <div class="md:col-span-5 flex flex-col justify-between space-y-2">
+                    <div class="relative overflow-hidden rounded-2xl border-2 border-coral-300 shadow-lg bg-black group h-[24vh]">
+                        <video id="chocVideo" controls playsinline preload="auto" src="web_photos/chocolate_course_video.mp4" poster="web_photos/chocolate_video_thumb.png" class="w-full h-full object-contain bg-black">
+                            您的瀏覽器不支援 HTML5 影片播放。
+                        </video>
+                        <div class="absolute top-2 left-2 bg-black/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-sm flex items-center gap-1 border border-white/20 z-10 pointer-events-none">
+                            <i class="fa-solid fa-circle-play text-coral-400 animate-pulse"></i> 巧克力 STEAM 動態成果
+                        </div>
+                        <button onclick="openVideoModal(document.getElementById('chocVideo').src || 'web_photos/chocolate_course_video.mp4')" class="absolute top-2 right-2 bg-coral-600 hover:bg-coral-700 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-lg transition z-10 flex items-center gap-1">
+                            <i class="fa-solid fa-expand"></i> 全螢幕
+                        </button>
+                    </div>
+
+                    <!-- Video Switch Buttons -->
+                    <div class="flex flex-wrap items-center justify-between text-xs text-slate-600 bg-amber-50 px-2.5 py-1 rounded-xl border border-amber-200 font-bold gap-1">
+                        <div class="flex flex-wrap gap-1">
+                            <button onclick="changeVideoSource('chocVideo', 'web_photos/chocolate_course_video.mp4')" class="bg-coral-600 hover:bg-coral-700 text-white px-2 py-0.5 rounded-lg text-[10px] font-bold transition flex items-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-play"></i> 🍫 巧克力 STEAM
+                            </button>
+                            <button onclick="changeVideoSource('chocVideo', 'web_photos/classroom_activity_video.mp4')" class="bg-slate-700 hover:bg-slate-800 text-white px-2 py-0.5 rounded-lg text-[10px] font-bold transition flex items-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-play"></i> 🎬 課堂紀錄
+                            </button>
+                            <button onclick="openCocoaLabModal('cocoa_lab_offline/intro.html')" class="bg-emerald-700 hover:bg-emerald-800 text-white px-2 py-0.5 rounded-lg text-[10px] font-bold transition flex items-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-laptop-code"></i> 🌐 離線講解網站
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 巧克力行事曆.jpg -->
+                    <div class="relative overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md h-[22vh] bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/巧克力行事曆.jpg', '2026「A Piece of Chocolate Cake」社團行事曆與實作準備全攻略')">
+                        <img src="web_photos/巧克力行事曆.jpg" alt="2026 A Piece of Chocolate Cake 社團行事曆與實作準備全攻略" class="w-full h-full object-contain bg-sand-100">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1 text-center font-bold">
+                            <i class="fa-solid fa-calendar-check text-amber-300"></i> 2026「A Piece of Chocolate Cake」社團行事曆全攻略 (點擊放大)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: 4 Cards showing all 5 Faculty/Subject Photos (英文寫作 + 數學期望值 + 化學老師 + 地理老師真人&Q版) -->
+                <div class="md:col-span-7 grid grid-cols-2 gap-2.5 h-[51vh]">
+                    <!-- 1. 巧克力_英文寫作.jpg -->
+                    <div class="relative overflow-hidden rounded-2xl border-2 border-lagoon-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/巧克力_英文寫作.jpg', '2026.3.6 明芬老師介紹本學期主題：巧克力課與英文寫作')">
+                        <img src="web_photos/巧克力_英文寫作.jpg" onerror="this.onerror=null; this.src='web_photos/巧克力＿英文寫作.jpg';" alt="2026.3.6 明芬老師介紹巧克力課與英文寫作" class="w-full h-full object-contain bg-sand-100">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1.5 text-center font-bold">
+                            <i class="fa-solid fa-pen-nib text-lagoon-300"></i> 2026.3.6 英文科明芬老師：介紹巧克力主題與寫作
+                        </div>
+                    </div>
+
+                    <!-- 2. 巧克力師資.jpg -->
+                    <div class="relative overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/巧克力師資.jpg', '2026.4.10 巧克力 × 數學課：期望值公式與定價情境')">
+                        <img src="web_photos/巧克力師資.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_0381.jpg';" alt="巧克力課程數學期望值定價師資團隊" class="w-full h-full object-contain bg-sand-100">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1.5 text-center font-bold">
+                            <i class="fa-solid fa-calculator text-amber-400"></i> 2026.4.10 數學 × 英文：期望值公式與定價情境
+                        </div>
+                    </div>
+
+                    <!-- 3. 巧克力_化學老師.jpg -->
+                    <div class="relative overflow-hidden rounded-2xl border-2 border-coral-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/巧克力_化學老師.jpg', '化學科 Abigail 老師 × 明芬老師：隔水加熱融化與紅外線測溫實作')">
+                        <img src="web_photos/巧克力_化學老師.jpg" onerror="this.onerror=null; this.src='web_photos/巧克力＿化學老師.jpg';" alt="巧克力課程化學老師實作測溫" class="w-full h-full object-contain bg-sand-100">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1.5 text-center font-bold">
+                            <i class="fa-solid fa-flask text-coral-400"></i> 化學科 Abigail 老師 × 明芬老師：融化測溫實作
+                        </div>
+                    </div>
+
+                    <!-- 4. 巧克力_地理老師.jpg + 巧克力_地理老師Q版.png -->
+                    <div class="relative overflow-hidden rounded-2xl border-2 border-emerald-300 shadow-md h-full bg-sand-100 group flex flex-col">
+                        <div class="grid grid-cols-2 gap-1 flex-1 min-h-0 p-1 bg-sand-100">
+                            <img src="web_photos/巧克力_地理老師.jpg" onclick="openImageLightbox('web_photos/巧克力_地理老師.jpg', '史地科 Ray 老師：可可與全球貿易實驗室')" alt="地理老師真人照" class="w-full h-full object-contain rounded-lg cursor-zoom-in">
+                            <img src="web_photos/巧克力_地理老師Q版.png" onclick="openImageLightbox('web_photos/巧克力_地理老師Q版.png', '史地科 Ray 老師 Q版角色導師')" alt="地理老師Q版照" class="w-full h-full object-contain rounded-lg cursor-zoom-in">
+                        </div>
+                        <div class="bg-black/80 text-white text-[11px] p-1.5 text-center font-bold shrink-0">
+                            <i class="fa-solid fa-earth-americas text-emerald-400"></i> 史地科 Ray 老師：全球可可貿易 (真人 × 網站 Q版導師)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-1.5 px-4">
+                <p class="font-quote text-xs text-slate-700 italic">
+                    「從 3–4 月數位教學與教材上傳（Miffy、Ray、Abigail 輪流授課），到 5/29 巧克力實作大會與 6/12 結業，用一顆巧克力串起跨科夢幻團隊！」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 16: 跨域 V3.1 (2026.5.29 巧克力實作大會 ── 雷神巧克力 × 巧克力火鍋 × 手工書全紀錄 🍫) -->
+    <section class="slide" id="slide-16">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200 !mb-0">
+                    <i class="fa-solid fa-utensils text-coral-500"></i>
+                    <span>第二階段：深化 | 2026.5.29 巧克力實作大會 × 立體手工書全紀錄</span>
+                </div>
+                <button onclick="openCocoaLabModal('cocoa_lab_offline/home_economics.html')" class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-700 to-coral-600 hover:from-amber-800 hover:to-coral-700 text-white text-xs font-black px-3.5 py-1.5 rounded-full shadow-md transition transform hover:scale-105 cursor-pointer">
+                    <i class="fa-solid fa-book-open"></i> 🍫 離線預覽《實作、手工書》網頁專區
+                </button>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-1">2026.5.29 巧克力實作大會 ＆ 手工書 📖</h2>
+            <p class="text-slate-600 text-sm md:text-base font-bold mb-2">台式雷神巧克力 × 歡樂巧克力火鍋 Chocolate Fondue × 人手一本跨科立體手工書（點擊任一照片可放大檢視）</p>
+
+            <!-- Top Row: 4 Photos of 2026.5.29 雷神巧克力 & 巧克力火鍋 -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 h-[26vh] mb-2.5">
+                <div class="relative overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/雷神巧克力.jpg', '2026.5.29 分組隔水加熱融化巧克力與備料實作')">
+                    <img src="web_photos/雷神巧克力.jpg" alt="分組隔水加熱融化巧克力與備料" class="w-full h-full object-contain bg-sand-100">
+                    <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1 text-center font-bold">
+                        1. 隔水加熱融化與備料實作
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/倒入巧克力醬.jpg', '2026.5.29 倒入巧克力醬（淋在壓碎餅乾與洋芋片上）')">
+                    <img src="web_photos/倒入巧克力醬.jpg" onerror="this.onerror=null; this.src='web_photos/巧克力醬.jpg';" alt="倒入巧克力醬" class="w-full h-full object-contain bg-sand-100">
+                    <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1 text-center font-bold">
+                        2. 倒入巧克力醬（淋上脆餅與洋芋片）
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-2xl border-2 border-coral-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/雷神巧克力成品.jpg', '2026.5.29 眾所矚目「台式雷神巧克力」製作')">
+                    <img src="web_photos/雷神巧克力成品.jpg" alt="台式雷神巧克力製作" class="w-full h-full object-contain bg-sand-100">
+                    <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1 text-center font-bold">
+                        3. 眾所矚目「雷神巧克力」製作
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-2xl border-2 border-coral-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/巧克力火鍋.jpg', '2026.5.29 歡樂巧克力火鍋 Chocolate Fondue 裹醬成品')">
+                    <img src="web_photos/巧克力火鍋.jpg" alt="歡樂巧克力火鍋 Chocolate Fondue" class="w-full h-full object-contain bg-sand-100">
+                    <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1 text-center font-bold">
+                        4. 歡樂巧克力火鍋 Fondue
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Row: 3 Photos of 巧克力手工書製作, 巧克力手工書即將完成, 巧克力內頁 -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-3 h-[28vh] mb-2">
+                <div class="md:col-span-3 relative overflow-hidden rounded-2xl border-2 border-lagoon-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/巧克力手工書製作.jpg', '明芬老師示範巧克力立體手工書製作')">
+                    <img src="web_photos/巧克力手工書製作.jpg" alt="明芬老師示範巧克力手工書製作" class="w-full h-full object-contain bg-sand-100">
+                    <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1.5 text-center font-bold">
+                        <i class="fa-solid fa-scissors text-lagoon-300"></i> 5. 明芬老師示範手工書製作
+                    </div>
+                </div>
+                <div class="md:col-span-4 relative overflow-hidden rounded-2xl border-2 border-lagoon-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/巧克力手工書即將完成.jpg', '2026.5.29 人手一本巧克力手工書師生大合照')">
+                    <img src="web_photos/巧克力手工書即將完成.jpg" alt="2026.5.29 人手一本巧克力手工書" class="w-full h-full object-contain bg-sand-100">
+                    <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1.5 text-center font-bold">
+                        <i class="fa-solid fa-users text-amber-300"></i> 6. 2026.5.29 人手一本巧克力手工書
+                    </div>
+                </div>
+                <div class="md:col-span-5 relative overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/巧克力內頁.jpg', '巧克力手工書完整內頁：串聯 2026.3.6–5.29 歷程與 Hook-Bridge-Thesis 英文寫作')">
+                    <img src="web_photos/巧克力內頁.jpg" alt="巧克力主題雙語學習單與手工書內頁" class="w-full h-full object-contain bg-sand-100">
+                    <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1.5 text-center font-bold">
+                        <i class="fa-solid fa-book-open text-amber-300"></i> 7. 手工書跨頁內頁：歷程相片 × Hook-Bridge-Thesis 寫作單
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-1.5 px-4">
+                <p class="font-quote text-xs text-slate-700 italic">
+                    「將一整個學期的英文、數學、史地、化學與 5/29 雷神巧克力、巧克力火鍋實作列印成相片，親手剪貼裝訂成『人手一本巧克力手工書』！」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 17: 跨域 V3.2 (《可可創新實驗室》Google Sites 100% 離線互動講解台 🌐) -->
+    <section class="slide" id="slide-17">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                <div class="stage-badge self-start bg-emerald-50 text-emerald-800 border border-emerald-300 !mb-0">
+                    <i class="fa-solid fa-laptop-code text-emerald-600"></i>
+                    <span>第二階段：深化 | 《可可創新實驗室》Google Sites 100% 離線互動講解台</span>
+                </div>
+                <div class="flex flex-wrap items-center gap-1.5">
+                    <button onclick="openCocoaLabModal(document.getElementById('slideCocoaFrame').src)" class="inline-flex items-center gap-1.5 bg-coral-600 hover:bg-coral-700 text-white text-xs font-black px-3 py-1 rounded-full shadow transition cursor-pointer">
+                        <i class="fa-solid fa-expand"></i> 全螢幕放大講解
+                    </button>
+                    <a href="Cocoa_Innovation_Lab_Offline.html" target="_blank" class="inline-flex items-center gap-1.5 bg-amber-800 hover:bg-amber-900 text-white text-xs font-black px-3 py-1 rounded-full shadow transition">
+                        <i class="fa-solid fa-up-right-from-square"></i> 新分頁開啟離線網站
+                    </a>
+                    <a href="https://sites.google.com/view/chocolate0323/intro" target="_blank" rel="noopener" class="inline-flex items-center gap-1 bg-slate-700 hover:bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow transition">
+                        <i class="fa-solid fa-globe"></i> 線上原網址
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-800">《可可創新實驗室》離線互動講解台 🍫</h2>
+                    <p class="text-slate-600 text-xs md:text-sm font-bold">免連網即可現場切換 Google Sites 六大互動分頁：Intro 總覽・History 全球貿易・English Hook 挑戰・Math 期望值・Chemistry 熔岩・實作手工書</p>
+                </div>
+            </div>
+
+            <!-- 6-Tab Google Sites Offline Navigation Bar -->
+            <div class="bg-[#261411] p-2 rounded-t-2xl border-2 border-b-0 border-amber-800 flex flex-wrap items-center justify-between gap-1.5 shadow-md">
+                <div class="flex flex-wrap items-center gap-1.5" id="slideCocoaTabs">
+                    <button onclick="switchSlideCocoaTab('cocoa_lab_offline/intro.html', this)" class="cocoa-slide-tab active bg-gradient-to-r from-amber-600 to-orange-600 text-white text-xs font-black px-3 py-1.5 rounded-full shadow flex items-center gap-1 transition cursor-pointer">
+                        <span>🏠</span> 1. Intro 實驗室總覽 (7科地圖)
+                    </button>
+                    <button onclick="switchSlideCocoaTab('cocoa_lab_offline/history.html', this)" class="cocoa-slide-tab bg-white/10 hover:bg-white/20 text-amber-100 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 transition cursor-pointer">
+                        <span>🌍</span> 2. History 全球貿易 (Ray老師)
+                    </button>
+                    <button onclick="switchSlideCocoaTab('cocoa_lab_offline/english.html', this)" class="cocoa-slide-tab bg-white/10 hover:bg-white/20 text-amber-100 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 transition cursor-pointer">
+                        <span>🗣️</span> 3. English Hook 挑戰 (Miffy老師)
+                    </button>
+                    <button onclick="switchSlideCocoaTab('cocoa_lab_offline/math.html', this)" class="cocoa-slide-tab bg-white/10 hover:bg-white/20 text-amber-100 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 transition cursor-pointer">
+                        <span>📐</span> 4. Math 期望值計算機
+                    </button>
+                    <button onclick="switchSlideCocoaTab('cocoa_lab_offline/chemistry.html', this)" class="cocoa-slide-tab bg-white/10 hover:bg-white/20 text-amber-100 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 transition cursor-pointer">
+                        <span>🧪</span> 5. Chemistry 化學熔岩 (Abigail老師)
+                    </button>
+                    <button onclick="switchSlideCocoaTab('cocoa_lab_offline/home_economics.html', this)" class="cocoa-slide-tab bg-white/10 hover:bg-white/20 text-amber-100 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 transition cursor-pointer">
+                        <span>📖</span> 6. Home Econ 實作、手工書
+                    </button>
+                </div>
+                <span class="text-[11px] text-emerald-300 font-bold px-2 hidden lg:inline-block">● 內嵌離線鏡像，可直接捲動與點擊操作</span>
+            </div>
+
+            <!-- Interactive Offline Iframe Container -->
+            <div class="w-full h-[55vh] bg-[#FDFBF7] rounded-b-2xl border-2 border-amber-800 shadow-xl overflow-hidden relative">
+                <iframe id="slideCocoaFrame" src="cocoa_lab_offline/intro.html" class="w-full h-full border-0" title="可可創新實驗室離線互動預覽"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         STAGE 3: 第三階段：間奏與內在 ── 尋求安頓與素養深耕 (65-90 min)
+         ========================================== -->
+
+    <!-- Slide: 活用文法 (情境導向寫作 ── 抱怨男友與給李老師的一封信，已清出學生作品照片/截圖空間) -->
+    <section class="slide" id="slide-18">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-amber-50 text-amber-700 border border-amber-200">
+                <i class="fa-solid fa-pen-fancy text-amber-600"></i>
+                <span>第三階段：間奏與內在 | 活用文法 · 學生真實情境寫作作品</span>
+            </div>
+
+            <h2 class="text-4xl font-black text-slate-800 mb-1.5">活用文法：情境導向的真實英文寫作 ✍️</h2>
+            <p class="text-slate-600 text-base md:text-lg font-bold mb-3">讓傳統文法句型走出考卷，成為學生表達真實生活情緒與謝意的載體</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch mb-3">
+                <!-- Left: 2 Cleared Student Work Spaces (抱怨男友 & 給李老師的一封信) -->
+                <div class="md:col-span-7 grid grid-cols-2 gap-4 h-[50vh]">
+                    <!-- Space 1: 抱怨男友 學生作品照片/截圖空間 -->
+                    <div class="relative group overflow-hidden rounded-2xl border-2 border-dashed border-coral-400 bg-white/90 shadow-md flex flex-col items-center justify-center p-4 text-center">
+                        <img src="web_photos/抱怨男友.jpg" alt="學生作品：抱怨男友情境寫作" class="w-full h-full object-contain absolute inset-0 bg-white z-10" onerror="this.style.display='none';">
+                        <div class="w-14 h-14 rounded-2xl bg-coral-50 border border-coral-200 flex items-center justify-center text-coral-500 text-2xl mb-3 shadow-sm">
+                            <i class="fa-solid fa-camera-retro"></i>
+                        </div>
+                        <span class="text-xs font-extrabold text-coral-600 bg-coral-50 px-2.5 py-1 rounded-full border border-coral-200 mb-1.5">
+                            學生作品照片／截圖空間 1
+                        </span>
+                        <h4 class="font-black text-slate-800 text-base mb-1">「抱怨男友」情境寫作</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed max-w-[220px]">
+                            頻率副詞 (Frequency Adverbs) 學生小海報或學習單作品截圖預留區
+                        </p>
+                        <div class="mt-3 text-[11px] font-mono text-slate-400 bg-sand-100 px-2.5 py-1 rounded-lg border border-sand-200">
+                            web_photos/抱怨男友.jpg
+                        </div>
+                        <div class="absolute bottom-0 inset-x-0 bg-coral-600/95 text-white text-xs p-2 text-center font-bold z-20">
+                            <i class="fa-solid fa-pen text-amber-200"></i> 活用文法作品 1：「抱怨男友」頻率副詞情境寫作
+                        </div>
+                    </div>
+
+                    <!-- Space 2: 給李老師的一封信 學生作品照片/截圖空間 -->
+                    <div class="relative group overflow-hidden rounded-2xl border-2 border-dashed border-lagoon-500 bg-white/90 shadow-md flex flex-col items-center justify-center p-4 text-center">
+                        <img src="web_photos/給李老師的一封信.jpg" alt="學生作品：給李老師的一封信" class="w-full h-full object-contain absolute inset-0 bg-white z-10" onerror="this.style.display='none';">
+                        <div class="w-14 h-14 rounded-2xl bg-lagoon-50 border border-lagoon-200 flex items-center justify-center text-lagoon-600 text-2xl mb-3 shadow-sm">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                        </div>
+                        <span class="text-xs font-extrabold text-lagoon-700 bg-lagoon-50 px-2.5 py-1 rounded-full border border-lagoon-200 mb-1.5">
+                            學生作品照片／截圖空間 2
+                        </span>
+                        <h4 class="font-black text-slate-800 text-base mb-1">「給李老師的一封信」</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed max-w-[220px]">
+                            過去假設語氣 (Past Subjunctive) 學生真實書信作品照片或截圖預留區
+                        </p>
+                        <div class="mt-3 text-[11px] font-mono text-slate-400 bg-sand-100 px-2.5 py-1 rounded-lg border border-sand-200">
+                            web_photos/給李老師的一封信.jpg
+                        </div>
+                        <div class="absolute bottom-0 inset-x-0 bg-lagoon-700/95 text-white text-xs p-2 text-center font-bold z-20">
+                            <i class="fa-solid fa-envelope text-amber-200"></i> 活用文法作品 2：「給李老師的一封信」假設語氣寫作
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="md:col-span-5 flex flex-col justify-center space-y-4">
+                    <div class="bg-white p-4 rounded-2xl border-l-4 border-coral-500 border border-sand-200 shadow-sm">
+                        <span class="text-xs font-bold text-coral-500 uppercase tracking-wider block mb-1">頻率副詞活用寫作</span>
+                        <h4 class="font-bold text-slate-800 text-base mb-1">「抱怨男友」情境寫作</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed font-medium">引導學生將日常生活真實情境融入文法練習，靈活運用 <i>always, usually, often, sometimes, seldom, never</i> 等頻率副詞寫出超有共鳴的生活小品。</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-2xl border-l-4 border-lagoon-600 border border-sand-200 shadow-sm">
+                        <span class="text-xs font-bold text-lagoon-600 uppercase tracking-wider block mb-1">過去假設語氣活用</span>
+                        <h4 class="font-bold text-slate-800 text-base mb-1">「給李老師的一封信」</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed font-medium">運用與過去事實相反的假設語氣（<code>If + S + had + Vpp..., S + would have + Vpp...</code>）表達感念與情感抒發，讓文法成為溫暖的情感載體。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2.5 px-4">
+                <p class="font-quote text-sm text-slate-700 italic">
+                    「活用文法不該是考卷上的死扣分，而是將真實生活情境轉化為表達內心聲音的溫柔載體。」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 20: 全英計畫教學觀摩日 (When Social Media Meets SEL ── 整合觀摩日照片、Social Media 學習單與 SEL 四步實踐) -->
+    <section class="slide" id="slide-19">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                <div class="stage-badge self-start !mb-0">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <span>第三階段：間奏與內在 | 2025.10.14 全英計畫教學觀摩日：Social Media ✕ SEL</span>
+                </div>
+                <span class="text-xs font-black text-lagoon-800 bg-lagoon-50 border border-lagoon-200 px-3 py-1 rounded-full">
+                    📂 全英計畫公開觀摩演示：Social Media: Finding a Balance ✕ SEL 完整教材包
+                </span>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-1">全英計畫教學觀摩日：When Social Media Meets SEL ❤️</h2>
+            <p class="text-slate-600 text-sm md:text-base font-bold mb-2">2025.10.14 高二5公開觀摩演示《Social Media: Finding a Balance》── 整合社群思辨、情緒輪盤、心情溫度計與解方</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch mb-2">
+                <!-- Left: Top 2 Classroom Photos + Bottom Interactive U2 SEL & Social Media Document Previewer -->
+                <div class="md:col-span-7 flex flex-col gap-2 h-[52vh]">
+                    <!-- Top Row: 2 全英計畫教學觀摩日 Photos Always Visible -->
+                    <div class="grid grid-cols-2 gap-2.5 h-[22vh] shrink-0">
+                        <div onclick="switchSelDoc('web_photos/social_media.jpg', 'web_photos/social_media.jpg', '📸 2025.10.14 全英計畫教學觀摩日：Social Media: Finding a Balance 師生海報展示')" class="img-container relative group overflow-hidden rounded-xl border-2 border-coral-400 shadow cursor-pointer">
+                            <img src="web_photos/social_media.jpg" onerror="this.onerror=null; this.src='web_photos/SEL小海報.jpg';" alt="2025.10.14 全英計畫教學觀摩日 Social Media: Finding a Balance" class="w-full h-full object-contain bg-sand-100/60">
+                            <div class="absolute bottom-0 inset-x-0 bg-coral-600/95 text-white text-[11px] py-1 px-1.5 text-center font-black truncate">
+                                <i class="fa-solid fa-chalkboard-user text-amber-200"></i> 2025.10.14 全英觀摩日：Social Media ✕ SEL
+                            </div>
+                        </div>
+
+                        <div onclick="switchSelDoc('web_photos/高一2_social_media.jpg', 'web_photos/高一2_social_media.jpg', '📸 全英計畫教學觀摩日課堂實況：全班展示 When Social Media Meets SEL 綠色海報')" class="img-container relative group overflow-hidden rounded-xl border-2 border-lagoon-400 shadow cursor-pointer">
+                            <img src="web_photos/高一2_social_media.jpg" onerror="this.onerror=null; this.src='web_photos/全班SEL手工書.jpg';" alt="全英計畫教學觀摩日 全班展示 Social Media Meets SEL 海報" class="w-full h-full object-contain bg-sand-100/60">
+                            <div class="absolute bottom-0 inset-x-0 bg-lagoon-700/95 text-white text-[11px] py-1 px-1.5 text-center font-black truncate">
+                                <i class="fa-solid fa-users text-amber-200"></i> 全班展示 When Social Media Meets SEL 海報
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Row: Interactive Switcher for all Social Media & SEL Materials -->
+                    <div class="flex-1 flex flex-col bg-white rounded-xl border-2 border-lagoon-400/50 shadow overflow-hidden min-h-0">
+                        <div class="bg-slate-100 px-2 py-1.5 border-b border-slate-200 flex flex-wrap gap-1 items-center text-[10px] font-bold shrink-0">
+                            <span class="text-slate-600 px-1 flex items-center gap-1"><i class="fa-solid fa-folder-open text-coral-500"></i> 點擊切換教材：</span>
+                            <button onclick="switchSelDoc('web_photos/sel_u2/B3U2學習單.docx.png', 'SEL_U2_教材包/B3U2學習單.docx', '📝 B3U2 Social Media 學習單.docx（Harry 情緒覺察 × It is essential that 句型）')" class="px-2 py-0.5 rounded bg-lagoon-600 text-white hover:bg-lagoon-700 transition">1. Social Media 學習單</button>
+                            <button onclick="switchSelDoc('web_photos/sel_u2/各種心情的解方.docx.png', 'SEL_U2_教材包/各種心情的解方.docx', '🧭 各種心情的解方.docx（6種情緒配色×雙語調適行動表）')" class="px-2 py-0.5 rounded bg-coral-600 text-white hover:bg-coral-700 transition">2. 各種心情的解方</button>
+                            <button onclick="switchSelDoc('web_photos/sel_u2/B3U2 Social Media標頭.docx.png', 'SEL_U2_教材包/B3U2 Social Media標頭.docx', '🏷️ B3U2 Social Media 標頭.docx（When Social Media Meets SEL 海報標題）')" class="px-2 py-0.5 rounded bg-rose-600 text-white hover:bg-rose-700 transition">3. 海報標頭</button>
+                            <button onclick="switchSelDoc('web_photos/sel_u2/Feelings+Wheel+Download-ables.pdf.png', 'SEL_U2_教材包/Feelings+Wheel+Download-ables.pdf', '🎡 The Feelings Wheel 情緒字彙輪盤（3種版本 PDF）')" class="px-2 py-0.5 rounded bg-amber-600 text-white hover:bg-amber-700 transition">4. 情緒輪盤</button>
+                            <button onclick="switchSelDoc('web_photos/sel_u2/101_Coping_Skills_page2.png', 'SEL_U2_教材包/101_Coping_Skills_ADA.pdf', '🛠️ 101 Coping Skills（101種正念接地調適技巧清單 PDF）')" class="px-2 py-0.5 rounded bg-indigo-600 text-white hover:bg-indigo-700 transition">5. 101 Coping</button>
+                            <button onclick="switchSelDoc('web_photos/sel_u2/心情溫度計.pdf.png', 'SEL_U2_教材包/心情溫度計.pdf', '🌡️ 心情溫度計 My Temperature（課前 Check-in 學習單 PDF）')" class="px-2 py-0.5 rounded bg-emerald-600 text-white hover:bg-emerald-700 transition">6. 心情溫度計</button>
+                            <button onclick="switchSelDoc('web_photos/sel_u2/SEL核心概念.docx.png', 'SEL_U2_教材包/SEL核心概念.docx', '🧠 SEL 五大核心概念架構圖.docx')" class="px-2 py-0.5 rounded bg-slate-700 text-white hover:bg-slate-800 transition">7. SEL 核心概念</button>
+                        </div>
+
+                        <div class="relative flex-1 bg-sand-100/70 overflow-hidden flex items-center justify-center p-1.5 min-h-0">
+                            <img id="selDocPreviewImg" src="web_photos/sel_u2/B3U2學習單.docx.png" alt="Social Media & SEL 教材預覽" class="w-full h-full object-contain rounded bg-white">
+                            <div class="absolute bottom-1.5 inset-x-2 bg-black/80 text-white text-[11px] px-2.5 py-1 rounded-lg flex items-center justify-between gap-2 backdrop-blur-sm">
+                                <span id="selDocCaption" class="font-bold truncate">📝 B3U2 Social Media 學習單.docx（Harry 情緒覺察 × It is essential that 句型）</span>
+                                <a id="selDocOpenLink" href="SEL_U2_教材包/B3U2學習單.docx" target="_blank" download class="shrink-0 bg-amber-400 hover:bg-amber-300 text-slate-900 font-black px-2 py-0.5 rounded text-[10px] flex items-center gap-1 transition">
+                                    <i class="fa-solid fa-download"></i> 下載原檔
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Systematically Organized Social Media + SEL Pedagogical Flow -->
+                <div class="md:col-span-5 flex flex-col justify-between space-y-2">
+                    <div class="bg-white p-2.5 rounded-2xl border-l-4 border-amber-500 border border-sand-200 shadow-sm">
+                        <div class="flex items-center justify-between mb-0.5">
+                            <h4 class="font-black text-amber-800 text-sm">Step 1｜SEL 情緒覺察 (Self-Awareness)</h4>
+                            <span class="text-[10px] font-extrabold bg-amber-100 text-amber-900 px-2 py-0.5 rounded">核心概念＋輪盤＋溫度計</span>
+                        </div>
+                        <p class="text-slate-600 text-xs leading-snug font-medium">
+                            透過 <b>《SEL核心概念.docx》</b>、<b>《Feelings Wheel 情緒輪盤》</b> 與 <b>《心情溫度計.pdf》</b>，帶學生跳脫只有 happy/sad，精準標定社群互動中的 <i>disappointed, awkward, overwhelmed</i>。
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-2.5 rounded-2xl border-l-4 border-coral-500 border border-sand-200 shadow-sm">
+                        <div class="flex items-center justify-between mb-0.5">
+                            <h4 class="font-black text-coral-600 text-sm">Step 2｜SEL 自我調適解方 (Self-Management)</h4>
+                            <span class="text-[10px] font-extrabold bg-coral-50 text-coral-600 px-2 py-0.5 rounded">101 Coping＋各種心情解方</span>
+                        </div>
+                        <p class="text-slate-600 text-xs leading-snug font-medium">
+                            結合 <b>《101_Coping_Skills.pdf》</b> 與自編 <b>《各種心情的解方.docx》</b>：將 🟢Happy、🔵Sad、🟠Afraid、🔴Angry、🟣Excited、🟡Calm 分色塗鴉，寫下雙語具體調適解方。
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-2.5 rounded-2xl border-l-4 border-lagoon-600 border border-sand-200 shadow-sm">
+                        <div class="flex items-center justify-between mb-0.5">
+                            <h4 class="font-black text-lagoon-700 text-sm">Step 3｜Social Media 思辨與負責決策</h4>
+                            <span class="text-[10px] font-extrabold bg-lagoon-100 text-lagoon-800 px-2 py-0.5 rounded">B3U2 標頭＋學習單＋綠色海報</span>
+                        </div>
+                        <p class="text-slate-600 text-xs leading-snug font-medium">
+                            在 <b>《B3U2學習單.docx》</b> 剖析主角 Harry 滑手機與見網友的情緒轉折、比較 <b>Social Media 優缺點</b>，並用必考句型 <b><code>It is essential / advisable that S + (should) + V</code></b> 提出健康使用社群的建議！
+                        </p>
+                    </div>
+
+                    <!-- Quick File Links Bar for all U2 files -->
+                    <div class="bg-sand-100 p-2 rounded-2xl border border-sand-200 space-y-1">
+                        <div class="text-[11px] font-black text-slate-700 flex items-center gap-1">
+                            <i class="fa-solid fa-box-archive text-lagoon-600"></i> 全英觀摩日 Social Media ✕ SEL 教材包一鍵開啟：
+                        </div>
+                        <div class="flex flex-wrap gap-1 text-[10px] font-bold">
+                            <a href="SEL_U2_教材包/B3U2 Social Media標頭.docx" download class="bg-white hover:bg-amber-50 text-slate-700 px-2 py-0.5 rounded border border-sand-200">📄 B3U2標頭.docx</a>
+                            <a href="SEL_U2_教材包/B3U2學習單.docx" download class="bg-white hover:bg-amber-50 text-slate-700 px-2 py-0.5 rounded border border-sand-200">📄 B3U2學習單.docx</a>
+                            <a href="SEL_U2_教材包/各種心情的解方.docx" download class="bg-white hover:bg-amber-50 text-slate-700 px-2 py-0.5 rounded border border-sand-200">📄 各種心情的解方.docx</a>
+                            <a href="SEL_U2_教材包/SEL核心概念.docx" download class="bg-white hover:bg-amber-50 text-slate-700 px-2 py-0.5 rounded border border-sand-200">📄 SEL核心概念.docx</a>
+                            <a href="SEL_U2_教材包/心情溫度計.pdf" target="_blank" class="bg-white hover:bg-amber-50 text-slate-700 px-2 py-0.5 rounded border border-sand-200">📕 心情溫度計.pdf</a>
+                            <a href="SEL_U2_教材包/Wheel-of-Emotions-Handout-(3).pdf" target="_blank" class="bg-white hover:bg-amber-50 text-slate-700 px-2 py-0.5 rounded border border-sand-200">📕 情緒輪盤(3份).pdf</a>
+                            <a href="SEL_U2_教材包/101_Coping_Skills_ADA.pdf" target="_blank" class="bg-white hover:bg-amber-50 text-slate-700 px-2 py-0.5 rounded border border-sand-200">📕 101_Coping.pdf</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-1.5 px-4">
+                <p class="font-quote text-xs md:text-sm text-slate-700 italic">
+                    「全英計畫教學觀摩日 — When Social Media Meets SEL：讓英文課本單元與社會情緒學習深度結合，陪孩子在社群時代找回內心平衡。」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 20: SEL 情緒考評與掃碼體檢 (Scan QR Code Poll 3 + 明芬老師自然講稿小抄) -->
+    <section class="slide" id="slide-20">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200 !mb-0">
+                    <i class="fa-solid fa-notes-medical text-lagoon-600"></i>
+                    <span>第三階段：間奏與內在 | 全英計畫觀摩延伸 · 從學生到老師的 SEL 溫柔關照</span>
+                </div>
+                <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="inline-flex items-center gap-1.5 bg-coral-500 hover:bg-coral-600 text-white text-xs font-black px-3.5 py-1.5 rounded-full shadow transition">
+                    <i class="fa-solid fa-comment-dots"></i> 開啟雲端互動百寶箱 ＆ 心情回饋牆
+                </a>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-1">SEL 課堂與教師心情溫度計 🌡️</h2>
+            <p class="text-slate-600 text-base md:text-lg font-bold mb-3">不只關心高二孩子，也把這張「情緒溫度計」送給每天被進度追著跑的我們</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-stretch mb-3">
+                <!-- Left: 明芬老師不尷尬 3 步驟自然講稿小抄 (Talking Points) -->
+                <div class="md:col-span-7 flex flex-col justify-between bg-amber-50/90 p-4 rounded-2xl border-2 border-amber-300 shadow-sm space-y-2.5">
+                    <div class="flex items-center justify-between border-b border-amber-200 pb-1.5">
+                        <h3 class="font-black text-amber-950 text-base flex items-center gap-2">
+                            <i class="fa-solid fa-microphone-lines text-coral-600"></i> 🎙️ 明芬老師自然轉場 3 步口語小抄（不說教、只共鳴）
+                        </h3>
+                        <span class="text-[11px] font-extrabold bg-white text-amber-800 px-2.5 py-0.5 rounded-full border border-amber-300">講台安心提詞卡</span>
+                    </div>
+
+                    <div class="bg-white p-3 rounded-xl border-l-4 border-amber-500 shadow-sm">
+                        <div class="text-xs font-black text-amber-800 mb-0.5">Step 1｜先自嘲共鳴（破冰最自然）：</div>
+                        <p class="text-slate-700 text-xs md:text-sm leading-relaxed font-medium">
+                            「看完前面這麼多跨科與雙語活動，大家一定會想：『明芬老師，做這麼多不會累嗎？進度不會趕不完嗎？』<b>老實說——真的會累！我們當老師的，每天被課綱進度、改作業跟計畫追著跑，我們自己的心情也常在黃區跟紅區徘徊！</b>」
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-3 rounded-xl border-l-4 border-lagoon-600 shadow-sm">
+                        <div class="text-xs font-black text-lagoon-800 mb-0.5">Step 2｜順水推舟（把課堂工具變成送給彼此的禮物）：</div>
+                        <p class="text-slate-700 text-xs md:text-sm leading-relaxed font-medium">
+                            「所以我在全英觀摩日教 Social Media 時，把 <b>SEL『心情溫度計』跟『101種降溫解方』</b>帶進教室。我發現它不只是給學生的英文學習單，更是提醒我們自己<b>『先照顧好老師的心情，才有能量陪伴學生』</b>的小工具！」
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-3 rounded-xl border-l-4 border-coral-500 shadow-sm">
+                        <div class="text-xs font-black text-coral-600 mb-0.5">Step 3｜零壓力 30 秒雙軌互動（掃碼貼回饋牆或 Meet 聊天室皆可）：</div>
+                        <p class="text-slate-700 text-xs md:text-sm leading-relaxed font-medium">
+                            「現在接近期中了，邀請線上的夥伴花 30 秒幫自己 Check-in：<b>您可以掃描右方 QR Code 到互動回饋牆點『+ 貼便利貼』留下心情，或直接在 Google Meet 聊天室打個 🟢 A ／ 🟡 B ／ 🔴 C</b>，讓我們彼此加油打氣！」
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: QR Code Scanning Poll 3 Widget -->
+                <div class="md:col-span-5 flex flex-col justify-between">
+                    <div class="poll-card space-y-3 p-4 bg-white rounded-2xl border-2 border-lagoon-400 shadow-md h-full flex flex-col justify-between" id="poll3">
+                        <div class="flex items-center justify-between border-b border-sand-200 pb-2">
+                            <h4 class="font-black text-slate-800 text-base flex items-center gap-1.5">
+                                <i class="fa-solid fa-heart-pulse text-coral-500"></i> 線上夥伴 30 秒心情 Check-in
+                            </h4>
+                            <span class="text-[11px] font-extrabold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">免登入可直接貼便利貼</span>
+                        </div>
+
+                        <div class="grid grid-cols-12 gap-3 items-center my-auto">
+                            <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="col-span-5 qr-box p-2 hover:scale-105 transition group" title="點擊或掃碼開啟互動百寶箱與心情回饋牆">
+                                <img src="web_photos/padlet_qr.png" alt="Padlet Mood Check-in QR Code" class="w-28 h-28 object-contain mb-1 bg-white rounded-lg">
+                                <span class="text-[11px] font-black text-lagoon-700 group-hover:underline">📱 掃碼貼心情便利貼</span>
+                            </a>
+                            <div class="col-span-7 space-y-1.5 text-xs text-slate-700 font-bold">
+                                <p class="font-black text-slate-800 text-xs mb-1">此刻您教書與備課的心情溫度是？（亦可於 Meet 聊天室輸入 A/B/C）</p>
+                                <div class="p-2 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-950"><b>A. 🟢 綠區 (20–40°C)</b><br><span class="text-[11px] font-medium">平靜放鬆，期待嘗試新點子</span></div>
+                                <div class="p-2 bg-amber-50 border border-amber-200 rounded-xl text-amber-950"><b>B. 🟡 黃區 (41–70°C)</b><br><span class="text-[11px] font-medium">既期待又怕課綱進度趕不完</span></div>
+                                <div class="p-2 bg-rose-50 border border-rose-200 rounded-xl text-rose-950"><b>C. 🔴 紅區 (71–100°C)</b><br><span class="text-[11px] font-medium">期中忙碌疲憊，需要咖啡充電☕</span></div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <button onclick="toggleLiveResult('result3')" class="w-full py-2 bg-lagoon-600 text-white font-black rounded-xl text-xs hover:bg-lagoon-700 transition shadow cursor-pointer">
+                                💡 點擊展開 Miffy 老師給夥伴的「3個微降溫小處方」
+                            </button>
+
+                            <div id="result3" class="hidden pt-2 border-t border-sand-200 text-xs text-slate-700 bg-coral-50/70 p-2.5 rounded-xl">
+                                <p class="font-black text-coral-600 text-xs"><i class="fa-solid fa-mug-hot"></i> Miffy 給線上夥伴的溫馨共勉：</p>
+                                <p class="text-xs mt-1 leading-relaxed font-bold">「不管今天在綠區、黃區還是紅區，願意在百忙中上線共學的您都超棒！跨科不用一次到位，一學期只要選 1 個小活動、找 1 位神隊友喝杯咖啡就夠了！」</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2 px-4">
+                <p class="font-quote text-xs md:text-sm text-slate-700 italic">
+                    「SEL 不只是教學生認識情緒，更是提醒身為老師的我們：允許自己有累的時候，照顧好自己的心，教學才能走得長遠。」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 21: SEL 雙語社會情感學習 & 互動教學演示 -->
+    <section class="slide" id="slide-21">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200 !mb-0">
+                    <i class="fa-solid fa-heart-circle-check text-lagoon-600"></i>
+                    <span>第三階段：間奏與內在 | Social Media ✕ SEL 雙語社會情感課程與互動網頁演示</span>
+                </div>
+                <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="inline-flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-black px-3 py-1 rounded-full shadow transition">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> 同步開啟互動百寶箱看大家貼的心情
+                </a>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-1.5">SEL 雙語社會情感課程 ❤️</h2>
+            <p class="text-slate-600 text-base md:text-lg font-bold mb-3">先安頓情緒，才能打開學習：將「心情溫度計」與「101 Coping Skills」化為師生共用的減壓百寶箱</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center mb-3">
+                <!-- Left: Live Interactive SEL Demo Window -->
+                <div class="md:col-span-7 flex flex-col h-[48vh] bg-white rounded-2xl border-2 border-lagoon-400/40 shadow-lg overflow-hidden">
+                    <div class="bg-slate-100 p-2 border-b border-slate-200 flex flex-wrap gap-1.5 items-center text-xs font-bold shrink-0">
+                        <span class="text-slate-600 px-1.5 flex items-center gap-1"><i class="fa-solid fa-heart text-coral-500"></i> 實機點擊演示：</span>
+                        <button onclick="document.getElementById('selFrame').src='poll3.html'" class="px-3 py-1.5 rounded-lg bg-coral-600 text-white hover:bg-coral-700 transition cursor-pointer">🌡️ 1. SEL 情緒溫度計 Live</button>
+                        <button onclick="document.getElementById('selFrame').src='poll1.html'" class="px-3 py-1.5 rounded-lg bg-lagoon-600 text-white hover:bg-lagoon-700 transition cursor-pointer">📊 2. 雙語教學痛點投票</button>
+                        <button onclick="document.getElementById('selFrame').src='poll2.html'" class="px-3 py-1.5 rounded-lg bg-amber-600 text-white hover:bg-amber-700 transition cursor-pointer">✍️ 3. 寫作結構調查</button>
+                    </div>
+                    <iframe id="selFrame" src="poll3.html" class="w-full h-full border-0" title="SEL 情緒溫度計與互動測驗網頁"></iframe>
+                </div>
+
+                <!-- Right: Content Explanations & Teacher Self-Care Talking Points -->
+                <div class="md:col-span-5 flex flex-col justify-center space-y-3">
+                    <div class="bg-white p-3.5 rounded-2xl border-l-4 border-coral-500 border border-sand-200 shadow-sm">
+                        <h4 class="font-black text-coral-600 text-sm mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-heart text-coral-500"></i> 1. 對學生：Social Media 焦慮與 101 Coping Skills
+                        </h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                            高二孩子常因社群媒體比較而陷入情緒低谷。課堂發下 <b>《101 Coping Skills》</b>，讓學生圈出 3 個專屬英文減壓行動（如 <i>listen to music, take a deep breath, talk to a friend</i>）。
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-3.5 rounded-2xl border-l-4 border-lagoon-600 border border-sand-200 shadow-sm">
+                        <h4 class="font-black text-lagoon-700 text-sm mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-mug-saucer text-lagoon-600"></i> 2. 對老師：我們自己的「備課降溫三法寶」
+                        </h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">
+                            怎麼關心老師自己的心情？我最常跟同事分享三個不耗能秘訣：<br>
+                            <b>① 借力使力（找跨科隊友分擔）</b>、<b>② 現成改編（直接改 Padlet 公版 Word 檔）</b>、<b>③ 把 AI 當助教（幾分鐘生出互動網頁）</b>！
+                        </p>
+                    </div>
+
+                    <div class="bg-amber-50 p-3 rounded-2xl border border-amber-300 shadow-sm text-xs font-bold text-amber-950">
+                        💡 <b>講台小提示</b>：直接操作左側視窗點選「🟢／🟡／🔴」並按「送出檢測」，即可現場展示我們如何用簡單 HTML 網頁跟學生與老師做溫暖的情緒互動！
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2 px-4">
+                <p class="font-quote text-xs md:text-sm text-slate-700 italic">
+                    「先安頓情緒，才能打開學習。把 SEL 帶進英文課，同時也用跨科共備與數位工具幫老師自己減壓！」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide: 數位能力大進化 (高二5魔法英文教室 ✕ 可可創新實驗室 🌐 Google Sites 雙網站與互動講義) -->
+    <section class="slide" id="slide-22">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200">
+                <i class="fa-solid fa-globe text-coral-500"></i>
+                <span>第四階段：未來 | 數位能力大進化 · 雙 Google Sites 課程網站（魔法英文教室 × 可可創新實驗室）</span>
+            </div>
+
+            <h2 class="text-4xl font-black text-slate-800 mb-1.5">數位能力大進化 🌐</h2>
+            <p class="text-slate-600 text-lg md:text-xl font-bold mb-2.5">自主打造雙教學雲端：「高二5魔法英文教室」✕「可可創新實驗室」（內嵌離線鏡像可直接操作）</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center mb-3">
+                <!-- Left: Live Offline Interactive Preview of Both Google Sites -->
+                <div class="md:col-span-7 flex flex-col h-[48vh] bg-white rounded-2xl border-2 border-coral-400/50 shadow-lg overflow-hidden">
+                    <div class="bg-slate-900 p-2 border-b border-slate-700 flex flex-wrap gap-1.5 items-center justify-between text-xs font-bold shrink-0">
+                        <div class="flex flex-wrap items-center gap-1.5">
+                            <span class="text-amber-300 px-1.5 flex items-center gap-1"><i class="fa-solid fa-laptop-code"></i> 點擊切換實機演示：</span>
+                            <button onclick="document.getElementById('magicSitesFrame').src='cocoa_lab_offline/magic_classroom_home.html'" class="px-2.5 py-1 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 font-black transition cursor-pointer">
+                                🏰 高二5魔法英文教室 (首頁)
+                            </button>
+                            <button onclick="document.getElementById('magicSitesFrame').src='cocoa_lab_offline/magic_classroom_demo48.html'" class="px-2.5 py-1 rounded-lg bg-lagoon-600 hover:bg-lagoon-700 text-white font-bold transition cursor-pointer">
+                                🎓 教學演示 4/8 (Masterclass)
+                            </button>
+                            <button onclick="document.getElementById('magicSitesFrame').src='cocoa_lab_offline/intro.html'" class="px-2.5 py-1 rounded-lg bg-coral-600 hover:bg-coral-700 text-white font-bold transition cursor-pointer">
+                                🍫 可可創新實驗室
+                            </button>
+                        </div>
+                        <button onclick="openCocoaLabModal(document.getElementById('magicSitesFrame').src)" class="px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition cursor-pointer flex items-center gap-1">
+                            <i class="fa-solid fa-expand"></i> 全螢幕操作
+                        </button>
+                    </div>
+                    <iframe id="magicSitesFrame" src="cocoa_lab_offline/magic_classroom_home.html" class="w-full h-full border-0 bg-white" title="高二5魔法英文教室與可可創新實驗室離線預覽"></iframe>
+                </div>
+
+                <!-- Right: Narrative (2 Flagship Google Sites) -->
+                <div class="md:col-span-5 flex flex-col justify-center space-y-3">
+                    <div class="bg-white p-3.5 rounded-2xl border border-sand-200 shadow-sm">
+                        <h4 class="font-bold text-amber-700 text-base mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-wand-magic-sparkles text-amber-500"></i> 1.「高二5魔法英文教室」Google Sites
+                        </h4>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium mb-2">
+                            自主建置班級專屬線上教學演示平台，整合 B4U1–B4U10 單字、課文文法、週考詳解與「教學演示 4/8」互動挑戰賽。
+                        </p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <button onclick="openCocoaLabModal('cocoa_lab_offline/magic_classroom_home.html')" class="inline-flex items-center gap-1 text-xs font-black text-white bg-amber-600 hover:bg-amber-700 px-3 py-1 rounded-lg transition shadow-sm cursor-pointer">
+                                <i class="fa-solid fa-bolt"></i> 全螢幕離線演示
+                            </button>
+                            <a href="https://sites.google.com/view/h20520250114/%E6%95%99%E5%AD%B8%E6%BC%94%E7%A4%BA48" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-xs font-bold text-amber-800 bg-amber-50 hover:bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-200 transition shadow-sm">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-amber-600"></i> 線上原網址
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-3.5 rounded-2xl border-2 border-amber-400 shadow-md">
+                        <div class="flex items-center gap-3">
+                            <a href="Cocoa_Innovation_Lab_Offline.html" target="_blank" class="shrink-0 group" title="點擊開啟《可可創新實驗室》離線完整版">
+                                <img src="web_photos/chocolate_site_qr.png" alt="可可創新實驗室 QR Code" class="w-16 h-16 object-contain rounded-xl border-2 border-amber-700 p-1 bg-white group-hover:scale-105 transition">
+                            </a>
+                            <div>
+                                <h4 class="font-black text-amber-950 text-base mb-1 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-flask text-coral-600"></i> 2.「可可創新實驗室」主題網站
+                                </h4>
+                                <p class="text-slate-700 text-xs leading-relaxed font-bold mb-2">
+                                    將巧克力跨域 STEAM 共創濃縮為完整主題網站，並支援 100% 離線講解與跨校共學！
+                                </p>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <button onclick="openCocoaLabModal('cocoa_lab_offline/intro.html')" class="inline-flex items-center gap-1 text-xs font-black text-white bg-emerald-700 hover:bg-emerald-800 px-2.5 py-1 rounded-lg transition shadow-sm cursor-pointer">
+                                        <i class="fa-solid fa-bolt text-amber-300"></i> 離線展開
+                                    </button>
+                                    <a href="https://sites.google.com/view/chocolate0323/intro" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-xs font-black text-white bg-amber-800 hover:bg-amber-900 px-2.5 py-1 rounded-lg transition shadow-sm">
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-amber-300"></i> 線上網站
+                                    </a >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2 px-4">
+                <p class="font-quote text-sm text-slate-700 italic">
+                    「從使用簡報到自主打造『高二5魔法英文教室』與『可可創新實驗室』雙網站，數位能力的升級，讓我的課堂變得更加靈活、更有溫度。」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 23: 雙經緯演進總結 (從在地到國際 ✕ 從紙張到網頁 🗺️) -->
+    <section class="slide" id="slide-23">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-amber-50 text-amber-700 border border-amber-200">
+                <i class="fa-solid fa-network-wired text-amber-600"></i>
+                <span>第五階段：結語與展望 | 雙經緯演進與課程架構總覽</span>
+            </div>
+
+            <h2  class="text-4xl font-black text-slate-800 mb-2">課程經緯總覽</h2>
+            <p class="text-slate-600 text-lg md:text-xl font-bold mb-3.5">空間與數位的雙向進化 🗺️</p>
+            <p class="text-slate-600 text-lg mb-4">完整繪製雙語教學創新的時間軸與經緯輪廓：從在地走讀到國際發表，從紙張掃碼到自建網頁</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center mb-4">
+                <!-- Left: 緯線 (空間 × 時間軸：110學年 ➔ 114學年) -->
+                <div class="md:col-span-6 bg-white p-5 rounded-2xl border-2 border-lagoon-400/40 shadow-md space-y-3">
+                    <h3 class="text-lg font-black text-lagoon-700 border-b border-sand-200 pb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-earth-asia text-lagoon-600"></i> 緯線 (空間 × 時間軸)：從在地到國際
+                    </h3>
+                    <div class="space-y-2.5 text-xs font-bold text-slate-700">
+                        <div class="p-2.5 bg-lagoon-50 rounded-xl border border-lagoon-200 flex items-center justify-between">
+                            <span>1. 110學年 (2021–2022)</span>
+                            <span class="text-lagoon-700 font-extrabold">馬公高中來訪 × 七股採蚵實作 × 難民議題發表</span>
+                        </div>
+                        <div class="p-2.5 bg-sand-100 rounded-xl flex items-center justify-between">
+                            <span>2. 111學年 (2022.12–2023.3)</span>
+                            <span class="text-amber-800 font-extrabold">2022.12.11 線上交流 × 2023.2.6 踏查 × 2023.3.9 安順鹽場</span>
+                        </div>
+                        <div class="p-2.5 bg-lagoon-100 rounded-xl border border-lagoon-300 flex items-center justify-between">
+                            <span>3. 112–114學年 (2023–2025)</span>
+                            <span class="text-lagoon-800 font-extrabold">112 蕃茄食農 × 113 美妝化學 × 114 巧克力 STEAM & 全英觀摩</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: 經線 (工具) -->
+                <div class="md:col-span-6 bg-white p-5 rounded-2xl border-2 border-amber-400/40 shadow-md space-y-3">
+                    <h3 class="text-lg font-black text-amber-800 border-b border-sand-200 pb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-laptop-code text-amber-600"></i> 經線 (工具能力)：從紙張 QR 到網頁製作
+                    </h3>
+                    <div class="space-y-2.5 text-xs font-bold text-slate-700">
+                        <div class="p-2.5 bg-amber-50 rounded-xl border border-amber-200 flex items-center justify-between">
+                            <span>1. 紙張與實體工具</span>
+                            <span class="text-amber-800 font-extrabold">紙本學習單 × 謎紙尋寶 × QR Code 掃碼</span>
+                        </div>
+                        <div class="p-2.5 bg-sand-100 rounded-xl flex items-center justify-between">
+                            <span>2. 互動頁面撰寫</span>
+                            <span class="text-coral-600 font-extrabold">自撰 HTML 互動頁 × SEL 情緒溫度計</span>
+                        </div>
+                        <div class="p-2.5 bg-amber-100 rounded-xl border border-amber-300 flex items-center justify-between">
+                            <span>3. 專屬教學雲端</span>
+                            <span class="text-amber-900 font-extrabold">「高二5魔法英文教室」×「可可創新實驗室」雙網站</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2.5 px-4">
+                <p class="font-quote text-sm text-slate-700 italic">
+                    「從在地到國際，從紙張 QR Code 到網頁製作。明確的經緯輪廓，讓教學創新不再是零散的點，而是完整的面。」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 24: 研習 Takeaway 大禮包 ── 跨學制夥伴專屬帶走資源 -->
+    <section class="slide" id="slide-24">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
+            <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200">
+                <i class="fa-solid fa-gift text-coral-500"></i>
+                <span>第四階段：未來 | 研習 Takeaway 教材百寶箱 ＆ 靈魂反思</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-1.5">與夥伴共好的雙語之路 🌿</h2>
+            <p class="text-slate-600 text-lg md:text-xl font-bold mb-3">專為今日跨學制夥伴準備的「可修改 Word 學習單大禮包」🎁</p>
+
+            <!-- 4 Participant Groups Takeaway Matrix -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 mb-3">
+                <div class="bg-white p-4 rounded-2xl border-2 border-amber-200 shadow-sm flex items-start gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl shrink-0 font-black">
+                        <i class="fa-solid fa-sitemap"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-black text-slate-800 text-base mb-1">1. 校長 ＆ 行政組長夥伴（全校推動／跨科社群）</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium mb-1.5">如何在不造成教師排課負擔下推動雙語與國際交流？</p>
+                        <span class="inline-block text-[11px] font-extrabold text-amber-900 bg-amber-100 px-2.5 py-1 rounded-lg">📄 帶走 Word：跨科共備檢核表 ＆ 校園大地遊戲企劃範本.docx</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-2xl border-2 border-lagoon-200 shadow-sm flex items-start gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-lagoon-100 text-lagoon-700 flex items-center justify-center text-xl shrink-0 font-black">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-black text-slate-800 text-base mb-1">2. 普通高中 ＆ 完全中學夥伴（學測寫作／國際議題）</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium mb-1.5">兼顧大考進度與素養產出，從主題句架構到跨國視訊發表。</p>
+                        <span class="inline-block text-[11px] font-extrabold text-lagoon-800 bg-lagoon-100 px-2.5 py-1 rounded-lg">📄 帶走 Word/HTML：115學測主題句講義 ＆ 國際交流發表學習單.docx</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-2xl border-2 border-coral-200 shadow-sm flex items-start gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-coral-100 text-coral-600 flex items-center justify-center text-xl shrink-0 font-black">
+                        <i class="fa-solid fa-hands-holding-circle"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-black text-slate-800 text-base mb-1">3. 技術型高中（高職）夥伴（動手實作／專業英文降階）</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium mb-1.5">把英文變成配方、步驟與五感體驗（採蚵、鹽場、巧克力、美妝）。</p>
+                        <span class="inline-block text-[11px] font-extrabold text-coral-600 bg-coral-50 px-2.5 py-1 rounded-lg">📄 帶走 Word：七股走讀雙語學習單 ＆ 跨科手工書摺頁範本.docx</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-2xl border-2 border-emerald-200 shadow-sm flex items-start gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl shrink-0 font-black">
+                        <i class="fa-solid fa-puzzle-piece"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-black text-slate-800 text-base mb-1">4. 國小 ／ 國中 ／ 特教夥伴（遊戲化尋寶／SEL情緒陪伴）</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium mb-1.5">高互動視覺化教學，用 QR Code 尋寶與情緒溫度計照顧每位孩子。</p>
+                        <span class="inline-block text-[11px] font-extrabold text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-lg">📄 帶走 Word：單字尋寶謎紙範本 ＆ SEL 情緒溫度計學習單.docx</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card py-2 px-4 border-coral-500">
+                <p class="font-quote text-xs text-slate-700 italic">
+                    「教書路上，最好的雙語教學不是把學生塞滿難字，而是給他們看見世界的眼睛與自信說話的勇氣。所有 Word 學習單皆可自由修改校名與單字！」
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 25: 終頁感謝與暖心交流工作坊 (Padlet 百寶箱 & 互動時間 💖) -->
+    <section class="slide" id="slide-25">
+        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col justify-between h-[84vh]">
+            <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200">
+                <i class="fa-solid fa-heart text-coral-500"></i>
+                <span>第五階段：結語與展望 | Padlet 教材百寶箱 ✕ 暖心互動時間</span>
+            </div>
+
+            <div class="space-y-1">
+                <h2 class="text-4xl md:text-5xl font-black text-slate-800">把世界帶進教室 🌍 讓英文成為有溫度的生活記憶</h2>
+                <p class="text-slate-600 text-base md:text-lg font-bold">掃碼領取全套 Word 可編輯學習單 ✕ 跨縣市夥伴暖心交流時間</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-stretch my-auto">
+                <!-- Left: Padlet QR & Interactive Prompts (Anti-Cold-Room) -->
+                <div class="md:col-span-7 flex flex-col justify-between space-y-3">
+                    <div class="bg-white p-4 rounded-2xl border-2 border-lagoon-400 shadow-md space-y-3">
+                        <div class="flex flex-wrap items-center justify-between border-b border-sand-200 pb-2 gap-2">
+                            <h3 class="text-lg font-black text-slate-800 flex items-center gap-2">
+                                <i class="fa-solid fa-box-open text-coral-500"></i> Padlet 研習教材百寶箱 ＆ 互動留言牆
+                            </h3>
+                            <div class="flex flex-wrap items-center gap-1.5">
+                                <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="bg-lagoon-600 hover:bg-lagoon-700 text-white text-xs font-bold px-2.5 py-1.5 rounded-full shadow transition flex items-center gap-1">
+                                    <i class="fa-solid fa-bolt text-amber-300"></i> 📦 離線版 Padlet 百寶箱＆抽籤器
+                                </a>
+                                <button onclick="openCocoaLabModal('cocoa_lab_offline/intro.html')" class="bg-amber-800 hover:bg-amber-900 text-white text-xs font-bold px-2.5 py-1.5 rounded-full shadow transition flex items-center gap-1 cursor-pointer">
+                                    <i class="fa-solid fa-bolt text-amber-300"></i> 🍫 離線可可實驗室
+                                </button>
+                                <a href="https://padlet.com/miffy2/presentation-fq9tfhl6ik15441y" target="_blank" class="bg-coral-500 hover:bg-coral-600 text-white text-xs font-bold px-2.5 py-1.5 rounded-full shadow transition flex items-center gap-1">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> 線上 Padlet
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="shrink-0 group relative" title="點擊開啟明芬老師研習教材百寶箱＆暖心回饋牆">
+                                <img src="web_photos/padlet_qr.png" alt="Padlet QR Code" class="w-24 h-24 object-contain rounded-xl border-2 border-lagoon-500 p-1 bg-white group-hover:scale-105 transition">
+                            </a>
+                            <div class="text-xs text-slate-700 space-y-1.5 font-bold">
+                                <p class="font-black text-lagoon-800 text-sm">📱 掃描 QR Code 進入研習教材百寶箱 ＆ 暖心回饋牆（免登入可直接下載、上傳與貼便利貼）：</p>
+                                <p>✅ 5 份可編輯 Word 學習單 (.docx)：七股走讀、單字尋寶謎紙、跨科手工書、SEL 溫度計、全學年/跨科規劃表</p>
+                                <p>✅ 3 份實戰 PDF（台江濕地、Unit 4 單字尋寶謎紙＆QR任務卡）＋ 即時回饋便利貼牆</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Speaker Feedback & Warm Discussion Prompts on Padlet -->
+                    <div class="bg-amber-50/90 p-4 rounded-2xl border border-amber-300 shadow-sm space-y-2">
+                        <h4 class="font-black text-amber-900 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-comment-dots text-coral-500"></i> 💌 給明芬老師的暖心回饋牆（歡迎在 Padlet 留下您的想法，哪一種都超級歡迎！）
+                        </h4>
+                        <div class="grid grid-cols-1 gap-1.5 text-xs text-slate-700 font-bold">
+                            <div class="bg-white/95 px-3 py-1.5 rounded-lg border border-amber-200 flex items-start gap-2">
+                                <span class="text-purple-600 font-black shrink-0">✨ 有印象的：</span>
+                                <span>今天分享的五年故事或課程設計中，哪一個片段最讓您印象深刻或有共鳴？</span>
+                            </div>
+                            <div class="bg-white/95 px-3 py-1.5 rounded-lg border border-amber-200 flex items-start gap-2">
+                                <span class="text-lagoon-700 font-black shrink-0">🚀 想試試看的：</span>
+                                <span>單字尋寶 QR Code、跨科手工摺頁書、SEL 溫度計或 AI 網頁，回學校後您最想試試哪一個？</span>
+                            </div>
+                            <div class="bg-white/95 px-3 py-1.5 rounded-lg border border-amber-200 flex items-start gap-2">
+                                <span class="text-coral-600 font-black shrink-0">💡 提供建議的：</span>
+                                <span>任何課程想法、跨校交流點子、給講師的建議或溫暖鼓勵，都歡迎貼上 Padlet 與我分享！</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Photo & Thank You Note -->
+                <div class="md:col-span-5 flex flex-col justify-between space-y-3">
+                    <div class="relative overflow-hidden rounded-2xl border border-sand-200 shadow-md h-[32vh]">
+                        <img src="web_photos/IMG_6929.jpg" alt="番茄專案圓滿合照" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-2 text-center font-bold">
+                            專案成果合照：圓滿成功！
+                        </div>
+                    </div>
+
+                    <div class="bg-sand-100/90 p-4 rounded-2xl border border-sand-200 flex items-center justify-between shadow-sm">
+                        <div>
+                            <p class="font-black text-slate-800 text-base whitespace-nowrap">台南瀛海國際高中 林明芬老師</p>
+                            <p class="text-xs text-slate-600 mt-0.5 font-bold">感謝全台各地線上齊聚的教育夥伴！期待在雙語與跨域的路上繼續同行！</p>
+                        </div>
+                        <span class="text-2xl text-coral-500 font-black shrink-0 ml-2">Thank You!</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-xs text-slate-500 font-bold">
+                Slide 25 / 25 | 按 Home 可返回簡報首頁
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Global Floating Controls -->
+    <div class="controls">
+        <div id="btnPrev" class="btn-nav" title="上一頁 (Left Arrow)"><i class="fa-solid fa-chevron-left"></i></div>
+        <div id="slideIndicator" class="font-mono font-bold text-base text-slate-700 min-w-[80px] text-center px-1">01 / 25</div>
+        <div id="btnNext" class="btn-nav" title="下一頁 (Right Arrow)"><i class="fa-solid fa-chevron-right"></i></div>
+        <div class="h-6 w-px bg-sand-300 mx-1"></div>
+        <div id="btnFullscreen" class="btn-nav" title="全螢幕簡報 (F)"><i class="fa-solid fa-expand"></i></div>
+    </div>
+
+    <!-- Fullscreen Video Modal for HD Viewing -->
+    <div id="videoModal" class="fixed inset-0 bg-black/95 z-[200] hidden items-center justify-center p-4 backdrop-blur-md">
+        <div class="relative max-w-6xl w-full bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+            <div class="flex items-center justify-between bg-slate-900/90 px-5 py-3 border-b border-slate-800">
+                <span class="text-white font-bold text-base flex items-center gap-2">
+                    <i class="fa-solid fa-film text-coral-400"></i> 巧克力 STEAM 課程動態成果紀錄
+                </span>
+                <button onclick="closeVideoModal()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-1.5 rounded-full font-bold text-xs transition flex items-center gap-1.5 shadow">
+                    <i class="fa-solid fa-xmark"></i> 關閉全螢幕
+                </button>
+            </div>
+            <div class="p-2 flex items-center justify-center bg-black">
+                <video id="modalVideoPlayer" controls playsinline preload="auto" class="w-full max-h-[82vh] object-contain rounded-xl bg-black">
+                    <source src="web_photos/chocolate_course_video.mp4" type="video/mp4">
+                    您的瀏覽器不支援影片播放。
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Offline《可可創新實驗室》Google Sites Modal -->
+    <div id="cocoaLabModal" class="fixed inset-0 bg-black/90 z-[210] hidden flex-col p-2 md:p-4 backdrop-blur-md">
+        <div class="bg-[#211310] text-white px-4 py-2.5 rounded-t-2xl border border-amber-700/60 flex flex-wrap items-center justify-between gap-2 shrink-0">
+            <div class="flex items-center gap-2.5">
+                <span class="text-xl">🍫</span>
+                <div>
+                    <span class="font-black text-amber-100 text-sm md:text-base">《可可創新實驗室》Google Sites 100% 離線講解模式</span>
+                    <span class="ml-2 bg-emerald-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full">免網路離線鏡像</span>
+                </div>
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5" id="modalCocoaTabs">
+                <button onclick="switchModalCocoaTab('cocoa_lab_offline/intro.html', this)" class="cocoa-modal-tab bg-amber-600 text-white text-xs font-black px-3 py-1 rounded-full transition cursor-pointer">🏠 Intro 總覽</button>
+                <button onclick="switchModalCocoaTab('cocoa_lab_offline/history.html', this)" class="cocoa-modal-tab bg-white/10 hover:bg-white/20 text-amber-100 text-xs font-bold px-3 py-1 rounded-full transition cursor-pointer">🌍 History 貿易</button>
+                <button onclick="switchModalCocoaTab('cocoa_lab_offline/english.html', this)" class="cocoa-modal-tab bg-white/10 hover:bg-white/20 text-amber-100 text-xs font-bold px-3 py-1 rounded-full transition cursor-pointer">🗣️ English Hook</button>
+                <button onclick="switchModalCocoaTab('cocoa_lab_offline/math.html', this)" class="cocoa-modal-tab bg-white/10 hover:bg-white/20 text-amber-100 text-xs font-bold px-3 py-1 rounded-full transition cursor-pointer">📐 Math 期望值</button>
+                <button onclick="switchModalCocoaTab('cocoa_lab_offline/chemistry.html', this)" class="cocoa-modal-tab bg-white/10 hover:bg-white/20 text-amber-100 text-xs font-bold px-3 py-1 rounded-full transition cursor-pointer">🧪 Chemistry 熔岩</button>
+                <button onclick="switchModalCocoaTab('cocoa_lab_offline/home_economics.html', this)" class="cocoa-modal-tab bg-white/10 hover:bg-white/20 text-amber-100 text-xs font-bold px-3 py-1 rounded-full transition cursor-pointer">📖 實作、手工書</button>
+            </div>
+            <div class="flex items-center gap-2">
+                <a href="Cocoa_Innovation_Lab_Offline.html" target="_blank" class="bg-amber-800 hover:bg-amber-700 text-white px-3 py-1 rounded-full font-bold text-xs transition">
+                    新分頁開啟 ↗
+                </a>
+                <button onclick="closeCocoaLabModal()" class="bg-red-600 hover:bg-red-700 text-white px-3.5 py-1 rounded-full font-bold text-xs transition flex items-center gap-1 shadow cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i> 關閉 (Esc)
+                </button>
+            </div>
+        </div>
+        <div class="flex-1 bg-[#FDFBF7] rounded-b-2xl overflow-hidden border border-t-0 border-amber-700/60 shadow-2xl">
+            <iframe id="modalCocoaFrame" src="cocoa_lab_offline/intro.html" class="w-full h-full border-0" title="可可創新實驗室全螢幕離線講解"></iframe>
+        </div>
+    </div>
+
+    <!-- Fullscreen Image Lightbox Modal -->
+    <div id="imageLightboxModal" class="fixed inset-0 bg-black/90 z-[220] hidden items-center justify-center p-4 backdrop-blur-md" onclick="closeImageLightbox()">
+        <div class="relative max-w-6xl w-full max-h-[92vh] flex flex-col items-center justify-center" onclick="event.stopPropagation()">
+            <div class="w-full flex items-center justify-between bg-slate-900/90 text-white px-4 py-2.5 rounded-t-2xl border border-white/15">
+                <span id="lightboxCaption" class="font-bold text-sm md:text-base text-amber-200">照片放大檢視</span>
+                <button onclick="closeImageLightbox()" class="bg-red-600 hover:bg-red-700 text-white px-3.5 py-1 rounded-full font-bold text-xs transition cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i> 關閉 (Esc)
+                </button>
+            </div>
+            <div class="w-full bg-black/95 p-3 rounded-b-2xl border border-t-0 border-white/15 flex items-center justify-center">
+                <img id="lightboxImg" src="" alt="放大檢視" class="max-w-full max-h-[80vh] object-contain rounded-lg">
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Section -->
+    <script>
+        function toggleLiveResult(resultId) {
+            const el = document.getElementById(resultId);
+            if (el) {
+                el.classList.toggle('hidden');
+            }
+        }
+
+        function switchSlideCocoaTab(pageUrl, btnEl) {
+            const frame = document.getElementById('slideCocoaFrame');
+            if (frame) frame.src = pageUrl;
+            document.querySelectorAll('#slideCocoaTabs .cocoa-slide-tab').forEach(b => {
+                b.className = 'cocoa-slide-tab bg-white/10 hover:bg-white/20 text-amber-100 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 transition cursor-pointer';
+            });
+            if (btnEl) {
+                btnEl.className = 'cocoa-slide-tab active bg-gradient-to-r from-amber-600 to-orange-600 text-white text-xs font-black px-3 py-1.5 rounded-full shadow flex items-center gap-1 transition cursor-pointer';
+            }
+        }
+
+        function openCocoaLabModal(pageUrl) {
+            const modal = document.getElementById('cocoaLabModal');
+            const frame = document.getElementById('modalCocoaFrame');
+            if (modal && frame) {
+                if (pageUrl) frame.src = pageUrl;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        }
+
+        function closeCocoaLabModal() {
+            const modal = document.getElementById('cocoaLabModal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        function switchModalCocoaTab(pageUrl, btnEl) {
+            const frame = document.getElementById('modalCocoaFrame');
+            if (frame) frame.src = pageUrl;
+            document.querySelectorAll('#modalCocoaTabs .cocoa-modal-tab').forEach(b => {
+                b.className = 'cocoa-modal-tab bg-white/10 hover:bg-white/20 text-amber-100 text-xs font-bold px-3 py-1 rounded-full transition cursor-pointer';
+            });
+            if (btnEl) {
+                btnEl.className = 'cocoa-modal-tab bg-amber-600 text-white text-xs font-black px-3 py-1 rounded-full transition cursor-pointer';
+            }
+        }
+
+        function openImageLightbox(imgSrc, captionText) {
+            const modal = document.getElementById('imageLightboxModal');
+            const img = document.getElementById('lightboxImg');
+            const cap = document.getElementById('lightboxCaption');
+            if (modal && img) {
+                img.src = imgSrc;
+                if (cap) cap.textContent = captionText || '照片放大檢視';
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        }
+
+        function closeImageLightbox() {
+            const modal = document.getElementById('imageLightboxModal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        function changeVideoSource(videoId, newSrc) {
+            const v = document.getElementById(videoId);
+            if (v) {
+                v.src = newSrc;
+                v.load();
+                v.play().catch(e => console.log('Video play catch:', e));
+            }
+        }
+
+        function openVideoModal(videoSrc) {
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('modalVideoPlayer');
+            if (modal && player) {
+                if (videoSrc) {
+                    player.src = videoSrc;
+                    player.load();
+                }
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                player.play().catch(e => console.log('Autoplay blocked:', e));
+            }
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('modalVideoPlayer');
+            if (modal && player) {
+                player.pause();
+                player.src = '';
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        function switchSelDoc(imgSrc, fileHref, captionText) {
+            const img = document.getElementById('selDocPreviewImg');
+            const cap = document.getElementById('selDocCaption');
+            const link = document.getElementById('selDocOpenLink');
+            if (img) img.src = imgSrc;
+            if (cap) cap.textContent = captionText;
+            if (link) {
+                link.href = fileHref;
+                if (fileHref.endsWith('.pdf')) {
+                    link.removeAttribute('download');
+                } else {
+                    link.setAttribute('download', '');
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+            let currentSlide = 0;
+
+            const btnPrev = document.getElementById('btnPrev');
+            const btnNext = document.getElementById('btnNext');
+            const slideIndicator = document.getElementById('slideIndicator');
+            const progressBar = document.getElementById('progressBar');
+            const btnFullscreen = document.getElementById('btnFullscreen');
+
+            function updateSlide(index) {
+                if (index < 0) index = 0;
+                if (index >= totalSlides) index = totalSlides - 1;
+
+                slides.forEach((slide, idx) => {
+                    if (idx === index) {
+                        slide.classList.add('active');
+                        slide.scrollTop = 0;
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+
+                currentSlide = index;
+                const formattedCurrent = String(currentSlide + 1).padStart(2, '0');
+                const formattedTotal = String(totalSlides).padStart(2, '0');
+                slideIndicator.textContent = formattedCurrent + " / " + formattedTotal;
+
+                const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
+                if (progressBar) progressBar.style.width = progressPercent + "%";
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    updateSlide(currentSlide + 1);
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    updateSlide(currentSlide - 1);
+                }
+            }
+
+            btnNext.addEventListener('click', nextSlide);
+            btnPrev.addEventListener('click', prevSlide);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+                if (e.key === 'Escape') {
+                    closeVideoModal();
+                    closeCocoaLabModal();
+                    closeImageLightbox();
+                } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+                    e.preventDefault();
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    prevSlide();
+                } else if (e.key === 'Home') {
+                    e.preventDefault();
+                    updateSlide(0);
+                } else if (e.key === 'End') {
+                    e.preventDefault();
+                    updateSlide(totalSlides - 1);
+                }
+            });
+
+            btnFullscreen.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(err => {
+                        console.error(err);
+                    });
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    }
+                }
+            });
+
+            function checkHashSlide() {
+                const hash = window.location.hash;
+                if (hash && hash.startsWith('#slide-')) {
+                    const num = parseInt(hash.replace('#slide-', ''), 10);
+                    if (!isNaN(num) && num >= 1 && num <= totalSlides) {
+                        updateSlide(num - 1);
+                        return;
+                    }
+                }
+                updateSlide(0);
+            }
+            window.addEventListener('hashchange', checkHashSlide);
+            checkHashSlide();
+
+            // Enable full-screen image lightbox on every photo container across all slides
+            document.querySelectorAll('.img-container').forEach(container => {
+                if (!container.getAttribute('onclick')) {
+                    const imgEl = container.querySelector('img');
+                    const capEl = container.querySelector('div.bottom-0');
+                    if (imgEl) {
+                        container.addEventListener('click', () => {
+                            openImageLightbox(imgEl.currentSrc || imgEl.src, capEl ? capEl.innerText.trim() : (imgEl.alt || '照片全圖檢視'));
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台南瀛海國際高中 林明芬老師｜研習教材百寶箱 ＆ 暖心回饋牆</title>
+    <script src="web_photos/vendor/tailwindcss.js"></script>
+    <link rel="stylesheet" href="web_photos/vendor/css/all.min.css">
+    <style>
+        body {
+            background-color: #fdfbf7;
+            font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            color: #292524;
+        }
+        .card-hover {
+            transition: all 0.22s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px -6px rgba(15, 118, 110, 0.16);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Top Header -->
+    <header class="bg-teal-800 text-white px-4 md:px-6 py-4 shadow-md sticky top-0 z-30">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-amber-400 text-teal-950 flex items-center justify-center text-2xl font-black shadow shrink-0">
+                    <i class="fa-solid fa-box-open"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg md:text-2xl font-black tracking-tight">台南瀛海國際高中 林明芬老師｜研習教材百寶箱 ＆ 暖心回饋牆</h1>
+                    <p class="text-xs md:text-sm text-teal-100 font-medium">The World Is Your Oyster ── 可編輯 Word 學習單下載 ✕ 自由上傳編輯 ✕ 給講師的暖心回饋</p>
+                </div>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+                <button onclick="switchTab('padlet')" id="tabBtn-padlet" class="px-3.5 py-2 rounded-full font-bold text-xs md:text-sm bg-amber-400 text-teal-950 shadow transition cursor-pointer">
+                    <i class="fa-solid fa-table-columns mr-1"></i> 🎁 教材百寶箱 ＆ 回饋牆 (5大專欄)
+                </button>
+                <button onclick="switchTab('interactive')" id="tabBtn-interactive" class="px-3.5 py-2 rounded-full font-bold text-xs md:text-sm bg-teal-700 hover:bg-teal-600 text-white transition cursor-pointer">
+                    <i class="fa-solid fa-dice mr-1"></i> 🎡 線上夥伴互動抽籤 ＆ 計時器
+                </button>
+                <a href="Teacher_Miffys_Presentation.html#slide-25" class="px-3.5 py-2 rounded-full font-bold text-xs md:text-sm bg-white/15 hover:bg-white/25 text-white transition">
+                    <i class="fa-solid fa-tv mr-1"></i> 開啟 25 頁演講簡報
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content: Tab 1 (Padlet 5 Columns) -->
+    <main id="tab-padlet" class="flex-1 max-w-7xl w-full mx-auto px-4 md:px-6 py-5">
+        <!-- Action Banner -->
+        <div class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 mb-5 flex flex-wrap items-center justify-between gap-4 shadow-sm">
+            <div class="flex items-start md:items-center gap-3">
+                <i class="fa-solid fa-wand-magic-sparkles text-2xl text-amber-600 mt-0.5 md:mt-0"></i>
+                <div>
+                    <h2 class="font-black text-amber-950 text-sm md:text-base">💡 歡迎下載全套可編輯教材、上傳分享或留下給明芬老師的回饋！</h2>
+                    <p class="text-xs md:text-sm text-amber-900 font-medium">
+                        任何一張卡片皆可點選右上角 <b>「✏️ 編輯」</b> 修改標題、文字、連結或更換檔案；點選右方按鈕即可 <b>上傳檔案、新增卡片或貼上回饋便利貼</b>！
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+                <button onclick="openFeedbackModal('✨ 最有印象的亮點')" class="bg-rose-600 hover:bg-rose-700 text-white font-black text-xs md:text-sm px-4 py-2.5 rounded-xl shadow flex items-center gap-1.5 transition cursor-pointer">
+                    <i class="fa-solid fa-heart"></i> 💌 留下給講師的回饋 (貼便利貼)
+                </button>
+                <button onclick="openCardModal('add', 1)" class="bg-teal-700 hover:bg-teal-800 text-white font-black text-xs md:text-sm px-4 py-2.5 rounded-xl shadow flex items-center gap-1.5 transition cursor-pointer">
+                    <i class="fa-solid fa-cloud-arrow-up"></i> 📤 上傳檔案 / 新增教材卡片
+                </button>
+                <button onclick="resetDefaultBoard()" class="bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold text-xs px-3 py-2.5 rounded-xl transition cursor-pointer" title="將所有專欄恢復為預設狀態">
+                    <i class="fa-solid fa-rotate-left"></i> 恢復預設
+                </button>
+            </div>
+        </div>
+
+        <!-- 5 Shelf Columns (Padlet Style) -->
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-start" id="padletColumnsRoot">
+            <!-- Column 1 -->
+            <div class="bg-stone-100 rounded-2xl p-3 border border-stone-200 space-y-3">
+                <div class="bg-teal-700 text-white p-3 rounded-xl font-black text-sm flex items-center justify-between">
+                    <span>📌 1. 在地走讀雙語學習單</span>
+                    <button onclick="openCardModal('add', 1)" class="bg-white text-teal-800 text-xs px-2.5 py-1 rounded-full font-black hover:bg-teal-50 shadow-sm cursor-pointer">+ 新增/上傳</button>
+                </div>
+                <div class="space-y-3" id="col-cards-1"></div>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="bg-stone-100 rounded-2xl p-3 border border-stone-200 space-y-3">
+                <div class="bg-amber-600 text-white p-3 rounded-xl font-black text-sm flex items-center justify-between">
+                    <span>🎯 2. 大地遊戲 ✕ 單字尋寶</span>
+                    <button onclick="openCardModal('add', 2)" class="bg-white text-amber-800 text-xs px-2.5 py-1 rounded-full font-black hover:bg-amber-50 shadow-sm cursor-pointer">+ 新增/上傳</button>
+                </div>
+                <div class="space-y-3" id="col-cards-2"></div>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="bg-stone-100 rounded-2xl p-3 border border-stone-200 space-y-3">
+                <div class="bg-orange-600 text-white p-3 rounded-xl font-black text-sm flex items-center justify-between">
+                    <span>🍫 3. 跨科共創 ✕ 可可實驗室</span>
+                    <button onclick="openCardModal('add', 3)" class="bg-white text-orange-800 text-xs px-2.5 py-1 rounded-full font-black hover:bg-orange-50 shadow-sm cursor-pointer">+ 新增/上傳</button>
+                </div>
+                <div class="space-y-3" id="col-cards-3"></div>
+            </div>
+
+            <!-- Column 4 -->
+            <div class="bg-stone-100 rounded-2xl p-3 border border-stone-200 space-y-3">
+                <div class="bg-emerald-700 text-white p-3 rounded-xl font-black text-sm flex items-center justify-between">
+                    <span>🌿 4. SEL 情緒陪伴與數位魔法</span>
+                    <button onclick="openCardModal('add', 4)" class="bg-white text-emerald-800 text-xs px-2.5 py-1 rounded-full font-black hover:bg-emerald-50 shadow-sm cursor-pointer">+ 新增/上傳</button>
+                </div>
+                <div class="space-y-3" id="col-cards-4"></div>
+            </div>
+
+            <!-- Column 5: Live Sticky Notes & Speaker Feedback Wall -->
+            <div class="bg-stone-100 rounded-2xl p-3 border-2 border-rose-300 space-y-3">
+                <div class="bg-rose-600 text-white p-3 rounded-xl font-black text-sm flex items-center justify-between">
+                    <span>💌 5. 給講師的暖心回饋牆</span>
+                    <button onclick="openFeedbackModal('✨ 最有印象的亮點')" class="bg-white text-rose-700 text-xs px-2.5 py-1 rounded-full font-black hover:bg-rose-50 shadow-sm cursor-pointer">+ 貼便利貼</button>
+                </div>
+
+                <!-- Quick Category Buttons for Feedback -->
+                <div class="bg-white p-3 rounded-xl border border-rose-200 shadow-sm space-y-2">
+                    <div class="text-xs font-black text-rose-800 flex items-center gap-1">
+                        <i class="fa-solid fa-comment-dots"></i> 點擊下方任一主題直接留言給明芬老師：
+                    </div>
+                    <div class="grid grid-cols-1 gap-1.5">
+                        <button onclick="openFeedbackModal('✨ 最有印象的亮點')" class="text-left px-2.5 py-1.5 rounded-lg bg-purple-50 hover:bg-purple-100 border border-purple-200 text-xs font-bold text-purple-900 transition cursor-pointer flex items-center justify-between">
+                            <span>✨ 1. 最有印象的亮點</span>
+                            <span class="text-[11px] bg-purple-600 text-white px-2 py-0.5 rounded-full">點我留言</span>
+                        </button>
+                        <button onclick="openFeedbackModal('🚀 想要試試看的點子')" class="text-left px-2.5 py-1.5 rounded-lg bg-sky-50 hover:bg-sky-100 border border-sky-200 text-xs font-bold text-sky-900 transition cursor-pointer flex items-center justify-between">
+                            <span>🚀 2. 想要試試看的點子</span>
+                            <span class="text-[11px] bg-sky-600 text-white px-2 py-0.5 rounded-full">點我留言</span>
+                        </button>
+                        <button onclick="openFeedbackModal('💡 提供建議與鼓勵')" class="text-left px-2.5 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 border border-amber-200 text-xs font-bold text-amber-900 transition cursor-pointer flex items-center justify-between">
+                            <span>💡 3. 提供建議與溫暖鼓勵</span>
+                            <span class="text-[11px] bg-amber-600 text-white px-2 py-0.5 rounded-full">點我留言</span>
+                        </button>
+                        <button onclick="openFeedbackModal('🌡️ 今日心情 Check-in')" class="text-left px-2.5 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-xs font-bold text-emerald-900 transition cursor-pointer flex items-center justify-between">
+                            <span>🌡️ 4. 今日心情溫度計 (🟢/🟡/🔴)</span>
+                            <span class="text-[11px] bg-emerald-600 text-white px-2 py-0.5 rounded-full">點我簽到</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="space-y-2.5" id="col-cards-5"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal 1: Add / Edit Resource Card Modal -->
+    <div id="cardModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border-2 border-teal-500 space-y-4 max-h-[92vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-stone-200 pb-3">
+                <h3 id="cardModalHeading" class="text-xl font-black text-stone-800 flex items-center gap-2">
+                    <i class="fa-solid fa-pen-to-square text-teal-600"></i> 新增 / 編輯教材卡片
+                </h3>
+                <button onclick="closeCardModal()" class="text-stone-400 hover:text-stone-700 text-2xl font-black cursor-pointer">&times;</button>
+            </div>
+            <input type="hidden" id="editingCardId" value="">
+            <div class="space-y-3 text-sm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-stone-700 mb-1">1. 所屬專欄：</label>
+                        <select id="cardColSelect" class="w-full border border-stone-300 rounded-xl px-3 py-2 font-bold text-stone-800">
+                            <option value="1">📌 專欄 1：在地走讀雙語學習單</option>
+                            <option value="2">🎯 專欄 2：大地遊戲 ✕ 單字尋寶</option>
+                            <option value="3">🍫 專欄 3：跨科共創 ✕ 可可實驗室</option>
+                            <option value="4">🌿 專欄 4：SEL 情緒陪伴與數位魔法</option>
+                            <option value="5">💌 專欄 5：給講師的暖心回饋牆</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-stone-700 mb-1">2. 標籤文字（選填）：</label>
+                        <input id="cardBadgeInput" type="text" placeholder="例如：Word 可編輯 (.docx)" class="w-full border border-stone-300 rounded-xl px-3 py-2 font-medium">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bold text-stone-700 mb-1">3. 卡片標題：</label>
+                    <input id="cardTitleInput" type="text" placeholder="請輸入教材標題或便利貼主題..." class="w-full border border-stone-300 rounded-xl px-3 py-2 font-bold text-stone-800">
+                </div>
+                <div>
+                    <label class="block font-bold text-stone-700 mb-1">4. 內容說明：</label>
+                    <textarea id="cardDescInput" rows="3" placeholder="請輸入說明文字或回饋內容..." class="w-full border border-stone-300 rounded-xl px-3 py-2 font-medium"></textarea>
+                </div>
+                <div class="bg-teal-50/70 p-3.5 rounded-2xl border border-teal-200 space-y-2">
+                    <label class="block font-bold text-teal-900">5A. 上傳或更換電腦/手機檔案（Word、PDF、圖片、簡報皆可）：</label>
+                    <input id="cardFileInput" type="file" class="w-full text-xs text-stone-600 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-black file:bg-teal-600 file:text-white hover:file:bg-teal-700 cursor-pointer">
+                </div>
+                <div class="bg-amber-50/70 p-3.5 rounded-2xl border border-amber-200 space-y-1.5">
+                    <label class="block font-bold text-amber-900">5B. 或指定連結網址 / 檔案路徑：</label>
+                    <input id="cardUrlInput" type="text" placeholder="https://... 或檔案相對路徑" class="w-full border border-amber-300 rounded-xl px-3 py-2 text-xs bg-white">
+                    <input id="cardBtnTextInput" type="text" placeholder="按鈕顯示文字（例如：下載 Word 檔 / 開啟網站）" class="w-full border border-amber-300 rounded-xl px-3 py-2 text-xs bg-white mt-1.5">
+                </div>
+            </div>
+            <div class="flex justify-end gap-2 pt-2">
+                <button onclick="closeCardModal()" class="px-4 py-2 rounded-xl bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold text-sm cursor-pointer">取消</button>
+                <button onclick="saveCardFromModal()" class="px-5 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-black text-sm shadow cursor-pointer">💾 儲存卡片</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Dedicated Speaker Feedback Sticky Note Modal -->
+    <div id="feedbackModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border-2 border-rose-500 space-y-4">
+            <div class="flex items-center justify-between border-b border-stone-200 pb-3">
+                <h3 class="text-xl font-black text-stone-800 flex items-center gap-2">
+                    <i class="fa-solid fa-heart text-rose-500"></i> 留下給明芬老師的回饋便利貼
+                </h3>
+                <button onclick="closeFeedbackModal()" class="text-stone-400 hover:text-stone-700 text-2xl font-black cursor-pointer">&times;</button>
+            </div>
+            <div class="space-y-3 text-sm">
+                <div>
+                    <label class="block font-bold text-stone-700 mb-1">1. 選擇回饋或簽到類型：</label>
+                    <select id="fbCategorySelect" class="w-full border border-stone-300 rounded-xl px-3 py-2 font-bold text-stone-800">
+                        <option value="✨ 最有印象的亮點">✨ 最有印象的亮點（哪一段故事或設計最觸動您？）</option>
+                        <option value="🚀 想要試試看的點子">🚀 想要試試看的點子（哪一個活動或工具想帶回班上？）</option>
+                        <option value="💡 提供建議與鼓勵">💡 提供建議與鼓勵（任何想法、共鳴或給講師的建議）</option>
+                        <option value="🟢 綠區心情 Check-in">🟢 綠區 Green Zone（平靜放鬆、充滿期待！）</option>
+                        <option value="🟡 黃區心情 Check-in">🟡 黃區 Yellow Zone（既期待又怕進度趕不完～）</option>
+                        <option value="🔴 紅區心情 Check-in">🔴 紅區 Red Zone（期中忙碌需要一杯咖啡充電☕）</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-bold text-stone-700 mb-1">2. 您的學校與稱呼（亦可匿名）：</label>
+                    <input id="fbAuthorInput" type="text" placeholder="例如：三民高中 王老師 ／ 台南夥伴" class="w-full border border-stone-300 rounded-xl px-3 py-2 font-bold text-stone-800">
+                </div>
+                <div>
+                    <label class="block font-bold text-stone-700 mb-1">3. 想對明芬老師說的話：</label>
+                    <textarea id="fbContentInput" rows="4" placeholder="不管是有印象的、想要試試看的、或提供建議的，都超級歡迎寫下來！" class="w-full border border-stone-300 rounded-xl px-3 py-2 font-medium"></textarea>
+                </div>
+                <div class="bg-rose-50/70 p-3 rounded-2xl border border-rose-200">
+                    <label class="block font-bold text-rose-900 text-xs mb-1">4. 附上照片或檔案（選填）：</label>
+                    <input id="fbFileInput" type="file" class="w-full text-xs text-stone-600 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-black file:bg-rose-600 file:text-white hover:file:bg-rose-700 cursor-pointer">
+                </div>
+            </div>
+            <div class="flex justify-end gap-2 pt-2">
+                <button onclick="closeFeedbackModal()" class="px-4 py-2 rounded-xl bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold text-sm cursor-pointer">取消</button>
+                <button onclick="submitFeedbackSticky()" class="px-5 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-black text-sm shadow cursor-pointer">🚀 貼上回饋便利貼</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content: Tab 2 (Anti-Cold-Room Roulette & Workshop Timer) -->
+    <main id="tab-interactive" class="hidden flex-1 max-w-6xl w-full mx-auto px-6 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <!-- Left: Online Participants Warm Icebreaker Spinner -->
+            <div class="md:col-span-7 bg-white rounded-3xl p-6 border-2 border-teal-500/30 shadow-lg flex flex-col justify-between space-y-5">
+                <div>
+                    <span class="bg-teal-100 text-teal-800 text-xs font-black px-3 py-1 rounded-full">🎡 精品工作坊專屬互動（防冷場神器）</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-stone-800 mt-2">跨縣市線上夥伴・暖心分享抽籤器</h2>
+                    <p class="text-sm text-stone-600 mt-1">若演講最後還有交流時間，可點擊下方按鈕，隨機邀請不同學制（國小、國中、普高、技高、特教、行政）的夥伴聊聊 1 分鐘！</p>
+                </div>
+
+                <!-- Display Box -->
+                <div id="rouletteBox" class="bg-gradient-to-br from-amber-50 to-teal-50 border-2 border-teal-300 rounded-2xl p-6 text-center space-y-3 my-auto">
+                    <div id="pickedGroup" class="text-sm font-black text-teal-700 tracking-wide">✨ 點擊下方按鈕抽出交流夥伴與暖心話題 ✨</div>
+                    <div id="pickedSchool" class="text-2xl md:text-3xl font-black text-stone-800">準備好開始暖心對話了嗎？</div>
+                    <div id="pickedQuestion" class="text-sm md:text-base font-bold text-amber-900 bg-white/90 p-3.5 rounded-xl border border-amber-200 shadow-sm">
+                        歡迎來自全台各地跨縣市、跨學制的教育夥伴線上齊聚一堂！
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-3">
+                    <button onclick="spinPartner()" class="flex-1 bg-teal-600 hover:bg-teal-700 text-white font-black text-base py-3.5 px-6 rounded-2xl shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> 🎲 隨機抽出一所學校 ＆ 交流小問題
+                    </button>
+                    <button onclick="spinQuestionOnly()" class="bg-amber-500 hover:bg-amber-600 text-white font-black text-sm py-3.5 px-5 rounded-2xl shadow transition cursor-pointer">
+                        🔄 只換一道問題
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: Discussion Timer & Quick Group Filter -->
+            <div class="md:col-span-5 flex flex-col justify-between space-y-5">
+                <!-- Countdown Timer -->
+                <div class="bg-white rounded-3xl p-6 border-2 border-amber-300 shadow-lg text-center space-y-4">
+                    <h3 class="text-lg font-black text-stone-800 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-stopwatch text-amber-500"></i> 小組構思 ／ Padlet 留言倒數計時器
+                    </h3>
+                    <div id="timerDisplay" class="text-5xl font-black text-teal-800 font-mono tracking-wider bg-stone-100 py-4 rounded-2xl border border-stone-200">
+                        03:00
+                    </div>
+                    <div class="flex justify-center gap-2">
+                        <button onclick="setTimer(180)" class="px-3 py-1.5 bg-stone-200 hover:bg-stone-300 rounded-lg text-xs font-bold cursor-pointer">3 分鐘</button>
+                        <button onclick="setTimer(300)" class="px-3 py-1.5 bg-stone-200 hover:bg-stone-300 rounded-lg text-xs font-bold cursor-pointer">5 分鐘</button>
+                        <button onclick="toggleTimer()" id="timerToggleBtn" class="px-5 py-1.5 bg-amber-500 hover:bg-amber-600 text-white rounded-lg text-xs font-black shadow cursor-pointer">▶ 開始計時</button>
+                        <button onclick="resetTimer()" class="px-3 py-1.5 bg-stone-200 hover:bg-stone-300 rounded-lg text-xs font-bold cursor-pointer">重設</button>
+                    </div>
+                </div>
+
+                <!-- Participants Overview by Category -->
+                <div class="bg-white rounded-3xl p-5 border border-stone-200 shadow-sm space-y-2.5 text-xs">
+                    <h4 class="font-black text-stone-800 text-sm mb-1">📋 跨學制夥伴交流專區（點選可直接切換學制話題）：</h4>
+                    <div class="p-2.5 bg-amber-50 rounded-xl border border-amber-200 cursor-pointer hover:bg-amber-100" onclick="highlightCategory('行政領導夥伴（校長 ＆ 行政主任組長群）', '請問校長與組長：在推動校內跨科或國際教育時，您覺得老師們最需要什麼樣的支持或減壓工具？')">
+                        <b class="text-amber-900">👑 校長與行政夥伴：</b>后里國中、陽明高中、臺中家商、臺北特教學校及各校行政代表
+                    </div>
+                    <div class="p-2.5 bg-teal-50 rounded-xl border border-teal-200 cursor-pointer hover:bg-teal-100" onclick="highlightCategory('普通高中＆完全中學夥伴', '請問高中部老師：在緊湊的學測進度中，如果用「手工摺頁書」或「AI互動網頁」帶一個單元，您最想搭配哪一課？')">
+                        <b class="text-teal-900">🎓 普高與完中夥伴：</b>三民高中、新莊高中、徐匯高中、惠文高中、旭光高中、仁武高中等校夥伴
+                    </div>
+                    <div class="p-2.5 bg-orange-50 rounded-xl border border-orange-200 cursor-pointer hover:bg-orange-100" onclick="highlightCategory('技術型高中（高職）夥伴', '請問技高老師：貴校有非常棒的專業群科（如家政、餐飲、設計、工商），若跟實習課結合雙語，您覺得哪一科最有趣？')">
+                        <b class="text-orange-900">🛠️ 技術型高中夥伴：</b>高雄海青工商、高雄三民家商、臺中家商等技高夥伴
+                    </div>
+                    <div class="p-2.5 bg-emerald-50 rounded-xl border border-emerald-200 cursor-pointer hover:bg-emerald-100" onclick="highlightCategory('國小／國中／特教夥伴', '請問國中小與特教夥伴：如果把「QR Code 單字尋寶」或「SEL 情緒溫度計」搬進您的班級，孩子們會最喜歡哪個環節？')">
+                        <b class="text-emerald-900">🌱 國小／國中／特教夥伴：</b>新湖國小、關東國小、五福國小、文府國小、大寮國中、臺北特教等校夥伴
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const STORAGE_KEY = 'miffy_padlet_board_v3';
+
+        const DEFAULT_CARDS = [
+            // Column 1
+            {
+                id: 'c1-1',
+                col: 1,
+                badge: 'Word 可編輯 (.docx)',
+                badgeColor: 'bg-blue-100 text-blue-800',
+                title: '《蚵在你心裡的名字》七股走讀雙語學習單',
+                desc: '含雙語生態詞彙庫、串蚵五感實作紀錄、最佳翻譯獎與莎士比亞獎挑戰區。',
+                url: 'Padlet_研習教材大禮包_Word檔/01_七股潟湖與台江在地走讀_雙語學習單範本(可修改).docx',
+                btnText: '📥 下載 Word 檔 (.docx)',
+                isDownload: true
+            },
+            {
+                id: 'c1-2',
+                col: 1,
+                badge: '精美排版 (.pdf)',
+                badgeColor: 'bg-red-100 text-red-800',
+                title: '🌊 Wonders of the Wetland 台江英文學習單',
+                desc: '台江國家公園與濕地生態完整圖文雙語講義，可直接列印發給學生。',
+                url: 'Padlet_研習教材大禮包_Word檔/台江英文學習單 — 🌊 Wonders of the Wetland.pdf',
+                btnText: '📄 開啟 / 下載 PDF',
+                isDownload: false
+            },
+            // Column 2
+            {
+                id: 'c2-1',
+                col: 2,
+                badge: 'Word 可編輯 (.docx)',
+                badgeColor: 'bg-blue-100 text-blue-800',
+                title: '校園/社區大地遊戲「單字尋寶謎紙」公版範本',
+                desc: '國小、國中、普高、技高皆適用！直接替換課本單字即可在校園玩 QR 尋寶。',
+                url: 'Padlet_研習教材大禮包_Word檔/02_校園與社區大地遊戲_單字尋寶謎紙與QR任務卡範本(可修改).docx',
+                btnText: '📥 下載 Word 檔 (.docx)',
+                isDownload: true
+            },
+            {
+                id: 'c2-2',
+                col: 2,
+                badge: '實戰套裝 (.pdf)',
+                badgeColor: 'bg-emerald-100 text-emerald-800',
+                title: 'Unit 4 COLORFUL 學生謎紙 (PDF)',
+                desc: '完整課堂實戰範例：學生闖關謎紙，可直接觀摩或改編。',
+                url: 'Padlet_研習教材大禮包_Word檔/Unit4_COLORFUL_學生謎紙.pdf',
+                btnText: '📄 開啟學生謎紙 PDF',
+                isDownload: false
+            },
+            {
+                id: 'c2-3',
+                col: 2,
+                badge: '實戰套裝 (.pdf)',
+                badgeColor: 'bg-emerald-100 text-emerald-800',
+                title: 'Unit 4 COLORFUL QR 任務卡 (PDF)',
+                desc: '貼在校園各角落的 QR Code 尋寶任務卡實戰範例。',
+                url: 'Padlet_研習教材大禮包_Word檔/Unit4_COLORFUL_QR任務卡.pdf',
+                btnText: '📱 開啟 QR 任務卡 PDF',
+                isDownload: false
+            },
+            // Column 3
+            {
+                id: 'c3-1',
+                col: 3,
+                badge: '🌐 Google Sites 課程網站',
+                badgeColor: 'bg-amber-800 text-white',
+                title: '《可可創新實驗室》巧克力跨域 STEAM 網站',
+                desc: '完整收錄數學期望值、化學熔點、家政雷神手作與英文寫作 4 科共創成果！',
+                url: 'https://sites.google.com/view/chocolate0323/intro',
+                btnText: '🍫 開啟《可可創新實驗室》網站',
+                isDownload: false
+            },
+            {
+                id: 'c3-2',
+                col: 3,
+                badge: 'Word 可編輯 (.docx)',
+                badgeColor: 'bg-blue-100 text-blue-800',
+                title: '跨科 STEAM 雙語手工摺頁書（8格架構＋句型鷹架）',
+                desc: '適用番茄食農、巧克力化學、家政美妝跨科合作，含感官形容詞與步驟句型鷹架。',
+                url: 'Padlet_研習教材大禮包_Word檔/03_跨科共創STEAM_雙語手工摺頁書架構與句型鷹架學習單(可修改).docx',
+                btnText: '📥 下載手工書 Word 檔 (.docx)',
+                isDownload: true
+            },
+            {
+                id: 'c3-3',
+                col: 3,
+                badge: '校長/組長必備 (.docx)',
+                badgeColor: 'bg-purple-100 text-purple-800',
+                title: '全學年雙語深耕 ✕ 跨科社群共備推動檢核表',
+                desc: '如何找不同科老師喝咖啡共備？四季推進藍圖與分工不越界 SOP。',
+                url: 'Padlet_研習教材大禮包_Word檔/05_全學年雙語深耕與跨科社群共備_行政教師檢核表(校長組長必備).docx',
+                btnText: '📥 下載行政/社群檢核表 (.docx)',
+                isDownload: true
+            },
+            // Column 4
+            {
+                id: 'c4-1',
+                col: 4,
+                badge: 'Word 可編輯 (.docx)',
+                badgeColor: 'bg-blue-100 text-blue-800',
+                title: 'SEL 情緒溫度計 ＆ 雙語感恩小卡學習單',
+                desc: '課前 3 分鐘 Check-in 情緒覺察、轉念句型練習與同儕感恩小卡。',
+                url: 'Padlet_研習教材大禮包_Word檔/04_SEL社會情緒學習_情緒溫度計與感恩小卡學習單(可修改).docx',
+                btnText: '📥 下載 SEL 學習單 (.docx)',
+                isDownload: true
+            },
+            {
+                id: 'c4-2',
+                col: 4,
+                badge: '❤️ B3U2 實戰套裝 (.docx)',
+                badgeColor: 'bg-emerald-100 text-emerald-800',
+                title: 'When Social Media Meets SEL（B3U2 學習單 & 心情解方）',
+                desc: '高二5 課堂實戰：結合社群媒體焦慮與 SEL 情緒覺察的完整雙語學習單。',
+                url: 'SEL_U2_教材包/B3U2學習單.docx',
+                btnText: '📥 下載 B3U2 學習單 (.docx)',
+                isDownload: true
+            },
+            {
+                id: 'c4-3',
+                col: 4,
+                badge: '🎡 視覺化工具 (.pdf)',
+                badgeColor: 'bg-teal-100 text-teal-800',
+                title: '情緒輪盤 Feelings Wheel ＆ 101 Coping Skills',
+                desc: '幫助學生具體說出英文情緒字彙與 101 個自我安頓策略。',
+                url: 'SEL_U2_教材包/Feelings+Wheel+Download-ables.pdf',
+                btnText: '📄 開啟情緒輪盤 PDF',
+                isDownload: false
+            },
+            {
+                id: 'c4-4',
+                col: 4,
+                badge: '🏰 Google Sites 班級雲端',
+                badgeColor: 'bg-amber-100 text-amber-900',
+                title: '高二5魔法英文教室（含教學演示 4/8）',
+                desc: '自主建置班級專屬線上教學演示平台，整合單字、課文文法與互動挑戰賽。',
+                url: 'https://sites.google.com/view/h20520250114/%E6%95%99%E5%AD%B8%E6%BC%94%E7%A4%BA48',
+                btnText: '🌐 開啟魔法英文教室網站',
+                isDownload: false
+            },
+            // Column 5 (Feedback Wall Starter Notes)
+            {
+                id: 'c5-1',
+                col: 5,
+                badge: '🌟 講師歡迎詞',
+                badgeColor: 'bg-amber-200 text-amber-950',
+                title: '台南瀛海國際高中 林明芬老師',
+                desc: '歡迎留下給講師的回饋！不管是有印象的、想要試試看的、或提供建議的，都超級歡迎直接點上方按鈕貼便利貼，或點此卡片右上角「✏️ 編輯」接龍留言！',
+                url: '',
+                btnText: '',
+                isDownload: false
+            }
+        ];
+
+        let boardCards = [];
+        const SYNC_TOPIC = 'miffy_1027_padlet_wall_2026_v3';
+        const SYNC_URL = `https://ntfy.sh/${SYNC_TOPIC}`;
+
+        function applyCloudOp(opObj) {
+            if (!opObj || !opObj.op) return;
+            if (opObj.op === 'upsert' && opObj.card && opObj.card.id) {
+                const idx = boardCards.findIndex(x => x.id === opObj.card.id);
+                if (idx !== -1) {
+                    boardCards[idx] = { ...boardCards[idx], ...opObj.card };
+                } else {
+                    boardCards.unshift(opObj.card);
+                }
+            } else if (opObj.op === 'delete' && opObj.cardId) {
+                boardCards = boardCards.filter(x => x.id !== opObj.cardId);
+            } else if (opObj.op === 'reset') {
+                boardCards = JSON.parse(JSON.stringify(DEFAULT_CARDS));
+            }
+        }
+
+        function broadcastCloudOp(opObj) {
+            try {
+                // Strip huge base64 payloads > 3KB when broadcasting over real-time pub/sub
+                const safeCopy = JSON.parse(JSON.stringify(opObj));
+                if (safeCopy.card) {
+                    if (safeCopy.card.url && safeCopy.card.url.length > 3000) safeCopy.card.url = '';
+                    if (safeCopy.card.imageData && safeCopy.card.imageData.length > 3000) safeCopy.card.imageData = '';
+                }
+                fetch(SYNC_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(safeCopy)
+                }).catch(() => {});
+            } catch (e) {}
+        }
+
+        async function initCloudSync() {
+            try {
+                const res = await fetch(`${SYNC_URL}/json?poll=1&since=all`, { cache: 'no-store' });
+                if (res.ok) {
+                    const text = await res.text();
+                    const lines = text.trim().split('\n').filter(Boolean);
+                    for (const line of lines) {
+                        try {
+                            const evt = JSON.parse(line);
+                            if (evt.event === 'message' && evt.message) {
+                                applyCloudOp(JSON.parse(evt.message));
+                            }
+                        } catch (e) {}
+                    }
+                    saveBoard();
+                    renderBoard();
+                }
+            } catch (e) {}
+
+            try {
+                const es = new EventSource(`${SYNC_URL}/sse`);
+                es.onmessage = (ev) => {
+                    try {
+                        const evt = JSON.parse(ev.data);
+                        if (evt.event === 'message' && evt.message) {
+                            applyCloudOp(JSON.parse(evt.message));
+                            saveBoard();
+                            renderBoard();
+                        }
+                    } catch (e) {}
+                };
+            } catch (e) {}
+        }
+
+        function loadBoard() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        boardCards = parsed;
+                        renderBoard();
+                        initCloudSync();
+                        return;
+                    }
+                }
+            } catch (e) {
+                console.warn('Load board fallback:', e);
+            }
+            boardCards = JSON.parse(JSON.stringify(DEFAULT_CARDS));
+            renderBoard();
+            initCloudSync();
+        }
+
+        function saveBoard() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(boardCards));
+            } catch (e) {
+                alert('檔案較大，已保留於目前頁面記憶體中！');
+            }
+        }
+
+        function resetDefaultBoard() {
+            if (!confirm('確定要將所有專欄恢復為預設教材卡片嗎？')) return;
+            localStorage.removeItem(STORAGE_KEY);
+            boardCards = JSON.parse(JSON.stringify(DEFAULT_CARDS));
+            broadcastCloudOp({ op: 'reset' });
+            renderBoard();
+        }
+
+        function renderBoard() {
+            for (let c = 1; c <= 5; c++) {
+                const container = document.getElementById(`col-cards-${c}`);
+                if (container) container.innerHTML = '';
+            }
+
+            boardCards.forEach(card => {
+                const container = document.getElementById(`col-cards-${card.col || 1}`);
+                if (!container) return;
+
+                const div = document.createElement('div');
+                const isCol5 = Number(card.col) === 5;
+                div.className = isCol5
+                    ? 'bg-yellow-50/90 p-3.5 rounded-xl border-2 border-amber-300 shadow-sm card-hover space-y-2 relative'
+                    : 'bg-white p-4 rounded-xl border border-stone-200 shadow-sm card-hover space-y-2 relative';
+
+                const badgeCls = card.badgeColor || (isCol5 ? 'bg-rose-100 text-rose-800' : 'bg-teal-100 text-teal-800');
+
+                div.innerHTML = `
+                    <div class="flex items-center justify-between gap-1">
+                        <span class="inline-block ${badgeCls} text-[11px] font-black px-2 py-0.5 rounded">${escapeHtml(card.badge || '教學資源')}</span>
+                        <div class="flex items-center gap-1 shrink-0">
+                            <button onclick="openCardModal('edit', ${card.col}, '${card.id}')" class="text-xs font-bold bg-stone-100 hover:bg-amber-100 text-stone-700 hover:text-amber-900 px-2 py-0.5 rounded border border-stone-300 transition cursor-pointer" title="編輯此卡片">
+                                ✏️ 編輯
+                            </button>
+                            <button onclick="deleteCard('${card.id}')" class="text-xs font-bold bg-stone-100 hover:bg-red-100 text-stone-500 hover:text-red-600 px-1.5 py-0.5 rounded border border-stone-200 transition cursor-pointer" title="刪除此卡片">
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
+                    <h3 class="font-black text-sm md:text-base text-stone-800 leading-snug">${escapeHtml(card.title)}</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed whitespace-pre-line">${escapeHtml(card.desc)}</p>
+                    ${card.imageData ? `<img src="${card.imageData}" class="w-full max-h-44 object-contain rounded-lg bg-white border border-stone-200 my-1">` : ''}
+                    ${card.url ? `
+                        <a href="${card.url}" ${card.isDownload ? `download="${escapeHtml(card.fileName || '')}"` : 'target="_blank" rel="noopener"'} class="mt-2 w-full bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 transition shadow-sm">
+                            ${escapeHtml(card.btnText || '開啟 / 下載資源')}
+                        </a>
+                    ` : ''}
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function escapeHtml(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function openCardModal(mode, colNum, cardId) {
+            const modal = document.getElementById('cardModal');
+            const heading = document.getElementById('cardModalHeading');
+            document.getElementById('cardFileInput').value = '';
+
+            if (mode === 'edit' && cardId) {
+                const item = boardCards.find(x => x.id === cardId);
+                if (!item) return;
+                heading.innerHTML = '<i class="fa-solid fa-pen-to-square text-amber-600"></i> 編輯卡片內容與檔案';
+                document.getElementById('editingCardId').value = item.id;
+                document.getElementById('cardColSelect').value = String(item.col || 1);
+                document.getElementById('cardBadgeInput').value = item.badge || '';
+                document.getElementById('cardTitleInput').value = item.title || '';
+                document.getElementById('cardDescInput').value = item.desc || '';
+                document.getElementById('cardUrlInput').value = item.url && !item.url.startsWith('data:') ? item.url : '';
+                document.getElementById('cardBtnTextInput').value = item.btnText || '';
+            } else {
+                heading.innerHTML = '<i class="fa-solid fa-cloud-arrow-up text-teal-600"></i> 上傳檔案 ／ 新增教材卡片';
+                document.getElementById('editingCardId').value = '';
+                document.getElementById('cardColSelect').value = String(colNum || 1);
+                document.getElementById('cardBadgeInput').value = '';
+                document.getElementById('cardTitleInput').value = '';
+                document.getElementById('cardDescInput').value = '';
+                document.getElementById('cardUrlInput').value = '';
+                document.getElementById('cardBtnTextInput').value = '';
+            }
+            modal.classList.remove('hidden');
+        }
+
+        function closeCardModal() {
+            document.getElementById('cardModal').classList.add('hidden');
+        }
+
+        function saveCardFromModal() {
+            const editingId = document.getElementById('editingCardId').value;
+            const col = parseInt(document.getElementById('cardColSelect').value, 10) || 1;
+            const badge = document.getElementById('cardBadgeInput').value.trim();
+            const title = document.getElementById('cardTitleInput').value.trim();
+            const desc = document.getElementById('cardDescInput').value.trim();
+            const url = document.getElementById('cardUrlInput').value.trim();
+            const btnText = document.getElementById('cardBtnTextInput').value.trim();
+            const fileInput = document.getElementById('cardFileInput');
+            const file = fileInput.files && fileInput.files[0];
+
+            if (!title && !file && !url) {
+                alert('請至少輸入卡片標題，或選擇一個要上傳的檔案！');
+                return;
+            }
+
+            const finalizeSave = (fileDataUrl, uploadedFileName, isImg) => {
+                let targetCard = null;
+                if (editingId) {
+                    const idx = boardCards.findIndex(x => x.id === editingId);
+                    if (idx !== -1) {
+                        boardCards[idx].col = col;
+                        boardCards[idx].badge = badge || boardCards[idx].badge || '教學資源';
+                        boardCards[idx].title = title || uploadedFileName || boardCards[idx].title;
+                        boardCards[idx].desc = desc;
+                        if (fileDataUrl) {
+                            boardCards[idx].url = fileDataUrl;
+                            boardCards[idx].fileName = uploadedFileName;
+                            boardCards[idx].isDownload = true;
+                            boardCards[idx].btnText = btnText || `📥 下載 ${uploadedFileName}`;
+                            if (isImg) boardCards[idx].imageData = fileDataUrl;
+                        } else if (url) {
+                            boardCards[idx].url = url;
+                            boardCards[idx].btnText = btnText || boardCards[idx].btnText || '開啟 / 下載資源';
+                        } else if (!url && !boardCards[idx].url?.startsWith('data:')) {
+                            boardCards[idx].url = '';
+                        }
+                        targetCard = boardCards[idx];
+                    }
+                } else {
+                    targetCard = {
+                        id: 'card_' + Date.now(),
+                        col: col,
+                        badge: badge || (file ? '📤 新上傳檔案' : (col === 5 ? '💌 夥伴回饋' : '📌 新增資源')),
+                        badgeColor: col === 5 ? 'bg-rose-100 text-rose-800' : 'bg-teal-100 text-teal-800',
+                        title: title || (file ? file.name : '新增卡片'),
+                        desc: desc || (file ? `已上傳檔案：${file.name}` : ''),
+                        url: fileDataUrl || url || '',
+                        fileName: uploadedFileName || '',
+                        isDownload: !!fileDataUrl,
+                        btnText: btnText || (fileDataUrl ? `📥 下載 ${uploadedFileName}` : (url ? '🌐 開啟連結' : '')),
+                        imageData: isImg ? fileDataUrl : ''
+                    };
+                    boardCards.unshift(targetCard);
+                }
+                saveBoard();
+                if (targetCard) broadcastCloudOp({ op: 'upsert', card: targetCard });
+                renderBoard();
+                closeCardModal();
+            };
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    finalizeSave(e.target.result, file.name, file.type.startsWith('image/'));
+                };
+                reader.readAsDataURL(file);
+            } else {
+                finalizeSave(null, null, false);
+            }
+        }
+
+        function deleteCard(cardId) {
+            if (!confirm('確定要刪除此張卡片嗎？')) return;
+            boardCards = boardCards.filter(x => x.id !== cardId);
+            saveBoard();
+            broadcastCloudOp({ op: 'delete', cardId: cardId });
+            renderBoard();
+        }
+
+        function openFeedbackModal(defaultCategory) {
+            if (defaultCategory) {
+                const sel = document.getElementById('fbCategorySelect');
+                for (let i = 0; i < sel.options.length; i++) {
+                    if (sel.options[i].value.includes(defaultCategory.slice(0, 4))) {
+                        sel.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            document.getElementById('fbAuthorInput').value = '';
+            document.getElementById('fbContentInput').value = '';
+            document.getElementById('fbFileInput').value = '';
+            document.getElementById('feedbackModal').classList.remove('hidden');
+        }
+
+        function closeFeedbackModal() {
+            document.getElementById('feedbackModal').classList.add('hidden');
+        }
+
+        function submitFeedbackSticky() {
+            const cat = document.getElementById('fbCategorySelect').value;
+            const author = document.getElementById('fbAuthorInput').value.trim() || '線上教育夥伴';
+            const content = document.getElementById('fbContentInput').value.trim();
+            const fileInput = document.getElementById('fbFileInput');
+            const file = fileInput.files && fileInput.files[0];
+
+            if (!content && !file) {
+                alert('請輸入您的回饋內容或選擇要上傳的照片/檔案！');
+                return;
+            }
+
+            let badgeColor = 'bg-rose-100 text-rose-800';
+            if (cat.includes('有印象')) badgeColor = 'bg-purple-100 text-purple-900';
+            else if (cat.includes('試試看')) badgeColor = 'bg-sky-100 text-sky-900';
+            else if (cat.includes('建議')) badgeColor = 'bg-amber-200 text-amber-950';
+            else if (cat.includes('綠區')) badgeColor = 'bg-emerald-100 text-emerald-900';
+            else if (cat.includes('黃區')) badgeColor = 'bg-yellow-200 text-yellow-900';
+            else if (cat.includes('紅區')) badgeColor = 'bg-red-100 text-red-900';
+
+            const finishSticky = (fileDataUrl, fileName, isImg) => {
+                const newSticky = {
+                    id: 'fb_' + Date.now(),
+                    col: 5,
+                    badge: cat,
+                    badgeColor: badgeColor,
+                    title: `💖 ${author}`,
+                    desc: content,
+                    url: fileDataUrl || '',
+                    fileName: fileName || '',
+                    isDownload: !!fileDataUrl,
+                    btnText: fileDataUrl ? `📎 下載附件 (${fileName})` : '',
+                    imageData: isImg ? fileDataUrl : ''
+                };
+                boardCards.unshift(newSticky);
+                saveBoard();
+                broadcastCloudOp({ op: 'upsert', card: newSticky });
+                renderBoard();
+                closeFeedbackModal();
+            };
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    finishSticky(e.target.result, file.name, file.type.startsWith('image/'));
+                };
+                reader.readAsDataURL(file);
+            } else {
+                finishSticky(null, null, false);
+            }
+        }
+
+        function switchTab(tab) {
+            document.getElementById('tab-padlet').classList.toggle('hidden', tab !== 'padlet');
+            document.getElementById('tab-interactive').classList.toggle('hidden', tab !== 'interactive');
+            document.getElementById('tabBtn-padlet').className = tab === 'padlet'
+                ? 'px-3.5 py-2 rounded-full font-bold text-xs md:text-sm bg-amber-400 text-teal-950 shadow transition cursor-pointer'
+                : 'px-3.5 py-2 rounded-full font-bold text-xs md:text-sm bg-teal-700 hover:bg-teal-600 text-white transition cursor-pointer';
+            document.getElementById('tabBtn-interactive').className = tab === 'interactive'
+                ? 'px-3.5 py-2 rounded-full font-bold text-xs md:text-sm bg-amber-400 text-teal-950 shadow transition cursor-pointer'
+                : 'px-3.5 py-2 rounded-full text-xs md:text-sm font-bold bg-teal-700 hover:bg-teal-600 text-white transition cursor-pointer';
+        }
+
+        const participants = [
+            { group: "🌱 國小夥伴", school: "臺北市內湖區新湖國小 吳老師" },
+            { group: "🌱 國小夥伴", school: "新竹市關東國小 郭老師" },
+            { group: "🌱 國小夥伴", school: "高雄市五福國小 張老師" },
+            { group: "🌱 國小夥伴", school: "高雄市文府國小 陳老師" },
+            { group: "👑 國中校長夥伴", school: "臺中市后里國中 李校長" },
+            { group: "🌱 國中夥伴", school: "高雄市大寮國中 盧老師" },
+            { group: "👑 特教行政夥伴", school: "臺北特殊教育學校 陳組長" },
+            { group: "👑 技高行政夥伴", school: "臺中市臺中家商 莫組長" },
+            { group: "🛠️ 技高夥伴", school: "高雄市海青工商 楊老師" },
+            { group: "🛠️ 技高夥伴", school: "高雄市三民家商 黃老師" },
+            { group: "👑 普高行政夥伴", school: "桃園市陽明高中 莊組長" },
+            { group: "🎓 普高夥伴", school: "新北市新莊高中 張老師" },
+            { group: "🎓 私中夥伴", school: "新北市徐匯高中 陳老師" },
+            { group: "🎓 完中夥伴", school: "南投縣旭光高中 黃老師" },
+            { group: "🎓 完中夥伴", school: "臺中市惠文高中 林老師" },
+            { group: "🎓 完中夥伴", school: "高雄市仁武高中 林老師" },
+            { group: "🎓 地主普高夥伴", school: "高雄市三民高中 黃老師 ＆ 王夥伴" }
+        ];
+
+        const questions = [
+            "💬 【最有印象的亮點】今天聽完明芬老師五年的課程設計歷程，哪一段故事或活動最讓您印象深刻？",
+            "💬 【最想試試看的點子】今天分享的「單字尋寶 QR Code、手工摺頁書、SEL 情緒溫度計、AI 互動網頁」中，您最想先試哪一個？",
+            "💬 【跨科神隊友】回學校後如果找一位不同科的老師喝咖啡合作（像巧克力課或美妝課），您最想找哪一科老師？",
+            "💬 【給講師的溫暖回饋】有沒有什麼想法、共鳴或建議想回饋給明芬老師？"
+        ];
+
+        function spinPartner() {
+            const p = participants[Math.floor(Math.random() * participants.length)];
+            const q = questions[Math.floor(Math.random() * questions.length)];
+            document.getElementById('pickedGroup').innerText = p.group;
+            document.getElementById('pickedSchool').innerText = "🎉 歡迎 " + p.school + " 分享！";
+            document.getElementById('pickedQuestion').innerText = q;
+        }
+
+        function spinQuestionOnly() {
+            const q = questions[Math.floor(Math.random() * questions.length)];
+            document.getElementById('pickedQuestion').innerText = q;
+        }
+
+        function highlightCategory(title, q) {
+            document.getElementById('pickedGroup').innerText = "✨ 學制專場交流 ✨";
+            document.getElementById('pickedSchool').innerText = title;
+            document.getElementById('pickedQuestion').innerText = q;
+        }
+
+        let timerSec = 180;
+        let timerInterval = null;
+        function updateTimerUI() {
+            const m = String(Math.floor(timerSec / 60)).padStart(2, '0');
+            const s = String(timerSec % 60).padStart(2, '0');
+            document.getElementById('timerDisplay').innerText = `${m}:${s}`;
+        }
+        function setTimer(sec) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerSec = sec;
+            document.getElementById('timerToggleBtn').innerText = '▶ 開始計時';
+            updateTimerUI();
+        }
+        function toggleTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                document.getElementById('timerToggleBtn').innerText = '▶ 繼續計時';
+            } else {
+                document.getElementById('timerToggleBtn').innerText = '⏸ 暫停';
+                timerInterval = setInterval(() => {
+                    if (timerSec > 0) {
+                        timerSec--;
+                        updateTimerUI();
+                    } else {
+                        clearInterval(timerInterval);
+                        timerInterval = null;
+                        document.getElementById('timerToggleBtn').innerText = '⏰ 時間到！';
+                    }
+                }, 1000);
+            }
+        }
+        function resetTimer() {
+            setTimer(180);
+        }
+
+        document.addEventListener('DOMContentLoaded', loadBoard);
+    </script>
+</body>
+</html>
