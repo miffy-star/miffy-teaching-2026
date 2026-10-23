@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cocoa Innovation Lab | 巧克力特性與熔岩樂趣</title>
+<style>
+  :root {
+    --primary-pink: #FF8FAB;
+    --light-pink: #FFE5EC;
+    --primary-blue: #74B9FF;
+    --light-blue: #E3F2FD;
+    --primary-yellow: #FFD166;
+    --light-yellow: #FFF9C4;
+    --primary-mint: #00B894;
+    --light-mint: #E0F7FA;
+    --text-main: #2D3436;
+    --text-zh: #636E72;
+    --card-bg: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Nunito', 'Noto Sans TC', sans-serif;
+    background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    color: var(--text-main);
+    line-height: 1.7;
+    padding: 20px;
+    margin: 0;
+  }
+  
+  /* 漫畫風主體容器 */
+  .container {
+    max-width: 850px;
+    margin: 20px auto;
+    background-color: var(--card-bg);
+    border: 4px solid #FFFFFF;
+    border-radius: 40px;
+    padding: 50px 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1), inset 0 0 0 4px var(--primary-pink);
+    position: relative;
+  }
+  
+  /* 頭像與對話框區域 */
+  .header-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+  .avatar-wrapper {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 6px solid var(--primary-blue);
+    padding: 4px;
+    background-color: var(--light-blue);
+    box-shadow: 6px 6px 0px rgba(116, 185, 255, 0.4);
+    overflow: hidden;
+    margin-bottom: 25px;
+    z-index: 2;
+    transition: transform 0.3s ease;
+  }
+
+  .avatar-wrapper:hover {
+    transform: scale(1.05) rotate(5deg);
+  }
+
+  .avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .title-bubble {
+    background-color: var(--light-pink);
+    border: 3px solid var(--primary-pink);
+    border-radius: 25px;
+    padding: 20px 30px;
+    text-align: center;
+    box-shadow: 5px 5px 0px var(--primary-pink);
+    position: relative;
+    max-width: 90%;
+  }
+
+  .title-bubble::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 15px 15px 15px;
+    border-style: solid;
+    border-color: transparent transparent var(--primary-pink) transparent;
+  }
+
+  .title-bubble::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 12px 12px 12px;
+    border-style: solid;
+    border-color: transparent transparent var(--light-pink) transparent;
+  }
+  
+  h1 {
+    color: #D63031;
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0 0 5px 0;
+    line-height: 1.3;
+  }
+
+  h1 .zh-text {
+    display: block;
+    color: var(--primary-pink);
+    font-size: 1.2rem;
+    margin-top: 5px;
+  }
+
+  /* 區塊標題設計 */
+  h2 {
+    display: inline-block;
+    color: var(--card-bg);
+    background-color: var(--primary-blue);
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+  }
+
+  h2 .zh-text {
+    color: var(--light-blue);
+    font-size: 0.9rem;
+    margin-left: 10px;
+    font-weight: 700;
+  }
+
+  h3 {
+    color: #6C5CE7;
+    font-size: 1.3rem;
+    font-weight: 800;
+    border-bottom: 2px dashed #A29BFE;
+    padding-bottom: 5px;
+    margin-top: 25px;
+  }
+
+  /* 雙語段落設計 */
+  .bilingual-p {
+    background-color: #F8F9FA;
+    border-left: 5px solid #A29BFE;
+    padding: 15px 20px;
+    border-radius: 0 15px 15px 0;
+    margin-bottom: 20px;
+  }
+
+  p { margin-top: 0; }
+  
+  .en-text {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #2D3436;
+    margin-bottom: 5px;
+  }
+
+  .zh-text {
+    font-weight: 500;
+    color: var(--text-zh);
+    font-size: 0.95rem;
+  }
+
+  /* 視覺強調卡片 */
+  .highlight-card {
+    background-color: var(--light-mint);
+    border: 2px solid var(--primary-mint);
+    border-radius: 20px;
+    padding: 25px;
+    margin: 25px 0;
+    box-shadow: 5px 5px 0px var(--primary-mint);
+  }
+  
+  .highlight-card.yellow {
+    background-color: var(--light-yellow);
+    border: 2px solid var(--primary-yellow);
+    box-shadow: 5px 5px 0px var(--primary-yellow);
+  }
+
+  /* 內容圖片設計 */
+  .content-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 25px;
+    display: block;
+    margin: 30px auto;
+    border: 5px solid #FFFFFF;
+    transition: transform 0.3s ease;
+  }
+  
+  .content-image:hover {
+    transform: translateY(-5px);
+  }
+
+  .img-pink {
+    box-shadow: 8px 8px 0px var(--primary-pink);
+    background-color: var(--light-pink);
+  }
+
+  .img-yellow {
+    box-shadow: 8px 8px 0px var(--primary-yellow);
+    background-color: var(--light-yellow);
+  }
+
+  /* 列表樣式優化 */
+  ul.custom-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  ul.custom-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+  }
+
+  ul.custom-list li::before {
+    content: '✨';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 1.1rem;
+  }
+
+  ol.custom-steps {
+    counter-reset: step-counter;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  ol.custom-steps > li {
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 20px;
+    background: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  ol.custom-steps > li::before {
+    content: counter(step-counter);
+    counter-increment: step-counter;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary-pink);
+    color: white;
+    font-weight: 900;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 0px rgba(255, 143, 171, 0.5);
+  }
+
+  .source-text {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #B2BEC3;
+    font-style: italic;
+    margin-top: 20px;
+  }
+
+  .divider {
+    border: 0;
+    height: 4px;
+    background-image: linear-gradient(to right, transparent, var(--primary-blue), transparent);
+    margin: 50px 0;
+  }
+
+  /* 響應式設計 */
+  @media (max-width: 768px) {
+    .container {
+      padding: 30px 20px;
+      border-radius: 25px;
+    }
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  
+  <div class="header-section">
+    <div class="avatar-wrapper">
+      <img src="../web_photos/cocoa_lab_assets/sgwhzwHZ_Abigail.png" alt="Teacher Avatar">
+    </div>
+    <div class="title-bubble">
+      <h1>
+        The structure and properties of chocolate
+        <span class="zh-text">巧克力的結構與特性</span>
+      </h1>
+    </div>
+  </div>
+
+  <div class="bilingual-p">
+    <div class="en-text">Investigate how melting chocolate changes its structure and affects properties like taste, texture and melting point.</div>
+    <div class="zh-text">探討融化巧克力如何改變其結構，並影響口感、質地與熔點等特性。</div>
+  </div>
+  
+  <div class="bilingual-p">
+    <div class="en-text">The structure of a substance affects its properties, and this is also true for chocolate. In this experiment, students explore what happens to chocolate when it is melted and allowed to reharden, testing the taste, texture and melting point of the chocolate to determine how these properties have changed as a result of the change in structure.</div>
+    <div class="zh-text">物質的結構會影響其特性，這點在巧克力上也不例外。在這個實驗中，學生將探索巧克力融化並重新固化後會發生什麼事，透過測試巧克力的口感、質地與熔點，來判斷這些特性如何因結構改變而產生變化。</div>
+  </div>
+
+  <img src="../web_photos/雷神巧克力成品.jpg" alt="Chocolate Structure and Texture" class="content-image img-pink">
+
+  <h2>Equipment <span class="zh-text">實驗器材</span></h2>
+  
+  <h3>Apparatus <span class="zh-text" style="font-size: 0.9rem;">儀器</span></h3>
+  <ul class="custom-list">
+    <li>
+      <span class="en-text">Boiling tubes, x2</span><br>
+      <span class="zh-text">試管 2 支</span>
+    </li>
+    <li>
+      <span class="en-text">Beaker, 250 cm³ (or a similar-sized container)</span><br>
+      <span class="zh-text">燒杯 250 cm³（或類似大小的容器）</span>
+    </li>
+    <li>
+      <span class="en-text">Thermometer, 0-100°C</span><br>
+      <span class="zh-text">溫度計 0-100°C</span>
+    </li>
+    <li>
+      <span class="en-text">Timer</span><br>
+      <span class="zh-text">計時器</span>
+    </li>
+    <li>
+      <span class="en-text">Access to a kettle (for boiling water)</span><br>
+      <span class="zh-text">熱水壺（用於準備沸水）</span>
+    </li>
+  </ul>
+
+  <h3>Chemicals <span class="zh-text" style="font-size: 0.9rem;">化學材料</span></h3>
+  <ul class="custom-list">
+    <li>
+      <span class="en-text">Milk chocolate</span><br>
+      <span class="zh-text">牛奶巧克力</span>
+    </li>
+    <li>
+      <span class="en-text">Milk chocolate that has been melted and rehardened</span><br>
+      <span class="zh-text">融化後重新固化的牛奶巧克力</span>
+    </li>
+  </ul>
+
+  <h2>Procedure <span class="zh-text">實驗步驟</span></h2>
+  
+  <div class="highlight-card">
+    <h3 style="margin-top: 0; color: var(--primary-mint); border-color: var(--primary-mint);">
+      Taste tests <span class="zh-text" style="font-size: 0.9rem;">試吃測試</span>
+    </h3>
+    <div class="en-text">Take two pieces of chocolate, one that has been melted and rehardened and one that has not. Note the differences between the two. Try snapping the pieces and see what happens. Then eat the two pieces separately and note any differences in taste and texture.</div>
+    <div class="zh-text">取兩塊巧克力，一塊是融化後重新固化的，另一塊則是未處理過的。請注意兩者之間的差異。試著將它們折斷，看看會發生什麼事。接著分別品嚐這兩塊巧克力，並記錄在味道與質地上的任何不同之處。</div>
+  </div>
+
+  <h3>Melting point tests <span class="zh-text" style="font-size: 0.9rem;">熔點測試</span></h3>
+  <ol class="custom-steps">
+    <li>
+      <div class="en-text">Put some hot water (at no more than 50°C) into the beaker.</div>
+      <div class="zh-text">將一些熱水（溫度不超過 50°C）倒入燒杯中。</div>
+    </li>
+    <li>
+      <div class="en-text">Place a few small pieces of chocolate (enough to cover the bulb of a thermometer when melted) into a boiling tube and put in a thermometer.</div>
+      <div class="zh-text">將幾小塊巧克力（融化後的量需足以覆蓋溫度計底部）放入試管中，並插入溫度計。</div>
+    </li>
+    <li>
+      <div class="en-text">Take the temperature of the chocolate, then put the boiling tube into the hot water and start the timer.</div>
+      <div class="zh-text">測量巧克的初始溫度，然後將試管放入熱水中並開始計時。</div>
+    </li>
+    <li>
+      <div class="en-text">Stir continuously with the thermometer and record the temperature of the chocolate every 15-30 seconds for about five minutes. Note any other changes.</div>
+      <div class="zh-text">用溫度計持續攪拌，在約五分鐘的時間內，每 15 到 30 秒記錄一次巧克力的溫度。注意觀察是否有其他變化發生。</div>
+    </li>
+    <li>
+      <div class="en-text">Repeat steps 1-4 with chocolate that has been melted and rehardened.</div>
+      <div class="zh-text">使用融化後重新固化的巧克力，重複上述步驟 1 到 4。</div>
+    </li>
+    <li>
+      <div class="en-text">Draw a graph of each set of results and use them to decide the melting point of the samples and if the samples have the same structure.</div>
+      <div class="zh-text">為每一組結果繪製圖表，並利用這些圖表來決定樣品的熔點，同時判斷這些樣品是否具有相同的結構。</div>
+    </li>
+  </ol>
+
+  <h2>Questions <span class="zh-text">課後問題</span></h2>
+  <ol class="custom-steps" style="--primary-pink: #6C5CE7;">
+    <li>
+      <div class="en-text">What is the melting point of milk chocolate? Which polymorph is present in the sample?</div>
+      <div class="zh-text">牛奶巧克力的熔點是多少？樣品中存在哪一種同質易形體？</div>
+    </li>
+    <li>
+      <div class="en-text">What is the melting point of the rehardened milk chocolate? Which polymorph is present in the sample?</div>
+      <div class="zh-text">重新固化後的牛奶巧克力熔點是多少？樣品中存在哪一種同質易形體？</div>
+    </li>
+    <li>
+      <div class="en-text">Are your results similar as your prediction? Comment on your results.</div>
+      <div class="zh-text">你的實驗結果與預測相似嗎？請對你的結果提出評論。</div>
+    </li>
+  </ol>
+  <div class="source-text">Source: Royal Society of Chemistry, edu.rsc.org</div>
+  
+  <hr class="divider">
+
+  <div class="header-section">
+    <div class="title-bubble" style="background-color: var(--light-yellow); border-color: var(--primary-yellow); box-shadow: 5px 5px 0px var(--primary-yellow);">
+      <h1 style="color: #E17055;">
+        Chocolate Fondue Fun
+        <span class="zh-text" style="color: #D35400;">巧克力鍋樂趣</span>
+      </h1>
+    </div>
+  </div>
+
+  <img src="../web_photos/巧克力火鍋.jpg" alt="Delicious Chocolate Fondue" class="content-image img-yellow">
+
+  <div class="bilingual-p" style="border-left-color: var(--primary-yellow);">
+    <div class="en-text">Chocolate fondue is a fun and delicious dessert that is perfect for sharing with family and friends. In this procedure, you will learn how to make simple chocolate fondue using melted chocolate and a few easy ingredients. Then, you can dip fruits, marshmallows, and other snacks into the warm chocolate and enjoy!</div>
+    <div class="zh-text">巧克力鍋是一道有趣又美味的甜點，非常適合與家人和朋友分享。在這個製作過程中，你將學會如何使用融化的巧克力與幾樣簡單的食材來製作簡易巧克力鍋。接著，你可以將水果、棉花糖和其他零食沾入溫熱的巧克力中好好享用！</div>
+  </div>
+
+  <h2 style="background-color: var(--primary-yellow); color: #2D3436;">Ingredients <span class="zh-text" style="color: #636E72;">準備食材</span></h2>
+  
+  <div class="highlight-card yellow">
+    <h3 style="margin-top: 0; color: #E17055; border-color: #E17055;">
+      For the dipping fondue chocolate: <span class="zh-text" style="font-size: 0.9rem;">巧克力鍋底：</span>
+    </h3>
+    <ul class="custom-list">
+      <li>
+        <span class="en-text">1 cup (8 ounces) heavy cream, Pinch salt</span><br>
+        <span class="zh-text">1 杯（8 盎司）鮮奶油，少許鹽</span>
+      </li>
+      <li>
+        <span class="en-text">12 ounces milk or dark chocolate (chips or roughly chopped bar)</span><br>
+        <span class="zh-text">12 盎司牛奶或黑巧克力（巧克力豆或切塊的巧克力磚）</span>
+      </li>
+    </ul>
+    
+    <h3 style="color: #E17055; border-color: #E17055;">
+      For dipping: <span class="zh-text" style="font-size: 0.9rem;">沾醬配料：</span>
+    </h3>
+    <ul class="custom-list">
+      <li>
+        <span class="en-text">Strawberries</span><br>
+        <span class="zh-text">草莓</span>
+      </li>
+      <li>
+        <span class="en-text">Banana pieces cut into 1-inch chunks</span><br>
+        <span class="zh-text">切成 1 英寸塊狀的香蕉</span>
+      </li>
+      <li>
+        <span class="en-text">Marshmallows</span><br>
+        <span class="zh-text">棉花糖</span>
+      </li>
+    </ul>
+  </div>
+
+  <h2 style="background-color: var(--primary-yellow); color: #2D3436;">Method <span class="zh-text" style="color: #636E72;">製作方法</span></h2>
+  <ol class="custom-steps" style="--primary-pink: #F39C12;">
+    <li>
+      <div class="en-text">Heat the cream: Heat the cream with a pinch of salt over medium heat in a small saucepan until tiny bubbles show and begins to lightly and slowly simmer.</div>
+      <div class="zh-text">加熱鮮奶油：在小湯鍋中以中火加熱鮮奶油與少許鹽，直到邊緣出現微小氣泡並開始緩慢微滾。</div>
+    </li>
+    <li>
+      <div class="en-text">Remove from heat and add the chocolate: Remove from heat, add the chocolate, and whisk until smooth and fully incorporated.</div>
+      <div class="zh-text">離火並加入巧克力：將湯鍋移開火源，加入巧克力，並攪拌至滑順且完全融合。</div>
+    </li>
+    <li>
+      <div class="en-text">Serve immediately: Transfer the chocolate mix to a fondue pot heated at low or with a low flame, or serve straight from the pot. Arrange the dip-ables on a platter or plates around the chocolate pot. Use a bamboo skewer to dip the fruit pieces and other dip-ables into the hot melted chocolate mixture. Eat immediately.</div>
+      <div class="zh-text">立即享用：將巧克力混合物倒入以小火或微火加熱的巧克力鍋中，或是直接從湯鍋中享用。將準備好的配料擺放在盤子上並環繞巧克力鍋。用竹籤串起水果塊與其他配料，沾取熱騰騰的融化巧克力糊。馬上吃一口吧！</div>
+    </li>
+  </ol>
+  <div class="source-text">Source: Simply Recipes, simplyrecipes.com</div>
+
+</div>
+</body>
+</html>

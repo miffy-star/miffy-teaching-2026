@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>114學年度第2學期台南市瀛海中學與國外校際合作線上教學計畫 - 成果展現</title>
+    <style>
+        :root {
+            --primary-color: #4a2c2a;
+            --secondary-color: #8c6239;
+            --accent-color: #d9a05b;
+            --bg-color: #fcf8f2;
+            --text-color: #2c1a19;
+            --card-bg: #ffffff;
+            --title-bg: #4a2c2a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Microsoft JhengHei';
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(74, 44, 42, 0.1);
+            overflow: hidden;
+            border: 2px solid #f0e6db;
+        }
+
+        header {
+            background-color: var(--title-bg);
+            color: #ffffff;
+            text-align: center;
+            padding: 45px 25px;
+            position: relative;
+            border-bottom: 5px solid var(--accent-color);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            letter-spacing: 2px;
+        }
+
+        .tabs {
+            display: flex;
+            background: #f5eae0;
+            border-bottom: 2px solid #e1d2c1;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 18px 20px;
+            border: none;
+            background: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .tab-btn:hover {
+            background: rgba(140, 98, 57, 0.1);
+        }
+
+        .tab-btn.active {
+            background: var(--card-bg);
+            color: var(--primary-color);
+            border-top: 4px solid var(--primary-color);
+            margin-top: -4px;
+        }
+
+        .content-section {
+            display: none;
+            padding: 40px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 850px) {
+            .grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 1.7rem; }
+            body { padding: 10px; }
+        }
+
+        .recipe-info {
+            background: #faf4ed;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .recipe-info h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .recipe-info ul, .recipe-info ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .recipe-info li {
+            margin-bottom: 10px;
+        }
+
+        /* 優化後的圖片外框，確保不留白 */
+        .image-wrapper {
+            border-radius: 10px;
+            text-align: center;
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* 優化後的圖片樣式，填滿寬度且不產生白邊 */
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            display: block;
+            margin-top: 10px;
+            object-fit: cover;
+        }
+
+        /* 手工書互動區域 */
+        .book-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 35px 0;
+        }
+
+        .book {
+            width: 100%;
+            max-width: 650px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            padding: 40px;
+            border: 1px solid #e0e0e0;
+            background-image: linear-gradient(90deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0) 5%, rgba(0,0,0,0) 95%, rgba(0,0,0,0.04) 100%);
+        }
+
+        .step-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 12px;
+        }
+
+        .btn-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .action-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .action-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .action-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 25px;
+            background: #f5eae0;
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>114學年度第2學期台南市瀛海中學與國外校際合作線上教學計畫</h1>
+        <p>跨國創意手作文化交流・實作成果展示</p>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab(event, 'fondue')">1. 實作：濃郁巧克力鍋</button>
+        <button class="tab-btn" onclick="switchTab(event, 'thunder')">2. 實作：黑雷神巧克力</button>
+        <button class="tab-btn" onclick="switchTab(event, 'handbook')">3. 成果展現：課程手工書</button>
+    </div>
+
+    <div id="fondue" class="content-section active">
+        <h2>🍫 跨國文化體驗一：奢華暖心巧克力鍋</h2>
+        <div class="grid">
+            <div class="recipe-info">
+                <h3>【線上課程準備食材】</h3>
+                <ul>
+                    <li><strong>巧克力基底：</strong>苦甜巧克力磚 200g、鮮奶油 100ml（黃金比例 2:1）</li>
+                    <li><strong>美味繽紛配料：</strong>新鮮香蕉切片、番茄、棉花糖、各式脆皮餅乾</li>
+                    <li><strong>實作器材：</strong>隔水加熱小鍋、竹籤、盛裝盤</li>
+                </ul>
+                <h3>【教學實作步驟】</h3>
+                <ol>
+                    <li><strong>切碎與準備：</strong>準備巧克力鈕扣，以利快速融化。</li>
+                    <li><strong>隔水融化示範：</strong>鮮奶油微加熱後與巧克力鈕扣混合，採用溫水（50-60°C）隔水攪拌至絲滑，保持質地觀察。</li>
+                    <li><strong>擺盤交流：</strong>豐富配料圍繞擺放，準備沾取巧克力醬。</li>
+                </ol>
+            </div>
+            <div>
+                <div class="image-wrapper">
+                    <span>📸 照片 1：豐富的配料食材準備</span>
+                    <img src="../web_photos/cocoa_lab_assets/m2Jyr3sh_bei-liao.jpg" alt="配料食材準備">
+                </div>
+                <div class="image-wrapper">
+                    <span>📸 照片 2：隔水加熱與裹醬成果</span>
+                    <img src="../web_photos/cocoa_lab_assets/FFP2D6jw_qiao-ke-li-rong-hua.jpg" alt="隔水加熱成果">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="thunder" class="content-section">
+        <h2>⚡ 體驗二：雷神巧克力</h2>
+        <div class="grid">
+            <div class="recipe-info">
+                <h3>【線上課程準備食材】</h3>
+                <ul>
+                    <li><strong>濃郁外衣：</strong>優質巧克力鈕扣 250g</li>
+                    <li><strong>核心脆感：</strong>消化餅 80g、樂事洋芋片 50g</li>
+                    <li><strong>提味密技：</strong>微量鹽巴（用以中和甜度，豐富味覺層次）</li>
+                </ul>
+                <h3>【教學實作步驟】</h3>
+                <ol>
+                    <li><strong>壓碎體驗：</strong>將兩種餅乾放入保鮮袋中，用手壓碎，保留顆粒感以重現經典雷神口感。</li>
+                    <li><strong>黃金比例調和：</strong>融化巧克力後，留 1/3 做表面鋪墊，2/3 與雙重餅乾碎在鍋中徹底翻拌，確保每一塊都均勻著色。</li>
+                    <li><strong>模具塑形冷凍：</strong>混合物倒入鋪有烘焙紙的盒中壓緊，淋上剩餘巧克力整平表面。冰入冰箱冷凍約 25 分鐘，取出切塊完成。</li>
+                </ol>
+            </div>
+            <div>
+                <div class="image-wrapper">
+                    <span>📸 照片 3：攪拌與塑形紀錄</span>
+                    <img src="../web_photos/cocoa_lab_assets/C1vJwW7J_lei-shen-he-bao-zhuang.jpg" alt="攪拌與塑形紀錄">
+                </div>
+                <div class="image-wrapper">
+                    <span>📸 照片 4：雷神巧克力塊成品</span>
+                    <img src="../web_photos/雷神巧克力成品.jpg" alt="雷神巧克力塊成品">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="handbook" class="content-section">
+        <h2>📖 計畫最終成果：帶領大家做出一本成果手工書</h2>
+        <p style="margin-bottom: 25px; color: var(--secondary-color); font-weight: bold; font-size: 1.05rem;">
+            將本學期的英文、數學、史地、化學、家政等即時互動列印成照片與心得紀錄，透過動手剪貼與裝訂，匯聚成一本極具紀念意義的實體合作成果冊。
+        </p>
+        
+        <div class="grid">
+            <div class="image-wrapper">
+                <span>📸 照片 5：手工書製作</span>
+                <img src="../web_photos/cocoa_lab_assets/2ycy5xLB_shou-gong-qiao-ke-li-dan-gao.jpg" alt="手工書製作">
+            </div>
+            <div class="image-wrapper">
+                <span>📸 照片 6：學生手工書封面與內頁設計</span>
+                <img src="../web_photos/巧克力內頁.jpg" alt="手工書封面與內頁設計">
+            </div>
+        </div>
+
+        <div class="book-container">
+            <div class="book">
+                <div id="book-content">
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px; display: flex; align-items: center;">
+                        <span class="step-badge" id="step-num">步驟 1</span>
+                        <span id="step-title">封面與內頁版面裁切</span>
+                    </h3>
+                    <p id="step-desc" style="min-height: 80px; margin-bottom: 20px;">
+                        發揮巧思組成手工書的美味封面。內頁則用相片、實驗結果、學習單做成豐富的學習內容。
+                    </p>
+                </div>
+                
+                <div class="btn-nav">
+                    <button class="action-btn" style="background: #a8928a;" id="prev-btn" onclick="moveStep(-1)" disabled>上一頁</button>
+                    <button class="action-btn" id="next-btn" onclick="moveStep(1)">下一頁</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        🏫 臺南市瀛海高級中學 國際校際合作線上教學計畫成果展現 · 課程圓滿成功
+    </div>
+</div>
+
+<script>
+    // 頁籤切換邏輯
+    function switchTab(evt, tabId) {
+        var i, contentSections, tabButtons;
+        contentSections = document.getElementsByClassName("content-section");
+        for (i = 0; i < contentSections.length; i++) {
+            contentSections[i].classList.remove("active");
+        }
+        tabButtons = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tabButtons.length; i++) {
+            tabButtons[i].classList.remove("active");
+        }
+        document.getElementById(tabId).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+
+    // 手工書製作步驟資料
+    const bookSteps = [
+        {
+            title: "封面與內頁版面裁切",
+            desc: "發揮巧思組成手工書的美味封面。內頁則用相片、實驗結果、學習單做成豐富的學習內容。"
+        },
+        {
+            title: "國際交流照片與手寫食譜排版",
+            desc: "將跨國視訊截圖（如與國外校際合作畫面）、巧克力鍋與雷神巧克力的製作照片列印出來。剪貼並搭配手寫的巧克力實驗學習單與心得。"
+        },
+        {
+            title: "裝訂儀式",
+            desc: "將內頁以大頭釘釘好，固定這學期共同的社團回憶。"
+        },
+        {
+            title: "封面美化與專案成果命名",
+            desc: "在封面上精心繪製巧克力與草莓等手繪插圖，寫下計畫名稱，並寫上姓名。一本融合人文、科學、烘焙的跨科實體成果書順利誕生！"
+        }
+    ];
+
+    let currentStep = 0;
+
+    function moveStep(direction) {
+        currentStep += direction;
+        
+        if (currentStep < 0) currentStep = 0;
+        if (currentStep >= bookSteps.length) currentStep = bookSteps.length - 1;
+        
+        document.getElementById("step-num").innerText = "步驟 " + (currentStep + 1);
+        document.getElementById("step-title").innerText = bookSteps[currentStep].title;
+        document.getElementById("step-desc").innerText = bookSteps[currentStep].desc;
+        
+        document.getElementById("prev-btn").disabled = (currentStep === 0);
+        
+        if (currentStep === bookSteps.length - 1) {
+            document.getElementById("next-btn").innerText = "重新閱讀";
+        } else {
+            document.getElementById("next-btn").innerText = "下一頁";
+        }
+    }
+    
+    // 監聽重新閱讀與翻頁邏輯
+    document.getElementById("next-btn").addEventListener("click", function() {
+        if (this.innerText === "重新閱讀") {
+            currentStep = 0;
+            moveStep(0);
+        }
+    });
+</script>
+</body>
+</html>

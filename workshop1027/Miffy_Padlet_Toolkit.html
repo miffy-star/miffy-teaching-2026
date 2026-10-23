@@ -14,12 +14,6 @@
             background-color: #fdfbf7;
             font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
             color: #292524;
-            padding-bottom: 4.5rem;
-        }
-        @media (min-width: 768px) {
-            body {
-                padding-bottom: 0;
-            }
         }
         @media (max-width: 767px) {
             input, select, textarea {
@@ -30,8 +24,8 @@
             transition: all 0.22s ease;
         }
         .card-hover:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px -6px rgba(15, 118, 110, 0.16);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -6px rgba(15, 118, 110, 0.14);
         }
         .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -40,6 +34,17 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+        @keyframes chibiWave {
+            0%, 100% { transform: rotate(0deg) translateY(0); }
+            25% { transform: rotate(-6deg) translateY(-4px); }
+            75% { transform: rotate(6deg) translateY(-3px); }
+        }
+        @keyframes chibiBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-6px) scale(1.04); }
+        }
+        .chibi-anim-wave { animation: chibiWave 2.2s ease-in-out infinite; transform-origin: bottom center; }
+        .chibi-anim-bounce { animation: chibiBounce 2.2s ease-in-out infinite; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -51,23 +56,20 @@
                     <i class="fa-solid fa-box-open"></i>
                 </div>
                 <div>
-                    <h1 class="text-sm sm:text-base md:text-2xl font-black tracking-tight leading-snug">台南瀛海國際高中 林明芬老師｜研習教材百寶箱 ＆ 暖心回饋牆</h1>
-                    <p class="hidden sm:block text-xs md:text-sm text-teal-100 font-medium">The World Is Your Oyster ── 可編輯 Word 學習單下載 ✕ 自由上傳編輯 ✕ 給講師的暖心回饋</p>
+                    <h1 class="text-sm sm:text-base md:text-2xl font-black tracking-tight leading-snug">台南瀛海國際高中 林明芬老師｜研習教材下載區 ＆ 暖心回饋牆</h1>
+                    <p class="hidden sm:block text-xs md:text-sm text-teal-100 font-medium">The World Is Your Oyster ── 全套研習教材直接下載 ✕ 給講師的一句文字回饋</p>
                 </div>
             </div>
-            <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
-                <img src="web_photos/chibi/plaid_19.png" data-frame1="web_photos/chibi/plaid_19.png" data-frame2="web_photos/chibi/plaid_20.png" alt="" onerror="this.style.display='none'" class="w-11 h-11 object-contain drop-shadow-md chibi-anim-bounce chibi-sprite">
+            <div class="flex items-center gap-2">
+                <img src="web_photos/chibi/plaid_19.png" data-frame1="web_photos/chibi/plaid_19.png" data-frame2="web_photos/chibi/plaid_20.png" alt="" onerror="this.style.display='none'" style="color:transparent" class="w-11 h-11 object-contain drop-shadow-md chibi-anim-bounce chibi-sprite">
                 <a href="Teacher_Miffys_Presentation.html#slide-31" class="px-3.5 py-2 rounded-full font-bold text-xs md:text-sm bg-amber-400 hover:bg-amber-300 text-teal-950 shadow transition whitespace-nowrap">
                     <i class="fa-solid fa-tv mr-1"></i> 返回簡報
                 </a>
             </div>
         </div>
 
-        <!-- Mobile & Tablet Quick-Jump Column Pills (Visible on Phone & iPad) -->
+        <!-- Mobile & Tablet Quick-Jump Column Pills -->
         <div id="mobileColNav" class="xl:hidden max-w-7xl mx-auto pt-2.5 mt-2 border-t border-teal-700/80 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
-            <a href="#col-sec-5" class="shrink-0 bg-rose-500 hover:bg-rose-600 text-white text-xs font-black px-3 py-1.5 rounded-full shadow-sm">
-                💌 5. 給講師回饋牆
-            </a>
             <a href="#col-sec-1" class="shrink-0 bg-teal-900/70 hover:bg-teal-900 text-teal-100 text-xs font-bold px-3 py-1.5 rounded-full border border-teal-600">
                 📌 1. 在地走讀
             </a>
@@ -75,47 +77,33 @@
                 🎯 2. 單字尋寶
             </a>
             <a href="#col-sec-3" class="shrink-0 bg-teal-900/70 hover:bg-teal-900 text-teal-100 text-xs font-bold px-3 py-1.5 rounded-full border border-teal-600">
-                🍫 3. 跨科可可
+                🍫 3. 跨科共創
             </a>
             <a href="#col-sec-4" class="shrink-0 bg-teal-900/70 hover:bg-teal-900 text-teal-100 text-xs font-bold px-3 py-1.5 rounded-full border border-teal-600">
                 🌿 4. SEL 與網站
             </a>
+            <a href="#col-sec-5" class="shrink-0 bg-rose-500 hover:bg-rose-600 text-white text-xs font-black px-3 py-1.5 rounded-full shadow-sm">
+                💌 5. 暖心回饋牆
+            </a>
         </div>
     </header>
 
-    <!-- Main Content: Tab 1 (Padlet 5 Columns) -->
+    <!-- Main Content -->
     <main id="tab-padlet" class="flex-1 max-w-7xl w-full mx-auto px-3.5 md:px-6 py-4 md:py-5">
-        <!-- Action Banner -->
-        <div class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-3.5 md:p-4 mb-4 md:mb-5 flex flex-wrap items-center justify-between gap-3 shadow-sm">
-            <div class="flex items-center gap-3">
-                <img src="web_photos/chibi/plaid_01.png" data-frame1="web_photos/chibi/plaid_01.png" data-frame2="web_photos/chibi/plaid_02.png" alt="" onerror="this.style.display='none'" class="w-14 h-14 object-contain drop-shadow-md shrink-0 chibi-anim-wave chibi-sprite">
-                <div>
-                    <h2 class="font-black text-amber-950 text-sm md:text-base">💡 歡迎下載全套可編輯教材、上傳分享或留下給明芬老師的回饋！</h2>
-                    <p class="text-xs md:text-sm text-amber-900 font-medium">
-                        任何卡片皆可點右上角 <b>「✏️ 編輯」</b> 修改內容或更換檔案；手機與平板用戶亦可直接點選下方按鈕貼便利貼或上傳檔案！
-                    </p>
-                </div>
-            </div>
-            <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
-                <button onclick="openFeedbackModal('✨ 最有印象的亮點')" class="flex-1 md:flex-initial justify-center bg-rose-600 hover:bg-rose-700 text-white font-black text-xs md:text-sm px-3.5 py-2.5 rounded-xl shadow flex items-center gap-1.5 transition cursor-pointer">
-                    <i class="fa-solid fa-heart"></i> 💌 留下給講師的回饋
-                </button>
-                <button onclick="openCardModal('add', 1)" class="flex-1 md:flex-initial justify-center bg-teal-700 hover:bg-teal-800 text-white font-black text-xs md:text-sm px-3.5 py-2.5 rounded-xl shadow flex items-center gap-1.5 transition cursor-pointer">
-                    <i class="fa-solid fa-cloud-arrow-up"></i> 📤 上傳檔案 / 新增卡片
-                </button>
-                <button onclick="resetDefaultBoard()" class="bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold text-xs px-3 py-2.5 rounded-xl transition cursor-pointer" title="將所有專欄恢復為預設狀態">
-                    <i class="fa-solid fa-rotate-left"></i> 恢復預設
-                </button>
+        <!-- Simple Info Banner (No Duplicate Buttons) -->
+        <div class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-3.5 md:p-4 mb-4 md:mb-5 flex items-center gap-3 shadow-sm">
+            <img src="web_photos/chibi/plaid_01.png" data-frame1="web_photos/chibi/plaid_01.png" data-frame2="web_photos/chibi/plaid_02.png" alt="" onerror="this.style.display='none'" style="color:transparent" class="w-12 h-12 object-contain drop-shadow-md shrink-0 chibi-anim-wave chibi-sprite">
+            <div>
+                <h2 class="font-black text-amber-950 text-sm md:text-base">💡 研習教材直接點選即可下載；若想給明芬老師回饋，請直接在最右側「💌 5. 給講師的暖心回饋牆」輸入文字送出即可！</h2>
             </div>
         </div>
 
-        <!-- 5 Shelf Columns (Responsive: 1 col on Phone, 2 cols on iPad Portrait, 3 cols on iPad Landscape, 5 cols on Desktop) -->
+        <!-- 5 Shelf Columns -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 items-start" id="padletColumnsRoot">
             <!-- Column 1 -->
             <div id="col-sec-1" class="scroll-mt-32 bg-stone-100 rounded-2xl p-3 border border-stone-200 space-y-3">
                 <div class="bg-teal-700 text-white p-3 rounded-xl font-black text-sm flex items-center justify-between">
                     <span>📌 1. 在地走讀雙語學習單</span>
-                    <button onclick="openCardModal('add', 1)" class="bg-white text-teal-800 text-xs px-2.5 py-1 rounded-full font-black hover:bg-teal-50 shadow-sm cursor-pointer">+ 新增/上傳</button>
                 </div>
                 <div class="space-y-3" id="col-cards-1"></div>
             </div>
@@ -124,7 +112,6 @@
             <div id="col-sec-2" class="scroll-mt-32 bg-stone-100 rounded-2xl p-3 border border-stone-200 space-y-3">
                 <div class="bg-amber-600 text-white p-3 rounded-xl font-black text-sm flex items-center justify-between">
                     <span>🎯 2. 大地遊戲 ✕ 單字尋寶</span>
-                    <button onclick="openCardModal('add', 2)" class="bg-white text-amber-800 text-xs px-2.5 py-1 rounded-full font-black hover:bg-amber-50 shadow-sm cursor-pointer">+ 新增/上傳</button>
                 </div>
                 <div class="space-y-3" id="col-cards-2"></div>
             </div>
@@ -133,7 +120,6 @@
             <div id="col-sec-3" class="scroll-mt-32 bg-stone-100 rounded-2xl p-3 border border-stone-200 space-y-3">
                 <div class="bg-orange-600 text-white p-3 rounded-xl font-black text-sm flex items-center justify-between">
                     <span>🍫 3. 跨科共創 ✕ 可可實驗室</span>
-                    <button onclick="openCardModal('add', 3)" class="bg-white text-orange-800 text-xs px-2.5 py-1 rounded-full font-black hover:bg-orange-50 shadow-sm cursor-pointer">+ 新增/上傳</button>
                 </div>
                 <div class="space-y-3" id="col-cards-3"></div>
             </div>
@@ -142,263 +128,50 @@
             <div id="col-sec-4" class="scroll-mt-32 bg-stone-100 rounded-2xl p-3 border border-stone-200 space-y-3">
                 <div class="bg-emerald-700 text-white p-3 rounded-xl font-black text-sm flex items-center justify-between">
                     <span>🌿 4. SEL 情緒陪伴與數位魔法</span>
-                    <button onclick="openCardModal('add', 4)" class="bg-white text-emerald-800 text-xs px-2.5 py-1 rounded-full font-black hover:bg-emerald-50 shadow-sm cursor-pointer">+ 新增/上傳</button>
                 </div>
                 <div class="space-y-3" id="col-cards-4"></div>
             </div>
 
-            <!-- Column 5: Live Sticky Notes & Speaker Feedback Wall -->
-            <div id="col-sec-5" class="scroll-mt-32 md:col-span-2 lg:col-span-2 xl:col-span-1 bg-stone-100 rounded-2xl p-3 border-2 border-rose-300 space-y-3">
+            <!-- Column 5: The ONLY Place for Text Feedback -->
+            <div id="col-sec-5" class="scroll-mt-32 md:col-span-2 lg:col-span-2 xl:col-span-1 bg-rose-50/70 rounded-2xl p-3.5 border-2 border-rose-300 space-y-3 shadow-sm">
                 <div class="bg-rose-600 text-white p-3 rounded-xl font-black text-sm flex items-center justify-between gap-1">
                     <span class="flex items-center gap-1.5">
-                        <img src="web_photos/chibi/exp_08.png" alt="" onerror="this.style.display='none'" class="w-7 h-7 object-contain bg-white rounded-full p-0.5">
+                        <img src="web_photos/chibi/exp_08.png" alt="" onerror="this.style.display='none'" style="color:transparent" class="w-7 h-7 object-contain bg-white rounded-full p-0.5">
                         <span>💌 5. 給講師的暖心回饋牆</span>
                     </span>
-                    <div class="flex items-center gap-1 shrink-0">
-                        <button onclick="exportFeedbackCsv()" class="bg-rose-800 hover:bg-rose-900 text-rose-100 text-[11px] px-2 py-1 rounded-full font-bold cursor-pointer">📥 匯出</button>
-                        <button onclick="openFeedbackModal('✨ 最有印象的亮點')" class="bg-white text-rose-700 text-xs px-2.5 py-1 rounded-full font-black hover:bg-rose-50 shadow-sm cursor-pointer">+ 貼便利貼</button>
-                    </div>
+                    <button onclick="exportFeedbackCsv()" class="bg-rose-800 hover:bg-rose-900 text-rose-100 text-[11px] px-2.5 py-1 rounded-full font-bold cursor-pointer" title="匯出回饋文字紀錄 (.csv)">📥 匯出</button>
                 </div>
 
-                <!-- Quick Category Buttons for Feedback -->
-                <div class="bg-white p-3 rounded-xl border border-rose-200 shadow-sm space-y-2">
-                    <div class="text-xs font-black text-rose-800 flex items-center gap-1">
-                        <i class="fa-solid fa-comment-dots"></i> 點擊下方任一主題直接留言給明芬老師：
+                <!-- Single Unified Inline Text Feedback Box -->
+                <form onsubmit="submitInlineFeedback(event)" class="bg-white p-3.5 rounded-xl border-2 border-rose-200 shadow-sm space-y-2.5">
+                    <div class="text-xs font-black text-rose-900">
+                        ✍️ 留下文字給明芬老師（一處填寫即可）：
                     </div>
-                    <div class="grid grid-cols-1 gap-1.5">
-                        <button onclick="openFeedbackModal('✨ 最有印象的亮點')" class="text-left px-2.5 py-2 rounded-lg bg-purple-50 hover:bg-purple-100 border border-purple-200 text-xs font-bold text-purple-900 transition cursor-pointer flex items-center justify-between">
-                            <span>✨ 1. 最有印象的亮點</span>
-                            <span class="text-[11px] bg-purple-600 text-white px-2 py-0.5 rounded-full shrink-0">點我留言</span>
-                        </button>
-                        <button onclick="openFeedbackModal('🚀 想要試試看的點子')" class="text-left px-2.5 py-2 rounded-lg bg-sky-50 hover:bg-sky-100 border border-sky-200 text-xs font-bold text-sky-900 transition cursor-pointer flex items-center justify-between">
-                            <span>🚀 2. 想要試試看的點子</span>
-                            <span class="text-[11px] bg-sky-600 text-white px-2 py-0.5 rounded-full shrink-0">點我留言</span>
-                        </button>
-                        <button onclick="openFeedbackModal('💡 提供建議與鼓勵')" class="text-left px-2.5 py-2 rounded-lg bg-amber-50 hover:bg-amber-100 border border-amber-200 text-xs font-bold text-amber-900 transition cursor-pointer flex items-center justify-between">
-                            <span>💡 3. 提供建議與溫暖鼓勵</span>
-                            <span class="text-[11px] bg-amber-600 text-white px-2 py-0.5 rounded-full shrink-0">點我留言</span>
-                        </button>
+                    <div>
+                        <input id="fbAuthorInput" type="text" placeholder="您的學校或稱呼（選填，亦可匿名）" class="w-full border border-stone-300 focus:border-rose-500 focus:outline-none rounded-lg px-3 py-2 text-xs font-bold text-stone-800">
                     </div>
-                </div>
+                    <div>
+                        <textarea id="fbContentInput" rows="3" placeholder="請輸入您的想法、最有印象的亮點或鼓勵文字..." class="w-full border border-stone-300 focus:border-rose-500 focus:outline-none rounded-lg px-3 py-2 text-xs font-medium text-stone-800" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-black text-xs py-2.5 px-4 rounded-lg shadow transition cursor-pointer flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-paper-plane"></i> 送出文字回饋
+                    </button>
+                </form>
 
+                <!-- Feedback Notes List -->
                 <div class="space-y-2.5" id="col-cards-5"></div>
             </div>
         </div>
     </main>
 
-    <!-- Mobile Floating Bottom Action Bar (Thumb-Friendly for Phones) -->
-    <div class="md:hidden fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t-2 border-stone-200 px-3 py-2.5 z-40 flex items-center gap-2 shadow-2xl">
-        <button onclick="openFeedbackModal('✨ 最有印象的亮點')" class="flex-1 bg-rose-600 active:bg-rose-700 text-white font-black text-xs py-2.5 px-3 rounded-xl shadow flex items-center justify-center gap-1.5">
-            <i class="fa-solid fa-heart"></i> 💌 留回饋給講師 (貼便利貼)
-        </button>
-        <button onclick="openCardModal('add', 1)" class="flex-1 bg-teal-700 active:bg-teal-800 text-white font-black text-xs py-2.5 px-3 rounded-xl shadow flex items-center justify-center gap-1.5">
-            <i class="fa-solid fa-cloud-arrow-up"></i> 📤 上傳檔案 / 新增卡片
-        </button>
-    </div>
-
-    <!-- Modal 1: Add / Edit Resource Card Modal -->
-    <div id="cardModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border-2 border-teal-500 space-y-4 max-h-[92vh] overflow-y-auto">
-            <div class="flex items-center justify-between border-b border-stone-200 pb-3">
-                <h3 id="cardModalHeading" class="text-xl font-black text-stone-800 flex items-center gap-2">
-                    <i class="fa-solid fa-pen-to-square text-teal-600"></i> 新增 / 編輯教材卡片
-                </h3>
-                <button onclick="closeCardModal()" class="text-stone-400 hover:text-stone-700 text-2xl font-black cursor-pointer">&times;</button>
-            </div>
-            <input type="hidden" id="editingCardId" value="">
-            <div class="space-y-3 text-sm">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div>
-                        <label class="block font-bold text-stone-700 mb-1">1. 所屬專欄：</label>
-                        <select id="cardColSelect" class="w-full border border-stone-300 rounded-xl px-3 py-2 font-bold text-stone-800">
-                            <option value="1">📌 專欄 1：在地走讀雙語學習單</option>
-                            <option value="2">🎯 專欄 2：大地遊戲 ✕ 單字尋寶</option>
-                            <option value="3">🍫 專欄 3：跨科共創 ✕ 可可實驗室</option>
-                            <option value="4">🌿 專欄 4：SEL 情緒陪伴與數位魔法</option>
-                            <option value="5">💌 專欄 5：給講師的暖心回饋牆</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block font-bold text-stone-700 mb-1">2. 標籤文字（選填）：</label>
-                        <input id="cardBadgeInput" type="text" placeholder="例如：Word 可編輯 (.docx)" class="w-full border border-stone-300 rounded-xl px-3 py-2 font-medium">
-                    </div>
-                </div>
-                <div>
-                    <label class="block font-bold text-stone-700 mb-1">3. 卡片標題：</label>
-                    <input id="cardTitleInput" type="text" placeholder="請輸入教材標題或便利貼主題..." class="w-full border border-stone-300 rounded-xl px-3 py-2 font-bold text-stone-800">
-                </div>
-                <div>
-                    <label class="block font-bold text-stone-700 mb-1">4. 內容說明：</label>
-                    <textarea id="cardDescInput" rows="3" placeholder="請輸入說明文字或回饋內容..." class="w-full border border-stone-300 rounded-xl px-3 py-2 font-medium"></textarea>
-                </div>
-                <div class="bg-teal-50/70 p-3.5 rounded-2xl border-2 border-dashed border-teal-400 space-y-2">
-                    <label class="block font-black text-teal-900">5A. 📤 上傳或更換電腦/手機檔案（支援多選，Word、PPT、PDF、圖片、影片皆可，無容量限制）：</label>
-                    <input id="cardFileInput" type="file" multiple class="w-full text-xs text-stone-600 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-black file:bg-teal-600 file:text-white hover:file:bg-teal-700 cursor-pointer">
-                    <div id="selectedFileHint" class="text-xs font-bold text-teal-700">💡 提示：也可以直接從電腦 Finder / 桌面把檔案「拖曳」到任一專欄上直接上傳！</div>
-                </div>
-                <div class="bg-amber-50/70 p-3.5 rounded-2xl border border-amber-200 space-y-1.5">
-                    <label class="block font-bold text-amber-900">5B. 或指定連結網址 / 檔案路徑：</label>
-                    <input id="cardUrlInput" type="text" placeholder="https://... 或檔案相對路徑" class="w-full border border-amber-300 rounded-xl px-3 py-2 text-xs bg-white">
-                    <input id="cardBtnTextInput" type="text" placeholder="按鈕顯示文字（例如：下載 Word 檔 / 開啟網站）" class="w-full border border-amber-300 rounded-xl px-3 py-2 text-xs bg-white mt-1.5">
-                </div>
-            </div>
-            <div class="flex justify-end gap-2 pt-2">
-                <button onclick="closeCardModal()" class="px-4 py-2 rounded-xl bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold text-sm cursor-pointer">取消</button>
-                <button onclick="saveCardFromModal()" class="px-5 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-black text-sm shadow cursor-pointer">💾 儲存卡片</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal 2: Dedicated Speaker Feedback Sticky Note Modal -->
-    <div id="feedbackModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border-2 border-rose-500 space-y-4">
-            <div class="flex items-center justify-between border-b border-stone-200 pb-3">
-                <h3 class="text-xl font-black text-stone-800 flex items-center gap-2">
-                    <i class="fa-solid fa-heart text-rose-500"></i> 留下給明芬老師的回饋便利貼
-                </h3>
-                <button onclick="closeFeedbackModal()" class="text-stone-400 hover:text-stone-700 text-2xl font-black cursor-pointer">&times;</button>
-            </div>
-            <div class="space-y-3 text-sm">
-                <div>
-                    <label class="block font-bold text-stone-700 mb-1">1. 選擇回饋主題：</label>
-                    <select id="fbCategorySelect" class="w-full border border-stone-300 rounded-xl px-3 py-2 font-bold text-stone-800">
-                        <option value="✨ 最有印象的亮點">✨ 最有印象的亮點（哪一段故事或設計最觸動您？）</option>
-                        <option value="🚀 想要試試看的點子">🚀 想要試試看的點子（哪一個活動或工具想帶回班上？）</option>
-                        <option value="💡 提供建議與鼓勵">💡 提供建議與鼓勵（任何想法、共鳴或給講師的建議）</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block font-bold text-stone-700 mb-1">2. 您的學校與稱呼（亦可匿名）：</label>
-                    <input id="fbAuthorInput" type="text" placeholder="例如：三民高中 王老師 ／ 台南夥伴" class="w-full border border-stone-300 rounded-xl px-3 py-2 font-bold text-stone-800">
-                </div>
-                <div>
-                    <label class="block font-bold text-stone-700 mb-1">3. 想對明芬老師說的話：</label>
-                    <textarea id="fbContentInput" rows="4" placeholder="不管是有印象的、想要試試看的、或提供建議的，都超級歡迎寫下來！" class="w-full border border-stone-300 rounded-xl px-3 py-2 font-medium"></textarea>
-                </div>
-                <div class="bg-rose-50/70 p-3 rounded-2xl border border-rose-200">
-                    <label class="block font-bold text-rose-900 text-xs mb-1">4. 附上照片或檔案（選填）：</label>
-                    <input id="fbFileInput" type="file" class="w-full text-xs text-stone-600 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-black file:bg-rose-600 file:text-white hover:file:bg-rose-700 cursor-pointer">
-                </div>
-            </div>
-            <div class="flex justify-end gap-2 pt-2">
-                <button onclick="closeFeedbackModal()" class="px-4 py-2 rounded-xl bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold text-sm cursor-pointer">取消</button>
-                <button onclick="submitFeedbackSticky()" class="px-5 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-black text-sm shadow cursor-pointer">🚀 貼上回饋便利貼</button>
-            </div>
-        </div>
-    </div>
-
-    <style>
-        @keyframes chibiWave {
-            0%, 100% { transform: rotate(0deg) translateY(0); }
-            25% { transform: rotate(-9deg) translateY(-5px); }
-            75% { transform: rotate(9deg) translateY(-4px); }
-        }
-        @keyframes chibiBounce {
-            0%, 100% { transform: translateY(0) scale(1); }
-            45% { transform: translateY(-9px) scale(1.06); }
-        }
-        .chibi-anim-wave { animation: chibiWave 1.5s ease-in-out infinite; transform-origin: bottom center; }
-        .chibi-anim-bounce { animation: chibiBounce 1.4s ease-in-out infinite; }
-    </style>
-
     <script>
-        const STORAGE_KEY = 'miffy_padlet_board_v5';
-        const IDB_NAME = 'MiffyPadletDB_v5';
-        const IDB_STORE = 'kv';
+        const STORAGE_KEY = 'miffy_padlet_feedback_v6';
         const MY_CLIENT_ID = 'client_' + Math.random().toString(36).slice(2) + '_' + Date.now();
-        const objectUrlCache = {};
+        const SYNC_TOPIC = 'miffy_1027_padlet_wall_2026_v5';
+        const SYNC_URL = `https://ntfy.sh/${SYNC_TOPIC}`;
 
-        // IndexedDB Helper (Supports 500MB+ large files: PPTX, DOCX, PDF, Images, Videos)
-        function openPadletDB() {
-            return new Promise((resolve, reject) => {
-                if (!window.indexedDB) return resolve(null);
-                const req = indexedDB.open(IDB_NAME, 1);
-                req.onupgradeneeded = (e) => {
-                    const db = e.target.result;
-                    if (!db.objectStoreNames.contains(IDB_STORE)) {
-                        db.createObjectStore(IDB_STORE);
-                    }
-                };
-                req.onsuccess = (e) => resolve(e.target.result);
-                req.onerror = () => resolve(null);
-            });
-        }
-
-        async function idbGet(key) {
-            try {
-                const db = await openPadletDB();
-                if (!db) return null;
-                return await new Promise((resolve) => {
-                    const tx = db.transaction(IDB_STORE, 'readonly');
-                    const req = tx.objectStore(IDB_STORE).get(key);
-                    req.onsuccess = () => resolve(req.result || null);
-                    req.onerror = () => resolve(null);
-                });
-            } catch (e) {
-                return null;
-            }
-        }
-
-        async function idbSet(key, val) {
-            try {
-                const db = await openPadletDB();
-                if (!db) return false;
-                return await new Promise((resolve) => {
-                    const tx = db.transaction(IDB_STORE, 'readwrite');
-                    tx.objectStore(IDB_STORE).put(val, key);
-                    tx.oncomplete = () => resolve(true);
-                    tx.onerror = () => resolve(false);
-                });
-            } catch (e) {
-                return false;
-            }
-        }
-
-        async function idbClear() {
-            try {
-                const db = await openPadletDB();
-                if (!db) return;
-                await new Promise((resolve) => {
-                    const tx = db.transaction(IDB_STORE, 'readwrite');
-                    tx.objectStore(IDB_STORE).clear();
-                    tx.oncomplete = () => resolve();
-                    tx.onerror = () => resolve();
-                });
-            } catch (e) {}
-        }
-
-        function dataUrlToBlob(dataUrl) {
-            try {
-                const parts = dataUrl.split(',');
-                const mimeMatch = parts[0].match(/:(.*?);/);
-                const mime = mimeMatch ? mimeMatch[1] : 'application/octet-stream';
-                const bstr = atob(parts[1]);
-                let n = bstr.length;
-                const u8arr = new Uint8Array(n);
-                while (n--) {
-                    u8arr[n] = bstr.charCodeAt(n);
-                }
-                return new Blob([u8arr], { type: mime });
-            } catch (e) {
-                return null;
-            }
-        }
-
-        function getUsableHref(card) {
-            if (!card || !card.url) return '';
-            if (card.url.startsWith('data:')) {
-                if (!objectUrlCache[card.id]) {
-                    const blob = dataUrlToBlob(card.url);
-                    if (blob) {
-                        objectUrlCache[card.id] = URL.createObjectURL(blob);
-                    }
-                }
-                return objectUrlCache[card.id] || card.url;
-            }
-            return card.url;
-        }
-
-        const DEFAULT_CARDS = [
+        // Fixed Download Resources (Columns 1-4: Read-only, Clean Download Cards)
+        const DOWNLOAD_CARDS = [
             // Column 1: 在地走讀雙語學習單
             {
                 id: 'c1-1',
@@ -484,7 +257,7 @@
                 col: 3,
                 badge: '🌐 Google Sites 課程網站',
                 badgeColor: 'bg-amber-800 text-white',
-                title: '《可可創新實驗室》巧克力跨域 STEAM 網站',
+                title: '《可可創新實驗室》巧克力跨科共創網站',
                 desc: '完整收錄數學期望值、化學熔點、家政雷神手作與英文寫作 4 科共創成果！',
                 url: 'https://sites.google.com/view/chocolate0323/intro',
                 btnText: '🍫 開啟《可可創新實驗室》網站',
@@ -493,10 +266,10 @@
             {
                 id: 'c3-2',
                 col: 3,
-                badge: '🍅 番茄跨域 (.pptx / .pdf)',
+                badge: '🍅 番茄跨科 (.pptx)',
                 badgeColor: 'bg-red-100 text-red-800',
                 title: '《蕃茄的全球化》歷史科陳柏沅老師共備簡報',
-                desc: '112學年《蕃茄紅了》四科跨域：從中南美洲原產地到台南可果美番茄產業史。',
+                desc: '112學年《蕃茄紅了》四科跨領域：從中南美洲原產地到台南可果美番茄產業史。',
                 url: 'web_photos/蕃茄的全球化簡報_陳柏沅老師.pptx',
                 btnText: '📥 下載蕃茄全球化簡報 (.pptx)',
                 isDownload: true
@@ -506,7 +279,7 @@
                 col: 3,
                 badge: '✨ 113美妝大聯盟 (.docx)',
                 badgeColor: 'bg-pink-100 text-pink-800',
-                title: '《113課程規劃》美妝大聯盟六科 STEAM 架構表',
+                title: '《113課程規劃》美妝大聯盟六科跨領域架構表',
                 desc: '英文、家政、地理、美術、數學、化學六科圓環架構與全學年社課規劃。',
                 url: 'web_photos/113課程規劃.docx',
                 btnText: '📥 下載 113課程規劃 (.docx)',
@@ -584,69 +357,98 @@
                 col: 4,
                 badge: '🏰 Google Sites 班級雲端',
                 badgeColor: 'bg-amber-100 text-amber-900',
-                title: '高二5魔法英文教室（含教學演示 4/8）',
+                title: '高二5的魔法英文教室（含教學演示 4/8）',
                 desc: '自主建置班級專屬線上教學演示平台，整合單字、課文文法與互動挑戰賽。',
                 url: 'https://sites.google.com/view/h20520250114/%E6%95%99%E5%AD%B8%E6%BC%94%E7%A4%BA48',
                 btnText: '🌐 開啟魔法英文教室網站',
                 isDownload: false
-            },
-            // Column 5: Feedback Wall Starter Notes
+            }
+        ];
+
+        const DEFAULT_FEEDBACK_NOTES = [
             {
                 id: 'c5-1',
                 col: 5,
                 badge: '🌟 講師歡迎詞',
                 badgeColor: 'bg-amber-200 text-amber-950',
                 title: '台南瀛海國際高中 林明芬老師',
-                desc: '歡迎留下給講師的回饋！不管是有印象的、想要試試看的、或提供建議的，都超級歡迎直接點上方按鈕貼便利貼，或將檔案直接拖曳到任一欄位上傳！',
-                url: '',
-                btnText: '',
-                isDownload: false
+                desc: '歡迎在上方輸入框留下您的文字回饋與交流想法！左方 1～4 欄教材皆可直接點選下載使用。'
             }
         ];
 
-        let boardCards = [];
-        const SYNC_TOPIC = 'miffy_1027_padlet_wall_2026_v5';
-        const SYNC_URL = `https://ntfy.sh/${SYNC_TOPIC}`;
+        let feedbackNotes = [];
+
+        function escapeHtml(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function renderDownloadColumns() {
+            for (let c = 1; c <= 4; c++) {
+                const container = document.getElementById(`col-cards-${c}`);
+                if (container) container.innerHTML = '';
+            }
+            DOWNLOAD_CARDS.forEach(card => {
+                const container = document.getElementById(`col-cards-${card.col}`);
+                if (!container) return;
+                const div = document.createElement('div');
+                div.className = 'bg-white p-4 rounded-xl border border-stone-200 shadow-sm card-hover space-y-2';
+                const badgeCls = card.badgeColor || 'bg-teal-100 text-teal-800';
+                div.innerHTML = `
+                    <div>
+                        <span class="inline-block ${badgeCls} text-[11px] font-black px-2 py-0.5 rounded">${escapeHtml(card.badge)}</span>
+                    </div>
+                    <h3 class="font-black text-sm md:text-base text-stone-800 leading-snug">${escapeHtml(card.title)}</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed">${escapeHtml(card.desc)}</p>
+                    <div class="pt-1">
+                        <a href="${escapeHtml(card.url)}" ${card.isDownload ? 'download' : 'target="_blank" rel="noopener"'} class="w-full bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 transition shadow-sm">
+                            ${escapeHtml(card.btnText)}
+                        </a>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderFeedbackColumn() {
+            const container = document.getElementById('col-cards-5');
+            if (!container) return;
+            container.innerHTML = '';
+            feedbackNotes.forEach(note => {
+                const div = document.createElement('div');
+                div.className = 'bg-yellow-50/95 p-3.5 rounded-xl border-2 border-amber-300 shadow-sm space-y-1.5';
+                const badgeCls = note.badgeColor || 'bg-rose-100 text-rose-800';
+                div.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="inline-block ${badgeCls} text-[11px] font-black px-2 py-0.5 rounded">${escapeHtml(note.badge || '💌 夥伴回饋')}</span>
+                    </div>
+                    <h3 class="font-black text-sm text-stone-800">${escapeHtml(note.title)}</h3>
+                    <p class="text-xs text-stone-700 leading-relaxed whitespace-pre-line">${escapeHtml(note.desc)}</p>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function saveFeedbackNotes() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(feedbackNotes));
+            } catch (e) {}
+        }
 
         function applyCloudOp(opObj) {
             if (!opObj || !opObj.op) return;
-            // Ignore our own echo so local large files are NEVER overwritten!
             if (opObj.senderId && opObj.senderId === MY_CLIENT_ID) return;
-
-            if (opObj.op === 'upsert' && opObj.card && opObj.card.id) {
-                const idx = boardCards.findIndex(x => x.id === opObj.card.id);
-                if (idx !== -1) {
-                    const existing = boardCards[idx];
-                    boardCards[idx] = {
-                        ...existing,
-                        ...opObj.card,
-                        // Never overwrite existing file/image data with an empty string from cloud summary
-                        url: opObj.card.url || existing.url || '',
-                        imageData: opObj.card.imageData || existing.imageData || ''
-                    };
-                } else {
-                    boardCards.unshift(opObj.card);
+            if (opObj.op === 'upsert' && opObj.card && Number(opObj.card.col) === 5 && opObj.card.id) {
+                const idx = feedbackNotes.findIndex(x => x.id === opObj.card.id);
+                if (idx === -1) {
+                    feedbackNotes.unshift(opObj.card);
+                    saveFeedbackNotes();
+                    renderFeedbackColumn();
                 }
-            } else if (opObj.op === 'delete' && opObj.cardId) {
-                boardCards = boardCards.filter(x => x.id !== opObj.cardId);
-            } else if (opObj.op === 'reset') {
-                boardCards = JSON.parse(JSON.stringify(DEFAULT_CARDS));
             }
-        }
-
-        function broadcastCloudOp(opObj) {
-            try {
-                const safeCopy = JSON.parse(JSON.stringify(opObj));
-                safeCopy.senderId = MY_CLIENT_ID;
-                if (safeCopy.card) {
-                    if (safeCopy.card.url && safeCopy.card.url.length > 3000) safeCopy.card.url = '';
-                    if (safeCopy.card.imageData && safeCopy.card.imageData.length > 3000) safeCopy.card.imageData = '';
-                }
-                fetch(SYNC_URL, {
-                    method: 'POST',
-                    body: JSON.stringify(safeCopy)
-                }).catch(() => {});
-            } catch (e) {}
         }
 
         async function initCloudSync() {
@@ -663,418 +465,72 @@
                             }
                         } catch (e) {}
                     }
-                    await saveBoard();
-                    renderBoard();
                 }
             } catch (e) {}
 
             try {
                 const es = new EventSource(`${SYNC_URL}/sse`);
-                es.onmessage = async (ev) => {
+                es.onmessage = (ev) => {
                     try {
                         const evt = JSON.parse(ev.data);
                         if (evt.event === 'message' && evt.message) {
                             applyCloudOp(JSON.parse(evt.message));
-                            await saveBoard();
-                            renderBoard();
                         }
                     } catch (e) {}
                 };
             } catch (e) {}
         }
 
-        function mergeMissingDefaultCards(cards) {
-            const existingIds = new Set(cards.map(c => c.id));
-            for (const defCard of DEFAULT_CARDS) {
-                if (!existingIds.has(defCard.id)) {
-                    cards.push(JSON.parse(JSON.stringify(defCard)));
-                }
-            }
-            return cards;
-        }
+        function submitInlineFeedback(ev) {
+            ev.preventDefault();
+            const authorInput = document.getElementById('fbAuthorInput');
+            const contentInput = document.getElementById('fbContentInput');
+            const author = (authorInput.value || '').trim() || '與會教師夥伴';
+            const content = (contentInput.value || '').trim();
+            if (!content) return;
 
-        async function loadBoard() {
-            setupDragAndDropColumns();
-            try {
-                // 1. Try IndexedDB first (supports unlimited large uploaded files)
-                const idbCards = await idbGet(STORAGE_KEY);
-                if (Array.isArray(idbCards) && idbCards.length > 0) {
-                    boardCards = mergeMissingDefaultCards(idbCards);
-                    renderBoard();
-                    initCloudSync();
-                    return;
-                }
-                // 2. Fallback to localStorage
-                const raw = localStorage.getItem(STORAGE_KEY);
-                if (raw) {
-                    const parsed = JSON.parse(raw);
-                    if (Array.isArray(parsed) && parsed.length > 0) {
-                        boardCards = mergeMissingDefaultCards(parsed);
-                        await idbSet(STORAGE_KEY, boardCards);
-                        renderBoard();
-                        initCloudSync();
-                        return;
-                    }
-                }
-            } catch (e) {
-                console.warn('Load board fallback:', e);
-            }
-            boardCards = JSON.parse(JSON.stringify(DEFAULT_CARDS));
-            await saveBoard();
-            renderBoard();
-            initCloudSync();
-        }
-
-        async function saveBoard() {
-            // Always save full data (including large files) to IndexedDB
-            await idbSet(STORAGE_KEY, boardCards);
-            try {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(boardCards));
-            } catch (e) {
-                // If localStorage 5MB limit is exceeded, store lightweight metadata in localStorage while IndexedDB keeps full files
-                try {
-                    const lightCards = boardCards.map(c => ({
-                        ...c,
-                        url: c.url && c.url.length > 50000 ? '' : c.url,
-                        imageData: c.imageData && c.imageData.length > 50000 ? '' : c.imageData
-                    }));
-                    localStorage.setItem(STORAGE_KEY, JSON.stringify(lightCards));
-                } catch (e2) {}
-            }
-        }
-
-        async function resetDefaultBoard() {
-            if (!confirm('確定要將所有專欄恢復為預設教材卡片嗎？')) return;
-            localStorage.removeItem(STORAGE_KEY);
-            await idbClear();
-            boardCards = JSON.parse(JSON.stringify(DEFAULT_CARDS));
-            await saveBoard();
-            broadcastCloudOp({ op: 'reset' });
-            renderBoard();
-        }
-
-        function setupDragAndDropColumns() {
-            for (let c = 1; c <= 5; c++) {
-                const colEl = document.getElementById(`col-sec-${c}`);
-                if (!colEl) continue;
-                colEl.addEventListener('dragover', (e) => {
-                    e.preventDefault();
-                    colEl.classList.add('ring-4', 'ring-teal-500', 'bg-teal-50');
-                });
-                colEl.addEventListener('dragleave', () => {
-                    colEl.classList.remove('ring-4', 'ring-teal-500', 'bg-teal-50');
-                });
-                colEl.addEventListener('drop', (e) => {
-                    e.preventDefault();
-                    colEl.classList.remove('ring-4', 'ring-teal-500', 'bg-teal-50');
-                    const files = e.dataTransfer && e.dataTransfer.files;
-                    if (files && files.length > 0) {
-                        handleDirectFilesUpload(files, c);
-                    }
-                });
-            }
-        }
-
-        function handleDirectFilesUpload(files, colNum) {
-            Array.from(files).forEach((file, idx) => {
-                const reader = new FileReader();
-                reader.onload = async function(e) {
-                    const fileDataUrl = e.target.result;
-                    const isImg = file.type.startsWith('image/');
-                    const newCard = {
-                        id: 'card_' + Date.now() + '_' + idx + '_' + Math.random().toString(36).slice(2, 6),
-                        col: colNum,
-                        badge: '📤 剛上傳檔案 (' + (file.name.split('.').pop() || 'file').toUpperCase() + ')',
-                        badgeColor: colNum === 5 ? 'bg-rose-100 text-rose-800' : 'bg-emerald-100 text-emerald-900',
-                        title: file.name.replace(/\.[^/.]+$/, ''),
-                        desc: `檔案名稱：${file.name} (${(file.size / 1024).toFixed(1)} KB)`,
-                        url: fileDataUrl,
-                        fileName: file.name,
-                        isDownload: true,
-                        btnText: `📥 下載 ${file.name}`,
-                        imageData: isImg ? fileDataUrl : ''
-                    };
-                    boardCards.unshift(newCard);
-                    await saveBoard();
-                    broadcastCloudOp({ op: 'upsert', card: newCard });
-                    renderBoard();
-                };
-                reader.readAsDataURL(file);
-            });
-        }
-
-        function renderBoard() {
-            for (let c = 1; c <= 5; c++) {
-                const container = document.getElementById(`col-cards-${c}`);
-                if (container) container.innerHTML = '';
-            }
-
-            boardCards.forEach(card => {
-                const container = document.getElementById(`col-cards-${card.col || 1}`);
-                if (!container) return;
-
-                const div = document.createElement('div');
-                const isCol5 = Number(card.col) === 5;
-                div.className = isCol5
-                    ? 'bg-yellow-50/90 p-3.5 rounded-xl border-2 border-amber-300 shadow-sm card-hover space-y-2 relative'
-                    : 'bg-white p-4 rounded-xl border border-stone-200 shadow-sm card-hover space-y-2 relative';
-
-                const badgeCls = card.badgeColor || (isCol5 ? 'bg-rose-100 text-rose-800' : 'bg-teal-100 text-teal-800');
-                const usableHref = getUsableHref(card);
-                const imgHref = card.imageData ? (card.imageData.startsWith('data:') ? usableHref : card.imageData) : '';
-
-                div.innerHTML = `
-                    <div class="flex items-center justify-between gap-1">
-                        <span class="inline-block ${badgeCls} text-[11px] font-black px-2 py-0.5 rounded">${escapeHtml(card.badge || '教學資源')}</span>
-                        <div class="flex items-center gap-1 shrink-0">
-                            <button onclick="openCardModal('edit', ${card.col}, '${card.id}')" class="text-xs font-bold bg-stone-100 hover:bg-amber-100 text-stone-700 hover:text-amber-900 px-2 py-0.5 rounded border border-stone-300 transition cursor-pointer" title="編輯此卡片或更換檔案">
-                                ✏️ 編輯
-                            </button>
-                            <button onclick="deleteCard('${card.id}')" class="text-xs font-bold bg-stone-100 hover:bg-red-100 text-stone-500 hover:text-red-600 px-1.5 py-0.5 rounded border border-stone-200 transition cursor-pointer" title="刪除此卡片">
-                                🗑️
-                            </button>
-                        </div>
-                    </div>
-                    <h3 class="font-black text-sm md:text-base text-stone-800 leading-snug">${escapeHtml(card.title)}</h3>
-                    <p class="text-xs text-stone-600 leading-relaxed whitespace-pre-line">${escapeHtml(card.desc)}</p>
-                    ${imgHref ? `<a href="${imgHref}" target="_blank" title="點擊放大檢視圖片"><img src="${imgHref}" class="w-full max-h-48 object-contain rounded-lg bg-white border border-stone-200 my-1 hover:opacity-90 transition"></a>` : ''}
-                    ${usableHref ? `
-                        <div class="flex gap-1.5 mt-2">
-                            <a href="${usableHref}" ${card.isDownload ? `download="${escapeHtml(card.fileName || card.title || 'download')}"` : 'target="_blank" rel="noopener"'} class="flex-1 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 transition shadow-sm">
-                                ${escapeHtml(card.btnText || '📥 開啟 / 下載資源')}
-                            </a>
-                            ${card.isDownload ? `
-                                <a href="${usableHref}" target="_blank" rel="noopener" class="bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold py-2 px-2.5 rounded-lg border border-stone-300 transition" title="在新分頁直接開啟預覽">
-                                    🔍
-                                </a>
-                            ` : ''}
-                        </div>
-                    ` : ''}
-                `;
-                container.appendChild(div);
-            });
-        }
-
-        function escapeHtml(str) {
-            return String(str || '')
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;');
-        }
-
-        function openCardModal(mode, colNum, cardId) {
-            const modal = document.getElementById('cardModal');
-            const heading = document.getElementById('cardModalHeading');
-            document.getElementById('cardFileInput').value = '';
-
-            if (mode === 'edit' && cardId) {
-                const item = boardCards.find(x => x.id === cardId);
-                if (!item) return;
-                heading.innerHTML = '<i class="fa-solid fa-pen-to-square text-amber-600"></i> 編輯卡片內容與檔案';
-                document.getElementById('editingCardId').value = item.id;
-                document.getElementById('cardColSelect').value = String(item.col || 1);
-                document.getElementById('cardBadgeInput').value = item.badge || '';
-                document.getElementById('cardTitleInput').value = item.title || '';
-                document.getElementById('cardDescInput').value = item.desc || '';
-                document.getElementById('cardUrlInput').value = item.url && !item.url.startsWith('data:') ? item.url : '';
-                document.getElementById('cardBtnTextInput').value = item.btnText || '';
-            } else {
-                heading.innerHTML = '<i class="fa-solid fa-cloud-arrow-up text-teal-600"></i> 上傳檔案 ／ 新增教材卡片';
-                document.getElementById('editingCardId').value = '';
-                document.getElementById('cardColSelect').value = String(colNum || 1);
-                document.getElementById('cardBadgeInput').value = '';
-                document.getElementById('cardTitleInput').value = '';
-                document.getElementById('cardDescInput').value = '';
-                document.getElementById('cardUrlInput').value = '';
-                document.getElementById('cardBtnTextInput').value = '';
-            }
-            modal.classList.remove('hidden');
-        }
-
-        function closeCardModal() {
-            document.getElementById('cardModal').classList.add('hidden');
-        }
-
-        async function saveCardFromModal() {
-            const editingId = document.getElementById('editingCardId').value;
-            const col = parseInt(document.getElementById('cardColSelect').value, 10) || 1;
-            const badge = document.getElementById('cardBadgeInput').value.trim();
-            const title = document.getElementById('cardTitleInput').value.trim();
-            const desc = document.getElementById('cardDescInput').value.trim();
-            const url = document.getElementById('cardUrlInput').value.trim();
-            const btnText = document.getElementById('cardBtnTextInput').value.trim();
-            const fileInput = document.getElementById('cardFileInput');
-            const files = fileInput.files ? Array.from(fileInput.files) : [];
-
-            if (!title && files.length === 0 && !url && !editingId) {
-                alert('請至少選擇一個要上傳的檔案，或輸入卡片標題！');
-                return;
-            }
-
-            // If multiple files are selected when adding new cards, create one card per file
-            if (!editingId && files.length > 1) {
-                handleDirectFilesUpload(files, col);
-                closeCardModal();
-                return;
-            }
-
-            const file = files[0] || null;
-
-            const finalizeSave = async (fileDataUrl, uploadedFileName, isImg) => {
-                let targetCard = null;
-                if (editingId) {
-                    const idx = boardCards.findIndex(x => x.id === editingId);
-                    if (idx !== -1) {
-                        boardCards[idx].col = col;
-                        boardCards[idx].badge = badge || boardCards[idx].badge || '教學資源';
-                        boardCards[idx].title = title || uploadedFileName || boardCards[idx].title;
-                        boardCards[idx].desc = desc;
-                        if (fileDataUrl) {
-                            delete objectUrlCache[boardCards[idx].id];
-                            boardCards[idx].url = fileDataUrl;
-                            boardCards[idx].fileName = uploadedFileName;
-                            boardCards[idx].isDownload = true;
-                            boardCards[idx].btnText = btnText || `📥 下載 ${uploadedFileName}`;
-                            boardCards[idx].imageData = isImg ? fileDataUrl : '';
-                        } else if (url) {
-                            boardCards[idx].url = url;
-                            boardCards[idx].btnText = btnText || boardCards[idx].btnText || '開啟 / 下載資源';
-                        }
-                        targetCard = boardCards[idx];
-                    }
-                } else {
-                    targetCard = {
-                        id: 'card_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
-                        col: col,
-                        badge: badge || (file ? '📤 已上傳檔案 (' + (file.name.split('.').pop() || 'FILE').toUpperCase() + ')' : (col === 5 ? '💌 夥伴回饋' : '📌 新增資源')),
-                        badgeColor: col === 5 ? 'bg-rose-100 text-rose-800' : 'bg-teal-100 text-teal-800',
-                        title: title || (file ? file.name.replace(/\.[^/.]+$/, '') : '新增卡片'),
-                        desc: desc || (file ? `已上傳檔案：${file.name} (${(file.size / 1024).toFixed(1)} KB)` : ''),
-                        url: fileDataUrl || url || '',
-                        fileName: uploadedFileName || '',
-                        isDownload: !!fileDataUrl,
-                        btnText: btnText || (fileDataUrl ? `📥 下載 ${uploadedFileName}` : (url ? '🌐 開啟連結' : '')),
-                        imageData: isImg ? fileDataUrl : ''
-                    };
-                    boardCards.unshift(targetCard);
-                }
-                await saveBoard();
-                if (targetCard) broadcastCloudOp({ op: 'upsert', card: targetCard });
-                renderBoard();
-                closeCardModal();
+            const newNote = {
+                id: 'fb_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+                col: 5,
+                badge: '💌 教師回饋',
+                badgeColor: 'bg-rose-100 text-rose-800',
+                title: `💖 ${author}`,
+                desc: content
             };
 
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    finalizeSave(e.target.result, file.name, file.type.startsWith('image/'));
-                };
-                reader.readAsDataURL(file);
-            } else {
-                await finalizeSave(null, null, false);
-            }
-        }
+            feedbackNotes.unshift(newNote);
+            saveFeedbackNotes();
+            renderFeedbackColumn();
+            contentInput.value = '';
 
-        async function deleteCard(cardId) {
-            if (!confirm('確定要刪除此張卡片嗎？')) return;
-            boardCards = boardCards.filter(x => x.id !== cardId);
-            await saveBoard();
-            broadcastCloudOp({ op: 'delete', cardId: cardId });
-            renderBoard();
-        }
+            // Sync to live board via ntfy
+            try {
+                fetch(SYNC_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ op: 'upsert', senderId: MY_CLIENT_ID, card: newNote })
+                }).catch(() => {});
+            } catch (e) {}
 
-        function openFeedbackModal(defaultCategory) {
-            if (defaultCategory) {
-                const sel = document.getElementById('fbCategorySelect');
-                for (let i = 0; i < sel.options.length; i++) {
-                    if (sel.options[i].value.includes(defaultCategory.slice(0, 4))) {
-                        sel.selectedIndex = i;
-                        break;
-                    }
-                }
-            }
-            document.getElementById('fbAuthorInput').value = '';
-            document.getElementById('fbContentInput').value = '';
-            document.getElementById('fbFileInput').value = '';
-            document.getElementById('feedbackModal').classList.remove('hidden');
-        }
-
-        function closeFeedbackModal() {
-            document.getElementById('feedbackModal').classList.add('hidden');
-        }
-
-        function submitFeedbackSticky() {
-            const cat = document.getElementById('fbCategorySelect').value;
-            const author = document.getElementById('fbAuthorInput').value.trim() || '線上教育夥伴';
-            const content = document.getElementById('fbContentInput').value.trim();
-            const fileInput = document.getElementById('fbFileInput');
-            const file = fileInput.files && fileInput.files[0];
-
-            if (!content && !file) {
-                alert('請輸入您的回饋內容或選擇要上傳的照片/檔案！');
-                return;
-            }
-
-            let badgeColor = 'bg-rose-100 text-rose-800';
-            if (cat.includes('有印象')) badgeColor = 'bg-purple-100 text-purple-900';
-            else if (cat.includes('試試看')) badgeColor = 'bg-sky-100 text-sky-900';
-            else if (cat.includes('建議')) badgeColor = 'bg-amber-200 text-amber-950';
-            else if (cat.includes('綠區')) badgeColor = 'bg-emerald-100 text-emerald-900';
-            else if (cat.includes('黃區')) badgeColor = 'bg-yellow-200 text-yellow-900';
-            else if (cat.includes('紅區')) badgeColor = 'bg-red-100 text-red-900';
-
-            const finishSticky = async (fileDataUrl, fileName, isImg) => {
-                const newSticky = {
-                    id: 'fb_' + Date.now(),
-                    col: 5,
-                    badge: cat,
-                    badgeColor: badgeColor,
-                    title: `💖 ${author}`,
-                    desc: content || (fileName ? `分享附件：${fileName}` : ''),
-                    url: fileDataUrl || '',
-                    fileName: fileName || '',
-                    isDownload: !!fileDataUrl,
-                    btnText: fileDataUrl ? `📎 下載附件 (${fileName})` : '',
-                    imageData: isImg ? fileDataUrl : ''
-                };
-                boardCards.unshift(newSticky);
-                await saveBoard();
-                broadcastCloudOp({ op: 'upsert', card: newSticky });
-                // Also submit to Netlify Forms backend
-                try {
-                    const body = new URLSearchParams({
-                        'form-name': 'workshop1027-feedback',
-                        'category': cat,
-                        'author': author,
-                        'content': content || (fileName ? `附件：${fileName}` : ''),
-                        'timestamp': new Date().toLocaleString('zh-TW')
-                    });
-                    fetch('/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: body.toString()
-                    }).catch(() => {});
-                } catch (e) {}
-                renderBoard();
-                closeFeedbackModal();
-            };
-
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    finishSticky(e.target.result, file.name, file.type.startsWith('image/'));
-                };
-                reader.readAsDataURL(file);
-            } else {
-                finishSticky(null, null, false);
-            }
+            // Also submit to Netlify Forms backend
+            try {
+                const body = new URLSearchParams({
+                    'form-name': 'workshop1027-feedback',
+                    'category': '教師文字回饋',
+                    'author': author,
+                    'content': content,
+                    'timestamp': new Date().toLocaleString('zh-TW')
+                });
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: body.toString()
+                }).catch(() => {});
+            } catch (e) {}
         }
 
         function exportFeedbackCsv() {
-            const fbCards = boardCards.filter(c => Number(c.col) === 5);
             const rows = [['分類', '學校與姓名', '回饋內容']];
-            fbCards.forEach(c => {
+            feedbackNotes.forEach(c => {
                 rows.push([
                     (c.badge || '').replace(/"/g, '""'),
                     (c.title || '').replace(/^💖\s*/, '').replace(/"/g, '""'),
@@ -1089,6 +545,24 @@
             a.click();
         }
 
+        function initToolkit() {
+            renderDownloadColumns();
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        feedbackNotes = parsed;
+                    }
+                }
+            } catch (e) {}
+            if (feedbackNotes.length === 0) {
+                feedbackNotes = JSON.parse(JSON.stringify(DEFAULT_FEEDBACK_NOTES));
+            }
+            renderFeedbackColumn();
+            initCloudSync();
+        }
+
         let tkFrame = false;
         setInterval(() => {
             tkFrame = !tkFrame;
@@ -1097,9 +571,9 @@
                 const f2 = img.getAttribute('data-frame2');
                 if (f1 && f2 && f1 !== f2) img.src = tkFrame ? f2 : f1;
             });
-        }, 600);
+        }, 1100);
 
-        document.addEventListener('DOMContentLoaded', loadBoard);
+        document.addEventListener('DOMContentLoaded', initToolkit);
     </script>
     <form name="workshop1027-feedback" data-netlify="true" hidden>
         <input type="text" name="category">
