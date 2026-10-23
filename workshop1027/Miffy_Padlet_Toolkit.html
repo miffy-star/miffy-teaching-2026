@@ -154,9 +154,15 @@
 
             <!-- Column 5: Live Sticky Notes & Speaker Feedback Wall -->
             <div id="col-sec-5" class="scroll-mt-32 md:col-span-2 lg:col-span-2 xl:col-span-1 bg-stone-100 rounded-2xl p-3 border-2 border-rose-300 space-y-3">
-                <div class="bg-rose-600 text-white p-3 rounded-xl font-black text-sm flex items-center justify-between">
-                    <span>💌 5. 給講師的暖心回饋牆</span>
-                    <button onclick="openFeedbackModal('✨ 最有印象的亮點')" class="bg-white text-rose-700 text-xs px-2.5 py-1 rounded-full font-black hover:bg-rose-50 shadow-sm cursor-pointer">+ 貼便利貼</button>
+                <div class="bg-rose-600 text-white p-3 rounded-xl font-black text-sm flex items-center justify-between gap-1">
+                    <span class="flex items-center gap-1.5">
+                        <img src="web_photos/chibi/exp_08.png" alt="" onerror="this.style.display='none'" class="w-7 h-7 object-contain bg-white rounded-full p-0.5">
+                        <span>💌 5. 給講師的暖心回饋牆</span>
+                    </span>
+                    <div class="flex items-center gap-1 shrink-0">
+                        <button onclick="exportFeedbackCsv()" class="bg-rose-800 hover:bg-rose-900 text-rose-100 text-[11px] px-2 py-1 rounded-full font-bold cursor-pointer">📥 匯出</button>
+                        <button onclick="openFeedbackModal('✨ 最有印象的亮點')" class="bg-white text-rose-700 text-xs px-2.5 py-1 rounded-full font-black hover:bg-rose-50 shadow-sm cursor-pointer">+ 貼便利貼</button>
+                    </div>
                 </div>
 
                 <!-- Quick Category Buttons for Feedback -->
@@ -1101,6 +1107,21 @@
                 boardCards.unshift(newSticky);
                 await saveBoard();
                 broadcastCloudOp({ op: 'upsert', card: newSticky });
+                // Also submit to Netlify Forms backend
+                try {
+                    const body = new URLSearchParams({
+                        'form-name': 'workshop1027-feedback',
+                        'category': cat,
+                        'author': author,
+                        'content': content || (fileName ? `附件：${fileName}` : ''),
+                        'timestamp': new Date().toLocaleString('zh-TW')
+                    });
+                    fetch('/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: body.toString()
+                    }).catch(() => {});
+                } catch (e) {}
                 renderBoard();
                 closeFeedbackModal();
             };
@@ -1210,7 +1231,31 @@
             setTimer(180);
         }
 
+        function exportFeedbackCsv() {
+            const fbCards = boardCards.filter(c => Number(c.col) === 5);
+            const rows = [['分類', '學校與姓名', '回饋內容']];
+            fbCards.forEach(c => {
+                rows.push([
+                    (c.badge || '').replace(/"/g, '""'),
+                    (c.title || '').replace(/^💖\s*/, '').replace(/"/g, '""'),
+                    (c.desc || '').replace(/"/g, '""')
+                ]);
+            });
+            const csv = '\uFEFF' + rows.map(r => r.map(v => `"${v}"`).join(',')).join('\r\n');
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = '1027研習_與會教師暖心回饋紀錄.csv';
+            a.click();
+        }
+
         document.addEventListener('DOMContentLoaded', loadBoard);
     </script>
+    <form name="workshop1027-feedback" data-netlify="true" hidden>
+        <input type="text" name="category">
+        <input type="text" name="author">
+        <textarea name="content"></textarea>
+        <input type="text" name="timestamp">
+    </form>
 </body>
 </html>
