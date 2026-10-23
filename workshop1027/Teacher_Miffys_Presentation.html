@@ -1375,6 +1375,12 @@
                     <a href="web_photos/Change_the_Monsters_Looks.pdf" target="_blank" class="inline-flex items-center gap-1 bg-coral-600 hover:bg-coral-700 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-md transition">
                         <i class="fa-solid fa-file-pdf"></i> 📄 Monster外貌學習單
                     </a>
+                    <button onclick="openImageLightbox('web_photos/today_glowup_idea.png', '2024.2.29《美妝大聯盟的發想》九科教師共備紀錄表（英文、歷史、美術、數學、化學、資訊、家政、地理、國文）')" class="inline-flex items-center gap-1 bg-amber-600 hover:bg-amber-700 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-md transition cursor-pointer">
+                        <i class="fa-solid fa-lightbulb"></i> 💡 美妝大聯盟的發想
+                    </button>
+                    <button onclick="openImageLightbox('web_photos/today_1140110_prep.jpg', '114/1/10 期末共備：化學科許向雯老師、英文科林明芬老師、歷史科陳柏沅老師跨科共備')" class="inline-flex items-center gap-1 bg-teal-700 hover:bg-teal-800 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-md transition cursor-pointer">
+                        <i class="fa-solid fa-people-group"></i> 🤝 114/1/10期末共備
+                    </button>
                     <button onclick="openImageLightbox('web_photos/glowup_113_1_schedule.jpg', '113-1 美妝大聯盟（瀛美大視界）10次社課完整執行表')" class="inline-flex items-center gap-1 bg-purple-700 hover:bg-purple-800 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-md transition cursor-pointer">
                         <i class="fa-solid fa-calendar-days"></i> 📅 10次社課表
                     </button>
@@ -1394,42 +1400,54 @@
             <p class="text-slate-600 text-xs md:text-sm font-bold mb-2">瀛海高中（113位學生、9位教師）✕ 美國康州 New London High School ✕ 馬來西亞加亨中學（SDGs 10, 12, 14, 15 永續之美）</p>
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-stretch mb-2">
-                <!-- Left (6 cols): 2x3 Authentic Photos from Google Drive 美妝大聯盟 Folder -->
-                <div class="md:col-span-6 grid grid-cols-2 grid-rows-3 gap-2 h-[55vh]">
-                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-pink-300 shadow-md">
-                        <img src="web_photos/glowup_0925_intro.jpg" alt="9/25 第1次社課 Glow up Enhance your beauty 美妝大聯盟始業式" class="w-full h-full object-contain bg-sand-100/60">
-                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10px] p-1 text-center font-bold">
-                            <i class="fa-solid fa-wand-magic-sparkles text-pink-300"></i> 9/25 始業式：《Glow up 美妝大聯盟》啟動
+                <!-- Left (6 cols): 2x4 Authentic Photos (including 2/29 美妝大聯盟的發想 & 114/1/10 期末共備 & 許向雯/游雅怡老師正確圖說) -->
+                <div class="md:col-span-6 grid grid-cols-2 grid-rows-4 gap-1.5 h-[55vh]">
+                    <div class="img-container relative group overflow-hidden rounded-xl border-2 border-amber-400 shadow-sm cursor-zoom-in" onclick="openImageLightbox('web_photos/today_glowup_idea.png', '2024.2.29《113美妝聯盟計畫期程》九科教師共備發想紀錄（英文、歷史、美術、數學、化學、資訊、家政、地理、國文）')">
+                        <img src="web_photos/today_glowup_idea.png" alt="2024.2.29 美妝大聯盟的發想 九科共備紀錄表" class="w-full h-full object-contain bg-white">
+                        <div class="absolute bottom-0 inset-x-0 bg-amber-900/90 text-white text-[9.5px] py-0.5 px-1 text-center font-bold">
+                            <i class="fa-solid fa-lightbulb text-amber-300"></i> 2/29 美妝大聯盟的發想：九科共備紀錄 (點放大)
                         </div>
                     </div>
-                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-lagoon-300 shadow-md">
+                    <div class="img-container relative group overflow-hidden rounded-xl border-2 border-pink-300 shadow-sm cursor-zoom-in" onclick="openImageLightbox('web_photos/glowup_0925_intro.jpg', '9/25 始業式：化學科許向雯老師（右持麥克風）與英文科林明芬老師（左）共同啟動《Glow up 美妝大聯盟》')">
+                        <img src="web_photos/glowup_0925_intro.jpg" alt="9/25 始業式 化學科許向雯老師與英文科林明芬老師啟動美妝大聯盟" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[9.5px] py-0.5 px-1 text-center font-bold">
+                            <i class="fa-solid fa-wand-magic-sparkles text-pink-300"></i> 9/25 始業式：化學科許向雯老師 ＆ 明芬老師
+                        </div>
+                    </div>
+                    <div class="img-container relative group overflow-hidden rounded-xl border-2 border-purple-300 shadow-sm cursor-zoom-in" onclick="openImageLightbox('web_photos/glowup_0925_chem_teacher.jpg', '跨域共授：健康教育科游雅怡老師介紹《Glow up 美妝大聯盟》Course Introduction 跨領域課表')">
+                        <img src="web_photos/glowup_0925_chem_teacher.jpg" alt="跨域共授 健康教育科游雅怡老師介紹課程架構" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-purple-900/90 text-white text-[9.5px] py-0.5 px-1 text-center font-bold">
+                            <i class="fa-solid fa-chalkboard-user text-purple-300"></i> 跨域共授：健康教育科游雅怡老師介紹課表
+                        </div>
+                    </div>
+                    <div class="img-container relative group overflow-hidden rounded-xl border-2 border-lagoon-300 shadow-sm cursor-zoom-in" onclick="openImageLightbox('web_photos/glowup_0925_miffy_wheel.jpg', '9/25 英文破冰：明芬老師以 A–Z 彩色轉盤帶領學生進行 Myself A to Z 口語互動')">
                         <img src="web_photos/glowup_0925_miffy_wheel.jpg" alt="9/25 明芬老師以 A-Z 彩色轉盤帶領學生進行 Myself A to Z 英語自我介紹" class="w-full h-full object-contain bg-sand-100/60">
-                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10px] p-1 text-center font-bold">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[9.5px] py-0.5 px-1 text-center font-bold">
                             <i class="fa-solid fa-spinner text-lagoon-300"></i> 9/25 英文破冰：明芬老師 A–Z 轉盤口語互動
                         </div>
                     </div>
-                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md">
+                    <div class="img-container relative group overflow-hidden rounded-xl border-2 border-amber-300 shadow-sm cursor-zoom-in" onclick="openImageLightbox('web_photos/glowup_0925_group.jpg', '9/25 分組英語對談：學生搭配 Myself A to Z 與 Student A/B 學習單尋找共同點')">
                         <img src="web_photos/glowup_0925_group.jpg" alt="9/25 分組共學 學生搭配 Myself A to Z 與 Student A/B 學習單英語對談" class="w-full h-full object-contain bg-sand-100/60">
-                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10px] p-1 text-center font-bold">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[9.5px] py-0.5 px-1 text-center font-bold">
                             <i class="fa-solid fa-users text-amber-300"></i> 9/25 分組英語對談：A to Z ＆ 尋找共同點
                         </div>
                     </div>
-                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-coral-300 shadow-md">
+                    <div class="img-container relative group overflow-hidden rounded-xl border-2 border-coral-300 shadow-sm cursor-zoom-in" onclick="openImageLightbox('web_photos/glowup_meet_miffy.jpg', '10/23 英文課：明芬老師示範《Meet Miffy Lin》一頁自我介紹投影片')">
                         <img src="web_photos/glowup_meet_miffy.jpg" alt="10/23 製作自我介紹投影片 明芬老師 Meet Miffy Lin 範本與線上視訊" class="w-full h-full object-contain bg-white">
-                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10px] p-1 text-center font-bold">
-                            <i class="fa-solid fa-chalkboard-user text-coral-300"></i> 10/23 英文課：明芬老師《Meet Miffy》自介範本
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[9.5px] py-0.5 px-1 text-center font-bold">
+                            <i class="fa-solid fa-id-card text-coral-300"></i> 10/23 英文課：明芬老師《Meet Miffy》自介範本
                         </div>
                     </div>
-                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-purple-300 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/glowup_atoz_sheet.jpg', '9/25 英文自我介紹《Myself A to Z》26個字母主題口語提問單')">
-                        <img src="web_photos/glowup_atoz_sheet.jpg" alt="9/25 Myself A to Z 26個字母主題口語提問學習單" class="w-full h-full object-contain bg-white p-1">
-                        <div class="absolute bottom-0 inset-x-0 bg-purple-900/90 text-white text-[10px] p-1 text-center font-bold">
-                            <i class="fa-solid fa-file-lines text-purple-300"></i> 9/25 破冰學習單：《Myself A to Z》26字母口語單
-                        </div>
-                    </div>
-                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-sky-400 shadow-md">
+                    <div class="img-container relative group overflow-hidden rounded-xl border-2 border-sky-400 shadow-sm cursor-zoom-in" onclick="openImageLightbox('web_photos/glowup_nlhs_zoom.jpg', '12/18 台美同步視訊：與美國康州 New London High School 進行節慶文化與雙語交流')">
                         <img src="web_photos/glowup_nlhs_zoom.jpg" alt="12/18 與美國康州 New London High School 線上同步節慶文化交流" class="w-full h-full object-contain bg-white">
-                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10px] p-1 text-center font-bold">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[9.5px] py-0.5 px-1 text-center font-bold">
                             <i class="fa-solid fa-video text-sky-300"></i> 12/18 台美同步視訊：美國 New London High School
+                        </div>
+                    </div>
+                    <div class="img-container relative group overflow-hidden rounded-xl border-2 border-teal-400 shadow-sm cursor-zoom-in" onclick="openImageLightbox('web_photos/today_1140110_prep.jpg', '114/1/10 期末共備：化學科許向雯老師、英文科林明芬老師、歷史科陳柏沅老師跨領域共備')">
+                        <img src="web_photos/today_1140110_prep.jpg" alt="114/1/10 期末共備 許向雯老師 林明芬老師 陳柏沅老師" class="w-full h-full object-contain bg-sand-100/60">
+                        <div class="absolute bottom-0 inset-x-0 bg-teal-900/90 text-white text-[9.5px] py-0.5 px-1 text-center font-bold">
+                            <i class="fa-solid fa-people-group text-teal-300"></i> 114/1/10 期末共備：許向雯、林明芬、陳柏沅老師
                         </div>
                     </div>
                 </div>
@@ -1478,7 +1496,7 @@
                             </div>
                             <div class="flex items-start gap-1.5">
                                 <span class="bg-amber-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded shrink-0">歷史×美術×數學 11/20</span>
-                                <span><b>【美的復興：文藝復興與藝術史】</b>波提且利《維納斯的誕生》、達文西<b>黃金比例（The Golden Ratio）</b>與化妝品容器<b>體積微積分（Volume & Integral Calculus）</b>（廖柏勝老師等）</span>
+                                <span><b>【美的復興：文藝復興與藝術史】</b>波提且利《維納斯的誕生》、達文西<b>黃金比例（The Golden Ratio）</b>與化妝品容器<b>體積微積分（Volume & Integral Calculus）</b>（陳柏沅、廖柏勝老師等）</span>
                             </div>
                             <div class="flex items-start gap-1.5">
                                 <span class="bg-sky-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded shrink-0">台美視訊 12/11、12/18</span>
@@ -2158,6 +2176,9 @@
                     <span>第三階段：間奏與內在 | 活用文法 ① · B4U1 抱怨男友的寫作練習 (A Complaint About My Boyfriend)</span>
                 </div>
                 <div class="flex flex-wrap items-center gap-1">
+                    <button onclick="openImageLightbox('web_photos/today_b4u1_concept.jpg', 'B4U1 學習單構思與完整教材包一覽（U1週考_學生卷.docx、Ask ChatGPT.jpg、until文法練習.pptx、抱怨男友寫作.pdf、一律建議分手吧.docx、學習成果模板.docx、A Complaint About My Boyfriend.xlsx、抱怨男友簡報.pptx）')" class="inline-flex items-center gap-1 text-[10.5px] font-black text-white bg-purple-600 hover:bg-purple-700 px-2.5 py-1 rounded-full shadow-sm transition cursor-pointer">
+                        <i class="fa-solid fa-folder-tree"></i> 🔍 B4U1學習單構思
+                    </button>
                     <a href="web_photos/B4U1_抱怨男友_一律建議分手吧.docx" download class="inline-flex items-center gap-1 text-[10.5px] font-black text-white bg-rose-600 hover:bg-rose-700 px-2.5 py-1 rounded-full shadow-sm transition">
                         <i class="fa-solid fa-file-word"></i> 📥 抱怨男友學習單.docx
                     </a>
@@ -2180,19 +2201,26 @@
             <p class="text-slate-600 text-xs md:text-sm font-bold mb-2">配合三民 B4U1《A Love Coach's Game Plan》：從「28字限定造句挑戰」➔「Ask ChatGPT 流行歌思辨」➔「化身 Love Coach 寫回信」</p>
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-stretch mb-2">
-                <!-- Left (6 cols): 2 High-Res Photos (抱怨男友.jpg 28-word grid + today_b4u1_result.jpg H201 邱瑜涵 3-Stage Poster) -->
-                <div class="md:col-span-6 grid grid-cols-2 gap-2.5 h-[54vh]">
+                <!-- Left (6 cols): 3 High-Res Photos (today_b4u1_concept.jpg B4U1學習單構思 + 抱怨男友.jpg 28-word grid + today_b4u1_result.jpg H201 邱瑜涵 3-Stage Poster) -->
+                <div class="md:col-span-6 grid grid-cols-3 gap-2 h-[54vh]">
+                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-purple-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_b4u1_concept.jpg', 'B4U1 學習單構思與完整教材包一覽（U1週考_學生卷.docx、Ask ChatGPT.jpg、until文法練習.pptx、B4U1-學習成果-抱怨男友-寫作.pdf、一律建議分手吧.docx、B4U1學習成果-模板.docx、A Complaint About My Boyfriend.xlsx、抱怨男友簡報.pptx）')">
+                        <img src="web_photos/today_b4u1_concept.jpg" alt="B4U1學習單構思與完整教材資料夾" class="w-full h-full object-contain bg-slate-900">
+                        <div class="absolute bottom-0 inset-x-0 bg-purple-800/95 text-white text-[10px] p-1.5 text-center font-black">
+                            🔍 ① B4U1 學習單構思全覽
+                        </div>
+                    </div>
+
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-rose-300 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/抱怨男友.jpg', 'Stage 1 學習單：A Complaint About My Boyfriend（只能使用方框內 28 個單字、不可改變字形，寫出抱怨男友的信）')">
                         <img src="web_photos/抱怨男友.jpg" alt="A Complaint About My Boyfriend 28字限定學習單" class="w-full h-full object-contain bg-sand-100/60">
-                        <div class="absolute bottom-0 inset-x-0 bg-rose-700/95 text-white text-[10.5px] p-1.5 text-center font-black">
-                            🔍 ① 28字限定造句學習單 (點擊放大)
+                        <div class="absolute bottom-0 inset-x-0 bg-rose-700/95 text-white text-[10px] p-1.5 text-center font-black">
+                            🔍 ② 28字限定造句學習單
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_b4u1_result.jpg', 'B4U1 完整三階段學習成果海報（H201 邱瑜涵）：I. 抱怨男友文 × II. Ask ChatGPT 王心凌《一律建議分手吧》思辨 × III. Love Coach 回信')">
                         <img src="web_photos/today_b4u1_result.jpg" alt="學習成果B4U1 H201 邱瑜涵三階段海報" class="w-full h-full object-contain bg-sand-100/60">
-                        <div class="absolute bottom-0 inset-x-0 bg-amber-700/95 text-white text-[10.5px] p-1.5 text-center font-black">
-                            🔍 ② 學生三階段成果海報 (H201 邱瑜涵)
+                        <div class="absolute bottom-0 inset-x-0 bg-amber-700/95 text-white text-[10px] p-1.5 text-center font-black">
+                            🔍 ③ 三階段成果海報 (邱瑜涵)
                         </div>
                     </div>
                 </div>
