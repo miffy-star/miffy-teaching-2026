@@ -355,6 +355,12 @@
 
     <!-- Slide 1: 專案封面 (三民高中研習官方主題) -->
     <section class="slide active" id="slide-1">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-1" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-5xl mx-auto text-center my-auto flex flex-col items-center justify-center space-y-6">
             <div class="stage-badge mb-2 bg-amber-50 text-amber-900 border border-amber-300 shadow-sm">
                 <i class="fa-solid fa-graduation-cap text-lagoon-600"></i>
@@ -367,10 +373,13 @@
                 大綱：在地走讀 × 跨域共創 × 情緒陪伴 × 數位賦能
             </p>
             
-            <div class="pt-3 pb-1 flex flex-col items-center space-y-2">
-                <p class="text-3xl font-black text-slate-800 whitespace-nowrap">
-                    講師：台南瀛海國際高中 林明芬老師
-                </p>
+            <div class="pt-2 pb-1 flex flex-col items-center space-y-2">
+                <div class="inline-flex items-center gap-4 bg-white/90 px-6 py-2 rounded-3xl border-2 border-coral-300 shadow-md">
+                    <img src="web_photos/chibi/exp_18.png" data-frame1="web_photos/chibi/exp_18.png" data-frame2="web_photos/chibi/exp_05.png" alt="" onerror="this.style.display='none'" data-chibi-slot="slide-1" onclick="openChibiPicker(this)" class="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-md cursor-pointer chibi-anim-wave chibi-sprite">
+                    <p class="text-2xl md:text-3xl font-black text-slate-800 whitespace-nowrap">
+                        講師：台南瀛海國際高中 林明芬老師
+                    </p>
+                </div>
                 <p class="text-lg text-slate-600 font-bold">
                     主軸經緯：空間經緯（在地 ➔ 國際） × 工具經緯（紙本QR ➔ 網頁製作）
                 </p>
@@ -385,6 +394,12 @@
 
     <!-- Slide 2: 講師簡介 ＆ 五年課程迭代主軸 (Speaker Profile & 5-Year Curriculum Iteration) -->
     <section class="slide" id="slide-2">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-2" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200">
                 <i class="fa-solid fa-user-astronaut"></i>
@@ -401,25 +416,25 @@
                 <!-- Left: 4 Uncropped Photos Grid (1 MC Photo + Singapore Photos 1, 3, 5) -->
                 <div class="md:col-span-6 grid grid-cols-2 gap-3 h-[47vh]">
                     <div class="img-container relative group overflow-hidden rounded-xl border border-sand-200 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/國際交流MC.jpg', '擔任國際交流與全校活動大會司儀')">
-                        <img src="web_photos/國際交流MC.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_0148.jpg';" alt="Miffy 擔任大會司儀" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/國際交流MC.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_0148.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[11px] p-1.5 text-center font-bold">
                             <i class="fa-solid fa-microphone text-amber-400"></i> 國際交流與大會司儀主持
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-xl border border-sand-200 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/新加坡1.jpg', '2023 獲派赴新加坡參加短期進修 1')">
-                        <img src="web_photos/新加坡1.jpg" alt="2023 新加坡進修 1" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/新加坡1.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[11px] p-1.5 text-center font-bold">
                             <i class="fa-solid fa-plane-departure text-amber-400"></i> 2023 新加坡短期進修 1
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-xl border border-sand-200 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/新加坡3.jpg', '2023 獲派赴新加坡參加短期進修 2')">
-                        <img src="web_photos/新加坡3.jpg" alt="2023 新加坡進修 3" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/新加坡3.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[11px] p-1.5 text-center font-bold">
                             <i class="fa-solid fa-school text-amber-400"></i> 2023 新加坡短期進修 2
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-xl border border-sand-200 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/新加坡5.jpg', '2023 新加坡短期進修結業 — 確認熱愛課程設計')">
-                        <img src="web_photos/新加坡5.jpg" alt="2023 新加坡進修 5" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/新加坡5.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[11px] p-1.5 text-center font-bold">
                             <i class="fa-solid fa-certificate text-amber-400"></i> 2023 新加坡短期進修結業
                         </div>
@@ -458,16 +473,23 @@
                 </div>
             </div>
 
-            <div class="quote-card py-2 px-4">
-                <p class="font-quote text-xs md:text-sm text-slate-700 italic font-bold">
+            <div class="quote-card py-2 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/plaid_01.png" data-frame1="web_photos/chibi/plaid_01.png" data-frame2="web_photos/chibi/plaid_01.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-1" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-wave chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs md:text-sm text-slate-700 italic font-bold">
                     「每一套課程皆由自己從零發想、廣納素材打磨成形；2023 年赴新加坡短期進修的歷練，更讓我篤定對課程設計的熱愛——今天與大家分享的，正是這五年不斷實踐與迭代的軌跡。」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 3: 在地外交 V1.0 (2021年 馬公高中來訪 ── 跨校雙語交流 🤝) -->
     <section class="slide" id="slide-3">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed top-3 right-4 md:right-7 z-40 flex items-center pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_27.png" data-frame1="web_photos/chibi/plaid_27.png" data-frame2="web_photos/chibi/plaid_27.png" alt="" onerror="this.style.display='none'" data-chibi-slot="hdr-3" class="w-12 h-12 md:w-14 md:h-14 object-contain drop-shadow-sm chibi-anim-float chibi-sprite">
+            </div>
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-3" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200">
                 <i class="fa-solid fa-handshake text-lagoon-600"></i>
@@ -482,7 +504,7 @@
             <div class="flex flex-col md:flex-row gap-3.5 h-[38vh] min-h-0 mb-2.5">
                 <div style="flex: 1.333;" class="flex flex-col min-h-0 overflow-hidden rounded-2xl border-2 border-amber-400 shadow-lg h-full bg-slate-900 cursor-zoom-in" onclick="openImageLightbox('web_photos/馬公高中門口.jpg', '1. 2026 年 10/9–10/11 親赴澎湖「國立馬公高中」校門朝聖合影')">
                     <div class="flex-1 min-h-0 flex items-center justify-center bg-sand-100 overflow-hidden">
-                        <img src="web_photos/馬公高中門口.jpg" alt="明芬老師於國立馬公高級中學校門口合影" class="w-full h-full object-contain">
+                        <img src="web_photos/馬公高中門口.jpg" alt="" class="w-full h-full object-contain">
                     </div>
                     <div class="bg-slate-900 text-white text-xs py-1.5 px-2 text-center font-bold shrink-0">
                         <i class="fa-solid fa-camera-retro text-amber-400"></i> 1. 2026 年 10/9–10/11 親赴澎湖「國立馬公高中」校門朝聖合影 🐴
@@ -491,7 +513,7 @@
 
                 <div style="flex: 1.333;" class="flex flex-col min-h-0 overflow-hidden rounded-2xl border border-sand-300 shadow-md h-full bg-slate-900 cursor-zoom-in" onclick="openImageLightbox('web_photos/馬公高中來訪.jpg', '2. 2021 年馬公高中師生來訪大合照')">
                     <div class="flex-1 min-h-0 flex items-center justify-center bg-sand-100 overflow-hidden">
-                        <img src="web_photos/馬公高中來訪.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_0042.jpg';" alt="馬公高中來訪雙語交流" class="w-full h-full object-contain">
+                        <img src="web_photos/馬公高中來訪.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_0042.jpg';" alt="" class="w-full h-full object-contain">
                     </div>
                     <div class="bg-slate-900 text-white text-xs py-1.5 px-2 text-center font-bold shrink-0">
                         <i class="fa-solid fa-users text-lagoon-400"></i> 2. 2021 年馬公高中師生來訪大合照
@@ -500,7 +522,7 @@
 
                 <div style="flex: 0.75;" class="flex flex-col min-h-0 overflow-hidden rounded-2xl border border-sand-300 shadow-md h-full bg-slate-900 cursor-zoom-in" onclick="openImageLightbox('web_photos/IMG_1474.jpg?v=upright', '3. Scavenger Hunt 實戰：在校園埋謎題')">
                     <div class="flex-1 min-h-0 flex items-center justify-center bg-sand-100 overflow-hidden">
-                        <img src="web_photos/IMG_1474.jpg?v=upright" alt="Scavenger Hunt 在埋謎題" class="w-full h-full object-contain">
+                        <img src="web_photos/IMG_1474.jpg?v=upright" alt="" class="w-full h-full object-contain">
                     </div>
                     <div class="bg-slate-900 text-white text-[11px] py-1.5 px-1.5 text-center font-bold shrink-0 whitespace-nowrap">
                         <i class="fa-solid fa-magnifying-glass-location text-amber-400"></i> 3. Scavenger Hunt 實戰：在校園埋謎題
@@ -525,16 +547,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-2 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-2 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/happy_01.png" data-frame1="web_photos/chibi/happy_01.png" data-frame2="web_photos/chibi/happy_01.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-2" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-bounce chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「2021 年馬公高中來訪開啟了我們在地外交的第一步；2026 年 10/9–10/11 親自飛往澎湖在馬公高中校門口拍下同款飛馬姿勢，這份教學的感動一直都在！」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 4: 在地外交 V1.1 (2022年 七股體驗蚵農在地生活 ── 生態踏查與採蚵 🦪) -->
     <section class="slide" id="slide-4">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-4" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
                 <i class="fa-solid fa-ship text-amber-600"></i>
@@ -548,28 +574,28 @@
                 <!-- Left: 4 Photos (2x2 Grid) -->
                 <div class="md:col-span-8 grid grid-cols-2 grid-rows-2 gap-2.5 h-[50vh]">
                     <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/IMG_3984.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3986.jpg';" alt="七股潟湖生態搭船導覽" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/IMG_3984.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3986.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
                             <i class="fa-solid fa-ship text-lagoon-400"></i> 潟湖搭船生態考察
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/IMG_4032.jpg" onerror="this.onerror=null; this.src='web_photos/oyster_image4.jpeg';" alt="七股蚵田與潟湖實地踏查" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/IMG_4032.jpg" onerror="this.onerror=null; this.src='web_photos/oyster_image4.jpeg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
                             <i class="fa-solid fa-shoe-prints text-lagoon-400"></i> 蚵田腳踏泥濘考察
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md">
-                        <img src="web_photos/今日挑蚵.jpg" alt="學生分組挑蚵實作體驗" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/今日挑蚵.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
                             <i class="fa-solid fa-hands-holding text-amber-400"></i> 學生分組挑蚵實作體驗
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md">
-                        <img src="web_photos/男生挑蚵.jpg" alt="學生專注挑蚵特寫" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/男生挑蚵.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
                             <i class="fa-solid fa-user-check text-amber-400"></i> 學生專注挑蚵特寫
                         </div>
@@ -594,16 +620,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-2 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-2 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/walk_24.png" data-frame1="web_photos/chibi/walk_24.png" data-frame2="web_photos/chibi/walk_24.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-3" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-walk chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「2022 年七股體驗蚵農在地生活。我們帶孩子親踩潟湖泥濘、親手挑蚵，用感官與土地對話，讓語言有了真實的重量。」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 5: 在地外交 V1.2 (2022年 七股體驗蚵農在地生活 ── 串蚵文化與實作 🦪) -->
     <section class="slide" id="slide-5">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-5" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
                 <i class="fa-solid fa-hands-holding-circle text-amber-600"></i>
@@ -617,28 +647,28 @@
                 <!-- Left: 4 Photos (2x2 Grid) -->
                 <div class="md:col-span-8 grid grid-cols-2 grid-rows-2 gap-2.5 h-[50vh]">
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md">
-                        <img src="web_photos/搭蚵架.jpg" alt="學生親手搭設竹製蚵架實作" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/搭蚵架.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
                             <i class="fa-solid fa-hammer text-amber-400"></i> 親手搭設與綁竹製蚵架
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/串蚵.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3986.jpg';" alt="七股串蚵文化實體體驗" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/串蚵.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3986.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
                             七股串蚵文化實體體驗
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/串蚵殼.jpg" onerror="this.onerror=null; this.src='web_photos/串蚵準備工作.jpg';" alt="串蚵殼繩結綁法" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/串蚵殼.jpg" onerror="this.onerror=null; this.src='web_photos/串蚵準備工作.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
                             蚵殼繩結與蚵架細節
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/串蚵準備工作.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3987.jpg';" alt="串蚵準備與解說" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/串蚵準備工作.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3987.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
                             串蚵傳統工藝準備工作
                         </div>
@@ -663,16 +693,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-2 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-2 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/plaid_04.png" data-frame1="web_photos/chibi/plaid_04.png" data-frame2="web_photos/chibi/plaid_04.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-4" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-talk chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「體驗要極致狂野！親手串蚵繩、綁竹蚵架，讓語言不再是課本上的死符號，而是身體記住的活記憶。」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 6: 在地外交 V1.3 (2022年 七股體驗蚵農在地生活 ── 雙語學習單與導覽 📜) -->
     <section class="slide" id="slide-6">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-6" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200">
                 <i class="fa-solid fa-file-signature text-lagoon-600"></i>
@@ -683,31 +717,24 @@
             <p class="text-slate-600 text-lg md:text-xl font-bold mb-3">《蚵在你心裡的名字》雙語成果展示 📜</p>
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center mb-3">
-                <!-- Left: 4 Photos (2x2 Grid) -->
+                <!-- Left: 3 Photos (Large Worksheet on Left + 2 Field Photos on Right) -->
                 <div class="md:col-span-8 grid grid-cols-2 grid-rows-2 gap-2.5 h-[50vh]">
-                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/七股學習單.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3984.jpg';" alt="七股雙語導覽學習單手稿" class="w-full h-full object-contain bg-sand-100/60">
+                    <div class="row-span-2 img-container relative group overflow-hidden rounded-2xl border-2 border-lagoon-300 shadow-md">
+                        <img src="web_photos/七股學習單.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3984.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
                             雙語導覽學習單手稿
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/蚵P.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_1474.jpg';" alt="出海看蚵仔養殖前的烤蚵吃到飽" class="w-full h-full object-contain bg-sand-100/60">
-                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
-                            <i class="fa-solid fa-fire-burner text-amber-400"></i> 出海看蚵仔養殖前的烤蚵🦪吃到飽
-                        </div>
-                    </div>
-
-                    <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/挑蚵.jpg" alt="蚵農挑蚵實作前導解說" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/挑蚵.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
                             蚵農挑蚵實作前導解說
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/oyster_image3.jpeg" onerror="this.onerror=null; this.src='web_photos/IMG_4032.jpg';" alt="台江社區雙語告示與觀察" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/oyster_image3.jpeg" onerror="this.onerror=null; this.src='web_photos/IMG_4032.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
                             台江社區雙語告示觀察
                         </div>
@@ -725,23 +752,27 @@
 
                     <div class="bg-white p-4 rounded-2xl border border-sand-200 shadow-sm">
                         <h4 class="font-bold text-coral-600 text-base mb-1.5 flex items-center gap-2">
-                            <i class="fa-solid fa-person-chalkboard text-lg"></i> 烤蚵吃到飽 ✕ 在地雙語體驗
+                            <i class="fa-solid fa-person-chalkboard text-lg"></i> 在地觀察 ✕ 雙語導覽演練
                         </h4>
-                        <p class="text-slate-600 text-xs leading-relaxed font-medium">出海看蚵仔養殖前先來場熱騰騰的「烤蚵🦪吃到飽」補充能量，一邊品嚐海味、一邊對照雙語學習單紀錄！</p>
+                        <p class="text-slate-600 text-xs leading-relaxed font-medium">結合蚵農實作前導解說與台江社區雙語告示觀察，引導孩子將現場筆記轉化為雙語導覽素養。</p>
                     </div>
                 </div>
             </div>
 
-            <div class="quote-card py-2 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-2 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/walk_02.png" data-frame1="web_photos/chibi/walk_02.png" data-frame2="web_photos/chibi/walk_02.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-5" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-float chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「從產地五感體驗，寫下第一份屬於家鄉的雙語導覽稿，看見孩子的自信眼神。」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 7: 在地外交 V1.4 (2022年 七股體驗蚵農在地生活 ── 頒獎典禮與特色獎勵 🏆) -->
     <section class="slide" id="slide-7">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-7" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
                 <i class="fa-solid fa-trophy text-amber-600"></i>
@@ -756,25 +787,25 @@
                 <!-- Left: 4 Photos (主持蚵頒獎典禮, 最佳翻譯獎, 三位受獎人, 蚵抱枕) -->
                 <div class="md:col-span-8 grid grid-cols-2 gap-2.5 h-[48vh]">
                     <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/主持蚵頒獎典禮.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_4352.jpg';" alt="林明芬老師主持頒獎典禮" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/主持蚵頒獎典禮.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_4352.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-2 text-center font-bold">
                             <i class="fa-solid fa-microphone text-amber-400"></i> 明芬老師主持頒獎典禮
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/最佳翻譯獎.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_4357.jpg';" alt="頒發最佳翻譯獎" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/最佳翻譯獎.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_4357.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-2 text-center font-bold">
                             <i class="fa-solid fa-award text-amber-400"></i> 頒發最佳翻譯獎
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/三位受獎人.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_4370.jpg';" alt="三位獲獎學生合影" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/三位受獎人.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_4370.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-2 text-center font-bold">
                             <i class="fa-solid fa-star text-amber-400"></i> 三位獲獎學生合影
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/蚵抱枕.jpg" onerror="this.onerror=null; this.src='web_photos/oyster_image2.jpeg';" alt="特製蚵抱枕" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/蚵抱枕.jpg" onerror="this.onerror=null; this.src='web_photos/oyster_image2.jpeg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-2 text-center font-bold">
                             <i class="fa-solid fa-gift text-amber-400"></i> 特製「蚵抱枕」紀念禮
                         </div>
@@ -799,16 +830,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-2 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-2 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/exp_09.png" data-frame1="web_photos/chibi/exp_09.png" data-frame2="web_photos/chibi/exp_09.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-6" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-cheer chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「精緻主題禮物是送給優秀學生的肯定！鼓勵他們認真寫學習單，用最佳翻譯獎、最佳船長與莎士比亞獎建立滿滿自信。」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 8: 110學年難民議題發表 ✕ 2022.12.11 跨國線上國際交流 -->
     <section class="slide" id="slide-8">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-8" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
                 <i class="fa-solid fa-globe text-amber-600"></i>
@@ -823,7 +858,7 @@
                 <div class="md:col-span-8 grid grid-cols-12 grid-rows-12 gap-2.5 h-[50vh]">
                     <!-- Top-Left (6 cols, 6 rows): key_takeaway.jpg -->
                     <div class="col-span-6 row-span-6 img-container relative group overflow-hidden rounded-2xl border-2 border-coral-400 shadow-lg bg-black/5">
-                        <img src="web_photos/key_takeaway.jpg" alt="2022.12.11 國際交流 Key takeaways sharing" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/key_takeaway.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-coral-600/95 text-white text-xs p-1.5 text-center font-black">
                             <i class="fa-solid fa-lightbulb text-amber-200"></i> 2022.12.11 Key Takeaways Sharing 雙語發表
                         </div>
@@ -831,7 +866,7 @@
 
                     <!-- Top-Right (6 cols, 6 rows): 線上交流.jpg -->
                     <div class="col-span-6 row-span-6 img-container relative group overflow-hidden rounded-2xl border-2 border-amber-300 shadow-lg">
-                        <img src="web_photos/線上交流.jpg" onerror="this.onerror=null; this.src='web_photos/花美男.jpg';" alt="2022.12.11 線上交流發現一枚花美男" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/線上交流.jpg" onerror="this.onerror=null; this.src='web_photos/花美男.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-xs p-1.5 text-center font-bold">
                             <i class="fa-solid fa-star text-amber-400"></i> 2022.12.11 線上交流發現一枚花美男 🌟
                         </div>
@@ -839,7 +874,7 @@
 
                     <!-- Bottom-Left (4 cols, 6 rows): 難民議題分享.jpg (110學年) -->
                     <div class="col-span-4 row-span-6 img-container relative group overflow-hidden rounded-2xl border-2 border-lagoon-400 shadow-md">
-                        <img src="web_photos/難民議題分享.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_6929.jpg';" alt="110學年 兩校國際交流 難民議題雙語發表" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/難民議題分享.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_6929.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-lagoon-700/95 text-white text-[11px] p-1 text-center font-black">
                             <i class="fa-solid fa-earth-asia text-amber-200"></i> 110學年 難民議題雙語發表
                         </div>
@@ -847,7 +882,7 @@
 
                     <!-- Bottom-Middle (4 cols, 6 rows): 交流主題.jpg -->
                     <div class="col-span-4 row-span-6 img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/交流主題.jpg" alt="跨國跨校合作計畫 三大交流主題架構" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/交流主題.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1 text-center font-bold">
                             跨國合作：台江 × 難民 × 基因
                         </div>
@@ -892,16 +927,23 @@
                 </div>
             </div>
 
-            <div class="quote-card py-2 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-2 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/plaid_19.png" data-frame1="web_photos/chibi/plaid_19.png" data-frame2="web_photos/chibi/plaid_19.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-7" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-talk chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「從 110 學年全球難民議題雙語發表到 2022.12.11 跨國線上交流，孩子在鏡頭前雙眼發亮地與美國學伴分享彼此的世界。」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 9: 在地外交 V1.9 (2023.2.6 安順鹽場事先踏查：為美國高中來訪做準備 🧂) -->
     <section class="slide" id="slide-9">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed top-3 right-4 md:right-7 z-40 flex items-center pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_04.png" data-frame1="web_photos/chibi/plaid_04.png" data-frame2="web_photos/chibi/plaid_04.png" alt="" onerror="this.style.display='none'" data-chibi-slot="hdr-9" class="w-12 h-12 md:w-14 md:h-14 object-contain drop-shadow-sm chibi-anim-wave chibi-sprite">
+            </div>
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-9" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
                 <i class="fa-solid fa-compass-drafting text-amber-600"></i>
@@ -916,7 +958,7 @@
                 <div class="md:col-span-8 grid grid-cols-12 grid-rows-12 gap-2.5 h-[52vh]">
                     <!-- Top-Left (6 cols, 6 rows): 安順鹽場集合探勘.jpg -->
                     <div class="col-span-6 row-span-6 img-container relative group overflow-hidden rounded-2xl border-2 border-amber-400 shadow-lg">
-                        <img src="web_photos/安順鹽場集合探勘.jpg" alt="2023.2.6 安順鹽場集合探勘 為美國高中來訪做準備" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/安順鹽場集合探勘.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-amber-600/95 text-white text-xs p-1.5 text-center font-black">
                             <i class="fa-solid fa-people-group text-yellow-200"></i> 2023.2.6 安順鹽場集合探勘
                         </div>
@@ -924,7 +966,7 @@
 
                     <!-- Top-Right (6 cols, 6 rows): 扒鹽體驗.jpg -->
                     <div class="col-span-6 row-span-6 img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/扒鹽體驗.jpg" onerror="this.onerror=null; this.src='web_photos/鹽場.jpg';" alt="2023.2.6 瓦盤鹽田扒鹽實作" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/扒鹽體驗.jpg" onerror="this.onerror=null; this.src='web_photos/鹽場.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-xs p-1.5 text-center font-bold">
                             傳統瓦盤鹽田扒鹽實作演練
                         </div>
@@ -932,7 +974,7 @@
 
                     <!-- Bottom-Left (4 cols, 6 rows): 扒鹽工具.jpg -->
                     <div class="col-span-4 row-span-6 img-container relative group overflow-hidden rounded-2xl border-2 border-coral-400 shadow-md">
-                        <img src="web_photos/扒鹽工具.jpg" alt="2023.2.6 認識傳統扒鹽工具與斗笠" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/扒鹽工具.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-coral-600/95 text-white text-xs p-1.5 text-center font-black">
                             <i class="fa-solid fa-screwdriver-wrench text-amber-200"></i> 認識傳統扒鹽工具
                         </div>
@@ -940,7 +982,7 @@
 
                     <!-- Bottom-Middle (4 cols, 6 rows): 鹽滷豆腐.jpg -->
                     <div class="col-span-4 row-span-6 img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/鹽滷豆腐.jpg" alt="2023.2.6 手作鹽滷豆腐" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/鹽滷豆腐.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-xs p-1.5 text-center font-bold">
                             傳統木模手作鹽滷豆腐
                         </div>
@@ -948,7 +990,7 @@
 
                     <!-- Bottom-Right (4 cols, 6 rows): 鹽滷豆花.jpg -->
                     <div class="col-span-4 row-span-6 img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/鹽滷豆花.jpg" alt="2023.2.6 手作鹽滷豆花" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/鹽滷豆花.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-xs p-1.5 text-center font-bold">
                             綿密傳統鹽滷豆花品嚐
                         </div>
@@ -975,16 +1017,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-2 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-2 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/plaid_24.png" data-frame1="web_photos/chibi/plaid_24.png" data-frame2="web_photos/chibi/plaid_24.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-8" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-bounce chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「台上一分鐘，台下十年功！2023.2.6 先帶孩子走進安順鹽場探勘、摸熟扒鹽工具、親嚐鹽滷豆腐與豆花，為一個月後的美國高中來訪做最足的準備。」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 10: 在地外交 V2.0 (2023.3.9 安順鹽場：花美男來了！台美實體國際交流) -->
     <section class="slide" id="slide-10">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-10" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
                 <i class="fa-solid fa-handshake-angle text-amber-600"></i>
@@ -998,28 +1044,28 @@
                 <!-- Left: 4 Large Photos (2x2 Grid) -->
                 <div class="md:col-span-8 grid grid-cols-2 grid-rows-2 gap-3 h-[50vh]">
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-coral-400 shadow-lg">
-                        <img src="web_photos/台美大合照.jpg" alt="2023.3.9 安順鹽場台美師生國際交流大合照" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/台美大合照.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-coral-600/95 text-white text-xs p-1.5 text-center font-black">
                             <i class="fa-solid fa-earth-americas text-amber-200"></i> 2023.3.9 台美師生於安順鹽場溫馨大合照
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md">
-                        <img src="web_photos/安順鹽場挑鹽.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_9975.jpg';" alt="2023.3.9 花美男來了 安順鹽場挑鹽體驗" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/安順鹽場挑鹽.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_9975.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-xs p-1.5 text-center font-bold">
                             <i class="fa-solid fa-star text-amber-400"></i> 2023.3.9 花美男來了！挑鹽文化體驗
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/IMG_0042.jpg" alt="2023.3.9 台美學生赤腳踩鹽與扒鹽實作" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/IMG_0042.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
                             2023.3.9 台美學生赤腳踩鹽與扒鹽實作
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                        <img src="web_photos/鹽場.jpg" alt="安順鹽場瓦盤鹽田風光" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/鹽場.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
                             安順鹽場傳統瓦盤鹽田風光
                         </div>
@@ -1044,16 +1090,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-2 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-2 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/exp_03.png" data-frame1="web_photos/chibi/exp_03.png" data-frame2="web_photos/chibi/exp_03.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-9" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-float chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「當視訊鏡頭裡的花美男與美國師生於 2023.3.9 真正走進安順鹽場，最接地氣的挑鹽與扒鹽，瞬間變成最難忘的台美國際文化外交！」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 11: 在地外交 V2.1 (2023.3.8 台美聯歡晚宴 ✕ 2023.3.9 安順鹽場尋寶總部 🍮) -->
     <section class="slide" id="slide-11">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-11" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200">
                 <i class="fa-solid fa-bowl-food text-coral-500"></i>
@@ -1068,7 +1118,7 @@
                 <div class="md:col-span-8 grid grid-cols-12 gap-3 h-[54vh]">
                     <!-- Big Hero Card: CGS到瀛海_請客.jpg -->
                     <div class="col-span-5 img-container relative group overflow-hidden rounded-2xl border-2 border-coral-400 shadow-lg bg-sand-100/60 h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/cgs_welcome_douhua.jpg', '2023.3.8 台美聯歡晚宴：以府城古早味傳統豆花推車迎賓接風')">
-                        <img src="web_photos/cgs_welcome_douhua.jpg" onerror="this.onerror=null; this.src='web_photos/CGS到瀛海_請客.jpg';" alt="2023.3.8 台美聯歡晚宴 CGS 到訪瀛海 古早味豆花推車迎賓" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/cgs_welcome_douhua.jpg" onerror="this.onerror=null; this.src='web_photos/CGS到瀛海_請客.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-coral-600/95 text-white text-xs p-1.5 text-center font-black shadow">
                             <i class="fa-solid fa-mug-hot text-amber-200"></i> 2023.3.8 台美聯歡晚宴：府城古早味豆花推車迎賓接風
                         </div>
@@ -1077,19 +1127,19 @@
                     <!-- Right Half: 3 Headquarters & Tofu DIY Photos -->
                     <div class="col-span-7 grid grid-cols-2 grid-rows-2 gap-2.5 h-full">
                         <div class="col-span-2 img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/IMG_9976.jpg', '2023.3.9 安順鹽場尋寶總部全景 ✕ 鹽滷豆花 DIY')">
-                            <img src="web_photos/IMG_9976.jpg" alt="2023.3.9 安順鹽場尋寶總部全景" class="w-full h-full object-contain bg-sand-100/60">
+                            <img src="web_photos/IMG_9976.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                             <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
                                 2023.3.9 安順鹽場尋寶總部全景 ✕ 鹽滷豆花 DIY
                             </div>
                         </div>
                         <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/尋寶總部.jpg', '2023.3.9 尋寶總部與積分榜')">
-                            <img src="web_photos/尋寶總部.jpg" alt="2023.3.9 Headquarters counter 與 Leaderboard 積分榜" class="w-full h-full object-contain bg-sand-100/60">
+                            <img src="web_photos/尋寶總部.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                             <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[11px] p-1 text-center font-bold">
                                 2023.3.9 尋寶總部與積分榜
                             </div>
                         </div>
                         <div class="img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/IMG_9987.jpg', '2023.3.9 尋寶總部巧拼與獎牌')">
-                            <img src="web_photos/IMG_9987.jpg" alt="2023.3.9 尋寶總部字母巧拼與名次牌" class="w-full h-full object-contain bg-sand-100/60">
+                            <img src="web_photos/IMG_9987.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                             <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[11px] p-1 text-center font-bold">
                                 2023.3.9 尋寶總部巧拼與獎牌
                             </div>
@@ -1116,11 +1166,21 @@
                     </div>
                 </div>
             </div>
+
+            <div class="quote-card py-1.5 px-4 mt-2 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/exp_12.png" data-frame1="web_photos/chibi/exp_12.png" data-frame2="web_photos/chibi/exp_12.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-10" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-talk chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
+                    「從前一晚古早味豆花推車的暖心迎賓，到隔天一早鹽場尋寶總部的熱血集結，讓文化招待成為最自然的英語破冰！」
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 12: 在地外交 V2.2 (2023.3.9 安順鹽場：單字尋寶謎紙與第一名隊伍 🎯) -->
     <section class="slide" id="slide-12">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-12" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200">
                 <i class="fa-solid fa-trophy text-amber-500"></i>
@@ -1135,7 +1195,7 @@
                 <div class="md:col-span-8 grid grid-cols-12 gap-3 h-[54vh]">
                     <!-- Big Hero Card: IMG_2967 單字尋寶謎紙 -->
                     <div class="col-span-5 img-container relative group overflow-hidden rounded-2xl border-2 border-coral-400 shadow-lg bg-white h-full">
-                        <img src="web_photos/IMG_2967.jpg" alt="Salt Field Challenge 單字尋寶謎紙" class="w-full h-full object-contain bg-white p-1 pb-8">
+                        <img src="web_photos/IMG_2967.jpg" alt="" class="w-full h-full object-contain bg-white p-1 pb-8">
                         <div class="absolute bottom-0 inset-x-0 bg-coral-600/95 text-white text-xs p-1.5 text-center font-black shadow">
                             <i class="fa-solid fa-puzzle-piece text-amber-200"></i> 2023.3.9 單字尋寶謎紙
                         </div>
@@ -1144,19 +1204,19 @@
                     <!-- Right Half of Photo Area: 1st Place Team Hero + 2 Action Photos -->
                     <div class="col-span-7 grid grid-cols-2 grid-rows-12 gap-2.5 h-full">
                         <div class="col-span-2 row-span-7 img-container relative group overflow-hidden rounded-2xl border-2 border-amber-400 shadow-lg bg-sand-100/60">
-                            <img src="web_photos/單字尋寶第一名隊伍.jpg" alt="2023.3.9 單字尋寶第一名隊伍拼出 MONOPOLY" class="w-full h-full object-contain bg-sand-100/60">
+                            <img src="web_photos/單字尋寶第一名隊伍.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                             <div class="absolute bottom-0 inset-x-0 bg-amber-600/95 text-white text-xs p-1.5 text-center font-black shadow">
                                 <i class="fa-solid fa-crown text-yellow-200"></i> 🏆 單字尋寶第一名隊伍！合力拼出隱藏字 MONOPOLY
                             </div>
                         </div>
                         <div class="col-span-1 row-span-5 img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                            <img src="web_photos/謎紙＋單字尋寶.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_9987.jpg';" alt="學生手持謎紙任務卡解題" class="w-full h-full object-contain bg-sand-100/60">
+                            <img src="web_photos/謎紙＋單字尋寶.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_9987.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                             <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[10px] p-1 text-center font-bold">
                                 台美學伴手持謎紙解題
                             </div>
                         </div>
                         <div class="col-span-1 row-span-5 img-container relative group overflow-hidden rounded-2xl border border-sand-200 shadow-md">
-                            <img src="web_photos/掃碼單字尋寶.jpg" onerror="this.onerror=null; this.src='web_photos/文化體驗＋單字尋寶.jpg';" alt="掃碼單字尋寶 廟口柱子巧拼QR Code" class="w-full h-full object-contain bg-sand-100/60">
+                            <img src="web_photos/掃碼單字尋寶.jpg" onerror="this.onerror=null; this.src='web_photos/文化體驗＋單字尋寶.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                             <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[10px] p-1 text-center font-bold">
                                 實地掃描巧拼 QR 單字尋寶
                             </div>
@@ -1181,6 +1241,10 @@
                     </div>
                 </div>
             </div>
+
+            <div class="quote-card py-1.5 px-4 mt-2 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/plaid_23.png" data-frame1="web_photos/chibi/plaid_23.png" data-frame2="web_photos/chibi/plaid_23.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-11" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-bounce chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
+                    「一張謎紙、十個鹽田單字與散落聚落的巧拼 QR Code，讓台美學伴為了拼出 MONOPOLY 全力奔跑、自然開口！」
+                </p></div></div>
         </div>
     </section>
 
@@ -1190,6 +1254,12 @@
 
     <!-- Slide 13: 跨域 V1.0 (112學年 The Tomato Project ── 9/13 上課內容 × 五科真實課堂 × 雲端簡報全紀錄) -->
     <section class="slide" id="slide-13">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-13" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200 !mb-0">
@@ -1228,49 +1298,49 @@
                 <!-- Left (6 cols): 2x4 Authentic Class Photos from Cloud Presentation (8 Photos!) -->
                 <div class="md:col-span-6 grid grid-cols-2 grid-rows-4 gap-1.5 h-[56vh]">
                     <div class="img-container relative group overflow-hidden rounded-xl border-2 border-lagoon-300 shadow-sm">
-                        <img src="web_photos/tomato_english_class.jpg" onerror="this.onerror=null; this.src='web_photos/蕃茄社群上課.jpg';" alt="9/13 & 9/27 英文科 明芬老師帶領腐爛番茄發電閱讀與討論" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/tomato_english_class.jpg" onerror="this.onerror=null; this.src='web_photos/蕃茄社群上課.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10px] py-0.5 px-1 text-center font-bold truncate">
                             <i class="fa-solid fa-book-open-reader text-lagoon-300"></i> 9/13、9/27 英文：明芬老師帶領分組精讀
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-xl border-2 border-amber-300 shadow-sm">
-                        <img src="web_photos/tomato_history_kagome.jpg" alt="10/18 番茄全球史與 4/17 陳柏沅老師講授可果美番茄產業史" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/tomato_history_kagome.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10px] py-0.5 px-1 text-center font-bold truncate">
                             <i class="fa-solid fa-landmark text-amber-300"></i> 10/18、4/17 歷史：陳柏沅老師可果美產業史
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-xl border-2 border-rose-400 shadow-sm">
-                        <img src="web_photos/tomato_chinese_class.jpg" alt="11/15 & 2/21 國文科 方睿慈老師手持番茄教具講解修辭與番茄新詩明信片" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/tomato_chinese_class.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-rose-950/90 text-white text-[10px] py-0.5 px-1 text-center font-bold truncate">
                             <i class="fa-solid fa-feather-pointed text-rose-300"></i> 11/15、2/21 國文：方睿慈老師番茄新詩修辭
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-xl border-2 border-rose-300 shadow-sm">
-                        <img src="web_photos/tomato_chinese_postcards.jpg" alt="2/21 & 3/6 國文×英文 番茄圖像詩與特色明信片手繪成品" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/tomato_chinese_postcards.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-rose-950/90 text-white text-[10px] py-0.5 px-1 text-center font-bold truncate">
                             <i class="fa-solid fa-palette text-amber-300"></i> 2/21、3/6 國×英：番茄圖像詩＆特色明信片
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-xl border-2 border-emerald-300 shadow-sm">
-                        <img src="web_photos/tomato_geo_class.jpg" alt="11/1 & 4/24 地理科 鐘大益老師講授低碳永續農業與 SDGs" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/tomato_geo_class.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10px] py-0.5 px-1 text-center font-bold truncate">
                             <i class="fa-solid fa-seedling text-emerald-300"></i> 11/1、4/24 地理：鐘大益老師低碳永續農業
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-xl border-2 border-purple-300 shadow-sm">
-                        <img src="web_photos/tomato_chem_battery.jpg" alt="12/20 化學科 許向雯老師帶領 Tomato Batteries 番茄電池發電實驗" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/tomato_chem_battery.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10px] py-0.5 px-1 text-center font-bold truncate">
                             <i class="fa-solid fa-bolt text-yellow-300"></i> 12/20 化學：許向雯老師《番茄電池實驗》
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-xl border-2 border-red-400 shadow-sm" onclick="openImageLightbox('web_photos/today_many_tomatoes.jpg', '112學年番茄計畫：眾多小蕃茄造型立體手工書成品與善化可果美參訪')">
-                        <img src="web_photos/today_many_tomatoes.jpg" alt="眾多小蕃茄造型立體手工書成品" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/today_many_tomatoes.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-red-900/90 text-white text-[10px] py-0.5 px-1 text-center font-bold truncate">
                             <i class="fa-solid fa-book-open text-amber-300"></i> 成果：眾多小蕃茄造型立體手工書
                         </div>
                     </div>
                     <div class="relative group overflow-hidden rounded-xl border-2 border-sky-400 shadow-sm bg-slate-900 cursor-pointer" onclick="openVideoModal('web_photos/today_tomato_book_flip.mp4')">
-                        <img src="web_photos/today_tomato_book_thumb.jpg" onerror="this.onerror=null; this.src='web_photos/today_many_tomatoes.jpg';" alt="翻頁蕃茄手工書實拍影片預覽" class="w-full h-full object-contain bg-slate-900 group-hover:scale-105 transition">
+                        <img src="web_photos/today_tomato_book_thumb.jpg" onerror="this.onerror=null; this.src='web_photos/today_many_tomatoes.jpg';" alt="" class="w-full h-full object-contain bg-slate-900 group-hover:scale-105 transition">
                         <div class="absolute inset-0 flex items-center justify-center bg-black/25 group-hover:bg-black/10 transition">
                             <span class="w-10 h-10 rounded-full bg-red-600/95 text-white flex items-center justify-center shadow-lg">
                                 <i class="fa-solid fa-play text-sm ml-0.5"></i>
@@ -1349,16 +1419,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-1.5 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-1.5 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/plaid_06.png" data-frame1="web_photos/chibi/plaid_06.png" data-frame2="web_photos/chibi/plaid_06.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-12" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-float chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「從 9/13 英文課『荒島帶一物』與『腐爛番茄點亮迪士尼』出發，11/1 地理永續農業、11/8 與 CGS 首度視訊、11/15 ＆ 2/21 國文方睿慈老師帶領番茄新詩與特色明信片創作，一路延伸至可果美踏查與德州跨國連線！」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 14A: 跨域 V2.0 (113學年 Glow Up 美妝大聯盟 I ── 九科共備發想、期末共備與六科 STEAM 架構) -->
     <section class="slide" id="slide-14">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-14" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1.5">
                 <div class="stage-badge self-start bg-pink-50 text-pink-700 border border-pink-200 !mb-0">
@@ -1391,25 +1465,25 @@
                 <!-- Left (7 cols): Large 2x2 Photo Grid (High Visibility, Uncrowded) -->
                 <div class="md:col-span-7 grid grid-cols-2 grid-rows-2 gap-3 h-[54vh]">
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md cursor-zoom-in bg-white" onclick="openImageLightbox('web_photos/today_glowup_idea.png', '2024.2.29《113美妝聯盟計畫期程》九科教師共備發想紀錄（英文、歷史、美術、數學、化學、資訊、家政、地理、國文）')">
-                        <img src="web_photos/today_glowup_idea.png" alt="2024.2.29 美妝大聯盟的發想 九科共備紀錄表" class="w-full h-full object-contain bg-white p-1">
+                        <img src="web_photos/today_glowup_idea.png" alt="" class="w-full h-full object-contain bg-white p-1">
                         <div class="absolute bottom-0 inset-x-0 bg-amber-900/95 text-white text-xs py-1.5 px-2 text-center font-black">
                             <i class="fa-solid fa-lightbulb text-amber-300"></i> ① 2/29 美妝大聯盟的發想：九科共備紀錄
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-pink-400 shadow-md cursor-zoom-in bg-sand-100/60" onclick="openImageLightbox('web_photos/glowup_0925_intro.jpg', '9/25 始業式：化學科許向雯老師（右持麥克風）與英文科林明芬老師（左）共同啟動《Glow up 美妝大聯盟》')">
-                        <img src="web_photos/glowup_0925_intro.jpg" alt="9/25 始業式 化學科許向雯老師與英文科林明芬老師啟動美妝大聯盟" class="w-full h-full object-contain">
+                        <img src="web_photos/glowup_0925_intro.jpg" alt="" class="w-full h-full object-contain">
                         <div class="absolute bottom-0 inset-x-0 bg-pink-900/95 text-white text-xs py-1.5 px-2 text-center font-black">
                             <i class="fa-solid fa-wand-magic-sparkles text-pink-300"></i> ② 9/25 始業式：化學科許向雯老師 ＆ 明芬老師
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-purple-400 shadow-md cursor-zoom-in bg-sand-100/60" onclick="openImageLightbox('web_photos/glowup_0925_chem_teacher.jpg', '跨域共授：健康教育科游雅怡老師介紹《Glow up 美妝大聯盟》Course Introduction 跨領域課表')">
-                        <img src="web_photos/glowup_0925_chem_teacher.jpg" alt="跨域共授 健康教育科游雅怡老師介紹課程架構" class="w-full h-full object-contain">
+                        <img src="web_photos/glowup_0925_chem_teacher.jpg" alt="" class="w-full h-full object-contain">
                         <div class="absolute bottom-0 inset-x-0 bg-purple-900/95 text-white text-xs py-1.5 px-2 text-center font-black">
                             <i class="fa-solid fa-chalkboard-user text-purple-300"></i> ③ 跨域共授：健康教育科游雅怡老師介紹課表
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-teal-500 shadow-md cursor-zoom-in bg-sand-100/60" onclick="openImageLightbox('web_photos/today_1140110_prep.jpg', '114/1/10 期末共備：鄭恆絹組長、林明芬老師、黃品清老師跨領域共備')">
-                        <img src="web_photos/today_1140110_prep.jpg" alt="114/1/10 期末共備 鄭恆絹組長 林明芬老師 黃品清老師" class="w-full h-full object-contain">
+                        <img src="web_photos/today_1140110_prep.jpg" alt="" class="w-full h-full object-contain">
                         <div class="absolute bottom-0 inset-x-0 bg-teal-900/95 text-white text-xs py-1.5 px-2 text-center font-black">
                             <i class="fa-solid fa-people-group text-teal-300"></i> ④ 114/1/10 期末共備：鄭恆絹組長、林明芬老師、黃品清老師
                         </div>
@@ -1448,16 +1522,23 @@
                 </div>
             </div>
 
-            <div class="quote-card py-1.5 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-1.5 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/body_18.png" data-frame1="web_photos/chibi/body_18.png" data-frame2="web_photos/chibi/body_18.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-13" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-talk chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「從 2/29 九科共備表發想、9/25 始業式啟動，到 114/1/10 期末共備檢討，九位跨領域老師攜手打造最紮實的 STEAM 美妝課程！」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 14B (New Split Slide): 跨域 V2.0 (113學年 Glow Up 美妝大聯盟 II ── 英文科三部曲 × 台美跨國視訊大圖實況) -->
-    <section class="slide" id="slide-14b">
+    <section class="slide" id="slide-15">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed top-3 right-4 md:right-7 z-40 flex items-center pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_03.png" data-frame1="web_photos/chibi/plaid_03.png" data-frame2="web_photos/chibi/plaid_03.png" alt="" onerror="this.style.display='none'" data-chibi-slot="hdr-15" class="w-12 h-12 md:w-14 md:h-14 object-contain drop-shadow-sm chibi-anim-float chibi-sprite">
+            </div>
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-15" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1.5">
                 <div class="stage-badge self-start bg-pink-50 text-pink-700 border border-pink-200 !mb-0">
@@ -1487,25 +1568,25 @@
                 <!-- Left (7 cols): Large 2x2 Photo Grid of Classroom & International Exchange -->
                 <div class="md:col-span-7 grid grid-cols-2 grid-rows-2 gap-3 h-[54vh]">
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-lagoon-400 shadow-md cursor-zoom-in bg-sand-100/60" onclick="openImageLightbox('web_photos/glowup_0925_miffy_wheel.jpg', '9/25 英文破冰：明芬老師以 A–Z 彩色轉盤帶領學生進行 Myself A to Z 口語互動')">
-                        <img src="web_photos/glowup_0925_miffy_wheel.jpg" alt="9/25 明芬老師以 A-Z 彩色轉盤帶領學生進行 Myself A to Z 英語自我介紹" class="w-full h-full object-contain">
+                        <img src="web_photos/glowup_0925_miffy_wheel.jpg" alt="" class="w-full h-full object-contain">
                         <div class="absolute bottom-0 inset-x-0 bg-lagoon-900/95 text-white text-xs py-1.5 px-2 text-center font-black">
                             <i class="fa-solid fa-spinner text-lagoon-300"></i> ① 9/25 英文破冰：明芬老師 A–Z 轉盤口語互動
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md cursor-zoom-in bg-sand-100/60" onclick="openImageLightbox('web_photos/glowup_0925_group.jpg', '9/25 分組英語對談：學生搭配 Myself A to Z 與 Student A/B 學習單尋找共同點')">
-                        <img src="web_photos/glowup_0925_group.jpg" alt="9/25 分組共學 學生搭配 Myself A to Z 與 Student A/B 學習單英語對談" class="w-full h-full object-contain">
+                        <img src="web_photos/glowup_0925_group.jpg" alt="" class="w-full h-full object-contain">
                         <div class="absolute bottom-0 inset-x-0 bg-amber-900/95 text-white text-xs py-1.5 px-2 text-center font-black">
                             <i class="fa-solid fa-users text-amber-300"></i> ② 9/25 分組英語對談：A to Z ＆ 尋找共同點
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-coral-400 shadow-md cursor-zoom-in bg-white" onclick="openImageLightbox('web_photos/glowup_meet_miffy.jpg', '10/23 英文課：明芬老師示範《Meet Miffy Lin》一頁自我介紹投影片')">
-                        <img src="web_photos/glowup_meet_miffy.jpg" alt="10/23 製作自我介紹投影片 明芬老師 Meet Miffy Lin 範本與線上視訊" class="w-full h-full object-contain">
+                        <img src="web_photos/glowup_meet_miffy.jpg" alt="" class="w-full h-full object-contain">
                         <div class="absolute bottom-0 inset-x-0 bg-rose-900/95 text-white text-xs py-1.5 px-2 text-center font-black">
                             <i class="fa-solid fa-id-card text-coral-300"></i> ③ 10/23 英文課：明芬老師《Meet Miffy》自介範本
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-sky-400 shadow-md cursor-zoom-in bg-white" onclick="openImageLightbox('web_photos/glowup_nlhs_zoom.jpg', '12/18 台美同步視訊：與美國康州 New London High School 進行節慶文化與雙語交流')">
-                        <img src="web_photos/glowup_nlhs_zoom.jpg" alt="12/18 與美國康州 New London High School 線上同步節慶文化交流" class="w-full h-full object-contain">
+                        <img src="web_photos/glowup_nlhs_zoom.jpg" alt="" class="w-full h-full object-contain">
                         <div class="absolute bottom-0 inset-x-0 bg-sky-950/95 text-white text-xs py-1.5 px-2 text-center font-black">
                             <i class="fa-solid fa-video text-sky-300"></i> ④ 12/18 台美同步視訊：美國 New London High School
                         </div>
@@ -1537,16 +1618,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-1.5 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-1.5 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/happy_04.png" data-frame1="web_photos/chibi/happy_04.png" data-frame2="web_photos/chibi/happy_04.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-14" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-wave chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「先用 A–Z 轉盤與《Meet Miffy》幫學生搭建口語與簡報鷹架，孩子在面對美國康州與馬來西亞學伴時就能自信開口分享台灣文化！」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 15 (New): 跨域 V2.0 成果產出 (113學年 Glow Up 美妝大聯盟 II ── 化學面膜實驗 × 6/18 立體手工書成果製作大會) -->
-    <section class="slide" id="slide-15">
+    <section class="slide" id="slide-16">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-16" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start bg-purple-50 text-purple-700 border border-purple-200 !mb-0">
@@ -1576,25 +1661,25 @@
                 <!-- Left (7 cols): 2x2 Huge Uncropped Upright Photos (Teacher Miffy + Cover + 2 Pop-Up Insides) -->
                 <div class="md:col-span-7 grid grid-cols-2 grid-rows-2 gap-2.5 h-[55vh]">
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-pink-300 shadow-md" onclick="openImageLightbox('web_photos/today_glowup_class.jpg', '2025/6/18 美妝上課情形：明芬老師手持紫色立體手工書講解封面、內頁與英文內容')">
-                        <img src="web_photos/today_glowup_class.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3882.jpg';" alt="2025/6/18 成果製作大會 明芬老師手持 Glow Up 立體書講解" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/today_glowup_class.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_3882.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10px] p-1.5 text-center font-bold">
                             <i class="fa-solid fa-chalkboard-user text-pink-300"></i> 6/18 美妝上課情形：明芬老師手持立體書示範指導
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md" onclick="openImageLightbox('web_photos/today_glowup_book_cover.jpg', '113-2 Glow Up 美妝手工書封面：維納斯誕生在一片海洋泡沫的貝殼中（呼應文藝復興名畫《維納斯的誕生》）')">
-                        <img src="web_photos/today_glowup_book_cover.jpg" onerror="this.onerror=null; this.src='web_photos/glowup_book_cover_upright.jpg';" alt="113-2 Glow up 美妝手工書封面 維納斯誕生在一片海洋泡沫的貝殼中" class="w-full h-full object-contain bg-slate-900">
+                        <img src="web_photos/today_glowup_book_cover.jpg" onerror="this.onerror=null; this.src='web_photos/glowup_book_cover_upright.jpg';" alt="" class="w-full h-full object-contain bg-slate-900">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10px] p-1.5 text-center font-bold">
                             <i class="fa-solid fa-palette text-amber-300"></i> 一、封面設計：維納斯誕生在一片海洋泡沫的貝殼中
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-purple-300 shadow-md">
-                        <img src="web_photos/IMG_3784.jpg" alt="紫色立體書內頁展開 化學面膜實驗與課堂實作紀錄" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/IMG_3784.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10px] p-1.5 text-center font-bold">
                             <i class="fa-solid fa-flask text-coral-300"></i> 二、內頁冷裱立體方塊 (I)：化學面膜實驗與保水度測試
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-lagoon-300 shadow-md">
-                        <img src="web_photos/glowup_book_inside_upright.jpg" alt="紫色立體書內頁展開 臺灣美研院參訪與跨國視訊紀錄" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/glowup_book_inside_upright.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10px] p-1.5 text-center font-bold">
                             <i class="fa-solid fa-cubes text-lagoon-300"></i> 二、內頁冷裱立體方塊 (II)：臺灣美研院參訪與台美共學
                         </div>
@@ -1641,16 +1726,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-1.5 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-1.5 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/plaid_21.png" data-frame1="web_photos/chibi/plaid_21.png" data-frame2="web_photos/chibi/plaid_21.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-15" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-float chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「受邀至師大發表的心血結晶：將真實的面膜化學實驗與跨國共學 (Process)，轉化為驚豔國際夥伴的『維納斯誕生於海洋泡沫貝殼中』立體手工書 (Product)！」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 15B (New): 2025.5.23 臺灣美研院 (Gorgeous Studio) 美妝博物館參訪與六科 STEAM 實作全紀錄 -->
-    <section class="slide" id="slide-15-gorgeous">
+    <section class="slide" id="slide-17">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-17" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start bg-pink-50 text-pink-700 border border-pink-200 !mb-0">
@@ -1674,37 +1763,37 @@
                 <!-- Left (8 cols): 3x2 Grid of 6 Authentic Gorgeous Studio Photos Downloaded Today -->
                 <div class="md:col-span-8 grid grid-cols-3 grid-rows-2 gap-2 h-[54vh]">
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-pink-300 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/today_IMG_3495.jpg', '2025.5.23 臺灣美研院 (Gorgeous Studio) 參訪：明芬老師與全體師生「用美傳遞愛」大合照')">
-                        <img src="web_photos/today_IMG_3495.jpg" alt="臺灣美研院參訪全體師生大合照" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/today_IMG_3495.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-pink-900/90 text-white text-[10px] p-1 text-center font-bold truncate">
                             <i class="fa-solid fa-heart text-pink-300"></i> 1. 臺灣美研院：師生「用美傳遞愛」合影
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/today_IMG_3435.jpg', '2025.5.23 臺灣美研院 GORGEOUS STUDIO 專業好萊塢化妝鏡教室講座')">
-                        <img src="web_photos/today_IMG_3435.jpg" alt="GORGEOUS STUDIO 化妝鏡教室講座" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/today_IMG_3435.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10px] p-1 text-center font-bold truncate">
                             <i class="fa-solid fa-chalkboard-user text-amber-300"></i> 2. Gorgeous Studio 專業彩妝教室講座
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-purple-300 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/today_IMG_3502.jpg', '雙語化妝品成分解析（Chamomilla Recutita Extract 洋甘菊萃取、Squalene 角鯊烯）與男同學彩妝遮瑕體驗')">
-                        <img src="web_photos/today_IMG_3502.jpg" alt="雙語成分解析與男同學遮瑕彩妝體驗" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/today_IMG_3502.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-purple-900/90 text-white text-[10px] p-1 text-center font-bold truncate">
                             <i class="fa-solid fa-flask text-purple-300"></i> 3. 雙語成分解析 ＆ 男同學遮瑕實作
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-rose-300 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/today_IMG_3464.jpg', '學生親手進行美甲彩繪與色彩美學實作體驗')">
-                        <img src="web_photos/today_IMG_3464.jpg" alt="學生美甲彩繪實作體驗" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/today_IMG_3464.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-rose-900/90 text-white text-[10px] p-1 text-center font-bold truncate">
                             <i class="fa-solid fa-hand-sparkles text-rose-300"></i> 4. 動手實作：美甲彩繪與色彩美學體驗
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/today_IMG_3482.jpg', '美妝博物館導覽：美妝的開始——蘇美爾文明時期（世界第一支口紅歷史）')">
-                        <img src="web_photos/today_IMG_3482.jpg" alt="美妝的開始：蘇美爾文明時期口紅歷史" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/today_IMG_3482.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10px] p-1 text-center font-bold truncate">
                             <i class="fa-solid fa-landmark text-amber-300"></i> 5. 美妝歷史：蘇美爾文明世界第一支口紅
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-lagoon-300 shadow-md cursor-zoom-in" onclick="openImageLightbox('web_photos/today_IMG_3484.jpg', '臺灣美研院・美妝博物館導覽：學生手持標語開心合影')">
-                        <img src="web_photos/today_IMG_3484.jpg" alt="學生手持臺灣美研院與美妝博物館標語合影" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/today_IMG_3484.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-lagoon-900/90 text-white text-[10px] p-1 text-center font-bold truncate">
                             <i class="fa-solid fa-camera-retro text-lagoon-300"></i> 6. 美妝博物館：學生體驗打卡合影
                         </div>
@@ -1714,7 +1803,7 @@
                 <!-- Right (4 cols): 113課程規劃.docx Diagram + Interdisciplinary Connection -->
                 <div class="md:col-span-4 flex flex-col justify-between space-y-2 h-[54vh]">
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-purple-300 shadow-md bg-white h-[31vh] cursor-zoom-in" onclick="openImageLightbox('web_photos/today_113_plan_diagram.png', '《113課程規劃.docx》六科 STEAM 圓環架構圖')">
-                        <img src="web_photos/today_113_plan_diagram.png" alt="113課程規劃六科圓環架構圖" class="w-full h-full object-contain bg-white p-1">
+                        <img src="web_photos/today_113_plan_diagram.png" alt="" class="w-full h-full object-contain bg-white p-1">
                         <div class="absolute bottom-0 inset-x-0 bg-purple-900/90 text-white text-[10px] p-1 text-center font-bold">
                             <i class="fa-solid fa-circle-nodes text-amber-300"></i> 《113課程規劃.docx》六科 STEAM 圓環圖 (點擊放大)
                         </div>
@@ -1735,16 +1824,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-1.5 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-1.5 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/body_01.png" data-frame1="web_photos/chibi/body_01.png" data-frame2="web_photos/chibi/body_01.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-16" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-wave chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「從課本裡的《Dying to be Attractive》與蘇美爾文明口紅歷史，走進臺南『臺灣美研院 Gorgeous Studio』親手體驗遮瑕成分與美甲彩繪，讓六科知識在真實美妝產業中活起來！」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 15 (New): 跨域 V2.1 (113學年 瀛美大視界・永續之美 SDGs 期中成果海報全覽) -->
-    <section class="slide" id="slide-16">
+    <section class="slide" id="slide-18">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-18" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
                 <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200 !mb-0">
@@ -1768,7 +1861,7 @@
                 <!-- Left Col (3 cols): Full Uncropped Vertical Poster -->
                 <div class="md:col-span-3 h-[53vh] flex flex-col">
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-lagoon-400 shadow-lg bg-white h-full" onclick="openImageLightbox('web_photos/yinghai_113_poster.jpg', '113學年度與國外校際合作線上教學計畫期中成果海報全圖')">
-                        <img src="web_photos/yinghai_113_poster.jpg" alt="14.臺南市瀛海中學期中成果海報全圖" class="w-full h-full object-contain bg-white">
+                        <img src="web_photos/yinghai_113_poster.jpg" alt="" class="w-full h-full object-contain bg-white">
                         <div class="absolute bottom-0 inset-x-0 bg-lagoon-800/95 text-white text-[11px] p-1.5 text-center font-black">
                             <i class="fa-solid fa-scroll text-amber-300"></i> 成果海報全圖（點擊放大）
                         </div>
@@ -1778,13 +1871,13 @@
                 <!-- Middle Col (5 cols): 2 Zoomed-In High-Res Sections of the Poster -->
                 <div class="md:col-span-5 grid grid-rows-2 gap-2.5 h-[53vh]">
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md bg-white h-full" onclick="openImageLightbox('web_photos/yinghai_113_poster_arch.jpg', '海報局部放大(上)：與國外學校線上教學規劃、113學年度美妝七科課程架構與10次社課執行表')">
-                        <img src="web_photos/yinghai_113_poster_arch.jpg" alt="113學年度課程架構與10次社課執行表" class="w-full h-full object-contain bg-white">
+                        <img src="web_photos/yinghai_113_poster_arch.jpg" alt="" class="w-full h-full object-contain bg-white">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1 text-center font-bold">
                             <i class="fa-solid fa-sitemap text-amber-300"></i> 局部放大①：美妝七科課程架構 ＆ 10次社課執行表（點擊放大）
                         </div>
                     </div>
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-coral-300 shadow-md bg-white h-full" onclick="openImageLightbox('web_photos/yinghai_113_poster_results.jpg', '海報局部放大(下)：實施成果、2024.12.18 與美國 New London 線上文化交流與面膜實驗紀錄')">
-                        <img src="web_photos/yinghai_113_poster_results.jpg" alt="實施成果與台美線上交流紀錄" class="w-full h-full object-contain bg-white">
+                        <img src="web_photos/yinghai_113_poster_results.jpg" alt="" class="w-full h-full object-contain bg-white">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1 text-center font-bold">
                             <i class="fa-solid fa-users-viewfinder text-coral-300"></i> 局部放大②：實施成果、台美視訊連線與面膜實作（點擊放大）
                         </div>
@@ -1820,16 +1913,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-1.5 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-1.5 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/plaid_27.png" data-frame1="web_photos/chibi/plaid_27.png" data-frame2="web_photos/chibi/plaid_27.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-17" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-float chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「從 7 月盛夏夜晚與美國 New London High School 跨國共備，到週三夜間 10 堂跨科社課與 Handmade Mask 面膜實驗，讓『永續之美』成為台美學伴共同的語言！」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 16: 跨域 V3.0 (114學年 巧克力派對 STEAM 🏆 夢幻師資 × 社團行事曆全攻略) -->
-    <section class="slide" id="slide-17">
+    <section class="slide" id="slide-19">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-19" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
                 <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200 !mb-0">
@@ -1881,7 +1978,7 @@
 
                     <!-- 巧克力行事曆.jpg -->
                     <div class="relative overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md h-[22vh] bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/巧克力行事曆.jpg', '2026「A Piece of Chocolate Cake」社團行事曆與實作準備全攻略')">
-                        <img src="web_photos/巧克力行事曆.jpg" alt="2026 A Piece of Chocolate Cake 社團行事曆與實作準備全攻略" class="w-full h-full object-contain bg-sand-100">
+                        <img src="web_photos/巧克力行事曆.jpg" alt="" class="w-full h-full object-contain bg-sand-100">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1 text-center font-bold">
                             <i class="fa-solid fa-calendar-check text-amber-300"></i> 2026「A Piece of Chocolate Cake」社團行事曆全攻略 (點擊放大)
                         </div>
@@ -1892,7 +1989,7 @@
                 <div class="md:col-span-7 grid grid-cols-2 gap-2.5 h-[51vh]">
                     <!-- 1. 巧克力_英文寫作.jpg -->
                     <div class="relative overflow-hidden rounded-2xl border-2 border-lagoon-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/巧克力_英文寫作.jpg', '2026.3.6 明芬老師介紹本學期主題：巧克力課與英文寫作')">
-                        <img src="web_photos/巧克力_英文寫作.jpg" onerror="this.onerror=null; this.src='web_photos/巧克力＿英文寫作.jpg';" alt="2026.3.6 明芬老師介紹巧克力課與英文寫作" class="w-full h-full object-contain bg-sand-100">
+                        <img src="web_photos/巧克力_英文寫作.jpg" onerror="this.onerror=null; this.src='web_photos/巧克力＿英文寫作.jpg';" alt="" class="w-full h-full object-contain bg-sand-100">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1.5 text-center font-bold">
                             <i class="fa-solid fa-pen-nib text-lagoon-300"></i> 2026.3.6 英文科明芬老師：介紹巧克力主題與寫作
                         </div>
@@ -1900,7 +1997,7 @@
 
                     <!-- 2. 巧克力師資.jpg -->
                     <div class="relative overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/巧克力師資.jpg', '2026.4.10 巧克力 × 數學課：期望值公式與定價情境')">
-                        <img src="web_photos/巧克力師資.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_0381.jpg';" alt="巧克力課程數學期望值定價師資團隊" class="w-full h-full object-contain bg-sand-100">
+                        <img src="web_photos/巧克力師資.jpg" onerror="this.onerror=null; this.src='web_photos/IMG_0381.jpg';" alt="" class="w-full h-full object-contain bg-sand-100">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1.5 text-center font-bold">
                             <i class="fa-solid fa-calculator text-amber-400"></i> 2026.4.10 數學 × 英文：期望值公式與定價情境
                         </div>
@@ -1908,7 +2005,7 @@
 
                     <!-- 3. 巧克力_化學老師.jpg -->
                     <div class="relative overflow-hidden rounded-2xl border-2 border-coral-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/巧克力_化學老師.jpg', '化學科 Abigail 老師 × 明芬老師：隔水加熱融化與紅外線測溫實作')">
-                        <img src="web_photos/巧克力_化學老師.jpg" onerror="this.onerror=null; this.src='web_photos/巧克力＿化學老師.jpg';" alt="巧克力課程化學老師實作測溫" class="w-full h-full object-contain bg-sand-100">
+                        <img src="web_photos/巧克力_化學老師.jpg" onerror="this.onerror=null; this.src='web_photos/巧克力＿化學老師.jpg';" alt="" class="w-full h-full object-contain bg-sand-100">
                         <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1.5 text-center font-bold">
                             <i class="fa-solid fa-flask text-coral-400"></i> 化學科 Abigail 老師 × 明芬老師：融化測溫實作
                         </div>
@@ -1917,8 +2014,8 @@
                     <!-- 4. 巧克力_地理老師.jpg + 巧克力_地理老師Q版.png -->
                     <div class="relative overflow-hidden rounded-2xl border-2 border-emerald-300 shadow-md h-full bg-sand-100 group flex flex-col">
                         <div class="grid grid-cols-2 gap-1 flex-1 min-h-0 p-1 bg-sand-100">
-                            <img src="web_photos/巧克力_地理老師.jpg" onclick="openImageLightbox('web_photos/巧克力_地理老師.jpg', '史地科 Ray 老師：可可與全球貿易實驗室')" alt="地理老師真人照" class="w-full h-full object-contain rounded-lg cursor-zoom-in">
-                            <img src="web_photos/巧克力_地理老師Q版.png" onclick="openImageLightbox('web_photos/巧克力_地理老師Q版.png', '史地科 Ray 老師 Q版角色導師')" alt="地理老師Q版照" class="w-full h-full object-contain rounded-lg cursor-zoom-in">
+                            <img src="web_photos/巧克力_地理老師.jpg" onclick="openImageLightbox('web_photos/巧克力_地理老師.jpg', '史地科 Ray 老師：可可與全球貿易實驗室')" alt="" class="w-full h-full object-contain rounded-lg cursor-zoom-in">
+                            <img src="web_photos/巧克力_地理老師Q版.png" onclick="openImageLightbox('web_photos/巧克力_地理老師Q版.png', '史地科 Ray 老師 Q版角色導師')" alt="" class="w-full h-full object-contain rounded-lg cursor-zoom-in">
                         </div>
                         <div class="bg-black/80 text-white text-[11px] p-1.5 text-center font-bold shrink-0">
                             <i class="fa-solid fa-earth-americas text-emerald-400"></i> 史地科 Ray 老師：全球可可貿易 (真人 × 網站 Q版導師)
@@ -1927,16 +2024,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-1.5 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-1.5 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/body_13.png" data-frame1="web_photos/chibi/body_13.png" data-frame2="web_photos/chibi/body_13.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-18" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-talk chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「從 3–4 月數位教學與教材上傳（Miffy、Ray、Abigail 輪流授課），到 5/29 巧克力實作大會與 6/12 結業，用一顆巧克力串起跨科夢幻團隊！」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 16: 跨域 V3.1 (2026.5.29 巧克力實作大會 ── 雷神巧克力 × 巧克力火鍋 × 手工書全紀錄 🍫) -->
-    <section class="slide" id="slide-18">
+    <section class="slide" id="slide-20">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-20" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
                 <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200 !mb-0">
@@ -1965,25 +2066,25 @@
             <!-- Top Row: 4 Photos of 2026.5.29 雷神巧克力 & 巧克力成果大會 -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 h-[25vh] mb-2">
                 <div class="relative overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/today_choco_gala.jpg', '2026.5.29 巧克力成果大會六宮格全紀錄：隔水加熱、淋巧克力醬、品嚐與手工書合影')">
-                    <img src="web_photos/today_choco_gala.jpg" alt="巧克力成果大會六宮格全紀錄" class="w-full h-full object-contain bg-sand-100">
+                    <img src="web_photos/today_choco_gala.jpg" alt="" class="w-full h-full object-contain bg-sand-100">
                     <div class="absolute bottom-0 inset-x-0 bg-amber-900/90 text-white text-[11px] p-1 text-center font-bold">
                         1. 巧克力成果大會六宮格全紀錄
                     </div>
                 </div>
                 <div class="relative overflow-hidden rounded-2xl border-2 border-amber-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/倒入巧克力醬.jpg', '2026.5.29 倒入巧克力醬（淋在壓碎餅乾與洋芋片上）')">
-                    <img src="web_photos/倒入巧克力醬.jpg" onerror="this.onerror=null; this.src='web_photos/巧克力醬.jpg';" alt="倒入巧克力醬" class="w-full h-full object-contain bg-sand-100">
+                    <img src="web_photos/倒入巧克力醬.jpg" onerror="this.onerror=null; this.src='web_photos/巧克力醬.jpg';" alt="" class="w-full h-full object-contain bg-sand-100">
                     <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1 text-center font-bold">
                         2. 倒入巧克力醬（淋上脆餅與洋芋片）
                     </div>
                 </div>
                 <div class="relative overflow-hidden rounded-2xl border-2 border-coral-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/雷神巧克力成品.jpg', '2026.5.29 眾所矚目「台式雷神巧克力」製作')">
-                    <img src="web_photos/雷神巧克力成品.jpg" alt="台式雷神巧克力製作" class="w-full h-full object-contain bg-sand-100">
+                    <img src="web_photos/雷神巧克力成品.jpg" alt="" class="w-full h-full object-contain bg-sand-100">
                     <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1 text-center font-bold">
                         3. 眾所矚目「雷神巧克力」製作
                     </div>
                 </div>
                 <div class="relative overflow-hidden rounded-2xl border-2 border-coral-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/巧克力火鍋.jpg', '2026.5.29 歡樂巧克力火鍋 Chocolate Fondue 裹醬成品')">
-                    <img src="web_photos/巧克力火鍋.jpg" alt="歡樂巧克力火鍋 Chocolate Fondue" class="w-full h-full object-contain bg-sand-100">
+                    <img src="web_photos/巧克力火鍋.jpg" alt="" class="w-full h-full object-contain bg-sand-100">
                     <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[11px] p-1 text-center font-bold">
                         4. 歡樂巧克力火鍋 Fondue
                     </div>
@@ -1993,13 +2094,13 @@
             <!-- Bottom Row: 4 Cards (眾多巧克力蛋糕 + 打開巧克力手工書影片 + 人手一本大合照 + 手工書內頁) -->
             <div class="grid grid-cols-2 md:grid-cols-12 gap-2.5 h-[28vh] mb-2">
                 <div class="md:col-span-3 relative overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/today_many_choco_cakes.jpg', '眾多巧克力蛋糕造型立體手工書：精緻蕾絲襯紙與草莓奶油裝飾')">
-                    <img src="web_photos/today_many_choco_cakes.jpg" alt="眾多巧克力蛋糕造型立體手工書" class="w-full h-full object-contain bg-sand-100">
+                    <img src="web_photos/today_many_choco_cakes.jpg" alt="" class="w-full h-full object-contain bg-sand-100">
                     <div class="absolute bottom-0 inset-x-0 bg-amber-900/90 text-white text-[10.5px] p-1 text-center font-bold truncate">
                         <i class="fa-solid fa-cake-candles text-amber-300"></i> 5. 眾多巧克力蛋糕造型手工書
                     </div>
                 </div>
                 <div class="md:col-span-3 relative overflow-hidden rounded-2xl border-2 border-red-400 shadow-md h-full bg-slate-900 group cursor-pointer" onclick="openVideoModal('web_photos/today_choco_book_open.mp4')">
-                    <img src="web_photos/today_choco_book_thumb.jpg" onerror="this.onerror=null; this.src='web_photos/today_many_choco_cakes.jpg';" alt="打開巧克力手工書實拍影片預覽" class="w-full h-full object-contain bg-slate-900 group-hover:scale-105 transition">
+                    <img src="web_photos/today_choco_book_thumb.jpg" onerror="this.onerror=null; this.src='web_photos/today_many_choco_cakes.jpg';" alt="" class="w-full h-full object-contain bg-slate-900 group-hover:scale-105 transition">
                     <div class="absolute inset-0 flex items-center justify-center bg-black/25 group-hover:bg-black/10 transition">
                         <span class="w-11 h-11 rounded-full bg-red-600/95 text-white flex items-center justify-center shadow-lg">
                             <i class="fa-solid fa-play text-base ml-0.5"></i>
@@ -2013,29 +2114,36 @@
                     </div>
                 </div>
                 <div class="md:col-span-3 relative overflow-hidden rounded-2xl border-2 border-lagoon-300 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/巧克力手工書即將完成.jpg', '2026.5.29 人手一本巧克力手工書師生大合照')">
-                    <img src="web_photos/巧克力手工書即將完成.jpg" alt="2026.5.29 人手一本巧克力手工書" class="w-full h-full object-contain bg-sand-100">
+                    <img src="web_photos/巧克力手工書即將完成.jpg" alt="" class="w-full h-full object-contain bg-sand-100">
                     <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10.5px] p-1 text-center font-bold truncate">
                         <i class="fa-solid fa-users text-amber-300"></i> 7. 人手一本巧克力手工書大合照
                     </div>
                 </div>
                 <div class="md:col-span-3 relative overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md h-full bg-sand-100 group cursor-zoom-in" onclick="openImageLightbox('web_photos/巧克力內頁.jpg', '巧克力手工書完整內頁：串聯 2026.3.6–5.29 歷程與 Hook-Bridge-Thesis 英文寫作')">
-                    <img src="web_photos/巧克力內頁.jpg" alt="巧克力主題雙語學習單與手工書內頁" class="w-full h-full object-contain bg-sand-100">
+                    <img src="web_photos/巧克力內頁.jpg" alt="" class="w-full h-full object-contain bg-sand-100">
                     <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10.5px] p-1 text-center font-bold truncate">
                         <i class="fa-solid fa-book-open text-amber-300"></i> 8. 手工書內頁：Hook-Bridge-Thesis
                     </div>
                 </div>
             </div>
 
-            <div class="quote-card py-1.5 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-1.5 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/walk_04.png" data-frame1="web_photos/chibi/walk_04.png" data-frame2="web_photos/chibi/walk_04.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-19" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-bounce chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「將一整個學期的英文、數學、史地、化學與 5/29 雷神巧克力、巧克力火鍋實作列印成相片，親手剪貼裝訂成『人手一本巧克力手工書』！」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 17: 跨域 V3.2 (《可可創新實驗室》Google Sites 100% 離線互動講解台 🌐) -->
-    <section class="slide" id="slide-19">
+    <section class="slide" id="slide-21">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed top-3 right-4 md:right-7 z-40 flex items-center pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_06.png" data-frame1="web_photos/chibi/plaid_06.png" data-frame2="web_photos/chibi/plaid_06.png" alt="" onerror="this.style.display='none'" data-chibi-slot="hdr-21" class="w-12 h-12 md:w-14 md:h-14 object-contain drop-shadow-sm chibi-anim-float chibi-sprite">
+            </div>
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-21" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
                 <div class="stage-badge self-start bg-emerald-50 text-emerald-800 border border-emerald-300 !mb-0">
@@ -2088,9 +2196,13 @@
             </div>
 
             <!-- Interactive Offline Iframe Container -->
-            <div class="w-full h-[55vh] bg-[#FDFBF7] rounded-b-2xl border-2 border-amber-800 shadow-xl overflow-hidden relative">
+            <div class="w-full h-[50vh] bg-[#FDFBF7] rounded-b-2xl border-2 border-amber-800 shadow-xl overflow-hidden relative mb-1.5">
                 <iframe id="slideCocoaFrame" src="cocoa_lab_offline/intro.html" class="w-full h-full border-0" title="可可創新實驗室離線互動預覽"></iframe>
             </div>
+
+            <div class="quote-card py-1.5 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/plaid_18.png" data-frame1="web_photos/chibi/plaid_18.png" data-frame2="web_photos/chibi/plaid_18.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-20" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-talk chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
+                    「把六科跨領域教材整合進《可可創新實驗室》網站，讓每一次共備的心血都能成為跨校共享的數位資產！」
+                </p></div></div>
         </div>
     </section>
 
@@ -2099,7 +2211,13 @@
          ========================================== -->
 
     <!-- Slide 19A (New): 教製作 KWL 與轉折詞海報的過程 (Dying to be Attractive × 愛美 × 難民議題 × Transitional Words) -->
-    <section class="slide" id="slide-kwl">
+    <section class="slide" id="slide-22">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-22" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200 !mb-0">
@@ -2118,28 +2236,28 @@
                 <!-- Left (7 cols): 4 Student Posters Downloaded Today -->
                 <div class="md:col-span-7 grid grid-cols-4 gap-2 h-[54vh]">
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-pink-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_kwl_attractive.jpg', 'KWL 小海報 ①：B3U3 Dying to be Attractive（流淚芭比主視覺 × What We Know / Want to Know / Have Learned）')">
-                        <img src="web_photos/today_kwl_attractive.jpg" alt="KWL小海報 Dying to be attractive" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/today_kwl_attractive.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-pink-700/95 text-white text-[10px] p-1.5 text-center font-black">
                             ① KWL：芭比流淚審美反思
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-purple-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_kwl_beauty.jpg', 'KWL 小海報 ②：B3U3 Dying to be Attractive（彩妝刷具眼影盤插畫 × 古今審美與健康代價）')">
-                        <img src="web_photos/today_kwl_beauty.jpg" alt="KWL小海報 愛美彩妝" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/today_kwl_beauty.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-purple-700/95 text-white text-[10px] p-1.5 text-center font-black">
                             ② KWL：愛美彩妝與歷史代價
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_kwl_refugee.jpg', 'KWL 小海報 ③：Choose Love Shop for Refugee 難民議題（船舵轉盤 × KWL 三欄思辨 × 楊子儀、陳佳榆作品）')">
-                        <img src="web_photos/today_kwl_refugee.jpg" alt="KWL小海報 難民議題 Choose Love Shop for Refugee" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/today_kwl_refugee.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-amber-700/95 text-white text-[10px] p-1.5 text-center font-black">
                             ③ KWL：Choose Love 難民議題
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-lagoon-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_transitional_words.jpg', '閱讀結構小海報 ④：Finding Transitional Words: Opposition（Mongolian vs. Japanese 相撲對比與轉折詞分析）')">
-                        <img src="web_photos/today_transitional_words.jpg" alt="Finding Transitional Words 小海報" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/today_transitional_words.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-lagoon-700/95 text-white text-[10px] p-1.5 text-center font-black">
                             ④ 閱讀結構：Transitional Words
                         </div>
@@ -2181,16 +2299,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-1.5 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-1.5 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/exp_05.png" data-frame1="web_photos/chibi/exp_05.png" data-frame2="web_photos/chibi/exp_05.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-21" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-talk chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「給學生清楚的 K-W-L 提問鷹架與轉折詞分析框架，孩子就能把課本文章讀深、讀透，創作出圖文並茂的英文思辨海報！」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 19B (New): 活用文法 ① ── B4U1 抱怨男友的寫作練習 (A Complaint About My Boyfriend) ✕ Ask ChatGPT ✕ Love Coach 回信 -->
-    <section class="slide" id="slide-boyfriend">
+    <section class="slide" id="slide-23">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-23" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start bg-rose-50 text-rose-700 border border-rose-200 !mb-0">
@@ -2227,7 +2349,7 @@
                 <div class="md:col-span-6 grid grid-cols-12 gap-2.5 h-[54vh]">
                     <!-- Full Poster Overview (5 of 12 cols) -->
                     <div class="col-span-5 img-container relative group overflow-hidden rounded-2xl border-2 border-rose-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_b4u1_result.jpg', 'B4U1 完整漸進式小海報全覽：最上面「I. 抱怨男友文」➔ 中間「II. Ask ChatGPT 練習 Prompt 與王心凌《一律建議分手吧》」➔ 最下面「III. 幽默溫暖回信結尾」')">
-                        <img src="web_photos/today_b4u1_result.jpg" alt="B4U1 完整漸進式三步驟小海報" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/today_b4u1_result.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <span class="absolute top-1.5 left-1.5 bg-rose-600 text-white text-[9.5px] font-black px-2 py-0.5 rounded-full shadow">完整小海報全覽</span>
                         <div class="absolute bottom-0 inset-x-0 bg-rose-900/95 text-white text-[10px] p-1.5 text-center font-black">
                             🔍 點擊放大完整小海報
@@ -2238,7 +2360,7 @@
                     <div class="col-span-7 grid grid-rows-3 gap-2 h-full">
                         <!-- Step 1: Top - B4U1-學習成果-抱怨男友-寫作.pdf -->
                         <div class="img-container relative group overflow-hidden rounded-xl border-2 border-rose-400 shadow-sm bg-white cursor-zoom-in" onclick="openImageLightbox('web_photos/B4U1_抱怨男友_寫作單.png', '📄 檔案 ①《B4U1-學習成果-抱怨男友-寫作.pdf》：A Complaint About My Boyfriend（28字限定抱怨男友寫作單）')">
-                            <img src="web_photos/B4U1_抱怨男友_寫作單.png" alt="B4U1-學習成果-抱怨男友-寫作.pdf" class="w-full h-full object-contain bg-white p-0.5">
+                            <img src="web_photos/B4U1_抱怨男友_寫作單.png" alt="" class="w-full h-full object-contain bg-white p-0.5">
                             <span class="absolute top-1 left-1 bg-rose-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow">① 最上面：抱怨男友寫作.pdf</span>
                             <a href="web_photos/B4U1_抱怨男友_寫作單.pdf" target="_blank" onclick="event.stopPropagation()" class="absolute top-1 right-1 bg-rose-600 hover:bg-rose-700 text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow z-10">📄 開啟 PDF</a>
                             <div class="absolute bottom-0 inset-x-0 bg-rose-900/95 text-white text-[9.5px] py-0.5 px-1.5 text-center font-bold truncate">
@@ -2248,7 +2370,7 @@
 
                         <!-- Step 2: Middle of Poster -->
                         <div class="img-container relative group overflow-hidden rounded-xl border-2 border-amber-400 shadow-sm bg-white cursor-zoom-in" onclick="openImageLightbox('web_photos/b4u1_step2_mid.jpg', '漸進步驟 ②【小海報中間】II. Ask ChatGPT：練習下 Prompt 查找課文 Love Coach 建議 ＆ 王心凌《一律建議分手吧》思辨')">
-                            <img src="web_photos/b4u1_step2_mid.jpg" alt="小海報中間 Step 2 Ask ChatGPT 練習 Prompt" class="w-full h-full object-cover object-center">
+                            <img src="web_photos/b4u1_step2_mid.jpg" alt="" class="w-full h-full object-cover object-center">
                             <span class="absolute top-1 left-1 bg-amber-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow">Step 2｜中間：Ask ChatGPT (練 Prompt)</span>
                             <button onclick="event.stopPropagation(); openImageLightbox('web_photos/Ask_ChatGPT.jpg', 'Ask ChatGPT.jpg：學生練習設計 Prompt 提問草稿')" class="absolute top-1 right-1 bg-white/95 hover:bg-amber-50 text-amber-800 text-[9px] font-black px-1.5 py-0.5 rounded border border-amber-300 shadow cursor-pointer">🔍 Prompt草稿</button>
                             <div class="absolute bottom-0 inset-x-0 bg-amber-900/90 text-white text-[9.5px] py-0.5 px-1.5 text-center font-bold truncate">
@@ -2258,7 +2380,7 @@
 
                         <!-- Step 3: Bottom of Poster -->
                         <div class="img-container relative group overflow-hidden rounded-xl border-2 border-lagoon-400 shadow-sm bg-white cursor-zoom-in" onclick="openImageLightbox('web_photos/b4u1_step3_bot.jpg', '漸進步驟 ③【小海報最後面】III. 請回信一開始抱怨男友的文章：結合王心凌《一律建議分手吧》幽默感與理性溝通的溫暖結尾')">
-                            <img src="web_photos/b4u1_step3_bot.jpg" alt="小海報最後面 Step 3 幽默溫暖回信結尾" class="w-full h-full object-cover object-center">
+                            <img src="web_photos/b4u1_step3_bot.jpg" alt="" class="w-full h-full object-cover object-center">
                             <span class="absolute top-1 left-1 bg-lagoon-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow">Step 3｜後面：幽默回信結尾</span>
                             <div class="absolute bottom-0 inset-x-0 bg-lagoon-900/90 text-white text-[9.5px] py-0.5 px-1.5 text-center font-bold truncate">
                                 ③ 最後面：融合《一律建議分手吧》幽默感，回信給當初抱怨的自己
@@ -2329,16 +2451,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-1.5 px-4">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-1.5 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/happy_11.png" data-frame1="web_photos/chibi/happy_11.png" data-frame2="web_photos/chibi/happy_11.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-22" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-cheer chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「從短短 28 個單字的『抱怨男友造句遊戲』引爆全班笑聲與造句動機，再自然銜接 ChatGPT 思辨與戀愛教練回信，讓文法課成為最有共鳴的情感教育！」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 20: 活用文法 ② (情境導向寫作 ── B4U6 寫信給李振全老師 & Writing Assignment 試算表學生作品提取) -->
-    <section class="slide" id="slide-20">
+    <section class="slide" id="slide-24">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-24" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start bg-amber-50 text-amber-700 border border-amber-200 !mb-0">
@@ -2419,7 +2545,7 @@
                     <!-- Bottom card: 上台和李振全老師合影.JPG + 6 Tabs Overview -->
                     <div class="mt-2 bg-coral-50/70 rounded-xl p-2 border border-coral-300 flex items-center gap-2.5">
                         <div class="relative w-28 h-16 shrink-0 rounded-lg overflow-hidden border-2 border-coral-400 shadow cursor-zoom-in group" onclick="openImageLightbox('web_photos/today_jeremy_li_stage.jpg', '2025.4.18 生命鬥士李振全老師蒞臨瀛海高中演講《如果是你》：學生上台與振全老師溫暖合影')">
-                            <img src="web_photos/today_jeremy_li_stage.jpg" alt="上台和李振全老師合影" class="w-full h-full object-cover bg-white">
+                            <img src="web_photos/today_jeremy_li_stage.jpg" alt="" class="w-full h-full object-cover bg-white">
                             <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[8.5px] text-center font-bold py-0.5">🔍 點擊放大合影</div>
                         </div>
                         <div class="text-[10.5px] leading-snug">
@@ -2505,18 +2631,22 @@
                         </div>
                     </div>
 
-                    <div class="quote-card py-1.5 px-3 !my-0 mt-1.5">
-                        <p class="font-quote text-[11px] text-slate-700 italic leading-snug">
+                    <div class="quote-card py-1.5 px-3 !my-0 mt-1.5 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/plaid_30.png" data-frame1="web_photos/chibi/plaid_30.png" data-frame2="web_photos/chibi/plaid_30.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-23" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-cheer chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-[11px] text-slate-700 italic leading-snug">
                             「在雲端試算表作業區中，我們不只看見完美造句，更真實記錄學生從誤解題意、時態混淆到寫出溫暖應援信的學習軌跡。」
-                        </p>
-                    </div>
+                        </p></div></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Slide 24: 全英計畫教學觀摩日 (When Social Media Meets SEL ── 8大觀摩日照片與完整教材包一覽無遺，零重複圖片) -->
-    <section class="slide" id="slide-21">
+    <section class="slide" id="slide-25">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-25" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start !mb-0">
@@ -2542,7 +2672,7 @@
             <div class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-2.5 h-[50vh] mb-2">
                 <!-- Card 1: 觀摩日師生海報展示 -->
                 <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-coral-400 shadow-md bg-white cursor-zoom-in" onclick="openImageLightbox('web_photos/social_media.jpg', '📸 2025.10.14 全英計畫教學觀摩日：Social Media: Finding a Balance 師生海報展示')">
-                    <img src="web_photos/social_media.jpg" alt="2025.10.14 全英計畫教學觀摩日 師生海報展示" class="w-full h-full object-contain bg-sand-100/60">
+                    <img src="web_photos/social_media.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                     <span class="absolute top-1.5 left-1.5 bg-coral-600 text-white text-[9.5px] font-black px-2 py-0.5 rounded-full shadow">現場實況 ①</span>
                     <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10.5px] py-1 px-1.5 text-center font-bold truncate">
                         10/14 觀摩日：師生展示綠色海報
@@ -2551,7 +2681,7 @@
 
                 <!-- Card 2: 檔案 1 - B3U2 Social Media標頭.docx -->
                 <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-rose-300 shadow-md bg-white cursor-zoom-in" onclick="openImageLightbox('web_photos/sel_u2/B3U2 Social Media標頭.docx.png', '📄 教材檔案 ①《B3U2 Social Media標頭.docx》：When Social Media Meets Social Emotional Learning 海報標頭')">
-                    <img src="web_photos/sel_u2/B3U2 Social Media標頭.docx.png" alt="B3U2 Social Media標頭.docx" class="w-full h-full object-contain bg-white p-1">
+                    <img src="web_photos/sel_u2/B3U2 Social Media標頭.docx.png" alt="" class="w-full h-full object-contain bg-white p-1">
                     <a href="SEL_U2_教材包/B3U2 Social Media標頭.docx" download onclick="event.stopPropagation()" class="absolute top-1.5 right-1.5 bg-rose-600 hover:bg-rose-700 text-white text-[9.5px] font-black px-2 py-0.5 rounded-full shadow z-10">📥 下載 .docx</a>
                     <div class="absolute bottom-0 inset-x-0 bg-rose-800/95 text-white text-[10.5px] py-1 px-1.5 text-center font-bold truncate">
                         ① 海報標頭：B3U2 Social Media
@@ -2560,7 +2690,7 @@
 
                 <!-- Card 3: 檔案 2 - SEL核心概念.docx -->
                 <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-purple-300 shadow-md bg-white cursor-zoom-in" onclick="openImageLightbox('web_photos/sel_u2/SEL核心概念.docx.png', '📄 教材檔案 ②《SEL核心概念.docx》：SEL 五大核心素養中英圓餅圖與中文定義')">
-                    <img src="web_photos/sel_u2/SEL核心概念.docx.png" alt="SEL核心概念.docx" class="w-full h-full object-contain bg-white p-1">
+                    <img src="web_photos/sel_u2/SEL核心概念.docx.png" alt="" class="w-full h-full object-contain bg-white p-1">
                     <a href="SEL_U2_教材包/SEL核心概念.docx" download onclick="event.stopPropagation()" class="absolute top-1.5 right-1.5 bg-purple-700 hover:bg-purple-800 text-white text-[9.5px] font-black px-2 py-0.5 rounded-full shadow z-10">📥 下載 .docx</a>
                     <div class="absolute bottom-0 inset-x-0 bg-purple-900/95 text-white text-[10.5px] py-1 px-1.5 text-center font-bold truncate">
                         ② SEL核心概念：五大素養圓餅圖
@@ -2569,7 +2699,7 @@
 
                 <!-- Card 4: 檔案 3 - 心情溫度計.pdf -->
                 <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-emerald-400 shadow-md bg-white cursor-zoom-in" onclick="openImageLightbox('web_photos/sel_u2/心情溫度計.pdf.png', '📕 教材檔案 ③《心情溫度計.pdf》：My Temperature 彩虹溫度計與手作箭頭素材')">
-                    <img src="web_photos/sel_u2/心情溫度計.pdf.png" alt="心情溫度計.pdf" class="w-full h-full object-contain bg-white p-1">
+                    <img src="web_photos/sel_u2/心情溫度計.pdf.png" alt="" class="w-full h-full object-contain bg-white p-1">
                     <a href="SEL_U2_教材包/心情溫度計.pdf" target="_blank" onclick="event.stopPropagation()" class="absolute top-1.5 right-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-[9.5px] font-black px-2 py-0.5 rounded-full shadow z-10">📕 開啟 PDF</a>
                     <div class="absolute bottom-0 inset-x-0 bg-emerald-800/95 text-white text-[10.5px] py-1 px-1.5 text-center font-bold truncate">
                         ③ 心情溫度計：My Temperature
@@ -2578,7 +2708,7 @@
 
                 <!-- Card 5: 觀摩日全班海報大合照 -->
                 <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-lagoon-400 shadow-md bg-white cursor-zoom-in" onclick="openImageLightbox('web_photos/高一2_social_media.jpg', '📸 全英計畫教學觀摩日課堂實況：全班展示 When Social Media Meets SEL 綠色海報')">
-                    <img src="web_photos/高一2_social_media.jpg" alt="全班展示 Social Media Meets SEL 海報" class="w-full h-full object-contain bg-sand-100/60">
+                    <img src="web_photos/高一2_social_media.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                     <span class="absolute top-1.5 left-1.5 bg-lagoon-700 text-white text-[9.5px] font-black px-2 py-0.5 rounded-full shadow">現場實況 ②</span>
                     <div class="absolute bottom-0 inset-x-0 bg-black/80 text-white text-[10.5px] py-1 px-1.5 text-center font-bold truncate">
                         全班手持 SEL 綠色海報大合照
@@ -2587,7 +2717,7 @@
 
                 <!-- Card 6: 檔案 4 - Wheel of Emotions (3份).pdf -->
                 <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md bg-white cursor-zoom-in" onclick="openImageLightbox('web_photos/sel_u2/Wheel-of-Emotions-Handout-(3).pdf.png', '📕 教材檔案 ④《Wheel-of-Emotions-Handout-(3).pdf》：6大核心情緒延伸精準英文字彙輪盤')">
-                    <img src="web_photos/sel_u2/Wheel-of-Emotions-Handout-(3).pdf.png" alt="Wheel of Emotions Handout" class="w-full h-full object-contain bg-white p-1">
+                    <img src="web_photos/sel_u2/Wheel-of-Emotions-Handout-(3).pdf.png" alt="" class="w-full h-full object-contain bg-white p-1">
                     <a href="SEL_U2_教材包/Wheel-of-Emotions-Handout-(3).pdf" target="_blank" onclick="event.stopPropagation()" class="absolute top-1.5 right-1.5 bg-amber-600 hover:bg-amber-700 text-white text-[9.5px] font-black px-2 py-0.5 rounded-full shadow z-10">📕 開啟 PDF</a>
                     <div class="absolute bottom-0 inset-x-0 bg-amber-800/95 text-white text-[10.5px] py-1 px-1.5 text-center font-bold truncate">
                         ④ 情緒字彙輪盤：Wheel of Emotions
@@ -2596,7 +2726,7 @@
 
                 <!-- Card 7: 檔案 5 - 101_Coping_Skills_ADA.pdf -->
                 <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-indigo-400 shadow-md bg-white cursor-zoom-in" onclick="openImageLightbox('web_photos/sel_u2/101_Coping_Skills_page2.png', '📕 教材檔案 ⑤《101_Coping_Skills_ADA.pdf》：101 種正念接地與具體情緒調適行動清單')">
-                    <img src="web_photos/sel_u2/101_Coping_Skills_page2.png" alt="101 Coping Skills PDF" class="w-full h-full object-contain bg-white p-1">
+                    <img src="web_photos/sel_u2/101_Coping_Skills_page2.png" alt="" class="w-full h-full object-contain bg-white p-1">
                     <a href="SEL_U2_教材包/101_Coping_Skills_ADA.pdf" target="_blank" onclick="event.stopPropagation()" class="absolute top-1.5 right-1.5 bg-indigo-600 hover:bg-indigo-700 text-white text-[9.5px] font-black px-2 py-0.5 rounded-full shadow z-10">📕 開啟 PDF</a>
                     <div class="absolute bottom-0 inset-x-0 bg-indigo-900/95 text-white text-[10.5px] py-1 px-1.5 text-center font-bold truncate">
                         ⑤ 調適行動庫：101 Coping Skills
@@ -2605,7 +2735,7 @@
 
                 <!-- Card 8: 檔案 6 - 各種心情的解方.docx -->
                 <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-coral-400 shadow-md bg-white cursor-zoom-in" onclick="openImageLightbox('web_photos/sel_u2/各種心情的解方.docx.png', '📄 教材檔案 ⑥《各種心情的解方.docx》：Happy/Sad/Afraid/Angry/Excited/Calm 6色船舵中英雙語解方')">
-                    <img src="web_photos/sel_u2/各種心情的解方.docx.png" alt="各種心情的解方.docx" class="w-full h-full object-contain bg-white p-1">
+                    <img src="web_photos/sel_u2/各種心情的解方.docx.png" alt="" class="w-full h-full object-contain bg-white p-1">
                     <a href="SEL_U2_教材包/各種心情的解方.docx" download onclick="event.stopPropagation()" class="absolute top-1.5 right-1.5 bg-coral-600 hover:bg-coral-700 text-white text-[9.5px] font-black px-2 py-0.5 rounded-full shadow z-10">📥 下載 .docx</a>
                     <div class="absolute bottom-0 inset-x-0 bg-coral-700/95 text-white text-[10.5px] py-1 px-1.5 text-center font-bold truncate">
                         ⑥ 6色船舵講義：各種心情的解方
@@ -2625,11 +2755,21 @@
                     <b class="text-lagoon-900">Step 3｜社群思辨 (Responsible Decision)：</b>貼上<b>①海報標頭</b>與《B3U2學習單》，以 <code>It is essential / advisable that...</code> 提出社群健康使用建議！
                 </div>
             </div>
+
+            <div class="quote-card py-1.5 px-4 mt-1.5 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/body_16.png" data-frame1="web_photos/chibi/body_16.png" data-frame2="web_photos/chibi/body_16.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-24" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-float chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
+                    「當社群媒體遇上 SEL 社會情緒學習，英文課不再只是背單字，而是陪孩子畫出心情溫度計與人生方向盤！」
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 22: 學生作品特寫：When Social Media Meets SEL 立體掌舵海報手工書 -->
-    <section class="slide" id="slide-22">
+    <section class="slide" id="slide-26">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-26" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
                 <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200 !mb-0">
@@ -2648,21 +2788,21 @@
                 <!-- Left (7 cols): 3 Close-up Student Poster Works -->
                 <div class="md:col-span-7 grid grid-cols-3 gap-2.5 h-[52vh]">
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-coral-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_sel_poster.jpg', '作品特寫 ①：明芬老師示範海報高解析全圖（情緒掌舵轉盤 × 心情溫度計 × SEL五大核心素養 × B3U2學習單）')">
-                        <img src="web_photos/today_sel_poster.jpg" onerror="this.onerror=null; this.src='web_photos/sel_poster_closeup_1.jpg';" alt="When Social Media Meets SEL 海報作品特寫 1" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/today_sel_poster.jpg" onerror="this.onerror=null; this.src='web_photos/sel_poster_closeup_1.jpg';" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-coral-600/95 text-white text-[11px] p-1.5 text-center font-black">
                             🔍 作品特寫 ①：ＳＥＬ小海報高解析全圖
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-lagoon-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/sel_poster_closeup_2.jpg', '作品特寫 ②：高二5學生作品（立體兩腳釘船舵轉盤 × 彩虹溫度計 × 滿滿英文句型反思）')">
-                        <img src="web_photos/sel_poster_closeup_2.jpg" alt="When Social Media Meets SEL 海報作品特寫 2" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/sel_poster_closeup_2.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-lagoon-700/95 text-white text-[11px] p-1.5 text-center font-black">
                             🔍 作品特寫 ②：兩腳釘立體船舵
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/sel_poster_closeup_3.jpg', '作品特寫 ③：高二5學生作品（手繪《腦筋急轉彎》情緒插畫 × 6色解方 × Social Media 優缺點分析）')">
-                        <img src="web_photos/sel_poster_closeup_3.jpg" alt="When Social Media Meets SEL 海報作品特寫 3" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/sel_poster_closeup_3.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-amber-600/95 text-white text-[11px] p-1.5 text-center font-black">
                             🔍 作品特寫 ③：手繪情緒小人插畫
                         </div>
@@ -2709,16 +2849,23 @@
                 </div>
             </div>
 
-            <div class="quote-card py-1.5 px-4">
-                <p class="font-quote text-xs md:text-sm text-slate-700 italic">
+            <div class="quote-card py-1.5 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/plaid_09.png" data-frame1="web_photos/chibi/plaid_09.png" data-frame2="web_photos/chibi/plaid_09.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-25" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-bounce chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs md:text-sm text-slate-700 italic">
                     「當英文課本遇上立體手作海報：孩子在著色、剪貼、組裝船舵與書寫句型的過程中，同時完成了語言輸出與內在情緒梳理。」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 23: SEL 教材與學習單深度解析 (各種心情的解方 × B3U2課文思辨學習單 × 情緒輪盤) -->
-    <section class="slide" id="slide-23">
+    <section class="slide" id="slide-27">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed top-3 right-4 md:right-7 z-40 flex items-center pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/happy_13.png" data-frame1="web_photos/chibi/happy_13.png" data-frame2="web_photos/chibi/happy_13.png" alt="" onerror="this.style.display='none'" data-chibi-slot="hdr-27" class="w-12 h-12 md:w-14 md:h-14 object-contain drop-shadow-sm chibi-anim-float chibi-sprite">
+            </div>
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-27" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
                 <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200 !mb-0">
@@ -2742,21 +2889,21 @@
                 <!-- Left (8 cols): 3 High-Res Worksheet Previews Side-by-Side (Clickable for Fullscreen Lightbox) -->
                 <div class="md:col-span-8 grid grid-cols-3 gap-2.5 h-[52vh]">
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_sel_wheel.jpg', '教材 ①：SEL 心情輪盤 (Calm — The Feelings Wheel：從內圈核心情緒延伸至外圈精準英文形容詞）')">
-                        <img src="web_photos/today_sel_wheel.jpg" onerror="this.onerror=null; this.src='web_photos/sel_u2/Feelings+Wheel+Download-ables.pdf.png';" alt="SEL 心情輪盤 The Feelings Wheel" class="w-full h-full object-contain bg-white p-1">
+                        <img src="web_photos/today_sel_wheel.jpg" onerror="this.onerror=null; this.src='web_photos/sel_u2/Feelings+Wheel+Download-ables.pdf.png';" alt="" class="w-full h-full object-contain bg-white p-1">
                         <div class="absolute bottom-0 inset-x-0 bg-amber-700/95 text-white text-[11px] p-1.5 text-center font-black">
                             ① SEL 心情輪盤 (The Feelings Wheel)
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-coral-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/sel_u2/Feelings_Wheel_.pdf.png', '教材 ②：Feelings Wheel 情緒字彙細分講義（附線上互動輪盤 QR Code）')">
-                        <img src="web_photos/sel_u2/Feelings_Wheel_.pdf.png" alt="Feelings Wheel 講義" class="w-full h-full object-contain bg-white p-1">
+                        <img src="web_photos/sel_u2/Feelings_Wheel_.pdf.png" alt="" class="w-full h-full object-contain bg-white p-1">
                         <div class="absolute bottom-0 inset-x-0 bg-coral-600/95 text-white text-[11px] p-1.5 text-center font-black">
                             ② Feelings Wheel 細分講義
                         </div>
                     </div>
 
                     <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-lagoon-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/sel_u2/B3U2學習單.docx.png', '教材 ③：U2小海報課本問題檢討與訂正（Harry 情緒轉折 × It is essential/advisable that 句型）')">
-                        <img src="web_photos/sel_u2/B3U2學習單.docx.png" alt="B3U2 課文問題檢討與句型學習單" class="w-full h-full object-contain bg-white p-1">
+                        <img src="web_photos/sel_u2/B3U2學習單.docx.png" alt="" class="w-full h-full object-contain bg-white p-1">
                         <div class="absolute bottom-0 inset-x-0 bg-lagoon-700/95 text-white text-[11px] p-1.5 text-center font-black">
                             ③ B3U2 課文思辨與句型單
                         </div>
@@ -2790,16 +2937,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-1.5 px-4">
-                <p class="font-quote text-xs md:text-sm text-slate-700 italic">
+            <div class="quote-card py-1.5 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/exp_09.png" data-frame1="web_photos/chibi/exp_09.png" data-frame2="web_photos/chibi/exp_09.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-26" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-cheer chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs md:text-sm text-slate-700 italic">
                     「把 SEL 情緒覺察自然嵌進英文課文問答與高二必考句型，不用額外趕課，就能讓文法句型長出真實的生活溫度！」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide: 數位能力大進化 (高二5魔法英文教室 ✕ 可可創新實驗室 🌐 Google Sites 雙網站與互動講義) -->
-    <section class="slide" id="slide-24">
+    <section class="slide" id="slide-28">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-28" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200">
                 <i class="fa-solid fa-globe text-coral-500"></i>
@@ -2854,7 +3005,7 @@
                     <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-3.5 rounded-2xl border-2 border-amber-400 shadow-md">
                         <div class="flex items-center gap-3">
                             <a href="Cocoa_Innovation_Lab_Offline.html" target="_blank" class="shrink-0 group" title="點擊開啟《可可創新實驗室》離線完整版">
-                                <img src="web_photos/chocolate_site_qr.png" alt="可可創新實驗室 QR Code" class="w-16 h-16 object-contain rounded-xl border-2 border-amber-700 p-1 bg-white group-hover:scale-105 transition">
+                                <img src="web_photos/chocolate_site_qr.png" alt="" class="w-16 h-16 object-contain rounded-xl border-2 border-amber-700 p-1 bg-white group-hover:scale-105 transition">
                             </a>
                             <div>
                                 <h4 class="font-black text-amber-950 text-base mb-1 flex items-center gap-1.5">
@@ -2877,16 +3028,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-2 px-4">
-                <p class="font-quote text-sm text-slate-700 italic">
+            <div class="quote-card py-2 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/body_07.png" data-frame1="web_photos/chibi/body_07.png" data-frame2="web_photos/chibi/body_07.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-27" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-bounce chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-sm text-slate-700 italic">
                     「從使用簡報到自主打造『高二5魔法英文教室』與『可可創新實驗室』雙網站，數位能力的升級，讓我的課堂變得更加靈活、更有溫度。」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 23: 雙經緯演進總結 (從在地到國際 ✕ 從紙張到網頁 🗺️) -->
-    <section class="slide" id="slide-25">
+    <section class="slide" id="slide-29">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-29" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-amber-50 text-amber-700 border border-amber-200">
                 <i class="fa-solid fa-network-wired text-amber-600"></i>
@@ -2941,16 +3096,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-2.5 px-4">
-                <p class="font-quote text-sm text-slate-700 italic">
+            <div class="quote-card py-2.5 px-4 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/body_16.png" data-frame1="web_photos/chibi/body_16.png" data-frame2="web_photos/chibi/body_16.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-28" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-wave chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-sm text-slate-700 italic">
                     「從在地到國際，從紙張 QR Code 到網頁製作。明確的經緯輪廓，讓教學創新不再是零散的點，而是完整的面。」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 24: 研習 Takeaway 大禮包 ── 跨學制夥伴專屬帶走資源 -->
-    <section class="slide" id="slide-26">
+    <section class="slide" id="slide-30">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-30" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200">
                 <i class="fa-solid fa-gift text-coral-500"></i>
@@ -3007,16 +3166,20 @@
                 </div>
             </div>
 
-            <div class="quote-card py-2 px-4 border-coral-500">
-                <p class="font-quote text-xs text-slate-700 italic">
+            <div class="quote-card py-2 px-4 border-coral-500 flex items-center gap-3 relative"><div class="relative shrink-0 -my-2 cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))"><img src="web_photos/chibi/happy_13.png" data-frame1="web_photos/chibi/happy_13.png" data-frame2="web_photos/chibi/happy_13.png" alt="" onerror="this.style.display='none'" data-chibi-slot="qc-29" class="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-md chibi-anim-cheer chibi-sprite"></div><div class="flex-1 min-w-0"><p class="font-quote text-xs text-slate-700 italic">
                     「教書路上，最好的雙語教學不是把學生塞滿難字，而是給他們看見世界的眼睛與自信說話的勇氣。所有 Word 學習單皆可自由修改校名與單字！」
-                </p>
-            </div>
+                </p></div></div>
         </div>
     </section>
 
     <!-- Slide 25: 終頁感謝與暖心交流工作坊 (Padlet 百寶箱 & 互動時間 💖) -->
-    <section class="slide" id="slide-27">
+    <section class="slide" id="slide-31">
+        <div class="chibi-companions-layer pointer-events-none">
+            <div class="fixed left-0 bottom-24 z-30 pointer-events-auto cursor-pointer" onclick="openChibiPicker(this.querySelector('img'))">
+                <img src="web_photos/chibi/plaid_14.png" alt="" onerror="this.style.display='none'" data-chibi-slot="peek-31" class="w-11 h-11 md:w-13 md:h-13 object-contain drop-shadow-sm opacity-95">
+            </div>
+        </div>
+    
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col justify-between h-[84vh]">
             <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200">
                 <i class="fa-solid fa-heart text-coral-500"></i>
@@ -3038,7 +3201,7 @@
                             </h3>
                             <div class="flex flex-wrap items-center gap-1.5">
                                 <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="bg-lagoon-600 hover:bg-lagoon-700 text-white text-xs font-bold px-2.5 py-1.5 rounded-full shadow transition flex items-center gap-1">
-                                    <i class="fa-solid fa-bolt text-amber-300"></i> 📦 離線版 Padlet 百寶箱＆抽籤器
+                                    <i class="fa-solid fa-bolt text-amber-300"></i> 📦 研習教材百寶箱 ＆ 暖心回饋牆
                                 </a>
                                 <button onclick="openCocoaLabModal('cocoa_lab_offline/intro.html')" class="bg-amber-800 hover:bg-amber-900 text-white text-xs font-bold px-2.5 py-1.5 rounded-full shadow transition flex items-center gap-1 cursor-pointer">
                                     <i class="fa-solid fa-bolt text-amber-300"></i> 🍫 離線可可實驗室
@@ -3051,7 +3214,7 @@
 
                         <div class="flex items-center gap-4">
                             <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="shrink-0 group relative" title="點擊開啟明芬老師研習教材百寶箱＆暖心回饋牆">
-                                <img src="web_photos/padlet_qr.png" alt="Padlet QR Code" class="w-24 h-24 object-contain rounded-xl border-2 border-lagoon-500 p-1 bg-white group-hover:scale-105 transition">
+                                <img src="web_photos/padlet_qr.png" alt="" class="w-24 h-24 object-contain rounded-xl border-2 border-lagoon-500 p-1 bg-white group-hover:scale-105 transition">
                             </a>
                             <div class="text-xs text-slate-700 space-y-1.5 font-bold">
                                 <p class="font-black text-lagoon-800 text-sm">📱 掃描 QR Code 進入研習教材百寶箱 ＆ 暖心回饋牆（免登入可直接下載、上傳與貼便利貼）：</p>
@@ -3086,24 +3249,25 @@
                 <!-- Right: Photo & Thank You Note -->
                 <div class="md:col-span-5 flex flex-col justify-between space-y-3">
                     <div class="relative overflow-hidden rounded-2xl border border-sand-200 shadow-md h-[32vh]">
-                        <img src="web_photos/IMG_6929.jpg" alt="番茄專案圓滿合照" class="w-full h-full object-contain bg-sand-100/60">
+                        <img src="web_photos/IMG_6929.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
                         <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-2 text-center font-bold">
                             專案成果合照：圓滿成功！
                         </div>
                     </div>
 
-                    <div class="bg-sand-100/90 p-4 rounded-2xl border border-sand-200 flex items-center justify-between shadow-sm">
-                        <div>
+                    <div class="bg-sand-100/90 p-3.5 rounded-2xl border-2 border-coral-300 flex items-center justify-between shadow-sm gap-3">
+                        <img src="web_photos/chibi/exp_08.png" data-frame1="web_photos/chibi/exp_08.png" data-frame2="web_photos/chibi/exp_04.png" alt="" onerror="this.style.display='none'" data-chibi-slot="slide-last" onclick="openChibiPicker(this)" class="w-16 h-16 object-contain shrink-0 drop-shadow-md cursor-pointer chibi-anim-cheer chibi-sprite">
+                        <div class="flex-1 min-w-0">
                             <p class="font-black text-slate-800 text-base whitespace-nowrap">台南瀛海國際高中 林明芬老師</p>
-                            <p class="text-xs text-slate-600 mt-0.5 font-bold">感謝全台各地線上齊聚的教育夥伴！期待在雙語與跨域的路上繼續同行！</p>
+                            <p class="text-xs text-slate-600 mt-0.5 font-bold">感謝全台各地線上齊聚的教育夥伴</p>
                         </div>
-                        <span class="text-2xl text-coral-500 font-black shrink-0 ml-2">Thank You!</span>
+                        <span class="text-2xl text-coral-500 font-black shrink-0 ml-1">Thank You!</span>
                     </div>
                 </div>
             </div>
 
             <div class="text-xs text-slate-500 font-bold">
-                Slide 27 / 27 | 按 Home 可返回簡報首頁
+                Slide 31 / 31 | 按 Home 可返回簡報首頁
             </div>
         </div>
     </section>
@@ -3117,7 +3281,7 @@
     <!-- Global Floating Controls -->
     <div class="controls">
         <div id="btnPrev" class="btn-nav" title="上一頁 (Left Arrow / 向右滑動)"><i class="fa-solid fa-chevron-left"></i></div>
-        <div id="slideIndicator" class="font-mono font-bold text-sm md:text-base text-slate-700 min-w-[68px] md:min-w-[80px] text-center px-1">01 / 27</div>
+        <div id="slideIndicator" class="font-mono font-bold text-sm md:text-base text-slate-700 min-w-[68px] md:min-w-[80px] text-center px-1">01 / 31</div>
         <div id="btnNext" class="btn-nav" title="下一頁 (Right Arrow / 向左滑動)"><i class="fa-solid fa-chevron-right"></i></div>
         <div class="h-6 w-px bg-sand-300 mx-0.5"></div>
 
@@ -3221,7 +3385,7 @@
                 </button>
             </div>
             <div class="w-full bg-black/95 p-3 rounded-b-2xl border border-t-0 border-white/15 flex items-center justify-center">
-                <img id="lightboxImg" src="" alt="放大檢視" class="max-w-full max-h-[80vh] object-contain rounded-lg">
+                <img id="lightboxImg" src="" alt="" class="max-w-full max-h-[80vh] object-contain rounded-lg">
             </div>
         </div>
     </div>
@@ -3502,38 +3666,62 @@
             if (btnHighlighter) btnHighlighter.addEventListener('click', () => toggleDrawMode('highlighter'));
             if (btnClearInk) btnClearInk.addEventListener('click', clearAnnotations);
 
-            // Smooth Laser Pointer Tracking & On-Demand Fading Beam Trail (0% CPU when laser is off)
+            // Smooth, Slow-Gliding Laser Pointer Tracking & Fading Beam Trail
             let trailRafId = null;
+            let laserTargetX = -100, laserTargetY = -100;
+            let laserCurX = -100, laserCurY = -100;
+            let laserInitialized = false;
+
             function renderLaserTrail() {
                 if (!laserEnabled) {
                     if (trailCtx && trailCanvas) trailCtx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
                     trailPoints.length = 0;
+                    laserInitialized = false;
                     trailRafId = null;
                     return;
                 }
+
+                // Slow, damped glide toward cursor so the laser pointer never whips too fast
+                const dx = laserTargetX - laserCurX;
+                const dy = laserTargetY - laserCurY;
+                const dist = Math.hypot(dx, dy);
+                if (dist > 0.15) {
+                    const maxStep = 12; // Cap max speed per frame for calm presentation tracking
+                    const step = Math.min(dist * 0.085, maxStep);
+                    laserCurX += (dx / dist) * step;
+                    laserCurY += (dy / dist) * step;
+                    if (laserDot) {
+                        laserDot.style.left = laserCurX.toFixed(1) + 'px';
+                        laserDot.style.top = laserCurY.toFixed(1) + 'px';
+                    }
+                    trailPoints.push({ x: laserCurX, y: laserCurY, time: performance.now() });
+                }
+
+                const now = performance.now();
+                while (trailPoints.length > 0 && now - trailPoints[0].time > 700) {
+                    trailPoints.shift();
+                }
+
                 if (trailCtx && trailCanvas) {
                     trailCtx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
-                    const now = performance.now();
-                    while (trailPoints.length > 0 && now - trailPoints[0].time > 340) {
-                        trailPoints.shift();
-                    }
                     if (trailPoints.length > 1) {
                         for (let i = 1; i < trailPoints.length; i++) {
                             const p0 = trailPoints[i - 1];
                             const p1 = trailPoints[i];
                             const age = now - p1.time;
-                            const alpha = Math.max(0, 1 - age / 340);
+                            const alpha = Math.max(0, 1 - age / 700);
                             trailCtx.beginPath();
                             trailCtx.moveTo(p0.x, p0.y);
                             trailCtx.lineTo(p1.x, p1.y);
-                            trailCtx.strokeStyle = `rgba(239, 68, 68, ${(alpha * 0.78).toFixed(3)})`;
-                            trailCtx.lineWidth = 5 * alpha + 1.5;
+                            trailCtx.strokeStyle = `rgba(239, 68, 68, ${(alpha * 0.65).toFixed(3)})`;
+                            trailCtx.lineWidth = 4.5 * alpha + 1.5;
                             trailCtx.lineCap = 'round';
                             trailCtx.stroke();
                         }
                     }
                 }
-                if (trailPoints.length > 0) {
+
+                if (dist > 0.15 || trailPoints.length > 0) {
                     trailRafId = requestAnimationFrame(renderLaserTrail);
                 } else {
                     trailRafId = null;
@@ -3542,11 +3730,17 @@
 
             function recordLaserPoint(x, y) {
                 if (!laserEnabled) return;
-                if (laserDot) {
-                    laserDot.style.left = x + 'px';
-                    laserDot.style.top = y + 'px';
+                laserTargetX = x;
+                laserTargetY = y;
+                if (!laserInitialized) {
+                    laserCurX = x;
+                    laserCurY = y;
+                    laserInitialized = true;
+                    if (laserDot) {
+                        laserDot.style.left = x + 'px';
+                        laserDot.style.top = y + 'px';
+                    }
                 }
-                trailPoints.push({ x, y, time: performance.now() });
                 if (!trailRafId) {
                     trailRafId = requestAnimationFrame(renderLaserTrail);
                 }
@@ -3777,5 +3971,143 @@
             });
         });
     </script>
+
+    <style>
+        img {
+            color: transparent !important;
+            text-indent: -9999px;
+        }
+        img:-moz-broken {
+            opacity: 0 !important;
+        }
+    </style>
+    <script>
+        document.addEventListener("error", function(e) {
+            if (e.target && e.target.tagName === "IMG") {
+                e.target.alt = "";
+                e.target.style.display = "none";
+            }
+        }, true);
+    </script>
+
+    <style>
+        @keyframes chibiBounce {
+            0%, 100% { transform: translateY(0) scale(1, 1); }
+            50% { transform: translateY(-2px) scale(1.006, 0.996); }
+        }
+        @keyframes chibiWave {
+            0%, 100% { transform: rotate(0deg) translateY(0); }
+            25% { transform: rotate(-1.2deg) translateY(-1.5px); }
+            75% { transform: rotate(1.2deg) translateY(-1.5px); }
+        }
+        @keyframes chibiCheer {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-2px) rotate(1deg) scale(1.008); }
+        }
+        @keyframes chibiTalk {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.008, 0.995) rotate(0.8deg) translateY(-1.5px); }
+        }
+        @keyframes chibiFloat {
+            0%, 100% { transform: translateY(0px) rotate(-0.8deg); }
+            50% { transform: translateY(-2px) rotate(0.8deg); }
+        }
+        @keyframes chibiWalk {
+            0%, 100% { transform: translateX(0) translateY(0) rotate(-0.8deg); }
+            50% { transform: translateX(1.5px) translateY(-1.5px) rotate(0.8deg); }
+        }
+        .chibi-anim-bounce { animation: chibiBounce 9.5s ease-in-out infinite; }
+        .chibi-anim-wave   { animation: chibiWave 10.5s ease-in-out infinite; transform-origin: bottom center; }
+        .chibi-anim-cheer  { animation: chibiCheer 9.5s ease-in-out infinite; }
+        .chibi-anim-talk   { animation: chibiTalk 10.0s ease-in-out infinite; transform-origin: bottom center; }
+        .chibi-anim-float  { animation: chibiFloat 11.0s ease-in-out infinite; }
+        .chibi-anim-walk   { animation: chibiWalk 10.0s ease-in-out infinite; }
+        .slide:not(.active) .chibi-companions-layer {
+            display: none !important;
+        }
+        body.chibi-paused .chibi-sprite {
+            animation-play-state: paused !important;
+        }
+    </style>
+
+    <div id="chibiPickerModal" class="fixed inset-0 z-[10000] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" onclick="closeChibiPicker()">
+        <div class="bg-[#fdfbf7] rounded-3xl max-w-4xl w-full p-5 border-2 border-coral-400 shadow-2xl max-h-[85vh] flex flex-col" onclick="event.stopPropagation()">
+            <div class="flex items-center justify-between gap-2 pb-3 border-b border-sand-300">
+                <div class="w-4"></div>
+                <div class="flex items-center gap-2">
+                    <button id="toggleChibiAnimBtn" onclick="toggleChibiAnimation()" class="px-3 py-1 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-900 font-black text-xs border border-amber-300 cursor-pointer">⏸</button>
+                    <button onclick="closeChibiPicker()" class="w-8 h-8 rounded-full bg-stone-200 hover:bg-rose-500 hover:text-white font-black text-sm cursor-pointer">✕</button>
+                </div>
+            </div>
+            <div id="chibiPickerGrid" class="grid grid-cols-5 sm:grid-cols-8 gap-2 overflow-y-auto p-2 mt-2 bg-white rounded-2xl border border-sand-200"></div>
+        </div>
+    </div>
+    <script>
+        let activeChibiImgEl = null;
+        let chibiAnimPaused = false;
+        const ALL_CHIBI_STICKERS = [
+            'plaid_01.png','plaid_02.png','plaid_03.png','plaid_04.png','plaid_05.png','plaid_06.png','plaid_07.png','plaid_08.png','plaid_09.png','plaid_10.png',
+            'plaid_11.png','plaid_12.png','plaid_13.png','plaid_14.png','plaid_15.png','plaid_16.png','plaid_17.png','plaid_18.png','plaid_19.png','plaid_20.png',
+            'plaid_21.png','plaid_22.png','plaid_23.png','plaid_24.png','plaid_25.png','plaid_26.png','plaid_27.png','plaid_28.png','plaid_29.png','plaid_30.png',
+            'walk_01.png','walk_02.png','walk_03.png','walk_04.png','walk_05.png','walk_06.png','walk_07.png','walk_08.png','walk_09.png','walk_12.png',
+            'walk_13.png','walk_14.png','walk_16.png','walk_17.png','walk_18.png','walk_19.png','walk_22.png','walk_23.png','walk_24.png','walk_25.png','walk_27.png','walk_28.png',
+            'body_01.png','body_02.png','body_04.png','body_06.png','body_07.png','body_10.png',
+            'body_11.png','body_12.png','body_13.png','body_14.png','body_15.png','body_16.png','body_18.png',
+            'body_19.png','body_20.png','body_21.png',
+            'exp_18.png','exp_01.png','exp_03.png','exp_04.png','exp_05.png',
+            'exp_06.png','exp_08.png','exp_09.png','exp_10.png','exp_11.png','exp_12.png','exp_13.png',
+            'exp_16.png','exp_17.png','exp_19.png','exp_20.png','exp_21.png','exp_22.png','exp_23.png','exp_25.png',
+            'happy_01.png','happy_02.png','happy_03.png','happy_04.png','happy_05.png','happy_06.png','happy_11.png','happy_13.png','happy_14.png','happy_20.png','happy_23.png','happy_25.png'
+        ];
+        function openChibiPicker(imgEl) {
+            if (!imgEl) return;
+            activeChibiImgEl = imgEl;
+            const modal = document.getElementById('chibiPickerModal');
+            const grid = document.getElementById('chibiPickerGrid');
+            grid.innerHTML = ALL_CHIBI_STICKERS.map(f => `
+                <button type="button" onclick="selectChibiSticker('web_photos/chibi/${f}')" class="p-1.5 rounded-xl border-2 border-sand-200 hover:border-coral-500 hover:bg-coral-50 transition flex items-center justify-center cursor-pointer">
+                    <img src="web_photos/chibi/${f}" alt="" onerror="this.parentElement.style.display='none'" class="w-14 h-14 object-contain drop-shadow-sm" loading="lazy">
+                </button>
+            `).join('');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closeChibiPicker() {
+            const modal = document.getElementById('chibiPickerModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+        function selectChibiSticker(src) {
+            if (activeChibiImgEl) {
+                activeChibiImgEl.src = src;
+                activeChibiImgEl.setAttribute('data-frame1', src);
+                activeChibiImgEl.setAttribute('data-frame2', src);
+                const slot = activeChibiImgEl.getAttribute('data-chibi-slot');
+                if (slot) {
+                    try { localStorage.setItem('miffy_chibi_' + slot, src); } catch(e) {}
+                }
+            }
+            closeChibiPicker();
+        }
+        function toggleChibiAnimation() {
+            chibiAnimPaused = !chibiAnimPaused;
+            document.body.classList.toggle('chibi-paused', chibiAnimPaused);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('img[data-chibi-slot]').forEach(img => {
+                const slot = img.getAttribute('data-chibi-slot');
+                try {
+                    const saved = localStorage.getItem('miffy_chibi_' + slot);
+                    if (saved) {
+                        img.src = saved;
+                        img.setAttribute('data-frame1', saved);
+                        img.setAttribute('data-frame2', saved);
+                    }
+                } catch(e) {}
+            });
+        });
+    </script>
+
 </body>
 </html>
