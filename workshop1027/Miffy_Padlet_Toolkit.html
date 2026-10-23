@@ -56,14 +56,8 @@
                 </div>
             </div>
             <div class="flex flex-wrap items-center gap-1.5 md:gap-2 w-full sm:w-auto justify-between sm:justify-end">
-                <button onclick="switchTab('padlet')" id="tabBtn-padlet" class="flex-1 sm:flex-initial text-center px-3 py-1.5 md:px-3.5 md:py-2 rounded-full font-bold text-xs md:text-sm bg-amber-400 text-teal-950 shadow transition cursor-pointer">
-                    <i class="fa-solid fa-table-columns mr-1"></i> 🎁 教材百寶箱 ＆ 回饋牆
-                </button>
-                <button onclick="switchTab('interactive')" id="tabBtn-interactive" class="flex-1 sm:flex-initial text-center px-3 py-1.5 md:px-3.5 md:py-2 rounded-full font-bold text-xs md:text-sm bg-teal-700 hover:bg-teal-600 text-white transition cursor-pointer">
-                    <i class="fa-solid fa-dice mr-1"></i> 🎡 互動抽籤 ＆ 計時
-                </button>
-                <a href="Teacher_Miffys_Presentation.html#slide-25" class="px-3 py-1.5 md:px-3.5 md:py-2 rounded-full font-bold text-xs md:text-sm bg-white/15 hover:bg-white/25 text-white transition whitespace-nowrap">
-                    <i class="fa-solid fa-tv mr-1"></i> 簡報
+                <a href="Teacher_Miffys_Presentation.html#slide-31" class="px-3.5 py-2 rounded-full font-bold text-xs md:text-sm bg-amber-400 hover:bg-amber-300 text-teal-950 shadow transition whitespace-nowrap">
+                    <i class="fa-solid fa-tv mr-1"></i> 返回簡報
                 </a>
             </div>
         </div>
@@ -92,8 +86,8 @@
     <main id="tab-padlet" class="flex-1 max-w-7xl w-full mx-auto px-3.5 md:px-6 py-4 md:py-5">
         <!-- Action Banner -->
         <div class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-3.5 md:p-4 mb-4 md:mb-5 flex flex-wrap items-center justify-between gap-3 shadow-sm">
-            <div class="flex items-start md:items-center gap-2.5">
-                <i class="fa-solid fa-wand-magic-sparkles text-xl md:text-2xl text-amber-600 mt-0.5 md:mt-0 shrink-0"></i>
+            <div class="flex items-center gap-3">
+                <img src="web_photos/chibi/plaid_01.png" data-frame1="web_photos/chibi/plaid_01.png" data-frame2="web_photos/chibi/plaid_02.png" alt="" onerror="this.style.display='none'" class="w-14 h-14 object-contain drop-shadow-md shrink-0 chibi-anim-wave chibi-sprite">
                 <div>
                     <h2 class="font-black text-amber-950 text-sm md:text-base">💡 歡迎下載全套可編輯教材、上傳分享或留下給明芬老師的回饋！</h2>
                     <p class="text-xs md:text-sm text-amber-900 font-medium">
@@ -183,10 +177,6 @@
                             <span>💡 3. 提供建議與溫暖鼓勵</span>
                             <span class="text-[11px] bg-amber-600 text-white px-2 py-0.5 rounded-full shrink-0">點我留言</span>
                         </button>
-                        <button onclick="openFeedbackModal('🌡️ 今日心情 Check-in')" class="text-left px-2.5 py-2 rounded-lg bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-xs font-bold text-emerald-900 transition cursor-pointer flex items-center justify-between">
-                            <span>🌡️ 4. 今日心情溫度計 (🟢/🟡/🔴)</span>
-                            <span class="text-[11px] bg-emerald-600 text-white px-2 py-0.5 rounded-full shrink-0">點我簽到</span>
-                        </button>
                     </div>
                 </div>
 
@@ -269,14 +259,11 @@
             </div>
             <div class="space-y-3 text-sm">
                 <div>
-                    <label class="block font-bold text-stone-700 mb-1">1. 選擇回饋或簽到類型：</label>
+                    <label class="block font-bold text-stone-700 mb-1">1. 選擇回饋主題：</label>
                     <select id="fbCategorySelect" class="w-full border border-stone-300 rounded-xl px-3 py-2 font-bold text-stone-800">
                         <option value="✨ 最有印象的亮點">✨ 最有印象的亮點（哪一段故事或設計最觸動您？）</option>
                         <option value="🚀 想要試試看的點子">🚀 想要試試看的點子（哪一個活動或工具想帶回班上？）</option>
                         <option value="💡 提供建議與鼓勵">💡 提供建議與鼓勵（任何想法、共鳴或給講師的建議）</option>
-                        <option value="🟢 綠區心情 Check-in">🟢 綠區 Green Zone（平靜放鬆、充滿期待！）</option>
-                        <option value="🟡 黃區心情 Check-in">🟡 黃區 Yellow Zone（既期待又怕進度趕不完～）</option>
-                        <option value="🔴 紅區心情 Check-in">🔴 紅區 Red Zone（期中忙碌需要一杯咖啡充電☕）</option>
                     </select>
                 </div>
                 <div>
@@ -299,73 +286,19 @@
         </div>
     </div>
 
-    <!-- Main Content: Tab 2 (Anti-Cold-Room Roulette & Workshop Timer) -->
-    <main id="tab-interactive" class="hidden flex-1 max-w-6xl w-full mx-auto px-6 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-            <!-- Left: Online Participants Warm Icebreaker Spinner -->
-            <div class="md:col-span-7 bg-white rounded-3xl p-6 border-2 border-teal-500/30 shadow-lg flex flex-col justify-between space-y-5">
-                <div>
-                    <span class="bg-teal-100 text-teal-800 text-xs font-black px-3 py-1 rounded-full">🎡 精品工作坊專屬互動（防冷場神器）</span>
-                    <h2 class="text-2xl md:text-3xl font-black text-stone-800 mt-2">跨縣市線上夥伴・暖心分享抽籤器</h2>
-                    <p class="text-sm text-stone-600 mt-1">若演講最後還有交流時間，可點擊下方按鈕，隨機邀請不同學制（國小、國中、普高、技高、特教、行政）的夥伴聊聊 1 分鐘！</p>
-                </div>
-
-                <!-- Display Box -->
-                <div id="rouletteBox" class="bg-gradient-to-br from-amber-50 to-teal-50 border-2 border-teal-300 rounded-2xl p-6 text-center space-y-3 my-auto">
-                    <div id="pickedGroup" class="text-sm font-black text-teal-700 tracking-wide">✨ 點擊下方按鈕抽出交流夥伴與暖心話題 ✨</div>
-                    <div id="pickedSchool" class="text-2xl md:text-3xl font-black text-stone-800">準備好開始暖心對話了嗎？</div>
-                    <div id="pickedQuestion" class="text-sm md:text-base font-bold text-amber-900 bg-white/90 p-3.5 rounded-xl border border-amber-200 shadow-sm">
-                        歡迎來自全台各地跨縣市、跨學制的教育夥伴線上齊聚一堂！
-                    </div>
-                </div>
-
-                <div class="flex flex-wrap gap-3">
-                    <button onclick="spinPartner()" class="flex-1 bg-teal-600 hover:bg-teal-700 text-white font-black text-base py-3.5 px-6 rounded-2xl shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i> 🎲 隨機抽出一所學校 ＆ 交流小問題
-                    </button>
-                    <button onclick="spinQuestionOnly()" class="bg-amber-500 hover:bg-amber-600 text-white font-black text-sm py-3.5 px-5 rounded-2xl shadow transition cursor-pointer">
-                        🔄 只換一道問題
-                    </button>
-                </div>
-            </div>
-
-            <!-- Right: Discussion Timer & Quick Group Filter -->
-            <div class="md:col-span-5 flex flex-col justify-between space-y-5">
-                <!-- Countdown Timer -->
-                <div class="bg-white rounded-3xl p-6 border-2 border-amber-300 shadow-lg text-center space-y-4">
-                    <h3 class="text-lg font-black text-stone-800 flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-stopwatch text-amber-500"></i> 小組構思 ／ Padlet 留言倒數計時器
-                    </h3>
-                    <div id="timerDisplay" class="text-5xl font-black text-teal-800 font-mono tracking-wider bg-stone-100 py-4 rounded-2xl border border-stone-200">
-                        03:00
-                    </div>
-                    <div class="flex justify-center gap-2">
-                        <button onclick="setTimer(180)" class="px-3 py-1.5 bg-stone-200 hover:bg-stone-300 rounded-lg text-xs font-bold cursor-pointer">3 分鐘</button>
-                        <button onclick="setTimer(300)" class="px-3 py-1.5 bg-stone-200 hover:bg-stone-300 rounded-lg text-xs font-bold cursor-pointer">5 分鐘</button>
-                        <button onclick="toggleTimer()" id="timerToggleBtn" class="px-5 py-1.5 bg-amber-500 hover:bg-amber-600 text-white rounded-lg text-xs font-black shadow cursor-pointer">▶ 開始計時</button>
-                        <button onclick="resetTimer()" class="px-3 py-1.5 bg-stone-200 hover:bg-stone-300 rounded-lg text-xs font-bold cursor-pointer">重設</button>
-                    </div>
-                </div>
-
-                <!-- Participants Overview by Category -->
-                <div class="bg-white rounded-3xl p-5 border border-stone-200 shadow-sm space-y-2.5 text-xs">
-                    <h4 class="font-black text-stone-800 text-sm mb-1">📋 跨學制夥伴交流專區（點選可直接切換學制話題）：</h4>
-                    <div class="p-2.5 bg-amber-50 rounded-xl border border-amber-200 cursor-pointer hover:bg-amber-100" onclick="highlightCategory('行政領導夥伴（校長 ＆ 行政主任組長群）', '請問校長與組長：在推動校內跨科或國際教育時，您覺得老師們最需要什麼樣的支持或減壓工具？')">
-                        <b class="text-amber-900">👑 校長與行政夥伴：</b>后里國中、陽明高中、臺中家商、臺北特教學校及各校行政代表
-                    </div>
-                    <div class="p-2.5 bg-teal-50 rounded-xl border border-teal-200 cursor-pointer hover:bg-teal-100" onclick="highlightCategory('普通高中＆完全中學夥伴', '請問高中部老師：在緊湊的學測進度中，如果用「手工摺頁書」或「AI互動網頁」帶一個單元，您最想搭配哪一課？')">
-                        <b class="text-teal-900">🎓 普高與完中夥伴：</b>三民高中、新莊高中、徐匯高中、惠文高中、旭光高中、仁武高中等校夥伴
-                    </div>
-                    <div class="p-2.5 bg-orange-50 rounded-xl border border-orange-200 cursor-pointer hover:bg-orange-100" onclick="highlightCategory('技術型高中（高職）夥伴', '請問技高老師：貴校有非常棒的專業群科（如家政、餐飲、設計、工商），若跟實習課結合雙語，您覺得哪一科最有趣？')">
-                        <b class="text-orange-900">🛠️ 技術型高中夥伴：</b>高雄海青工商、高雄三民家商、臺中家商等技高夥伴
-                    </div>
-                    <div class="p-2.5 bg-emerald-50 rounded-xl border border-emerald-200 cursor-pointer hover:bg-emerald-100" onclick="highlightCategory('國小／國中／特教夥伴', '請問國中小與特教夥伴：如果把「QR Code 單字尋寶」或「SEL 情緒溫度計」搬進您的班級，孩子們會最喜歡哪個環節？')">
-                        <b class="text-emerald-900">🌱 國小／國中／特教夥伴：</b>新湖國小、關東國小、五福國小、文府國小、大寮國中、臺北特教等校夥伴
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+    <style>
+        @keyframes chibiWave {
+            0%, 100% { transform: rotate(0deg) translateY(0); }
+            25% { transform: rotate(-9deg) translateY(-5px); }
+            75% { transform: rotate(9deg) translateY(-4px); }
+        }
+        @keyframes chibiBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            45% { transform: translateY(-9px) scale(1.06); }
+        }
+        .chibi-anim-wave { animation: chibiWave 1.5s ease-in-out infinite; transform-origin: bottom center; }
+        .chibi-anim-bounce { animation: chibiBounce 1.4s ease-in-out infinite; }
+    </style>
 
     <script>
         const STORAGE_KEY = 'miffy_padlet_board_v5';
@@ -1137,100 +1070,6 @@
             }
         }
 
-        function switchTab(tab) {
-            document.getElementById('tab-padlet').classList.toggle('hidden', tab !== 'padlet');
-            document.getElementById('tab-interactive').classList.toggle('hidden', tab !== 'interactive');
-            document.getElementById('tabBtn-padlet').className = tab === 'padlet'
-                ? 'px-3.5 py-2 rounded-full font-bold text-xs md:text-sm bg-amber-400 text-teal-950 shadow transition cursor-pointer'
-                : 'px-3.5 py-2 rounded-full font-bold text-xs md:text-sm bg-teal-700 hover:bg-teal-600 text-white transition cursor-pointer';
-            document.getElementById('tabBtn-interactive').className = tab === 'interactive'
-                ? 'px-3.5 py-2 rounded-full font-bold text-xs md:text-sm bg-amber-400 text-teal-950 shadow transition cursor-pointer'
-                : 'px-3.5 py-2 rounded-full text-xs md:text-sm font-bold bg-teal-700 hover:bg-teal-600 text-white transition cursor-pointer';
-        }
-
-        const participants = [
-            { group: "🌱 國小夥伴", school: "臺北市內湖區新湖國小 教育夥伴" },
-            { group: "🌱 國小夥伴", school: "新竹市關東國小 教育夥伴" },
-            { group: "🌱 國小夥伴", school: "高雄市五福國小 教育夥伴" },
-            { group: "🌱 國小夥伴", school: "高雄市文府國小 教育夥伴" },
-            { group: "👑 國中行政夥伴", school: "臺中市后里國中 教育夥伴" },
-            { group: "🌱 國中夥伴", school: "高雄市大寮國中 教育夥伴" },
-            { group: "👑 特教行政夥伴", school: "臺北特殊教育學校 教育夥伴" },
-            { group: "👑 技高行政夥伴", school: "臺中市臺中家商 教育夥伴" },
-            { group: "🛠️ 技高夥伴", school: "高雄市海青工商 教育夥伴" },
-            { group: "🛠️ 技高夥伴", school: "高雄市三民家商 教育夥伴" },
-            { group: "👑 普高行政夥伴", school: "桃園市陽明高中 教育夥伴" },
-            { group: "🎓 普高夥伴", school: "新北市新莊高中 教育夥伴" },
-            { group: "🎓 私中夥伴", school: "新北市徐匯高中 教育夥伴" },
-            { group: "🎓 完中夥伴", school: "南投縣旭光高中 教育夥伴" },
-            { group: "🎓 完中夥伴", school: "臺中市惠文高中 教育夥伴" },
-            { group: "🎓 完中夥伴", school: "高雄市仁武高中 教育夥伴" },
-            { group: "🎓 地主普高夥伴", school: "高雄市三民高中 教育夥伴" }
-        ];
-
-        const questions = [
-            "💬 【最有印象的亮點】今天聽完明芬老師五年的課程設計歷程，哪一段故事或活動最讓您印象深刻？",
-            "💬 【最想試試看的點子】今天分享的「單字尋寶 QR Code、手工摺頁書、SEL 情緒溫度計、AI 互動網頁」中，您最想先試哪一個？",
-            "💬 【跨科神隊友】回學校後如果找一位不同科的老師喝咖啡合作（像巧克力課或美妝課），您最想找哪一科老師？",
-            "💬 【給講師的溫暖回饋】有沒有什麼想法、共鳴或建議想回饋給明芬老師？"
-        ];
-
-        function spinPartner() {
-            const p = participants[Math.floor(Math.random() * participants.length)];
-            const q = questions[Math.floor(Math.random() * questions.length)];
-            document.getElementById('pickedGroup').innerText = p.group;
-            document.getElementById('pickedSchool').innerText = "🎉 歡迎 " + p.school + " 分享！";
-            document.getElementById('pickedQuestion').innerText = q;
-        }
-
-        function spinQuestionOnly() {
-            const q = questions[Math.floor(Math.random() * questions.length)];
-            document.getElementById('pickedQuestion').innerText = q;
-        }
-
-        function highlightCategory(title, q) {
-            document.getElementById('pickedGroup').innerText = "✨ 學制專場交流 ✨";
-            document.getElementById('pickedSchool').innerText = title;
-            document.getElementById('pickedQuestion').innerText = q;
-        }
-
-        let timerSec = 180;
-        let timerInterval = null;
-        function updateTimerUI() {
-            const m = String(Math.floor(timerSec / 60)).padStart(2, '0');
-            const s = String(timerSec % 60).padStart(2, '0');
-            document.getElementById('timerDisplay').innerText = `${m}:${s}`;
-        }
-        function setTimer(sec) {
-            clearInterval(timerInterval);
-            timerInterval = null;
-            timerSec = sec;
-            document.getElementById('timerToggleBtn').innerText = '▶ 開始計時';
-            updateTimerUI();
-        }
-        function toggleTimer() {
-            if (timerInterval) {
-                clearInterval(timerInterval);
-                timerInterval = null;
-                document.getElementById('timerToggleBtn').innerText = '▶ 繼續計時';
-            } else {
-                document.getElementById('timerToggleBtn').innerText = '⏸ 暫停';
-                timerInterval = setInterval(() => {
-                    if (timerSec > 0) {
-                        timerSec--;
-                        updateTimerUI();
-                    } else {
-                        clearInterval(timerInterval);
-                        timerInterval = null;
-                        document.getElementById('timerToggleBtn').innerText = '⏰ 時間到！';
-                    }
-                }, 1000);
-            }
-        }
-        function resetTimer() {
-            setTimer(180);
-        }
-
         function exportFeedbackCsv() {
             const fbCards = boardCards.filter(c => Number(c.col) === 5);
             const rows = [['分類', '學校與姓名', '回饋內容']];
@@ -1248,6 +1087,16 @@
             a.download = '1027研習_與會教師暖心回饋紀錄.csv';
             a.click();
         }
+
+        let tkFrame = false;
+        setInterval(() => {
+            tkFrame = !tkFrame;
+            document.querySelectorAll('img.chibi-sprite').forEach(img => {
+                const f1 = img.getAttribute('data-frame1');
+                const f2 = img.getAttribute('data-frame2');
+                if (f1 && f2 && f1 !== f2) img.src = tkFrame ? f2 : f1;
+            });
+        }, 600);
 
         document.addEventListener('DOMContentLoaded', loadBoard);
     </script>
