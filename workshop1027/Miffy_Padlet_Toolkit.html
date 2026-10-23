@@ -142,10 +142,28 @@
                     <button onclick="exportFeedbackCsv()" class="bg-rose-800 hover:bg-rose-900 text-rose-100 text-[11px] px-2.5 py-1 rounded-full font-bold cursor-pointer" title="匯出回饋文字紀錄 (.csv)">📥 匯出</button>
                 </div>
 
+                <!-- Mobile QR Quick-Scan Pill -->
+                <div class="bg-white p-3 rounded-xl border border-rose-200 shadow-sm flex items-center gap-3">
+                    <a href="workshop_feedback.html" target="_blank" title="點擊直接開啟手機回饋表單">
+                        <img src="web_photos/feedback_form_qr.png" alt="" onerror="this.style.display='none'" style="color:transparent" class="w-16 h-16 rounded-lg border border-rose-300 p-0.5 bg-white shrink-0 hover:scale-105 transition">
+                    </a>
+                    <div class="text-xs space-y-1">
+                        <div class="font-black text-rose-900 flex items-center gap-1">
+                            <i class="fa-solid fa-mobile-screen"></i> <span>手機掃碼填寫更方便：</span>
+                        </div>
+                        <p class="text-[11px] text-stone-600 font-bold leading-tight">
+                            用手機相機掃描 QR Code，即可直接在手機填寫給明芬老師的建議與課程靈感！
+                        </p>
+                        <a href="workshop_feedback.html" target="_blank" class="inline-block text-[11px] font-black text-rose-600 hover:text-rose-800 underline">
+                            或點此在新分頁開啟表單 ➔
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Single Unified Inline Text Feedback Box -->
                 <form onsubmit="submitInlineFeedback(event)" class="bg-white p-3.5 rounded-xl border-2 border-rose-200 shadow-sm space-y-2.5">
                     <div class="text-xs font-black text-rose-900">
-                        ✍️ 留下文字給明芬老師（一處填寫即可）：
+                        ✍️ 亦可在電腦直接輸入送出（一處填寫即可）：
                     </div>
                     <div>
                         <input id="fbAuthorInput" type="text" placeholder="您的學校或稱呼（選填，亦可匿名）" class="w-full border border-stone-300 focus:border-rose-500 focus:outline-none rounded-lg px-3 py-2 text-xs font-bold text-stone-800">
@@ -240,17 +258,6 @@
                 btnText: '📥 下載 39頁成果簡報 (.pptx)',
                 isDownload: true
             },
-            {
-                id: 'c2-6',
-                col: 2,
-                badge: '🎵 流行歌文法 (.pptx)',
-                badgeColor: 'bg-purple-100 text-purple-900',
-                title: '《Until I Found You》✕ until / not...until 文法練習簡報',
-                desc: '結合破億英文金曲與學生雙人情境創作的文法教學簡報。',
-                url: 'web_photos/until文法練習.pptx',
-                btnText: '📥 下載 until 文法簡報 (.pptx)',
-                isDownload: true
-            },
             // Column 3: 跨科共創 (可可、番茄、美妝大聯盟)
             {
                 id: 'c3-1',
@@ -305,17 +312,6 @@
                 desc: '維納斯的誕生貝殼封面 × 四科內頁配置與手工書製作步驟完整引導。',
                 url: 'web_photos/美妝大聯盟_成果製作大會.pptx',
                 btnText: '📥 下載成果製作大會 (.pptx)',
-                isDownload: true
-            },
-            {
-                id: 'c3-3',
-                col: 3,
-                badge: '校長/組長必備 (.docx)',
-                badgeColor: 'bg-teal-100 text-teal-800',
-                title: '全學年雙語深耕 ✕ 跨科社群共備推動檢核表',
-                desc: '如何找不同科老師喝咖啡共備？四季推進藍圖與分工不越界 SOP。',
-                url: 'Padlet_研習教材大禮包_Word檔/05_全學年雙語深耕與跨科社群共備_行政教師檢核表(校長組長必備).docx',
-                btnText: '📥 下載行政/社群檢核表 (.docx)',
                 isDownload: true
             },
             // Column 4: SEL 情緒陪伴與數位魔法

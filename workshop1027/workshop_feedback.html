@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林明芬老師 雙語研習｜與會教師暖心回饋 ＆ 課程靈感收集單</title>
+    <script src="web_photos/vendor/tailwindcss.js"></script>
+    <link rel="stylesheet" href="web_photos/vendor/css/all.min.css">
+    <style>
+        body {
+            background-color: #fdfbf7;
+            font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            color: #292524;
+        }
+        input, select, textarea {
+            font-size: 16px !important;
+        }
+        @keyframes chibiWave {
+            0%, 100% { transform: rotate(0deg) translateY(0); }
+            25% { transform: rotate(-6deg) translateY(-4px); }
+            75% { transform: rotate(6deg) translateY(-3px); }
+        }
+        @keyframes chibiBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-7px) scale(1.04); }
+        }
+        .chibi-anim-wave { animation: chibiWave 2.2s ease-in-out infinite; transform-origin: bottom center; }
+        .chibi-anim-bounce { animation: chibiBounce 2.2s ease-in-out infinite; }
+    </style>
+</head>
+<body class="min-h-screen py-5 px-3.5 sm:px-6 flex flex-col justify-between">
+    <div class="max-w-xl w-full mx-auto bg-white rounded-3xl shadow-xl border-2 border-amber-300 p-5 sm:p-7 space-y-5">
+        <!-- Header Banner -->
+        <div class="flex items-center gap-3.5 border-b border-stone-200 pb-4">
+            <img src="web_photos/chibi/plaid_01.png" data-frame1="web_photos/chibi/plaid_01.png" data-frame2="web_photos/chibi/plaid_02.png" alt="" onerror="this.style.display='none'" style="color:transparent" class="w-14 h-14 object-contain drop-shadow-md shrink-0 chibi-anim-wave chibi-sprite">
+            <div>
+                <span class="bg-amber-100 text-amber-900 text-[11px] font-black px-2.5 py-0.5 rounded-full border border-amber-300 inline-block mb-1">
+                    高雄市立三民高中 ✕ 瀛海國際高中
+                </span>
+                <h1 class="text-lg sm:text-xl font-black text-stone-800 leading-snug">
+                    林明芬老師 雙語跨域教學研習<br>
+                    <span class="text-rose-600">💌 暖心回饋 ＆ 課程設計靈感單</span>
+                </h1>
+            </div>
+        </div>
+
+        <!-- Description Note -->
+        <div class="bg-amber-50/80 p-3.5 rounded-2xl border border-amber-200 text-xs text-stone-700 leading-relaxed font-bold">
+            親愛的教育夥伴您好！感謝您今天參與《The World Is Your Oyster》研習。歡迎花 1～2 分鐘留下您的回饋與想法，您的每一則建議都是明芬老師日後深化課程與持續創作的無價養分！
+        </div>
+
+        <!-- Feedback Form -->
+        <form id="feedbackForm" onsubmit="submitForm(event)" class="space-y-4 text-sm" method="POST" data-netlify="true" name="workshop1027-feedback">
+            <input type="hidden" name="form-name" value="workshop1027-feedback">
+            <input type="hidden" name="timestamp" id="formTimestamp" value="">
+
+            <!-- Field 1: Name / School -->
+            <div class="space-y-1">
+                <label class="block font-black text-stone-800 text-xs sm:text-sm">
+                    1. 您的學校與稱呼（選填，亦可匿名）：
+                </label>
+                <input type="text" name="author" id="authorInput" placeholder="例如：三民高中 王老師 / 高雄夥伴" class="w-full border border-stone-300 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 focus:outline-none rounded-xl px-3.5 py-2.5 font-bold text-stone-800 bg-stone-50/50">
+            </div>
+
+            <!-- Field 2: Highlight -->
+            <div class="space-y-1">
+                <label class="block font-black text-stone-800 text-xs sm:text-sm">
+                    2. 今天分享中，哪一個故事或活動最讓您印象深刻？
+                </label>
+                <textarea name="highlight" id="highlightInput" rows="2" placeholder="例如：七股蚵農在地走讀、王心凌抱怨男友、可可跨科、SEL 情緒陪伴..." class="w-full border border-stone-300 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 focus:outline-none rounded-xl px-3.5 py-2.5 font-medium text-stone-800 bg-stone-50/50"></textarea>
+            </div>
+
+            <!-- Field 3: Try in classroom -->
+            <div class="space-y-1">
+                <label class="block font-black text-stone-800 text-xs sm:text-sm">
+                    3. 回到學校後，您最想帶回班上試試看什麼？
+                </label>
+                <textarea name="classroom_try" id="tryInput" rows="2" placeholder="例如：校園 QR Code 單字尋寶、跨科立體手工摺頁書、SEL 情緒輪盤..." class="w-full border border-stone-300 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 focus:outline-none rounded-xl px-3.5 py-2.5 font-medium text-stone-800 bg-stone-50/50"></textarea>
+            </div>
+
+            <!-- Field 4: Suggestions & Inspiration (Key Focus for the User!) -->
+            <div class="space-y-1 bg-rose-50/70 p-3 rounded-2xl border-2 border-rose-300">
+                <label class="block font-black text-rose-900 text-xs sm:text-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-lightbulb text-amber-500"></i>
+                    <span>4. 給明芬老師未來課程設計的建議與靈感（必填）：</span>
+                </label>
+                <p class="text-[11px] text-rose-700 font-bold mb-1">
+                    任何想法、希望未來加入的主題、或是給講師的一句鼓勵與提點，都超級歡迎告訴我們！
+                </p>
+                <textarea name="content" id="contentInput" rows="3" placeholder="請在此留下您的建議、點子或想對明芬老師說的話..." required class="w-full border border-rose-300 focus:border-rose-600 focus:ring-2 focus:ring-rose-200 focus:outline-none rounded-xl px-3.5 py-2.5 font-medium text-stone-800 bg-white"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submitBtn" class="w-full bg-rose-600 hover:bg-rose-700 active:scale-[0.99] text-white font-black text-base py-3.5 px-6 rounded-2xl shadow-lg transition cursor-pointer flex items-center justify-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i> 💌 送出回饋給明芬老師
+            </button>
+        </form>
+
+        <!-- Success Message Area (Hidden by default) -->
+        <div id="successCard" class="hidden bg-emerald-50 border-2 border-emerald-400 rounded-2xl p-6 text-center space-y-3.5">
+            <img src="web_photos/chibi/exp_08.png" data-frame1="web_photos/chibi/exp_08.png" data-frame2="web_photos/chibi/exp_04.png" alt="" onerror="this.style.display='none'" style="color:transparent" class="w-20 h-20 mx-auto object-contain drop-shadow-md chibi-anim-bounce chibi-sprite">
+            <h2 class="text-xl font-black text-emerald-900">💖 感謝您的暖心回饋！</h2>
+            <p class="text-xs sm:text-sm text-emerald-800 font-bold leading-relaxed">
+                您的寶貴建議與鼓勵已成功送達明芬老師手中！這份心意將成為未來教育路上最棒的動力～
+            </p>
+            <div class="pt-2 flex flex-col sm:flex-row gap-2.5 justify-center">
+                <a href="Miffy_Padlet_Toolkit.html" class="bg-teal-700 hover:bg-teal-800 text-white font-black text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow transition flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-download"></i> 前往下載全套研習教材
+                </a>
+                <button onclick="writeAnother()" class="bg-white hover:bg-stone-100 text-stone-700 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-stone-300 transition cursor-pointer">
+                    再寫一則回饋
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center text-xs text-stone-400 font-bold mt-4">
+        台南瀛海國際高中 林明芬老師 ｜ 雙語跨領域教學深耕
+    </div>
+
+    <script>
+        const SYNC_TOPIC = 'miffy_1027_padlet_wall_2026_v5';
+        const SYNC_URL = `https://ntfy.sh/${SYNC_TOPIC}`;
+        const STORAGE_KEY = 'miffy_padlet_feedback_v6';
+
+        function submitForm(e) {
+            e.preventDefault();
+            const author = (document.getElementById('authorInput').value || '').trim() || '與會教師夥伴';
+            const highlight = (document.getElementById('highlightInput').value || '').trim();
+            const classroomTry = (document.getElementById('tryInput').value || '').trim();
+            const suggestions = (document.getElementById('contentInput').value || '').trim();
+            const timestamp = new Date().toLocaleString('zh-TW');
+
+            let combinedContent = suggestions;
+            if (highlight) combinedContent += `\n【印象亮點】${highlight}`;
+            if (classroomTry) combinedContent += `\n【想試點子】${classroomTry}`;
+
+            const newNote = {
+                id: 'fb_mobile_' + Date.now(),
+                col: 5,
+                badge: '💌 表單回饋',
+                badgeColor: 'bg-rose-100 text-rose-800',
+                title: `💖 ${author}`,
+                desc: combinedContent
+            };
+
+            // Save to localStorage
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                const notes = raw ? JSON.parse(raw) : [];
+                notes.unshift(newNote);
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
+            } catch (err) {}
+
+            // Send to live ntfy topic so Miffy's board updates instantly
+            try {
+                fetch(SYNC_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ op: 'upsert', senderId: 'mobile_form', card: newNote })
+                }).catch(() => {});
+            } catch (err) {}
+
+            // Submit to Netlify backend
+            try {
+                const body = new URLSearchParams({
+                    'form-name': 'workshop1027-feedback',
+                    'category': '表單回饋與靈感',
+                    'author': author,
+                    'content': combinedContent,
+                    'timestamp': timestamp
+                });
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: body.toString()
+                }).catch(() => {});
+            } catch (err) {}
+
+            // Switch to success view
+            document.getElementById('feedbackForm').classList.add('hidden');
+            document.getElementById('successCard').classList.remove('hidden');
+        }
+
+        function writeAnother() {
+            document.getElementById('authorInput').value = '';
+            document.getElementById('highlightInput').value = '';
+            document.getElementById('tryInput').value = '';
+            document.getElementById('contentInput').value = '';
+            document.getElementById('successCard').classList.add('hidden');
+            document.getElementById('feedbackForm').classList.remove('hidden');
+        }
+
+        // Animated sprite frame swapper
+        let chibiFrame = false;
+        setInterval(() => {
+            chibiFrame = !chibiFrame;
+            document.querySelectorAll('img.chibi-sprite').forEach(img => {
+                const f1 = img.getAttribute('data-frame1');
+                const f2 = img.getAttribute('data-frame2');
+                if (f1 && f2 && f1 !== f2) img.src = chibiFrame ? f2 : f1;
+            });
+        }, 800);
+    </script>
+</body>
+</html>

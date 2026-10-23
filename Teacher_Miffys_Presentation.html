@@ -174,15 +174,15 @@
             width: 18px;
             height: 18px;
             border-radius: 50%;
-            background: radial-gradient(circle, #ffffff 20%, #ff2a2a 55%, #dc2626 100%);
+            background: radial-gradient(circle, #ffffff 25%, #ff2a2a 60%, #dc2626 100%);
             box-shadow:
-                0 0 10px 4px rgba(239, 68, 68, 0.95),
-                0 0 24px 10px rgba(239, 68, 68, 0.55),
-                0 0 42px 16px rgba(249, 115, 22, 0.35);
+                0 0 12px 5px rgba(239, 68, 68, 0.95),
+                0 0 24px 10px rgba(239, 68, 68, 0.65),
+                0 0 40px 16px rgba(249, 115, 22, 0.4);
             pointer-events: none;
             z-index: 9999;
-            transform: translate(-50%, -50%) scale(1);
-            transition: transform 0.12s ease, box-shadow 0.12s ease;
+            transform: translate(-50%, -50%);
+            transition: none !important;
             display: none;
         }
         body.laser-active #laserDot {
@@ -3135,7 +3135,7 @@
                     <div>
                         <h3 class="font-black text-slate-800 text-base mb-1">1. 校長 ＆ 行政組長夥伴（全校推動／跨科社群）</h3>
                         <p class="text-slate-600 text-xs leading-relaxed font-medium mb-1.5">如何在不造成教師排課負擔下推動雙語與國際交流？</p>
-                        <span class="inline-block text-[11px] font-extrabold text-amber-900 bg-amber-100 px-2.5 py-1 rounded-lg">📄 帶走 Word：跨科共備檢核表 ＆ 校園大地遊戲企劃範本.docx</span>
+                        <span class="inline-block text-[11px] font-extrabold text-amber-900 bg-amber-100 px-2.5 py-1 rounded-lg">📄 帶走 Word：校園大地遊戲企劃範本 ＆ 雙語學習單.docx</span>
                     </div>
                 </div>
 
@@ -3195,50 +3195,45 @@
 
             <div class="mb-2">
                 <h2 class="text-3xl md:text-4xl font-black text-slate-800">把世界帶進教室 🌍 讓英文成為有溫度的生活記憶</h2>
-                <p class="text-slate-600 text-sm md:text-base font-bold">掃碼下載全套可修改 Word 學習單 ✕ 留下給明芬老師的暖心文字回饋</p>
+                <p class="text-slate-600 text-sm md:text-base font-bold">手機掃碼 1 分鐘回饋 ＆ 提供未來課程靈感 ✕ 全套研習教材下載</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch mb-2">
-                <!-- Left: Padlet QR & Interactive Prompts -->
+                <!-- Left: Two QR Code Boxes (Feedback Form + Toolkit Download) -->
                 <div class="md:col-span-7 flex flex-col justify-between space-y-2.5">
-                    <div class="bg-white p-3.5 rounded-2xl border-2 border-lagoon-400 shadow-md space-y-2.5">
-                        <div class="flex flex-wrap items-center justify-between border-b border-sand-200 pb-2 gap-2">
-                            <h3 class="text-base md:text-lg font-black text-slate-800 flex items-center gap-2">
-                                <i class="fa-solid fa-box-open text-coral-500"></i> 研習教材下載百寶箱 ＆ 暖心回饋牆
-                            </h3>
-                            <div class="flex flex-wrap items-center gap-1.5">
-                                <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="bg-lagoon-600 hover:bg-lagoon-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow transition flex items-center gap-1">
-                                    <i class="fa-solid fa-download text-amber-300"></i> 📦 開啟教材下載 ＆ 留言回饋
-                                </a>
+                    <!-- Box 1: Feedback Form QR -->
+                    <div class="bg-rose-50/90 p-3.5 rounded-2xl border-2 border-rose-400 shadow-md flex items-center gap-4">
+                        <a href="workshop_feedback.html" target="_blank" class="shrink-0 group relative" title="點擊開啟手機回饋表單">
+                            <img src="web_photos/feedback_form_qr.png" alt="" onerror="this.style.display='none'" style="color:transparent" class="w-22 h-22 object-contain rounded-xl border-2 border-rose-500 p-1 bg-white group-hover:scale-105 transition shadow-sm">
+                        </a>
+                        <div class="text-xs text-slate-700 space-y-1 font-bold flex-1">
+                            <div class="flex items-center justify-between">
+                                <span class="font-black text-rose-900 text-sm md:text-base flex items-center gap-1.5">
+                                    <i class="fa-solid fa-heart text-rose-600"></i> 📱 1分鐘手機回饋 ＆ 靈感單
+                                </span>
+                                <a href="workshop_feedback.html" target="_blank" class="bg-rose-600 hover:bg-rose-700 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow transition">開啟表單 ➔</a>
                             </div>
-                        </div>
-
-                        <div class="flex items-center gap-4">
-                            <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="shrink-0 group relative" title="點擊開啟明芬老師研習教材下載＆暖心回饋牆">
-                                <img src="web_photos/padlet_qr.png" alt="" class="w-20 h-20 object-contain rounded-xl border-2 border-lagoon-500 p-1 bg-white group-hover:scale-105 transition">
-                            </a>
-                            <div class="text-xs text-slate-700 space-y-1 font-bold">
-                                <p class="font-black text-lagoon-800 text-sm">📱 掃描 QR Code 即可直接下載全套檔案、留下文字回饋：</p>
-                                <p>✅ 5 份 Word 學習單 (.docx)：七股走讀、單字尋寶謎紙、跨科手工書、SEL 溫度計、跨科規劃表</p>
-                                <p>✅ 3 份實戰 PDF（台江濕地、Unit 4 單字尋寶謎紙＆QR任務卡）＋ 單一清晰文字回饋區</p>
-                            </div>
+                            <p class="text-rose-800">用手機相機掃碼，留下建議與課程靈感：</p>
+                            <p class="text-slate-600">✨ 今天最觸動您的亮點與活動</p>
+                            <p class="text-slate-600">💡 給明芬老師未來課程設計的建議與靈感</p>
                         </div>
                     </div>
 
-                    <!-- Speaker Feedback & Warm Discussion Prompts -->
-                    <div class="bg-amber-50/90 p-3 rounded-2xl border border-amber-300 shadow-sm space-y-1.5">
-                        <h4 class="font-black text-amber-900 text-xs md:text-sm flex items-center gap-2">
-                            <i class="fa-solid fa-comment-dots text-coral-500"></i> 💌 給明芬老師的暖心回饋（歡迎留下文字，給我們滿滿能量！）
-                        </h4>
-                        <div class="grid grid-cols-1 gap-1 text-xs text-slate-700 font-bold">
-                            <div class="bg-white/95 px-2.5 py-1 rounded-lg border border-amber-200 flex items-start gap-2">
-                                <span class="text-purple-600 font-black shrink-0">✨ 印象深刻：</span>
-                                <span>今天分享的五年故事或課程設計中，哪一個片段最讓您有共鳴？</span>
+                    <!-- Box 2: Materials Download QR -->
+                    <div class="bg-teal-50/90 p-3.5 rounded-2xl border-2 border-teal-400 shadow-md flex items-center gap-4">
+                        <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="shrink-0 group relative" title="點擊開啟教材百寶箱下載區">
+                            <img src="web_photos/padlet_qr.png" alt="" onerror="this.style.display='none'" style="color:transparent" class="w-22 h-22 object-contain rounded-xl border-2 border-teal-600 p-1 bg-white group-hover:scale-105 transition shadow-sm">
+                        </a>
+                        <div class="text-xs text-slate-700 space-y-1 font-bold flex-1">
+                            <div class="flex items-center justify-between">
+                                <span class="font-black text-teal-900 text-sm md:text-base flex items-center gap-1.5">
+                                    <i class="fa-solid fa-box-open text-teal-600"></i> 📥 研習教材百寶箱下載區
+                                </span>
+                                <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="bg-teal-700 hover:bg-teal-800 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow transition">前往下載 ➔</a>
                             </div>
-                            <div class="bg-white/95 px-2.5 py-1 rounded-lg border border-amber-200 flex items-start gap-2">
-                                <span class="text-lagoon-700 font-black shrink-0">🚀 想試試看：</span>
-                                <span>單字尋寶 QR Code、跨科手工摺頁書、SEL 溫度計或教學網頁，回學校後您最想試哪一個？</span>
-                            </div>
+                            <p class="text-teal-800">4 份 Word 學習單 ＋ 2 份實戰成果 PDF：</p>
+                            <p class="text-slate-600">📄 七股走讀、單字尋寶謎紙、跨科規劃表、SEL 溫度計</p>
+                            <p class="text-slate-600">📑 濕地學習單、Unit 4 學生謎紙 ＆ QR 任務卡</p>
                         </div>
                     </div>
                 </div>
@@ -3253,7 +3248,7 @@
                     </div>
 
                     <div class="bg-sand-100/90 p-3 rounded-2xl border-2 border-coral-300 flex items-center justify-between shadow-sm gap-3">
-                        <img src="web_photos/chibi/exp_08.png" data-frame1="web_photos/chibi/exp_08.png" data-frame2="web_photos/chibi/exp_04.png" alt="" onerror="this.style.display='none'" data-chibi-slot="slide-last" onclick="openChibiPicker(this)" class="w-14 h-14 object-contain shrink-0 drop-shadow-md cursor-pointer chibi-anim-cheer chibi-sprite">
+                        <img src="web_photos/chibi/exp_08.png" data-frame1="web_photos/chibi/exp_08.png" data-frame2="web_photos/chibi/exp_04.png" alt="" onerror="this.style.display='none'" style="color:transparent" data-chibi-slot="slide-last" onclick="openChibiPicker(this)" class="w-14 h-14 object-contain shrink-0 drop-shadow-md cursor-pointer chibi-anim-cheer chibi-sprite">
                         <div class="flex-1 min-w-0">
                             <p class="font-black text-slate-800 text-sm md:text-base whitespace-nowrap">台南瀛海國際高中 林明芬老師</p>
                             <p class="text-xs text-slate-600 mt-0.5 font-bold">感謝全台各地教育夥伴的熱情參與</p>
@@ -3267,7 +3262,7 @@
 
     
     <!-- Laser Pointer Overlay & Annotation Canvases -->
-    <canvas id="laserTrailCanvas" class="fixed inset-0 z-[9997] pointer-events-none hidden"></canvas>
+    <canvas id="laserTrailCanvas" class="fixed inset-0 z-[9997] pointer-events-none"></canvas>
     <canvas id="annotationCanvas" class="fixed inset-0 z-[9998] pointer-events-none"></canvas>
     <div id="laserDot" aria-hidden="true"></div>
 
@@ -3670,6 +3665,8 @@
 
             function toggleLaser(forceState) {
                 laserEnabled = typeof forceState === 'boolean' ? forceState : !laserEnabled;
+                laserPoints = [];
+                if (trailCtx && trailCanvas) trailCtx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
                 if (laserEnabled) {
                     drawMode = null;
                 } else if (laserDot) {
@@ -3702,11 +3699,41 @@
             if (btnHighlighter) btnHighlighter.addEventListener('click', () => toggleDrawMode('highlighter'));
             if (btnClearInk) btnClearInk.addEventListener('click', clearAnnotations);
 
-            // Precise, Instant-Stop Laser Pointer (stops immediately at cursor without drifting)
+            // Responsive Laser Pointer with tightly-following fading trail (zero runaway inertia)
+            let laserPoints = [];
+            function renderLaserTrail() {
+                if (!trailCtx || !trailCanvas) return;
+                trailCtx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
+                if (!laserEnabled || laserPoints.length < 2) {
+                    requestAnimationFrame(renderLaserTrail);
+                    return;
+                }
+                const now = performance.now();
+                laserPoints = laserPoints.filter(p => now - p.t < 180);
+                for (let i = 1; i < laserPoints.length; i++) {
+                    const p0 = laserPoints[i - 1];
+                    const p1 = laserPoints[i];
+                    const age = now - p1.t;
+                    const alpha = Math.max(0, 1 - age / 180);
+                    trailCtx.beginPath();
+                    trailCtx.moveTo(p0.x, p0.y);
+                    trailCtx.lineTo(p1.x, p1.y);
+                    trailCtx.strokeStyle = `rgba(239, 68, 68, ${alpha * 0.85})`;
+                    trailCtx.lineWidth = 5 * alpha + 1.5;
+                    trailCtx.lineCap = 'round';
+                    trailCtx.lineJoin = 'round';
+                    trailCtx.stroke();
+                }
+                requestAnimationFrame(renderLaserTrail);
+            }
+            requestAnimationFrame(renderLaserTrail);
+
             function recordLaserPoint(x, y) {
                 if (!laserEnabled || !laserDot) return;
                 laserDot.style.left = x + 'px';
                 laserDot.style.top = y + 'px';
+                laserPoints.push({ x, y, t: performance.now() });
+                if (laserPoints.length > 20) laserPoints.shift();
             }
 
             window.addEventListener('mousemove', (e) => {
@@ -4060,26 +4087,23 @@
         setInterval(() => {
             if (chibiAnimPaused) return;
             spriteFrameToggle = !spriteFrameToggle;
-            const activeSlide = document.querySelector('.slide.active');
-            if (!activeSlide) return;
-            activeSlide.querySelectorAll('img.chibi-sprite').forEach(img => {
+            document.querySelectorAll('img.chibi-sprite').forEach(img => {
                 const f1 = img.getAttribute('data-frame1');
                 const f2 = img.getAttribute('data-frame2');
                 if (f1 && f2 && f1 !== f2) {
                     img.src = spriteFrameToggle ? f2 : f1;
                 }
             });
-        }, 1200);
+        }, 600);
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Ensure distinct animated frames on all chibi slots
             document.querySelectorAll('img[data-chibi-slot]').forEach(img => {
                 const slot = img.getAttribute('data-chibi-slot');
                 try {
                     const saved = localStorage.getItem('miffy_chibi_' + slot);
-                    if (saved) {
+                    if (saved && !slot.startsWith('hdr-')) {
                         img.src = saved;
-                        img.setAttribute('data-frame1', saved);
-                        img.setAttribute('data-frame2', saved);
                     }
                 } catch(e) {}
             });
