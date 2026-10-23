@@ -70,6 +70,9 @@
 
         <!-- Mobile & Tablet Quick-Jump Column Pills -->
         <div id="mobileColNav" class="xl:hidden max-w-7xl mx-auto pt-2.5 mt-2 border-t border-teal-700/80 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+            <a href="#col-sec-5" class="shrink-0 bg-rose-500 hover:bg-rose-600 text-white text-xs font-black px-3.5 py-1.5 rounded-full shadow-md flex items-center gap-1">
+                💌 5. 留下回饋與靈感
+            </a>
             <a href="#col-sec-1" class="shrink-0 bg-teal-900/70 hover:bg-teal-900 text-teal-100 text-xs font-bold px-3 py-1.5 rounded-full border border-teal-600">
                 📌 1. 在地走讀
             </a>
@@ -81,9 +84,6 @@
             </a>
             <a href="#col-sec-4" class="shrink-0 bg-teal-900/70 hover:bg-teal-900 text-teal-100 text-xs font-bold px-3 py-1.5 rounded-full border border-teal-600">
                 🌿 4. SEL 與網站
-            </a>
-            <a href="#col-sec-5" class="shrink-0 bg-rose-500 hover:bg-rose-600 text-white text-xs font-black px-3 py-1.5 rounded-full shadow-sm">
-                💌 5. 暖心回饋牆
             </a>
         </div>
     </header>
@@ -569,7 +569,19 @@
             });
         }, 1100);
 
-        document.addEventListener('DOMContentLoaded', initToolkit);
+        document.addEventListener('DOMContentLoaded', () => {
+            initToolkit();
+            if (window.location.hash === '#col-sec-5' || window.location.search.includes('feedback')) {
+                setTimeout(() => {
+                    const el = document.getElementById('col-sec-5');
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        const inp = document.getElementById('fbContentInput');
+                        if (inp) inp.focus();
+                    }
+                }, 250);
+            }
+        });
     </script>
     <form name="workshop1027-feedback" data-netlify="true" hidden>
         <input type="text" name="category">
