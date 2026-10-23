@@ -234,9 +234,10 @@
                     <label class="block font-bold text-stone-700 mb-1">4. 內容說明：</label>
                     <textarea id="cardDescInput" rows="3" placeholder="請輸入說明文字或回饋內容..." class="w-full border border-stone-300 rounded-xl px-3 py-2 font-medium"></textarea>
                 </div>
-                <div class="bg-teal-50/70 p-3.5 rounded-2xl border border-teal-200 space-y-2">
-                    <label class="block font-bold text-teal-900">5A. 上傳或更換電腦/手機檔案（Word、PDF、圖片、簡報皆可）：</label>
-                    <input id="cardFileInput" type="file" class="w-full text-xs text-stone-600 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-black file:bg-teal-600 file:text-white hover:file:bg-teal-700 cursor-pointer">
+                <div class="bg-teal-50/70 p-3.5 rounded-2xl border-2 border-dashed border-teal-400 space-y-2">
+                    <label class="block font-black text-teal-900">5A. 📤 上傳或更換電腦/手機檔案（支援多選，Word、PPT、PDF、圖片、影片皆可，無容量限制）：</label>
+                    <input id="cardFileInput" type="file" multiple class="w-full text-xs text-stone-600 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-black file:bg-teal-600 file:text-white hover:file:bg-teal-700 cursor-pointer">
+                    <div id="selectedFileHint" class="text-xs font-bold text-teal-700">💡 提示：也可以直接從電腦 Finder / 桌面把檔案「拖曳」到任一專欄上直接上傳！</div>
                 </div>
                 <div class="bg-amber-50/70 p-3.5 rounded-2xl border border-amber-200 space-y-1.5">
                     <label class="block font-bold text-amber-900">5B. 或指定連結網址 / 檔案路徑：</label>
@@ -361,10 +362,104 @@
     </main>
 
     <script>
-        const STORAGE_KEY = 'miffy_padlet_board_v3';
+        const STORAGE_KEY = 'miffy_padlet_board_v5';
+        const IDB_NAME = 'MiffyPadletDB_v5';
+        const IDB_STORE = 'kv';
+        const MY_CLIENT_ID = 'client_' + Math.random().toString(36).slice(2) + '_' + Date.now();
+        const objectUrlCache = {};
+
+        // IndexedDB Helper (Supports 500MB+ large files: PPTX, DOCX, PDF, Images, Videos)
+        function openPadletDB() {
+            return new Promise((resolve, reject) => {
+                if (!window.indexedDB) return resolve(null);
+                const req = indexedDB.open(IDB_NAME, 1);
+                req.onupgradeneeded = (e) => {
+                    const db = e.target.result;
+                    if (!db.objectStoreNames.contains(IDB_STORE)) {
+                        db.createObjectStore(IDB_STORE);
+                    }
+                };
+                req.onsuccess = (e) => resolve(e.target.result);
+                req.onerror = () => resolve(null);
+            });
+        }
+
+        async function idbGet(key) {
+            try {
+                const db = await openPadletDB();
+                if (!db) return null;
+                return await new Promise((resolve) => {
+                    const tx = db.transaction(IDB_STORE, 'readonly');
+                    const req = tx.objectStore(IDB_STORE).get(key);
+                    req.onsuccess = () => resolve(req.result || null);
+                    req.onerror = () => resolve(null);
+                });
+            } catch (e) {
+                return null;
+            }
+        }
+
+        async function idbSet(key, val) {
+            try {
+                const db = await openPadletDB();
+                if (!db) return false;
+                return await new Promise((resolve) => {
+                    const tx = db.transaction(IDB_STORE, 'readwrite');
+                    tx.objectStore(IDB_STORE).put(val, key);
+                    tx.oncomplete = () => resolve(true);
+                    tx.onerror = () => resolve(false);
+                });
+            } catch (e) {
+                return false;
+            }
+        }
+
+        async function idbClear() {
+            try {
+                const db = await openPadletDB();
+                if (!db) return;
+                await new Promise((resolve) => {
+                    const tx = db.transaction(IDB_STORE, 'readwrite');
+                    tx.objectStore(IDB_STORE).clear();
+                    tx.oncomplete = () => resolve();
+                    tx.onerror = () => resolve();
+                });
+            } catch (e) {}
+        }
+
+        function dataUrlToBlob(dataUrl) {
+            try {
+                const parts = dataUrl.split(',');
+                const mimeMatch = parts[0].match(/:(.*?);/);
+                const mime = mimeMatch ? mimeMatch[1] : 'application/octet-stream';
+                const bstr = atob(parts[1]);
+                let n = bstr.length;
+                const u8arr = new Uint8Array(n);
+                while (n--) {
+                    u8arr[n] = bstr.charCodeAt(n);
+                }
+                return new Blob([u8arr], { type: mime });
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function getUsableHref(card) {
+            if (!card || !card.url) return '';
+            if (card.url.startsWith('data:')) {
+                if (!objectUrlCache[card.id]) {
+                    const blob = dataUrlToBlob(card.url);
+                    if (blob) {
+                        objectUrlCache[card.id] = URL.createObjectURL(blob);
+                    }
+                }
+                return objectUrlCache[card.id] || card.url;
+            }
+            return card.url;
+        }
 
         const DEFAULT_CARDS = [
-            // Column 1
+            // Column 1: 在地走讀雙語學習單
             {
                 id: 'c1-1',
                 col: 1,
@@ -387,7 +482,7 @@
                 btnText: '📄 開啟 / 下載 PDF',
                 isDownload: false
             },
-            // Column 2
+            // Column 2: 大地遊戲與活用文法
             {
                 id: 'c2-1',
                 col: 2,
@@ -404,24 +499,46 @@
                 col: 2,
                 badge: '實戰套裝 (.pdf)',
                 badgeColor: 'bg-emerald-100 text-emerald-800',
-                title: 'Unit 4 COLORFUL 學生謎紙 (PDF)',
-                desc: '完整課堂實戰範例：學生闖關謎紙，可直接觀摩或改編。',
+                title: 'Unit 4 COLORFUL 學生謎紙 ＆ QR 任務卡',
+                desc: '完整課堂實戰範例：學生闖關謎紙與貼在校園各角落的 QR Code 任務卡。',
                 url: 'Padlet_研習教材大禮包_Word檔/Unit4_COLORFUL_學生謎紙.pdf',
                 btnText: '📄 開啟學生謎紙 PDF',
                 isDownload: false
             },
             {
-                id: 'c2-3',
+                id: 'c2-4',
                 col: 2,
-                badge: '實戰套裝 (.pdf)',
-                badgeColor: 'bg-emerald-100 text-emerald-800',
-                title: 'Unit 4 COLORFUL QR 任務卡 (PDF)',
-                desc: '貼在校園各角落的 QR Code 尋寶任務卡實戰範例。',
-                url: 'Padlet_研習教材大禮包_Word檔/Unit4_COLORFUL_QR任務卡.pdf',
-                btnText: '📱 開啟 QR 任務卡 PDF',
-                isDownload: false
+                badge: '💔 B4U1 抱怨男友 (.docx)',
+                badgeColor: 'bg-rose-100 text-rose-800',
+                title: 'B4U1 抱怨男友寫作 ✕ 王心凌《一律建議分手吧》學習單',
+                desc: '三部曲完整學習單：28字限定造句挑戰 ➔ Ask ChatGPT 流行歌思辨 ➔ Love Coach 回信。',
+                url: 'web_photos/B4U1_抱怨男友_一律建議分手吧.docx',
+                btnText: '📥 下載抱怨男友學習單 (.docx)',
+                isDownload: true
             },
-            // Column 3
+            {
+                id: 'c2-5',
+                col: 2,
+                badge: '📊 全班成果 (.pptx)',
+                badgeColor: 'bg-amber-100 text-amber-900',
+                title: 'B4U1 抱怨男友全班 39 頁成果簡報 (.pptx)',
+                desc: '收錄全班學生創意抱怨信與教師回饋之完整簡報檔。',
+                url: 'web_photos/抱怨男友簡報.pptx',
+                btnText: '📥 下載 39頁成果簡報 (.pptx)',
+                isDownload: true
+            },
+            {
+                id: 'c2-6',
+                col: 2,
+                badge: '🎵 流行歌文法 (.pptx)',
+                badgeColor: 'bg-purple-100 text-purple-900',
+                title: '《Until I Found You》✕ until / not...until 文法練習簡報',
+                desc: '結合破億英文金曲與學生雙人情境創作的文法教學簡報。',
+                url: 'web_photos/until文法練習.pptx',
+                btnText: '📥 下載 until 文法簡報 (.pptx)',
+                isDownload: true
+            },
+            // Column 3: 跨科共創 (可可、番茄、美妝大聯盟)
             {
                 id: 'c3-1',
                 col: 3,
@@ -436,26 +553,59 @@
             {
                 id: 'c3-2',
                 col: 3,
-                badge: 'Word 可編輯 (.docx)',
-                badgeColor: 'bg-blue-100 text-blue-800',
-                title: '跨科 STEAM 雙語手工摺頁書（8格架構＋句型鷹架）',
-                desc: '適用番茄食農、巧克力化學、家政美妝跨科合作，含感官形容詞與步驟句型鷹架。',
-                url: 'Padlet_研習教材大禮包_Word檔/03_跨科共創STEAM_雙語手工摺頁書架構與句型鷹架學習單(可修改).docx',
-                btnText: '📥 下載手工書 Word 檔 (.docx)',
+                badge: '🍅 番茄跨域 (.pptx / .pdf)',
+                badgeColor: 'bg-red-100 text-red-800',
+                title: '《蕃茄的全球化》歷史科陳柏沅老師共備簡報',
+                desc: '112學年《蕃茄紅了》四科跨域：從中南美洲原產地到台南可果美番茄產業史。',
+                url: 'web_photos/蕃茄的全球化簡報_陳柏沅老師.pptx',
+                btnText: '📥 下載蕃茄全球化簡報 (.pptx)',
+                isDownload: true
+            },
+            {
+                id: 'c3-4',
+                col: 3,
+                badge: '✨ 113美妝大聯盟 (.docx)',
+                badgeColor: 'bg-pink-100 text-pink-800',
+                title: '《113課程規劃》美妝大聯盟六科 STEAM 架構表',
+                desc: '英文、家政、地理、美術、數學、化學六科圓環架構與全學年社課規劃。',
+                url: 'web_photos/113課程規劃.docx',
+                btnText: '📥 下載 113課程規劃 (.docx)',
+                isDownload: true
+            },
+            {
+                id: 'c3-5',
+                col: 3,
+                badge: '💄 B3U3 審美思辨 (.docx)',
+                badgeColor: 'bg-rose-100 text-rose-800',
+                title: 'B3U3《Dying to be Attractive》閱讀與 KWL 思辨學習單',
+                desc: '美妝大聯盟英文科核心教材：古今審美標準與健康代價深度閱讀學習單。',
+                url: 'web_photos/B3U3_Dying_to_be_Attractive_Worksheet.docx',
+                btnText: '📥 下載 B3U3 學習單 (.docx)',
+                isDownload: true
+            },
+            {
+                id: 'c3-6',
+                col: 3,
+                badge: '📘 6/18 立體手工書 (.pptx)',
+                badgeColor: 'bg-purple-100 text-purple-800',
+                title: '美妝大聯盟 6/18 期末立體手工書成果製作大會簡報',
+                desc: '維納斯的誕生貝殼封面 × 四科內頁配置與手工書製作步驟完整引導。',
+                url: 'web_photos/美妝大聯盟_成果製作大會.pptx',
+                btnText: '📥 下載成果製作大會 (.pptx)',
                 isDownload: true
             },
             {
                 id: 'c3-3',
                 col: 3,
                 badge: '校長/組長必備 (.docx)',
-                badgeColor: 'bg-purple-100 text-purple-800',
+                badgeColor: 'bg-teal-100 text-teal-800',
                 title: '全學年雙語深耕 ✕ 跨科社群共備推動檢核表',
                 desc: '如何找不同科老師喝咖啡共備？四季推進藍圖與分工不越界 SOP。',
                 url: 'Padlet_研習教材大禮包_Word檔/05_全學年雙語深耕與跨科社群共備_行政教師檢核表(校長組長必備).docx',
                 btnText: '📥 下載行政/社群檢核表 (.docx)',
                 isDownload: true
             },
-            // Column 4
+            // Column 4: SEL 情緒陪伴與數位魔法
             {
                 id: 'c4-1',
                 col: 4,
@@ -500,14 +650,14 @@
                 btnText: '🌐 開啟魔法英文教室網站',
                 isDownload: false
             },
-            // Column 5 (Feedback Wall Starter Notes)
+            // Column 5: Feedback Wall Starter Notes
             {
                 id: 'c5-1',
                 col: 5,
                 badge: '🌟 講師歡迎詞',
                 badgeColor: 'bg-amber-200 text-amber-950',
                 title: '台南瀛海國際高中 林明芬老師',
-                desc: '歡迎留下給講師的回饋！不管是有印象的、想要試試看的、或提供建議的，都超級歡迎直接點上方按鈕貼便利貼，或點此卡片右上角「✏️ 編輯」接龍留言！',
+                desc: '歡迎留下給講師的回饋！不管是有印象的、想要試試看的、或提供建議的，都超級歡迎直接點上方按鈕貼便利貼，或將檔案直接拖曳到任一欄位上傳！',
                 url: '',
                 btnText: '',
                 isDownload: false
@@ -515,15 +665,25 @@
         ];
 
         let boardCards = [];
-        const SYNC_TOPIC = 'miffy_1027_padlet_wall_2026_v3';
+        const SYNC_TOPIC = 'miffy_1027_padlet_wall_2026_v5';
         const SYNC_URL = `https://ntfy.sh/${SYNC_TOPIC}`;
 
         function applyCloudOp(opObj) {
             if (!opObj || !opObj.op) return;
+            // Ignore our own echo so local large files are NEVER overwritten!
+            if (opObj.senderId && opObj.senderId === MY_CLIENT_ID) return;
+
             if (opObj.op === 'upsert' && opObj.card && opObj.card.id) {
                 const idx = boardCards.findIndex(x => x.id === opObj.card.id);
                 if (idx !== -1) {
-                    boardCards[idx] = { ...boardCards[idx], ...opObj.card };
+                    const existing = boardCards[idx];
+                    boardCards[idx] = {
+                        ...existing,
+                        ...opObj.card,
+                        // Never overwrite existing file/image data with an empty string from cloud summary
+                        url: opObj.card.url || existing.url || '',
+                        imageData: opObj.card.imageData || existing.imageData || ''
+                    };
                 } else {
                     boardCards.unshift(opObj.card);
                 }
@@ -536,8 +696,8 @@
 
         function broadcastCloudOp(opObj) {
             try {
-                // Strip huge base64 payloads > 3KB when broadcasting over real-time pub/sub
                 const safeCopy = JSON.parse(JSON.stringify(opObj));
+                safeCopy.senderId = MY_CLIENT_ID;
                 if (safeCopy.card) {
                     if (safeCopy.card.url && safeCopy.card.url.length > 3000) safeCopy.card.url = '';
                     if (safeCopy.card.imageData && safeCopy.card.imageData.length > 3000) safeCopy.card.imageData = '';
@@ -563,19 +723,19 @@
                             }
                         } catch (e) {}
                     }
-                    saveBoard();
+                    await saveBoard();
                     renderBoard();
                 }
             } catch (e) {}
 
             try {
                 const es = new EventSource(`${SYNC_URL}/sse`);
-                es.onmessage = (ev) => {
+                es.onmessage = async (ev) => {
                     try {
                         const evt = JSON.parse(ev.data);
                         if (evt.event === 'message' && evt.message) {
                             applyCloudOp(JSON.parse(evt.message));
-                            saveBoard();
+                            await saveBoard();
                             renderBoard();
                         }
                     } catch (e) {}
@@ -583,13 +743,34 @@
             } catch (e) {}
         }
 
-        function loadBoard() {
+        function mergeMissingDefaultCards(cards) {
+            const existingIds = new Set(cards.map(c => c.id));
+            for (const defCard of DEFAULT_CARDS) {
+                if (!existingIds.has(defCard.id)) {
+                    cards.push(JSON.parse(JSON.stringify(defCard)));
+                }
+            }
+            return cards;
+        }
+
+        async function loadBoard() {
+            setupDragAndDropColumns();
             try {
+                // 1. Try IndexedDB first (supports unlimited large uploaded files)
+                const idbCards = await idbGet(STORAGE_KEY);
+                if (Array.isArray(idbCards) && idbCards.length > 0) {
+                    boardCards = mergeMissingDefaultCards(idbCards);
+                    renderBoard();
+                    initCloudSync();
+                    return;
+                }
+                // 2. Fallback to localStorage
                 const raw = localStorage.getItem(STORAGE_KEY);
                 if (raw) {
                     const parsed = JSON.parse(raw);
                     if (Array.isArray(parsed) && parsed.length > 0) {
-                        boardCards = parsed;
+                        boardCards = mergeMissingDefaultCards(parsed);
+                        await idbSet(STORAGE_KEY, boardCards);
                         renderBoard();
                         initCloudSync();
                         return;
@@ -599,24 +780,87 @@
                 console.warn('Load board fallback:', e);
             }
             boardCards = JSON.parse(JSON.stringify(DEFAULT_CARDS));
+            await saveBoard();
             renderBoard();
             initCloudSync();
         }
 
-        function saveBoard() {
+        async function saveBoard() {
+            // Always save full data (including large files) to IndexedDB
+            await idbSet(STORAGE_KEY, boardCards);
             try {
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(boardCards));
             } catch (e) {
-                alert('檔案較大，已保留於目前頁面記憶體中！');
+                // If localStorage 5MB limit is exceeded, store lightweight metadata in localStorage while IndexedDB keeps full files
+                try {
+                    const lightCards = boardCards.map(c => ({
+                        ...c,
+                        url: c.url && c.url.length > 50000 ? '' : c.url,
+                        imageData: c.imageData && c.imageData.length > 50000 ? '' : c.imageData
+                    }));
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(lightCards));
+                } catch (e2) {}
             }
         }
 
-        function resetDefaultBoard() {
+        async function resetDefaultBoard() {
             if (!confirm('確定要將所有專欄恢復為預設教材卡片嗎？')) return;
             localStorage.removeItem(STORAGE_KEY);
+            await idbClear();
             boardCards = JSON.parse(JSON.stringify(DEFAULT_CARDS));
+            await saveBoard();
             broadcastCloudOp({ op: 'reset' });
             renderBoard();
+        }
+
+        function setupDragAndDropColumns() {
+            for (let c = 1; c <= 5; c++) {
+                const colEl = document.getElementById(`col-sec-${c}`);
+                if (!colEl) continue;
+                colEl.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    colEl.classList.add('ring-4', 'ring-teal-500', 'bg-teal-50');
+                });
+                colEl.addEventListener('dragleave', () => {
+                    colEl.classList.remove('ring-4', 'ring-teal-500', 'bg-teal-50');
+                });
+                colEl.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    colEl.classList.remove('ring-4', 'ring-teal-500', 'bg-teal-50');
+                    const files = e.dataTransfer && e.dataTransfer.files;
+                    if (files && files.length > 0) {
+                        handleDirectFilesUpload(files, c);
+                    }
+                });
+            }
+        }
+
+        function handleDirectFilesUpload(files, colNum) {
+            Array.from(files).forEach((file, idx) => {
+                const reader = new FileReader();
+                reader.onload = async function(e) {
+                    const fileDataUrl = e.target.result;
+                    const isImg = file.type.startsWith('image/');
+                    const newCard = {
+                        id: 'card_' + Date.now() + '_' + idx + '_' + Math.random().toString(36).slice(2, 6),
+                        col: colNum,
+                        badge: '📤 剛上傳檔案 (' + (file.name.split('.').pop() || 'file').toUpperCase() + ')',
+                        badgeColor: colNum === 5 ? 'bg-rose-100 text-rose-800' : 'bg-emerald-100 text-emerald-900',
+                        title: file.name.replace(/\.[^/.]+$/, ''),
+                        desc: `檔案名稱：${file.name} (${(file.size / 1024).toFixed(1)} KB)`,
+                        url: fileDataUrl,
+                        fileName: file.name,
+                        isDownload: true,
+                        btnText: `📥 下載 ${file.name}`,
+                        imageData: isImg ? fileDataUrl : ''
+                    };
+                    boardCards.unshift(newCard);
+                    await saveBoard();
+                    broadcastCloudOp({ op: 'upsert', card: newCard });
+                    renderBoard();
+                };
+                reader.readAsDataURL(file);
+            });
         }
 
         function renderBoard() {
@@ -636,12 +880,14 @@
                     : 'bg-white p-4 rounded-xl border border-stone-200 shadow-sm card-hover space-y-2 relative';
 
                 const badgeCls = card.badgeColor || (isCol5 ? 'bg-rose-100 text-rose-800' : 'bg-teal-100 text-teal-800');
+                const usableHref = getUsableHref(card);
+                const imgHref = card.imageData ? (card.imageData.startsWith('data:') ? usableHref : card.imageData) : '';
 
                 div.innerHTML = `
                     <div class="flex items-center justify-between gap-1">
                         <span class="inline-block ${badgeCls} text-[11px] font-black px-2 py-0.5 rounded">${escapeHtml(card.badge || '教學資源')}</span>
                         <div class="flex items-center gap-1 shrink-0">
-                            <button onclick="openCardModal('edit', ${card.col}, '${card.id}')" class="text-xs font-bold bg-stone-100 hover:bg-amber-100 text-stone-700 hover:text-amber-900 px-2 py-0.5 rounded border border-stone-300 transition cursor-pointer" title="編輯此卡片">
+                            <button onclick="openCardModal('edit', ${card.col}, '${card.id}')" class="text-xs font-bold bg-stone-100 hover:bg-amber-100 text-stone-700 hover:text-amber-900 px-2 py-0.5 rounded border border-stone-300 transition cursor-pointer" title="編輯此卡片或更換檔案">
                                 ✏️ 編輯
                             </button>
                             <button onclick="deleteCard('${card.id}')" class="text-xs font-bold bg-stone-100 hover:bg-red-100 text-stone-500 hover:text-red-600 px-1.5 py-0.5 rounded border border-stone-200 transition cursor-pointer" title="刪除此卡片">
@@ -651,11 +897,18 @@
                     </div>
                     <h3 class="font-black text-sm md:text-base text-stone-800 leading-snug">${escapeHtml(card.title)}</h3>
                     <p class="text-xs text-stone-600 leading-relaxed whitespace-pre-line">${escapeHtml(card.desc)}</p>
-                    ${card.imageData ? `<img src="${card.imageData}" class="w-full max-h-44 object-contain rounded-lg bg-white border border-stone-200 my-1">` : ''}
-                    ${card.url ? `
-                        <a href="${card.url}" ${card.isDownload ? `download="${escapeHtml(card.fileName || '')}"` : 'target="_blank" rel="noopener"'} class="mt-2 w-full bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 transition shadow-sm">
-                            ${escapeHtml(card.btnText || '開啟 / 下載資源')}
-                        </a>
+                    ${imgHref ? `<a href="${imgHref}" target="_blank" title="點擊放大檢視圖片"><img src="${imgHref}" class="w-full max-h-48 object-contain rounded-lg bg-white border border-stone-200 my-1 hover:opacity-90 transition"></a>` : ''}
+                    ${usableHref ? `
+                        <div class="flex gap-1.5 mt-2">
+                            <a href="${usableHref}" ${card.isDownload ? `download="${escapeHtml(card.fileName || card.title || 'download')}"` : 'target="_blank" rel="noopener"'} class="flex-1 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 transition shadow-sm">
+                                ${escapeHtml(card.btnText || '📥 開啟 / 下載資源')}
+                            </a>
+                            ${card.isDownload ? `
+                                <a href="${usableHref}" target="_blank" rel="noopener" class="bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold py-2 px-2.5 rounded-lg border border-stone-300 transition" title="在新分頁直接開啟預覽">
+                                    🔍
+                                </a>
+                            ` : ''}
+                        </div>
                     ` : ''}
                 `;
                 container.appendChild(div);
@@ -703,7 +956,7 @@
             document.getElementById('cardModal').classList.add('hidden');
         }
 
-        function saveCardFromModal() {
+        async function saveCardFromModal() {
             const editingId = document.getElementById('editingCardId').value;
             const col = parseInt(document.getElementById('cardColSelect').value, 10) || 1;
             const badge = document.getElementById('cardBadgeInput').value.trim();
@@ -712,14 +965,23 @@
             const url = document.getElementById('cardUrlInput').value.trim();
             const btnText = document.getElementById('cardBtnTextInput').value.trim();
             const fileInput = document.getElementById('cardFileInput');
-            const file = fileInput.files && fileInput.files[0];
+            const files = fileInput.files ? Array.from(fileInput.files) : [];
 
-            if (!title && !file && !url) {
-                alert('請至少輸入卡片標題，或選擇一個要上傳的檔案！');
+            if (!title && files.length === 0 && !url && !editingId) {
+                alert('請至少選擇一個要上傳的檔案，或輸入卡片標題！');
                 return;
             }
 
-            const finalizeSave = (fileDataUrl, uploadedFileName, isImg) => {
+            // If multiple files are selected when adding new cards, create one card per file
+            if (!editingId && files.length > 1) {
+                handleDirectFilesUpload(files, col);
+                closeCardModal();
+                return;
+            }
+
+            const file = files[0] || null;
+
+            const finalizeSave = async (fileDataUrl, uploadedFileName, isImg) => {
                 let targetCard = null;
                 if (editingId) {
                     const idx = boardCards.findIndex(x => x.id === editingId);
@@ -729,27 +991,26 @@
                         boardCards[idx].title = title || uploadedFileName || boardCards[idx].title;
                         boardCards[idx].desc = desc;
                         if (fileDataUrl) {
+                            delete objectUrlCache[boardCards[idx].id];
                             boardCards[idx].url = fileDataUrl;
                             boardCards[idx].fileName = uploadedFileName;
                             boardCards[idx].isDownload = true;
                             boardCards[idx].btnText = btnText || `📥 下載 ${uploadedFileName}`;
-                            if (isImg) boardCards[idx].imageData = fileDataUrl;
+                            boardCards[idx].imageData = isImg ? fileDataUrl : '';
                         } else if (url) {
                             boardCards[idx].url = url;
                             boardCards[idx].btnText = btnText || boardCards[idx].btnText || '開啟 / 下載資源';
-                        } else if (!url && !boardCards[idx].url?.startsWith('data:')) {
-                            boardCards[idx].url = '';
                         }
                         targetCard = boardCards[idx];
                     }
                 } else {
                     targetCard = {
-                        id: 'card_' + Date.now(),
+                        id: 'card_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
                         col: col,
-                        badge: badge || (file ? '📤 新上傳檔案' : (col === 5 ? '💌 夥伴回饋' : '📌 新增資源')),
+                        badge: badge || (file ? '📤 已上傳檔案 (' + (file.name.split('.').pop() || 'FILE').toUpperCase() + ')' : (col === 5 ? '💌 夥伴回饋' : '📌 新增資源')),
                         badgeColor: col === 5 ? 'bg-rose-100 text-rose-800' : 'bg-teal-100 text-teal-800',
-                        title: title || (file ? file.name : '新增卡片'),
-                        desc: desc || (file ? `已上傳檔案：${file.name}` : ''),
+                        title: title || (file ? file.name.replace(/\.[^/.]+$/, '') : '新增卡片'),
+                        desc: desc || (file ? `已上傳檔案：${file.name} (${(file.size / 1024).toFixed(1)} KB)` : ''),
                         url: fileDataUrl || url || '',
                         fileName: uploadedFileName || '',
                         isDownload: !!fileDataUrl,
@@ -758,7 +1019,7 @@
                     };
                     boardCards.unshift(targetCard);
                 }
-                saveBoard();
+                await saveBoard();
                 if (targetCard) broadcastCloudOp({ op: 'upsert', card: targetCard });
                 renderBoard();
                 closeCardModal();
@@ -771,14 +1032,14 @@
                 };
                 reader.readAsDataURL(file);
             } else {
-                finalizeSave(null, null, false);
+                await finalizeSave(null, null, false);
             }
         }
 
-        function deleteCard(cardId) {
+        async function deleteCard(cardId) {
             if (!confirm('確定要刪除此張卡片嗎？')) return;
             boardCards = boardCards.filter(x => x.id !== cardId);
-            saveBoard();
+            await saveBoard();
             broadcastCloudOp({ op: 'delete', cardId: cardId });
             renderBoard();
         }
@@ -823,14 +1084,14 @@
             else if (cat.includes('黃區')) badgeColor = 'bg-yellow-200 text-yellow-900';
             else if (cat.includes('紅區')) badgeColor = 'bg-red-100 text-red-900';
 
-            const finishSticky = (fileDataUrl, fileName, isImg) => {
+            const finishSticky = async (fileDataUrl, fileName, isImg) => {
                 const newSticky = {
                     id: 'fb_' + Date.now(),
                     col: 5,
                     badge: cat,
                     badgeColor: badgeColor,
                     title: `💖 ${author}`,
-                    desc: content,
+                    desc: content || (fileName ? `分享附件：${fileName}` : ''),
                     url: fileDataUrl || '',
                     fileName: fileName || '',
                     isDownload: !!fileDataUrl,
@@ -838,7 +1099,7 @@
                     imageData: isImg ? fileDataUrl : ''
                 };
                 boardCards.unshift(newSticky);
-                saveBoard();
+                await saveBoard();
                 broadcastCloudOp({ op: 'upsert', card: newSticky });
                 renderBoard();
                 closeFeedbackModal();
@@ -867,23 +1128,23 @@
         }
 
         const participants = [
-            { group: "🌱 國小夥伴", school: "臺北市內湖區新湖國小 吳老師" },
-            { group: "🌱 國小夥伴", school: "新竹市關東國小 郭老師" },
-            { group: "🌱 國小夥伴", school: "高雄市五福國小 張老師" },
-            { group: "🌱 國小夥伴", school: "高雄市文府國小 陳老師" },
-            { group: "👑 國中校長夥伴", school: "臺中市后里國中 李校長" },
-            { group: "🌱 國中夥伴", school: "高雄市大寮國中 盧老師" },
-            { group: "👑 特教行政夥伴", school: "臺北特殊教育學校 陳組長" },
-            { group: "👑 技高行政夥伴", school: "臺中市臺中家商 莫組長" },
-            { group: "🛠️ 技高夥伴", school: "高雄市海青工商 楊老師" },
-            { group: "🛠️ 技高夥伴", school: "高雄市三民家商 黃老師" },
-            { group: "👑 普高行政夥伴", school: "桃園市陽明高中 莊組長" },
-            { group: "🎓 普高夥伴", school: "新北市新莊高中 張老師" },
-            { group: "🎓 私中夥伴", school: "新北市徐匯高中 陳老師" },
-            { group: "🎓 完中夥伴", school: "南投縣旭光高中 黃老師" },
-            { group: "🎓 完中夥伴", school: "臺中市惠文高中 林老師" },
-            { group: "🎓 完中夥伴", school: "高雄市仁武高中 林老師" },
-            { group: "🎓 地主普高夥伴", school: "高雄市三民高中 黃老師 ＆ 王夥伴" }
+            { group: "🌱 國小夥伴", school: "臺北市內湖區新湖國小 教育夥伴" },
+            { group: "🌱 國小夥伴", school: "新竹市關東國小 教育夥伴" },
+            { group: "🌱 國小夥伴", school: "高雄市五福國小 教育夥伴" },
+            { group: "🌱 國小夥伴", school: "高雄市文府國小 教育夥伴" },
+            { group: "👑 國中行政夥伴", school: "臺中市后里國中 教育夥伴" },
+            { group: "🌱 國中夥伴", school: "高雄市大寮國中 教育夥伴" },
+            { group: "👑 特教行政夥伴", school: "臺北特殊教育學校 教育夥伴" },
+            { group: "👑 技高行政夥伴", school: "臺中市臺中家商 教育夥伴" },
+            { group: "🛠️ 技高夥伴", school: "高雄市海青工商 教育夥伴" },
+            { group: "🛠️ 技高夥伴", school: "高雄市三民家商 教育夥伴" },
+            { group: "👑 普高行政夥伴", school: "桃園市陽明高中 教育夥伴" },
+            { group: "🎓 普高夥伴", school: "新北市新莊高中 教育夥伴" },
+            { group: "🎓 私中夥伴", school: "新北市徐匯高中 教育夥伴" },
+            { group: "🎓 完中夥伴", school: "南投縣旭光高中 教育夥伴" },
+            { group: "🎓 完中夥伴", school: "臺中市惠文高中 教育夥伴" },
+            { group: "🎓 完中夥伴", school: "高雄市仁武高中 教育夥伴" },
+            { group: "🎓 地主普高夥伴", school: "高雄市三民高中 教育夥伴" }
         ];
 
         const questions = [
