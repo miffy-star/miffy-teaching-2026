@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即時互動調查 3 ── SEL 情緒溫度計 Live Check</title>
+    <script src="web_photos/vendor/tailwindcss.js"></script>
+    <link href="web_photos/vendor/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-[#f8f5eb] text-slate-800 font-sans p-4 min-h-screen flex flex-col justify-center items-center">
+    <div class="max-w-md w-full bg-white rounded-2xl p-6 shadow-xl border border-[#efe8d3]">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-bold mb-3">
+            <i class="fa-solid fa-temperature-three-quarters"></i> SEL 情緒溫度計檢測
+        </div>
+
+        <h2 class="text-xl font-black text-slate-800 mb-2">老師您此刻的心情溫度落在幾度？</h2>
+        <p class="text-xs text-slate-500 mb-4">請點選最接近您當前狀態的區間：</p>
+
+        <form id="pollForm" class="space-y-3">
+            <label class="flex items-center gap-3 p-3 rounded-xl border border-emerald-200 bg-emerald-50/40 cursor-pointer hover:bg-emerald-100/50 transition">
+                <input type="radio" name="temp_option" value="green" class="w-5 h-5 text-emerald-600">
+                <span class="text-sm font-medium text-emerald-900">🟢 20°C–40°C 平靜放鬆 (Green Zone)</span>
+            </label>
+
+            <label class="flex items-center gap-3 p-3 rounded-xl border border-amber-200 bg-amber-50/40 cursor-pointer hover:bg-amber-100/50 transition">
+                <input type="radio" name="temp_option" value="yellow" class="w-5 h-5 text-amber-600">
+                <span class="text-sm font-medium text-amber-900">🟡 41°C–70°C 稍微期待/緊張 (Yellow Zone)</span>
+            </label>
+
+            <label class="flex items-center gap-3 p-3 rounded-xl border border-rose-200 bg-rose-50/40 cursor-pointer hover:bg-rose-100/50 transition">
+                <input type="radio" name="temp_option" value="red" class="w-5 h-5 text-rose-600">
+                <span class="text-sm font-medium text-rose-900">🔴 71°C–100°C 壓力爆表/疲憊 (Red Zone)</span>
+            </label>
+
+            <button type="button" onclick="submitVote()" class="w-full py-3 bg-emerald-600 text-white font-bold rounded-xl text-sm hover:bg-emerald-700 transition shadow-lg mt-4">
+                <i class="fa-solid fa-paper-plane mr-2"></i> 送出檢測
+            </button>
+        </form>
+
+        <div id="thankYou" class="hidden mt-6 pt-4 border-t border-sand-200 text-center">
+            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-2 text-xl">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+            <h3 class="font-bold text-slate-800 text-base mb-1">檢測完成！</h3>
+            <p class="text-xs text-slate-500">請觀看螢幕講者提供的 Coping Skills 降溫解方。</p>
+        </div>
+    </div>
+
+    <script>
+        function submitVote() {
+            document.getElementById('pollForm').classList.add('hidden');
+            document.getElementById('thankYou').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
