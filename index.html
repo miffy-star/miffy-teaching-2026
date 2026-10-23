@@ -3084,8 +3084,8 @@
     <div id="videoModal" class="fixed inset-0 bg-black/95 z-[200] hidden items-center justify-center p-4 backdrop-blur-md">
         <div class="relative max-w-6xl w-full bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/20">
             <div class="flex items-center justify-between bg-slate-900/90 px-5 py-3 border-b border-slate-800">
-                <span class="text-white font-bold text-base flex items-center gap-2">
-                    <i class="fa-solid fa-film text-coral-400"></i> 巧克力 STEAM 課程動態成果紀錄
+                <span id="videoModalTitle" class="text-white font-bold text-base flex items-center gap-2">
+                    <i class="fa-solid fa-film text-coral-400"></i> 課程實拍影片全螢幕播放
                 </span>
                 <button onclick="closeVideoModal()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-1.5 rounded-full font-bold text-xs transition flex items-center gap-1.5 shadow">
                     <i class="fa-solid fa-xmark"></i> 關閉全螢幕
@@ -3225,13 +3225,23 @@
             }
         }
 
-        function openVideoModal(videoSrc) {
+        function openVideoModal(videoSrc, customTitle) {
             const modal = document.getElementById('videoModal');
             const player = document.getElementById('modalVideoPlayer');
+            const titleEl = document.getElementById('videoModalTitle');
             if (modal && player) {
                 if (videoSrc) {
                     player.src = videoSrc;
                     player.load();
+                }
+                if (titleEl) {
+                    let label = customTitle || '課程實拍影片全螢幕播放';
+                    if (!customTitle && videoSrc) {
+                        if (videoSrc.includes('tomato')) label = '🍅 112學年 翻頁蕃茄手工書實拍影片';
+                        else if (videoSrc.includes('choco_book')) label = '📖 114學年 打開巧克力手工書實拍影片';
+                        else if (videoSrc.includes('online_exchange')) label = '🌍 跨國線上交流實況影片';
+                    }
+                    titleEl.innerHTML = `<i class="fa-solid fa-film text-coral-400"></i> ${label}`;
                 }
                 modal.classList.remove('hidden');
                 modal.classList.add('flex');
