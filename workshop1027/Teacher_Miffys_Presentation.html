@@ -3453,8 +3453,8 @@
             const btnFullscreen = document.getElementById('btnFullscreen');
 
             function updateSlide(index) {
-                if (index < 0) index = 0;
-                if (index >= totalSlides) index = totalSlides - 1;
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
 
                 slides.forEach((slide, idx) => {
                     if (idx === index) {
@@ -3491,6 +3491,8 @@
             function prevSlide() {
                 if (currentSlide > 0) {
                     updateSlide(currentSlide - 1);
+                } else {
+                    updateSlide(totalSlides - 1); // Loop to last slide on Slide 1
                 }
             }
 
