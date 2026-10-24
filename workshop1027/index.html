@@ -3068,75 +3068,82 @@
     </section>
 
     <!-- Slide 25: 終頁感謝與暖心交流工作坊 (Padlet 百寶箱 & 互動時間 💖) -->
-    <section class="slide" id="slide-31">
-        <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col justify-between">
-            <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200 !mb-1">
-                <i class="fa-solid fa-heart text-coral-500"></i>
-                <span>第五階段：結語與展望 | 研習教材下載百寶箱 ✕ 暖心回饋時間</span>
+    <section class="slide" id="slide-31" style="overflow: hidden;">
+        <div class="content-z max-w-5xl mx-auto w-full h-full flex flex-col justify-between py-1 space-y-3">
+            <!-- Top: Header Row with Back-to-Slide-1 button -->
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-sand-200 pb-2">
+                <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200 !mb-0 text-xs md:text-sm">
+                    <i class="fa-solid fa-heart text-coral-500"></i>
+                    <span>第五階段：結語與展望 | 研習教材下載百寶箱 ✕ 暖心回饋時間</span>
+                </div>
+                <button type="button" onclick="goToSlide(1)" class="bg-amber-400 hover:bg-amber-300 active:scale-95 text-teal-950 font-black text-xs md:text-sm px-4 py-1.5 rounded-full shadow transition flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-rotate-left"></i> <span>回到第一頁 (首頁)</span>
+                </button>
             </div>
 
-            <div class="mb-2">
-                <h2 class="text-3xl md:text-4xl font-black text-slate-800">把世界帶進教室 🌍 讓英文成為有溫度的生活記憶</h2>
-                <p class="text-slate-600 text-sm md:text-base font-bold">手機掃碼 1 分鐘回饋 ＆ 提供未來課程靈感 ✕ 全套研習教材下載</p>
+            <!-- Title -->
+            <div class="text-center md:text-left">
+                <h2 class="text-2xl md:text-3xl font-black text-slate-800 leading-tight">把世界帶進教室 🌍 讓英文成為有溫度的生活記憶</h2>
+                <p class="text-slate-600 text-xs md:text-sm font-bold mt-0.5">手機掃碼 1 分鐘留下課程靈感 ✕ 全套可修改研習教材一鍵下載帶回學校</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch mb-2">
-                <!-- Left: Two QR Code Boxes (Feedback Form + Toolkit Download) -->
-                <div class="md:col-span-7 flex flex-col justify-between space-y-2.5">
-                    <!-- Box 1: Feedback Form QR -->
-                    <div class="bg-rose-50/90 p-3.5 rounded-2xl border-2 border-rose-400 shadow-md flex items-center gap-4">
-                        <a href="Miffy_Padlet_Toolkit.html#col-sec-5" target="_blank" class="shrink-0 group relative" title="點擊開啟手機回饋表單">
-                            <img src="web_photos/feedback_form_qr.png" alt="" onerror="this.style.display='none'" style="color:transparent" class="w-22 h-22 object-contain rounded-xl border-2 border-rose-500 p-1 bg-white group-hover:scale-105 transition shadow-sm">
-                        </a>
-                        <div class="text-xs text-slate-700 space-y-1 font-bold flex-1">
-                            <div class="flex items-center justify-between">
-                                <span class="font-black text-rose-900 text-sm md:text-base flex items-center gap-1.5">
-                                    <i class="fa-solid fa-heart text-rose-600"></i> 📱 1分鐘手機回饋 ＆ 靈感單
-                                </span>
-                                <a href="Miffy_Padlet_Toolkit.html#col-sec-5" target="_blank" class="bg-rose-600 hover:bg-rose-700 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow transition">開啟表單 ➔</a>
-                            </div>
-                            <p class="text-rose-800">用手機相機掃碼，留下建議與課程靈感：</p>
-                            <p class="text-slate-600">✨ 今天最觸動您的亮點與活動</p>
-                            <p class="text-slate-600">💡 給明芬老師未來課程設計的建議與靈感</p>
+            <!-- Middle: Two QR Code Boxes Side-by-Side (左右並列) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 items-stretch">
+                <!-- QR Box 1: Feedback Form QR -->
+                <div class="bg-rose-50/90 p-3.5 rounded-2xl border-2 border-rose-400 shadow-md flex items-center gap-3.5 hover:shadow-lg transition">
+                    <a href="Miffy_Padlet_Toolkit.html#col-sec-5" target="_blank" class="shrink-0 group relative" title="點擊開啟手機回饋表單">
+                        <img src="web_photos/feedback_form_qr.png" alt="" onerror="this.style.display='none'" style="color:transparent" class="w-24 h-24 md:w-26 md:h-26 object-contain rounded-xl border-2 border-rose-500 p-1 bg-white group-hover:scale-105 transition shadow-sm">
+                    </a>
+                    <div class="text-xs text-slate-700 space-y-1 font-bold flex-1 min-w-0">
+                        <div class="flex items-center justify-between">
+                            <span class="font-black text-rose-900 text-sm md:text-base flex items-center gap-1.5">
+                                <i class="fa-solid fa-heart text-rose-600"></i> 📱 1分鐘手機回饋單
+                            </span>
+                            <a href="Miffy_Padlet_Toolkit.html#col-sec-5" target="_blank" class="bg-rose-600 hover:bg-rose-700 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow transition shrink-0">開啟 ➔</a>
                         </div>
-                    </div>
-
-                    <!-- Box 2: Materials Download QR -->
-                    <div class="bg-teal-50/90 p-3.5 rounded-2xl border-2 border-teal-400 shadow-md flex items-center gap-4">
-                        <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="shrink-0 group relative" title="點擊開啟教材百寶箱下載區">
-                            <img src="web_photos/padlet_qr.png" alt="" onerror="this.style.display='none'" style="color:transparent" class="w-22 h-22 object-contain rounded-xl border-2 border-teal-600 p-1 bg-white group-hover:scale-105 transition shadow-sm">
-                        </a>
-                        <div class="text-xs text-slate-700 space-y-1 font-bold flex-1">
-                            <div class="flex items-center justify-between">
-                                <span class="font-black text-teal-900 text-sm md:text-base flex items-center gap-1.5">
-                                    <i class="fa-solid fa-box-open text-teal-600"></i> 📥 研習教材百寶箱下載區
-                                </span>
-                                <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="bg-teal-700 hover:bg-teal-800 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow transition">前往下載 ➔</a>
-                            </div>
-                            <p class="text-teal-800">4 份 Word 學習單 ＋ 2 份實戰成果 PDF：</p>
-                            <p class="text-slate-600">📄 七股走讀、單字尋寶謎紙、跨科規劃表、SEL 溫度計</p>
-                            <p class="text-slate-600">📑 濕地學習單、Unit 4 學生謎紙 ＆ QR 任務卡</p>
-                        </div>
+                        <p class="text-rose-800 font-extrabold text-[11px] md:text-xs">手機相機掃碼，留下回饋與未來靈感：</p>
+                        <p class="text-slate-600 text-[11px] leading-tight">✨ 今天最觸動您的亮點與活動</p>
+                        <p class="text-slate-600 text-[11px] leading-tight">💡 給明芬老師未來課程設計的建議與靈感</p>
                     </div>
                 </div>
 
-                <!-- Right: Photo & Thank You Note -->
-                <div class="md:col-span-5 flex flex-col justify-between space-y-2.5">
-                    <div class="relative overflow-hidden rounded-2xl border border-sand-200 shadow-md h-[27vh]">
-                        <img src="web_photos/IMG_6929.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
-                        <div class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-xs p-1.5 text-center font-bold">
-                            專案成果合照：圓滿成功！
+                <!-- QR Box 2: Materials Download QR -->
+                <div class="bg-teal-50/90 p-3.5 rounded-2xl border-2 border-teal-400 shadow-md flex items-center gap-3.5 hover:shadow-lg transition">
+                    <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="shrink-0 group relative" title="點擊開啟教材百寶箱下載區">
+                        <img src="web_photos/padlet_qr.png" alt="" onerror="this.style.display='none'" style="color:transparent" class="w-24 h-24 md:w-26 md:h-26 object-contain rounded-xl border-2 border-teal-600 p-1 bg-white group-hover:scale-105 transition shadow-sm">
+                    </a>
+                    <div class="text-xs text-slate-700 space-y-1 font-bold flex-1 min-w-0">
+                        <div class="flex items-center justify-between">
+                            <span class="font-black text-teal-900 text-sm md:text-base flex items-center gap-1.5">
+                                <i class="fa-solid fa-box-open text-teal-600"></i> 📥 研習教材百寶箱
+                            </span>
+                            <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="bg-teal-700 hover:bg-teal-800 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow transition shrink-0">下載 ➔</a>
                         </div>
+                        <p class="text-teal-800 font-extrabold text-[11px] md:text-xs">4 份 Word 學習單 ＋ 2 份實戰成果 PDF：</p>
+                        <p class="text-slate-600 text-[11px] leading-tight">📄 七股走讀、單字尋寶謎紙、跨科表、SEL 溫度計</p>
+                        <p class="text-slate-600 text-[11px] leading-tight">📑 濕地學習單、Unit 4 學生謎紙 ＆ QR 任務卡</p>
                     </div>
+                </div>
+            </div>
 
-                    <div class="bg-sand-100/90 p-3 rounded-2xl border-2 border-coral-300 flex items-center justify-between shadow-sm gap-3">
-                        <img src="web_photos/chibi/exp_08.png" data-frame1="web_photos/chibi/exp_08.png" data-frame2="web_photos/chibi/exp_04.png" alt="" onerror="this.style.display='none'" style="color:transparent" data-chibi-slot="slide-last" onclick="openChibiPicker(this)" class="w-14 h-14 object-contain shrink-0 drop-shadow-md cursor-pointer chibi-anim-cheer chibi-sprite">
-                        <div class="flex-1 min-w-0">
-                            <p class="font-black text-slate-800 text-sm md:text-base whitespace-nowrap">台南瀛海國際高中 林明芬老師</p>
-                            <p class="text-xs text-slate-600 mt-0.5 font-bold">感謝全台各地教育夥伴的熱情參與</p>
-                        </div>
-                        <span class="text-xl text-coral-500 font-black shrink-0 ml-1">Thank You!</span>
+            <!-- Bottom: Enlarged & Centered Thank You Card (放大置中感謝動圖與文字) -->
+            <div class="bg-gradient-to-r from-amber-50 via-coral-50 to-amber-50 p-4 md:p-5 rounded-3xl border-2 border-coral-400 shadow-lg flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8 text-center sm:text-left">
+                <img src="web_photos/chibi/exp_08.png" data-frame1="web_photos/chibi/exp_08.png" data-frame2="web_photos/chibi/exp_04.png" alt="" onerror="this.style.display='none'" style="color:transparent" data-chibi-slot="slide-last" onclick="openChibiPicker(this)" class="w-20 h-20 md:w-24 md:h-24 object-contain shrink-0 drop-shadow-md cursor-pointer chibi-anim-cheer chibi-sprite">
+                <div class="space-y-1 text-center sm:text-left">
+                    <div class="text-2xl md:text-3xl font-black text-coral-600 font-quote tracking-wide">
+                        Thank You!
                     </div>
+                    <p class="text-xl md:text-2xl font-black text-slate-800">
+                        台南瀛海國際高中 林明芬老師
+                    </p>
+                    <p class="text-xs md:text-sm text-slate-600 font-bold">
+                        誠摯感謝全台各地教育夥伴的熱情參與 ── 願我們在雙語與跨科的路上溫暖同行 🌿
+                    </p>
+                </div>
+                <div class="shrink-0 pt-1 sm:pt-0">
+                    <button type="button" onclick="goToSlide(1)" class="bg-coral-500 hover:bg-coral-600 active:scale-95 text-white font-black text-xs md:text-sm px-5 py-2.5 rounded-full shadow-md transition flex items-center gap-2 cursor-pointer">
+                        <i class="fa-solid fa-house"></i> <span>回到首頁</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -3471,8 +3478,15 @@
             function nextSlide() {
                 if (currentSlide < totalSlides - 1) {
                     updateSlide(currentSlide + 1);
+                } else {
+                    updateSlide(0); // Loop back to Slide 1 on last slide
                 }
             }
+
+            window.updateSlide = updateSlide;
+            window.goToSlide = function(num) {
+                updateSlide(num - 1);
+            };
 
             function prevSlide() {
                 if (currentSlide > 0) {
