@@ -151,18 +151,43 @@
 
         .controls {
             position: fixed;
-            bottom: 5px;
-            right: 16px;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 260;
             display: flex;
-            gap: 5px;
+            gap: 8px;
             align-items: center;
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(10px);
-            padding: 4px 11px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(14px);
+            padding: 5px 14px;
             border-radius: 999px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-            border: 1.5px solid rgba(226, 215, 181, 0.95);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            border: 2px solid rgba(226, 215, 181, 1);
+            max-width: 96vw;
+            overflow-x: auto;
+        }
+        .controls::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Senior & Classroom Projector Legibility Boost */
+        .slide {
+            font-size: 1.05rem;
+        }
+        .slide .text-xs {
+            font-size: 0.92rem !important;
+            line-height: 1.48 !important;
+        }
+        .slide .text-\[11px\], .slide .text-\[10px\] {
+            font-size: 0.85rem !important;
+            line-height: 1.4 !important;
+        }
+        .slide .stage-badge {
+            font-size: 1rem !important;
+        }
+        .slide .stage-badge span {
+            font-size: 1rem !important;
         }
 
         /* Laser Pointer & Annotation Styles */
@@ -287,8 +312,9 @@
                 margin-bottom: 0 !important;
             }
             .controls {
-                bottom: 14px;
-                right: 18px;
+                bottom: 12px;
+                left: 50%;
+                transform: translateX(-50%);
                 padding: 6px 14px;
             }
         }
@@ -2811,8 +2837,7 @@
         </div>
     </section>
 
-    <!-- Slide 29: 學生作品特寫：When Social Media Meets SEL 立體掌舵海報手工書 -->
-    <section class="slide" <!-- Slide 28: 全英計畫教學觀摩日 (When Social Media Meets SEL ── 8大觀摩日照片與完整教材包一覽無遺，零重複圖片) -->
+    <!-- Slide 28: 全英計畫教學觀摩日 (When Social Media Meets SEL ── 8大觀摩日照片與完整教材包一覽無遺，零重複圖片) -->
     <section class="slide" id="slide-28">
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
@@ -3340,11 +3365,31 @@
     <canvas id="annotationCanvas" class="fixed inset-0 z-[9998] pointer-events-none"></canvas>
     <div id="laserDot" aria-hidden="true"></div>
 
+    <!-- Floating Side Navigation Arrows (PowerPoint / Canva style, always reachable on screen edges) -->
+    <button id="floatingSidePrev" type="button" onclick="prevSlide()" class="fixed left-2 md:left-4 top-1/2 -translate-y-1/2 z-[250] w-11 h-11 md:w-13 md:h-13 rounded-full bg-white/95 hover:bg-teal-600 hover:text-white text-teal-800 shadow-2xl border-2 border-teal-300 flex items-center justify-center text-lg md:text-xl transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer group" title="回到上一頁 (Left Arrow)" aria-label="上一頁">
+        <i class="fa-solid fa-chevron-left group-hover:-translate-x-0.5 transition"></i>
+    </button>
+
+    <button id="floatingSideNext" type="button" onclick="nextSlide()" class="fixed right-2 md:right-4 top-1/2 -translate-y-1/2 z-[250] w-11 h-11 md:w-13 md:h-13 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-2xl border-2 border-orange-300 flex items-center justify-center text-lg md:text-xl transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer group shadow-orange-300/50" title="前往下一頁 (Right Arrow / Space)" aria-label="下一頁">
+        <i class="fa-solid fa-chevron-right group-hover:translate-x-0.5 transition"></i>
+    </button>
+
     <!-- Global Floating Controls (Compact & Collapsible so it never blocks bottom content) -->
     <div class="controls" id="mainControlsBar">
-        <div id="btnPrev" class="btn-nav" title="上一頁 (Left Arrow)"><i class="fa-solid fa-chevron-left"></i></div>
-        <div id="slideIndicator" class="font-mono font-bold text-xs md:text-sm text-slate-700 min-w-[54px] text-center px-0.5">01 / 33</div>
-        <div id="btnNext" class="btn-nav" title="下一頁 (Right Arrow)"><i class="fa-solid fa-chevron-right"></i></div>
+        <!-- Prev Button -->
+        <button id="btnPrev" type="button" onclick="prevSlide()" class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs md:text-sm cursor-pointer border border-slate-300 transition shadow-sm select-none shrink-0" title="回到上一頁 (Left Arrow)">
+            <i class="fa-solid fa-chevron-left text-teal-700"></i>
+            <span class="hidden sm:inline font-black">上一頁</span>
+        </button>
+
+        <!-- Slide Indicator -->
+        <div id="slideIndicator" class="font-mono font-black text-xs md:text-sm text-teal-950 bg-teal-50 border border-teal-300 px-3 py-1 rounded-full text-center min-w-[66px] shadow-inner select-none shrink-0">01 / 33</div>
+
+        <!-- Next Button (SUPER PROMINENT) -->
+        <button id="btnNext" type="button" onclick="nextSlide()" class="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-orange-500 via-coral-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-black text-xs md:text-sm cursor-pointer shadow-md transition hover:scale-105 active:scale-95 border border-orange-400 select-none shrink-0" title="前往下一頁 (Right Arrow / Space)">
+            <span class="font-black text-white">下一頁</span>
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+        </button>
 
         <!-- 2-Hour Pacing Badge -->
         <button id="slidePaceBadge" type="button" onclick="togglePacingModal()" title="點擊查看 2 小時配速進度小抄 (快捷鍵 T)" class="tool-pill-btn !px-2.5 !py-1 text-xs font-black bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 shadow-sm transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer">
