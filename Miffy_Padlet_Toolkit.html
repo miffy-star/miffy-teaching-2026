@@ -70,9 +70,7 @@
 
         <!-- Mobile & Tablet Quick-Jump Column Pills -->
         <div id="mobileColNav" class="xl:hidden max-w-7xl mx-auto pt-2.5 mt-2 border-t border-teal-700/80 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
-            <a href="#col-sec-5" class="shrink-0 bg-rose-500 hover:bg-rose-600 text-white text-xs font-black px-3.5 py-1.5 rounded-full shadow-md flex items-center gap-1">
-                💌 5. 留下回饋與靈感
-            </a>
+
             <a href="#col-sec-1" class="shrink-0 bg-teal-900/70 hover:bg-teal-900 text-teal-100 text-xs font-bold px-3 py-1.5 rounded-full border border-teal-600">
                 📌 1. 在地走讀
             </a>
@@ -99,7 +97,7 @@
         </div>
 
         <!-- 5 Shelf Columns -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 items-start" id="padletColumnsRoot">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 items-start" id="padletColumnsRoot">
             <!-- Column 1 -->
             <div id="col-sec-1" class="scroll-mt-32 bg-stone-100 rounded-2xl p-3 border border-stone-200 space-y-3">
                 <div class="bg-teal-700 text-white p-3 rounded-xl font-black text-sm flex items-center justify-between">
@@ -132,54 +130,7 @@
                 <div class="space-y-3" id="col-cards-4"></div>
             </div>
 
-            <!-- Column 5: The ONLY Place for Text Feedback -->
-            <div id="col-sec-5" class="scroll-mt-32 md:col-span-2 lg:col-span-2 xl:col-span-1 bg-rose-50/70 rounded-2xl p-3.5 border-2 border-rose-300 space-y-3 shadow-sm">
-                <div class="bg-rose-600 text-white p-3 rounded-xl font-black text-sm flex items-center justify-between gap-1">
-                    <span class="flex items-center gap-1.5">
-                        <img src="web_photos/chibi/exp_08.png" alt="" onerror="this.style.display='none'" style="color:transparent" class="w-7 h-7 object-contain bg-white rounded-full p-0.5">
-                        <span>💌 5. 給講師的暖心回饋牆</span>
-                    </span>
-                    <button onclick="exportFeedbackCsv()" class="bg-rose-800 hover:bg-rose-900 text-rose-100 text-[11px] px-2.5 py-1 rounded-full font-bold cursor-pointer" title="匯出回饋文字紀錄 (.csv)">📥 匯出</button>
-                </div>
-
-                <!-- Mobile QR Quick-Scan Pill -->
-                <div class="bg-white p-3 rounded-xl border border-rose-200 shadow-sm flex items-center gap-3">
-                    <a href="workshop_feedback.html" target="_blank" title="點擊直接開啟手機回饋表單">
-                        <img src="web_photos/feedback_form_qr.png" alt="" onerror="this.style.display='none'" style="color:transparent" class="w-16 h-16 rounded-lg border border-rose-300 p-0.5 bg-white shrink-0 hover:scale-105 transition">
-                    </a>
-                    <div class="text-xs space-y-1">
-                        <div class="font-black text-rose-900 flex items-center gap-1">
-                            <i class="fa-solid fa-mobile-screen"></i> <span>手機掃碼填寫更方便：</span>
-                        </div>
-                        <p class="text-[11px] text-stone-600 font-bold leading-tight">
-                            用手機相機掃描 QR Code，即可直接在手機填寫給明芬老師的建議與課程靈感！
-                        </p>
-                        <a href="workshop_feedback.html" target="_blank" class="inline-block text-[11px] font-black text-rose-600 hover:text-rose-800 underline">
-                            或點此在新分頁開啟表單 ➔
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Single Unified Inline Text Feedback Box -->
-                <form onsubmit="submitInlineFeedback(event)" class="bg-white p-3.5 rounded-xl border-2 border-rose-200 shadow-sm space-y-2.5">
-                    <div class="text-xs font-black text-rose-900">
-                        ✍️ 亦可在電腦直接輸入送出（一處填寫即可）：
-                    </div>
-                    <div>
-                        <input id="fbAuthorInput" type="text" placeholder="您的學校或稱呼（選填，亦可匿名）" class="w-full border border-stone-300 focus:border-rose-500 focus:outline-none rounded-lg px-3 py-2 text-xs font-bold text-stone-800">
-                    </div>
-                    <div>
-                        <textarea id="fbContentInput" rows="3" placeholder="請輸入您的想法、最有印象的亮點或鼓勵文字..." class="w-full border border-stone-300 focus:border-rose-500 focus:outline-none rounded-lg px-3 py-2 text-xs font-medium text-stone-800" required></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-black text-xs py-2.5 px-4 rounded-lg shadow transition cursor-pointer flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-paper-plane"></i> 送出文字回饋
-                    </button>
-                </form>
-
-                <!-- Feedback Notes List -->
-                <div class="space-y-2.5" id="col-cards-5"></div>
             </div>
-        </div>
     </main>
 
     <script>
@@ -491,24 +442,7 @@
             } catch (e) {}
         }
 
-        function exportFeedbackCsv() {
-            const rows = [['分類', '學校與姓名', '回饋內容']];
-            feedbackNotes.forEach(c => {
-                rows.push([
-                    (c.badge || '').replace(/"/g, '""'),
-                    (c.title || '').replace(/^💖\s*/, '').replace(/"/g, '""'),
-                    (c.desc || '').replace(/"/g, '""')
-                ]);
-            });
-            const csv = '\uFEFF' + rows.map(r => r.map(v => `"${v}"`).join(',')).join('\r\n');
-            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = '1027研習_與會教師暖心回饋紀錄.csv';
-            a.click();
-        }
-
-        function initToolkit() {
+                function initToolkit() {
             renderDownloadColumns();
             try {
                 const raw = localStorage.getItem(STORAGE_KEY);
