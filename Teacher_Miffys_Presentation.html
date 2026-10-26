@@ -3734,11 +3734,6 @@
                 }
             }
 
-            window.updateSlide = updateSlide;
-            window.goToSlide = function(num) {
-                updateSlide(num - 1);
-            };
-
             function prevSlide() {
                 if (currentSlide > 0) {
                     updateSlide(currentSlide - 1);
@@ -3747,8 +3742,21 @@
                 }
             }
 
-            btnNext.addEventListener('click', nextSlide);
-            btnPrev.addEventListener('click', prevSlide);
+            // Expose navigation globally to window for all buttons & inline handlers
+            window.updateSlide = updateSlide;
+            window.nextSlide = nextSlide;
+            window.prevSlide = prevSlide;
+            window.goToSlide = function(num) {
+                updateSlide(num - 1);
+            };
+
+            if (btnNext) btnNext.addEventListener('click', nextSlide);
+            if (btnPrev) btnPrev.addEventListener('click', prevSlide);
+
+            const floatingSideNext = document.getElementById('floatingSideNext');
+            const floatingSidePrev = document.getElementById('floatingSidePrev');
+            if (floatingSideNext) floatingSideNext.addEventListener('click', nextSlide);
+            if (floatingSidePrev) floatingSidePrev.addEventListener('click', prevSlide);
 
             // =========================================================
             // Laser Pointer, Pen / Highlighter & 2-Hour Rehearsal Timer
@@ -4010,6 +4018,9 @@
                     modal.classList.remove('flex');
                 }
             }
+
+            window.togglePacingModal = togglePacingModal;
+            window.closePacingModal = closePacingModal;
 
             // 2-Hour Rehearsal Timer Logic
             const btnTimerToggle = document.getElementById('btnTimerToggle');
