@@ -178,15 +178,30 @@
 
         /* Senior & Classroom Projector Legibility Boost */
         .slide {
-            font-size: 1.05rem;
+            font-size: 1.08rem;
+        }
+        .slide h1 {
+            font-size: clamp(2.2rem, 3.4vw, 3.2rem) !important;
+        }
+        .slide h2 {
+            font-size: clamp(1.75rem, 2.6vw, 2.5rem) !important;
+        }
+        .slide h3 {
+            font-size: clamp(1.25rem, 1.8vw, 1.6rem) !important;
+        }
+        .slide h4 {
+            font-size: clamp(1.05rem, 1.4vw, 1.25rem) !important;
+        }
+        .slide p, .slide li {
+            line-height: 1.6;
         }
         .slide .text-xs {
-            font-size: 0.92rem !important;
-            line-height: 1.48 !important;
+            font-size: 0.95rem !important;
+            line-height: 1.5 !important;
         }
         .slide .text-\[11px\], .slide .text-\[10px\] {
-            font-size: 0.85rem !important;
-            line-height: 1.4 !important;
+            font-size: 0.88rem !important;
+            line-height: 1.45 !important;
         }
         .slide .stage-badge {
             font-size: 1rem !important;
@@ -392,8 +407,7 @@
         <div class="content-z max-w-5xl mx-auto text-center my-auto flex flex-col items-center justify-center space-y-2 md:space-y-2.5 py-2">
             <div class="stage-badge !mb-0 bg-amber-50 text-amber-900 border border-amber-300 shadow-sm">
                 <i class="fa-solid fa-graduation-cap text-lagoon-600"></i>
-                <span>高雄市立三民高中 雙語跨域教學研習</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-amber-100/90 text-amber-950 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意一・二：扎根七股泥灘 ✕ 莎翁英語之鑰</span></div>
+                <span>🦪 高雄市立三民高中 雙語跨域教學研習</span></div>
             
             <h1 class="text-4xl md:text-5xl font-black text-slate-800 tracking-tight leading-tight">The World Is Your Oyster</h1>
             <p class="text-slate-600 text-base md:text-lg font-bold !mt-0.5">從七股潟湖到世界的教育旅程 · 把世界帶進教室</p>
@@ -401,28 +415,28 @@
                 <span>🦪 <b>Title Insight 核心啟發</b>：<i>"撬開粗礪的泥灘蚵殼，裡面藏著屬於孩子的璀璨珍珠。"</i></span>
             </div>
 
-            <!-- The 3 Pearls of Insight: Triple Metaphor Card -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 w-full max-w-4xl text-left my-1">
-                <div class="p-2.5 bg-white/95 rounded-2xl border-2 border-amber-300 shadow-sm flex items-start gap-2.5">
-                    <span class="text-2xl shrink-0">🗝️</span>
-                    <div>
-                        <h4 class="text-xs font-black text-amber-900">1. 莎翁名言 · 航向世界之鑰</h4>
-                        <p class="text-[11px] text-slate-600 font-bold leading-tight mt-0.5"><i>The world is your oyster</i> —— 英語不是考題，而是撬開世界廣闊大洋的溝通之劍。</p>
-                    </div>
+            <!-- The 3 Oyster Insights (簡潔精緻三欄卡片：莎翁 ✕ 台南 ✕ 珍珠) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 w-full max-w-4xl text-center my-2">
+                <!-- Card 1: 莎翁名句 -->
+                <div class="p-3 bg-white/95 rounded-2xl border-2 border-amber-300 shadow-sm flex flex-col items-center hover:scale-[1.02] transition">
+                    <span class="text-3xl mb-1">🦪</span>
+                    <h4 class="text-base font-black text-amber-900">莎翁名言</h4>
+                    <p class="text-xs text-slate-700 font-bold mt-0.5 font-serif italic">《The Merry Wives of Windsor》</p>
+                    <span class="text-xs text-amber-800 font-bold mt-1">英語是航向世界的溝通之劍</span>
                 </div>
-                <div class="p-2.5 bg-white/95 rounded-2xl border-2 border-teal-300 shadow-sm flex items-start gap-2.5">
-                    <span class="text-2xl shrink-0">🌊</span>
-                    <div>
-                        <h4 class="text-xs font-black text-teal-900">2. 七股踏查 · 家鄉泥灘扎根</h4>
-                        <p class="text-[11px] text-slate-600 font-bold leading-tight mt-0.5">七股採蚵涉水踏查 —— 踩過故鄉冰涼泥灘，孩子才有自信向世界介紹家鄉。</p>
-                    </div>
+                <!-- Card 2: 家鄉台南 -->
+                <div class="p-3 bg-white/95 rounded-2xl border-2 border-teal-300 shadow-sm flex flex-col items-center hover:scale-[1.02] transition">
+                    <span class="text-3xl mb-1">🌊</span>
+                    <h4 class="text-base font-black text-teal-900">家鄉台南</h4>
+                    <p class="text-xs text-slate-700 font-bold mt-0.5">七股潟湖 · 蚵田泥灘</p>
+                    <span class="text-xs text-teal-800 font-bold mt-1">深扎家鄉泥土，才有自信底氣</span>
                 </div>
-                <div class="p-2.5 bg-white/95 rounded-2xl border-2 border-rose-300 shadow-sm flex items-start gap-2.5">
-                    <span class="text-2xl shrink-0">💎</span>
-                    <div>
-                        <h4 class="text-xs font-black text-rose-900">3. 淬鍊成珠 · 粗礪化為光芒</h4>
-                        <p class="text-[11px] text-slate-600 font-bold leading-tight mt-0.5"><i>Turning Oysters into Pearls</i> —— 用雙語與 SEL 溫柔陪伴，把生命的沙粒磨礪成珍珠。</p>
-                    </div>
+                <!-- Card 3: 淬鍊成珠 -->
+                <div class="p-3 bg-white/95 rounded-2xl border-2 border-rose-300 shadow-sm flex flex-col items-center hover:scale-[1.02] transition">
+                    <span class="text-3xl mb-1">💎</span>
+                    <h4 class="text-base font-black text-rose-900">牡蠣淬鍊成珍珠</h4>
+                    <p class="text-xs text-slate-700 font-bold mt-0.5 font-serif italic">Turning Oysters into Pearls</p>
+                    <span class="text-xs text-rose-800 font-bold mt-1">雙語與 SEL 陪伴，沙粒化為珍珠</span>
                 </div>
             </div>
 
@@ -454,8 +468,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-amber-50 text-amber-800 border border-amber-300">
                 <i class="fa-solid fa-compass text-amber-600"></i>
-                <span>全場導航藍圖 | 雙經緯演進與五年課程目標總覽（先看全局目標，再走入實戰）</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-amber-100/90 text-amber-950 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意一・二：扎根七股泥灘 ✕ 莎翁英語之鑰</span></div>
+                <span>🦪 全場導航藍圖 | 雙經緯演進與五年課程目標總覽（先看全局目標，再走入實戰）</span></div>
 
             <h2 class="text-4xl font-black text-slate-800 mb-1.5">為什麼設計這些活動？五年課程經緯總覽 🗺️</h2>
             <p class="text-slate-600 text-base md:text-lg font-bold mb-3">所有教學活動皆緊扣兩大核心目標：經線目標（從紙本尋寶到自建教學網站）✕ 緯線目標（從在地走讀到國際交流）</p>
@@ -516,8 +529,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-amber-50 text-amber-800 border border-amber-300">
                 <i class="fa-solid fa-earth-americas text-amber-600"></i>
-                <span>全場核心理念 | 為什麼串聯這些活動？五年教學經緯的靈魂：Glocalization 全球在地化</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-amber-100/90 text-amber-950 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意一・二：扎根七股泥灘 ✕ 莎翁英語之鑰</span></div>
+                <span>🦪 全場核心理念 | 為什麼串聯這些活動？五年教學經緯的靈魂：Glocalization 全球在地化</span></div>
 
             <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-1">教育的 Glocalization：立足在地土地，接軌全球視野 🌍✕🏡</h2>
             <p class="text-slate-600 text-sm md:text-base font-bold mb-3 leading-relaxed">
@@ -627,8 +639,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200">
                 <i class="fa-solid fa-user-astronaut"></i>
-                <span>第一階段：啟航 | 講師自我介紹 ＆ 五年課程設計迭代之旅</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-amber-100/90 text-amber-950 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意一・二：扎根七股泥灘 ✕ 莎翁英語之鑰</span></div>
+                <span>第一階段：啟航 | 講師自我介紹 ＆ 五年課程設計迭代之旅</span></div>
             
             <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-1.5 whitespace-nowrap">台南瀛海國際高中 林明芬老師</h2>
             <p class="text-slate-700 text-lg md:text-xl font-black mb-2">擔任雙語實驗班導師 5 年 ✕ 參與全英計畫 ✕ 國外姐妹校線上交流計畫 5 年 🌟</p>
@@ -710,8 +721,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200">
                 <i class="fa-solid fa-handshake text-lagoon-600"></i>
-                <span>第一階段：啟航 | 2021 年 澎湖馬公高中來訪 ✕ 2026 年 10/9–10/11 跨海緣分延續</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-amber-100/90 text-amber-950 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意一・二：扎根七股泥灘 ✕ 莎翁英語之鑰</span></div>
+                <span>第一階段：啟航 | 2021 年 澎湖馬公高中來訪 ✕ 2026 年 10/9–10/11 跨海緣分延續</span></div>
             
             <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-1">2021 年 澎湖馬公高中來訪</h2>
             <p class="text-slate-600 text-lg md:text-xl font-bold mb-1">跨校雙語交流 ✕ Scavenger Hunt 尋寶解謎 🤝 從來訪台南到親赴澎湖朝聖</p>
@@ -777,8 +787,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
                 <i class="fa-solid fa-ship text-amber-600"></i>
-                <span>第一階段：啟航 | 2022 年 七股體驗蚵農在地生活 (1/4)</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-amber-100/90 text-amber-950 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意一・二：扎根七股泥灘 ✕ 莎翁英語之鑰</span></div>
+                <span>第一階段：啟航 | 2022 年 七股體驗蚵農在地生活 (1/4)</span></div>
             
             <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-2">2022 年 七股體驗蚵農在地生活</h2>
             <p class="text-slate-600 text-lg md:text-xl font-bold mb-3">七股潟湖生態踏查與採蚵、挑蚵實作 🦪</p>
@@ -846,8 +855,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
                 <i class="fa-solid fa-hands-holding-circle text-amber-600"></i>
-                <span>第一階段：啟航 | 2022 年 七股體驗蚵農在地生活 (2/4)</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-amber-100/90 text-amber-950 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意一・二：扎根七股泥灘 ✕ 莎翁英語之鑰</span></div>
+                <span>第一階段：啟航 | 2022 年 七股體驗蚵農在地生活 (2/4)</span></div>
             
             <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-2">七股搭蚵架與串蚵實作</h2>
             <p class="text-slate-600 text-lg md:text-xl font-bold mb-3">親手綁竹製蚵架與穿蚵殼 🦪</p>
@@ -915,8 +923,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200">
                 <i class="fa-solid fa-file-signature text-lagoon-600"></i>
-                <span>第一階段：啟航 | 2022 年 七股體驗蚵農在地生活 (3/4)</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-amber-100/90 text-amber-950 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意一・二：扎根七股泥灘 ✕ 莎翁英語之鑰</span></div>
+                <span>第一階段：啟航 | 2022 年 七股體驗蚵農在地生活 (3/4)</span></div>
 
             <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-2">七股雙語學習單與導覽</h2>
             <p class="text-slate-600 text-lg md:text-xl font-bold mb-3">《蚵在你心裡的名字》雙語成果展示 📜</p>
@@ -977,8 +984,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
                 <i class="fa-solid fa-trophy text-amber-600"></i>
-                <span>第一階段：啟航 | 2022 年 七股體驗蚵農在地生活 (4/4)</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-amber-100/90 text-amber-950 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意一・二：扎根七股泥灘 ✕ 莎翁英語之鑰</span></div>
+                <span>第一階段：啟航 | 2022 年 七股體驗蚵農在地生活 (4/4)</span></div>
 
             <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-2">七股雙語學習單頒獎典禮</h2>
             <p class="text-slate-600 text-lg md:text-xl font-bold mb-3.5">《蚵在你心裡的名字》成果表揚與精緻獎項 🏆</p>
@@ -1049,8 +1055,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
                 <i class="fa-solid fa-globe text-amber-600"></i>
-                <span>第一階段：奠基 | 110學年 難民議題雙語發表 ✕ 2022.12.11 跨國線上國際交流</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-amber-100/90 text-amber-950 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意一・二：扎根七股泥灘 ✕ 莎翁英語之鑰</span></div>
+                <span>第一階段：奠基 | 110學年 難民議題雙語發表 ✕ 2022.12.11 跨國線上國際交流</span></div>
 
             <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-1.5">國際交流 2022.12.11 🌍 跨國線上發表</h2>
             <p class="text-slate-600 text-base md:text-lg font-bold mb-3">跨國跨校合作計畫（台江社會 × 110學年難民英文 × 基因工程自然）✕ 台美線上即時雙語對談</p>
@@ -1142,8 +1147,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
                 <i class="fa-solid fa-compass-drafting text-amber-600"></i>
-                <span>在地外交 V2.0 | 2023.2.6 安順鹽場事先踏查：為美國高中來訪做準備 (1/4)</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-amber-100/90 text-amber-950 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意一・二：扎根七股泥灘 ✕ 莎翁英語之鑰</span></div>
+                <span>在地外交 V2.0 | 2023.2.6 安順鹽場事先踏查：為美國高中來訪做準備 (1/4)</span></div>
 
             <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-1.5">2023.2.6 安順鹽場事先踏查 🛠️</h2>
             <p class="text-slate-600 text-base md:text-lg font-bold mb-3">為美國高中來訪做準備：集合探勘 × 認識扒鹽工具 × 瓦盤鹽田體驗 × 鹽滷豆腐與鹽滷豆花實作 🧂</p>
@@ -1225,8 +1229,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-amber-50 text-amber-900 border border-amber-300">
                 <i class="fa-solid fa-handshake-angle text-amber-600"></i>
-                <span>在地外交 V2.0 | 2023.3.9 安順鹽場：花美男來了！台美實體國際交流 (2/4)</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-amber-100/90 text-amber-950 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意一・二：扎根七股泥灘 ✕ 莎翁英語之鑰</span></div>
+                <span>在地外交 V2.0 | 2023.3.9 安順鹽場：花美男來了！台美實體國際交流 (2/4)</span></div>
 
             <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-2">2023.3.9 安順鹽場：花美男來了！🌟</h2>
             <p class="text-slate-600 text-lg md:text-xl font-bold mb-3">台美實體國際交流 ✕ 鹽田聚落挑鹽體驗與台美大合照 🧂</p>
@@ -1294,8 +1297,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200">
                 <i class="fa-solid fa-bowl-food text-coral-500"></i>
-                <span>在地外交 V2.1 | 2023.3.8 台美聯歡晚宴・府城甜味迎賓 ✕ 2023.3.9 安順鹽場尋寶總部 (3/4)</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-amber-100/90 text-amber-950 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意一・二：扎根七股泥灘 ✕ 莎翁英語之鑰</span></div>
+                <span>在地外交 V2.1 | 2023.3.8 台美聯歡晚宴・府城甜味迎賓 ✕ 2023.3.9 安順鹽場尋寶總部 (3/4)</span></div>
 
             <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-1.5">2023.3.8 台美聯歡晚宴 ✕ 2023.3.9 尋寶總部 🍮</h2>
             <p class="text-slate-600 text-base md:text-lg font-bold mb-3">以府城古早味豆花推車設席迎賓，款待遠道而來的美國學伴 ✕ 2023.3.9 安順鹽場尋寶總部 (Headquarters)</p>
@@ -1367,8 +1369,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200">
                 <i class="fa-solid fa-trophy text-amber-500"></i>
-                <span>在地外交 V2.2 | 2023.3.9 安順鹽場：單字尋寶謎紙 ✕ 第一名隊伍 (4/4)</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-amber-100/90 text-amber-950 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意一・二：扎根七股泥灘 ✕ 莎翁英語之鑰</span></div>
+                <span>在地外交 V2.2 | 2023.3.9 安順鹽場：單字尋寶謎紙 ✕ 第一名隊伍 (4/4)</span></div>
 
             <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-1.5">2023.3.9 單字尋寶 🎯 謎紙與第一名隊伍</h2>
             <p class="text-slate-600 text-base md:text-lg font-bold mb-3">2023.3.9 安順鹽場實境解謎：《Salt Field Challenge》單字尋寶謎紙、掃碼破關與第一名隊伍 🏆</p>
@@ -1443,8 +1444,7 @@
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200 !mb-0">
                     <i class="fa-solid fa-seedling"></i>
-                    <span>第二階段：深化 | 112學年 跨域 V1.0《番茄的全球永續之旅》9/13 上課內容 × 雲端簡報完整實錄</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-orange-100/90 text-orange-950 border border-orange-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意三・啟：撬開學科邊界 ✕ 探尋潛能珍珠</span></div>
+                    <span>第二階段：深化 | 112學年 跨域 V1.0《番茄的全球永續之旅》9/13 上課內容 × 雲端簡報完整實錄</span></div>
                 <div class="flex flex-wrap items-center gap-1">
                     <a href="web_photos/9_13上課內容.docx" download class="inline-flex items-center gap-1 bg-lagoon-700 hover:bg-lagoon-800 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-md transition">
                         <i class="fa-solid fa-file-word"></i> 📥 9_13上課內容.docx
@@ -1620,8 +1620,7 @@
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1.5">
                 <div class="stage-badge self-start bg-pink-50 text-pink-700 border border-pink-200 !mb-0">
                     <i class="fa-solid fa-sparkles"></i>
-                    <span>第二階段：深化 | 113學年 跨域 V2.0《Glow Up 美妝大聯盟 (I)》從九科發想、跨科共備到六科跨科架構</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-orange-100/90 text-orange-950 border border-orange-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意三・啟：撬開學科邊界 ✕ 探尋潛能珍珠</span></div>
+                    <span>第二階段：深化 | 113學年 跨域 V2.0《Glow Up 美妝大聯盟 (I)》從九科發想、跨科共備到六科跨科架構</span></div>
                 <div class="flex flex-wrap items-center gap-1.5">
                     <button onclick="openImageLightbox('web_photos/today_glowup_idea.png', '2024.2.29《美妝大聯盟的發想》九科教師共備紀錄表（英文、歷史、美術、數學、化學、資訊、家政、地理、國文）')" class="inline-flex items-center gap-1 bg-amber-600 hover:bg-amber-700 text-white text-xs font-black px-3 py-1 rounded-full shadow-md transition cursor-pointer">
                         <i class="fa-solid fa-lightbulb"></i> 💡 2/29 美妝大聯盟的發想
@@ -1719,8 +1718,7 @@
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1.5">
                 <div class="stage-badge self-start bg-pink-50 text-pink-700 border border-pink-200 !mb-0">
                     <i class="fa-solid fa-globe"></i>
-                    <span>第二階段：深化 | 113學年 跨域 V2.0《Glow Up 美妝大聯盟 (II)》英文科三部曲 × 台美跨國視訊實況</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-orange-100/90 text-orange-950 border border-orange-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意三・啟：撬開學科邊界 ✕ 探尋潛能珍珠</span></div>
+                    <span>第二階段：深化 | 113學年 跨域 V2.0《Glow Up 美妝大聯盟 (II)》英文科三部曲 × 台美跨國視訊實況</span></div>
                 <div class="flex flex-wrap items-center gap-1.5">
                     <button onclick="openImageLightbox('web_photos/glowup_atoz_sheet.jpg', '9/25 英文自我介紹《Myself A to Z》26個字母主題口語提問單')" class="inline-flex items-center gap-1 bg-purple-700 hover:bg-purple-800 text-white text-xs font-black px-3 py-1 rounded-full shadow-md transition cursor-pointer">
                         <i class="fa-solid fa-file-lines"></i> 🔍 看 A-Z 口語提問單
@@ -1808,8 +1806,7 @@
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start bg-purple-50 text-purple-700 border border-purple-200 !mb-0">
                     <i class="fa-solid fa-book-open"></i>
-                    <span>第二階段：深化 | 113學年 跨域 V2.0《Glow Up 美妝大聯盟 (II)》化學面膜實驗 × 6/18 立體手工書成果製作大會</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-orange-100/90 text-orange-950 border border-orange-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意三・啟：撬開學科邊界 ✕ 探尋潛能珍珠</span></div>
+                    <span>第二階段：深化 | 113學年 跨域 V2.0《Glow Up 美妝大聯盟 (II)》化學面膜實驗 × 6/18 立體手工書成果製作大會</span></div>
                 <div class="flex flex-wrap items-center gap-1.5">
                     <button onclick="openCocoaLabModal('web_photos/glowup_13slides_offline.html')" class="inline-flex items-center gap-1 bg-sky-600 hover:bg-sky-700 text-white text-[11px] font-black px-3 py-1 rounded-full shadow-md transition cursor-pointer">
                         <i class="fa-solid fa-display"></i> 📊 6/18成果大會簡報(13頁免權限瀏覽)
@@ -1909,8 +1906,7 @@
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start bg-pink-50 text-pink-700 border border-pink-200 !mb-0">
                     <i class="fa-solid fa-wand-magic-sparkles text-pink-600"></i>
-                    <span>第二階段：深化 | 113學年 Glow Up 美妝大聯盟 (III) · 2025.5.23 臺灣美研院 (Gorgeous Studio) 參訪與彩妝實作</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-orange-100/90 text-orange-950 border border-orange-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意三・啟：撬開學科邊界 ✕ 探尋潛能珍珠</span></div>
+                    <span>第二階段：深化 | 113學年 Glow Up 美妝大聯盟 (III) · 2025.5.23 臺灣美研院 (Gorgeous Studio) 參訪與彩妝實作</span></div>
                 <div class="flex flex-wrap items-center gap-1.5">
                     <button onclick="openImageLightbox('web_photos/today_113_plan_diagram.png', '《113課程規劃.docx》六科跨科圓環架構：English / Home Economics (Gorgeous Studio) / Geography / Art / Math / Chemistry')" class="inline-flex items-center gap-1 bg-purple-700 hover:bg-purple-800 text-white text-[11px] font-black px-3 py-1 rounded-full shadow-md transition cursor-pointer">
                         <i class="fa-solid fa-diagram-project"></i> 🔍 檢視 113 課程規劃六科圓環圖
@@ -2003,8 +1999,7 @@
             <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
                 <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200 !mb-0">
                     <i class="fa-solid fa-award text-amber-500"></i>
-                    <span>第二階段：深化 | 113學年 國教署跨國線上教學計畫《瀛美大視界・永續之美 SDGs》成果海報</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-orange-100/90 text-orange-950 border border-orange-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意三・啟：撬開學科邊界 ✕ 探尋潛能珍珠</span></div>
+                    <span>第二階段：深化 | 113學年 國教署跨國線上教學計畫《瀛美大視界・永續之美 SDGs》成果海報</span></div>
                 <div class="flex flex-wrap items-center gap-2">
                     <button onclick="openImageLightbox('web_photos/yinghai_113_poster.jpg', '113學年度與國外校際合作線上教學計畫期中成果海報：臺南市私立瀛海高級中學《瀛美大視界 永續之美 SDGs》')" class="inline-flex items-center gap-1.5 bg-lagoon-700 hover:bg-lagoon-800 text-white text-xs font-black px-3.5 py-1.5 rounded-full shadow-md transition cursor-pointer">
                         <i class="fa-solid fa-magnifying-glass-plus"></i> 🔍 放大檢視全幅海報
@@ -2088,8 +2083,7 @@
             <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
                 <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200 !mb-0">
                     <i class="fa-solid fa-trophy text-amber-500"></i>
-                    <span>第二階段：深化 | 壓軸高潮 跨域 V3.0 (夢幻師資團隊 × 社團行事曆全攻略)</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-orange-100/90 text-orange-950 border border-orange-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意三・啟：撬開學科邊界 ✕ 探尋潛能珍珠</span></div>
+                    <span>第二階段：深化 | 壓軸高潮 跨域 V3.0 (夢幻師資團隊 × 社團行事曆全攻略)</span></div>
                 <div class="flex flex-wrap items-center gap-2">
                     <button onclick="openCocoaLabModal('cocoa_lab_offline/intro.html')" class="inline-flex items-center gap-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs md:text-sm font-black px-3.5 py-1.5 rounded-full shadow-md transition transform hover:scale-105 cursor-pointer">
                         <i class="fa-solid fa-bolt text-amber-300"></i> ⚡ 離線展開《可可創新實驗室》網站
@@ -2199,8 +2193,7 @@
             <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
                 <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200 !mb-0">
                     <i class="fa-solid fa-utensils text-coral-500"></i>
-                    <span>第二階段：深化 | 2026.5.29 巧克力實作大會 × 立體手工書全紀錄</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-orange-100/90 text-orange-950 border border-orange-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意三・啟：撬開學科邊界 ✕ 探尋潛能珍珠</span></div>
+                    <span>第二階段：深化 | 2026.5.29 巧克力實作大會 × 立體手工書全紀錄</span></div>
                 <div class="flex flex-wrap items-center gap-1.5">
                     <button onclick="openVideoModal('web_photos/today_choco_book_open.mp4')" class="inline-flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-black px-3 py-1.5 rounded-full shadow-md transition animate-pulse cursor-pointer">
                         <i class="fa-solid fa-circle-play"></i> 🎬 播放《打開巧克力手工書》影片
@@ -2298,8 +2291,7 @@
             <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
                 <div class="stage-badge self-start bg-emerald-50 text-emerald-800 border border-emerald-300 !mb-0">
                     <i class="fa-solid fa-laptop-code text-emerald-600"></i>
-                    <span>第二階段：深化 | 《可可創新實驗室》Google Sites 100% 離線互動講解台</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-orange-100/90 text-orange-950 border border-orange-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意三・啟：撬開學科邊界 ✕ 探尋潛能珍珠</span></div>
+                    <span>第二階段：深化 | 《可可創新實驗室》Google Sites 100% 離線互動講解台</span></div>
                 <div class="flex flex-wrap items-center gap-1.5">
                     <button onclick="openCocoaLabModal(document.getElementById('slideCocoaFrame').src)" class="inline-flex items-center gap-1.5 bg-coral-600 hover:bg-coral-700 text-white text-xs font-black px-3 py-1 rounded-full shadow transition cursor-pointer">
                         <i class="fa-solid fa-expand"></i> 全螢幕放大講解
@@ -2368,8 +2360,7 @@
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200 !mb-0">
                     <i class="fa-solid fa-table-columns text-lagoon-600"></i>
-                    <span>第三階段：間奏與內在 | 閱讀思辨視覺化 · 教學生製作 KWL 閱讀策略與轉折詞小海報的過程</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-rose-100/90 text-rose-950 border border-rose-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">✨ 寓意三・淬：撫平社群風暴 ✕ 磨礪生命珍珠</span></div>
+                    <span>第三階段：間奏與內在 | 閱讀思辨視覺化 · 教學生製作 KWL 閱讀策略與轉折詞小海報的過程</span></div>
                 <span class="text-xs font-black text-coral-700 bg-coral-50 border border-coral-200 px-3 py-1 rounded-full">
                     💡 點擊任一學生海報作品可全螢幕放大，搭配右下角「🔴 投影筆 (L)」逐欄講解
                 </span>
@@ -2459,8 +2450,7 @@
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start bg-rose-50 text-rose-700 border border-rose-200 !mb-0">
                     <i class="fa-solid fa-heart-crack text-rose-600"></i>
-                    <span>第三階段：間奏與內在 | 活用文法 ① · B4U1 抱怨男友的寫作練習 (A Complaint About My Boyfriend)</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-rose-100/90 text-rose-950 border border-rose-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">✨ 寓意三・淬：撫平社群風暴 ✕ 磨礪生命珍珠</span></div>
+                    <span>第三階段：間奏與內在 | 活用文法 ① · B4U1 抱怨男友的寫作練習 (A Complaint About My Boyfriend)</span></div>
                 <div class="flex flex-wrap items-center gap-1">
                     <a href="web_photos/B4U1_學習成果_模板.docx" download class="inline-flex items-center gap-1 text-[10.5px] font-black text-white bg-purple-600 hover:bg-purple-700 px-2.5 py-1 rounded-full shadow-sm transition">
                         <i class="fa-solid fa-file-word"></i> 📥 B4U1學習成果-模板.docx
@@ -2607,8 +2597,7 @@
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start bg-amber-50 text-amber-700 border border-amber-200 !mb-0">
                     <i class="fa-solid fa-pen-fancy text-amber-600"></i>
-                    <span>第三階段：間奏與內在 | 活用文法 · Writing Assignment 試算表作業區</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-rose-100/90 text-rose-950 border border-rose-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">✨ 寓意三・淬：撫平社群風暴 ✕ 磨礪生命珍珠</span></div>
+                    <span>第三階段：間奏與內在 | 活用文法 · Writing Assignment 試算表作業區</span></div>
                 <div class="flex flex-wrap items-center gap-1">
                     <a href="web_photos/B4U6_Writing_Assignment_Student_Works.xlsx" download class="inline-flex items-center gap-1 text-[10.5px] font-black text-white bg-emerald-600 hover:bg-emerald-700 px-2.5 py-0.5 rounded-full shadow-sm transition">
                         <i class="fa-solid fa-file-excel"></i> 📥 下載《Writing Assignment 作業區》試算表(已去識別化.xlsx)
@@ -2784,8 +2773,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200 !mb-0">
                 <i class="fa-solid fa-book-open-reader text-lagoon-600"></i>
-                <span>第三階段：間奏與內在 | 課堂設計解密 · 三民 B3U2 課文脈絡 ✕ 學習重點 ✕ 為什麼深度扣合 SEL？</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-rose-100/90 text-rose-950 border border-rose-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">✨ 寓意三・淬：撫平社群風暴 ✕ 磨礪生命珍珠</span></div>
+                <span>第三階段：間奏與內在 | 課堂設計解密 · 三民 B3U2 課文脈絡 ✕ 學習重點 ✕ 為什麼深度扣合 SEL？</span></div>
 
             <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-1">課本與 SEL 的深刻共鳴：B3U2 故事大要與教學核心 📖✕🧭</h2>
             <p class="text-slate-600 text-xs md:text-sm font-bold mb-2.5">
@@ -2877,8 +2865,7 @@
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start !mb-0">
                     <i class="fa-solid fa-chalkboard-user"></i>
-                    <span>第三階段：間奏與內在 | 2025.10.14 全英計畫教學觀摩日 · 落實前頁 B3U2 與 SEL 理念的公開實踐課</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-rose-100/90 text-rose-950 border border-rose-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">✨ 寓意三・淬：撫平社群風暴 ✕ 磨礪生命珍珠</span></div>
+                    <span>第三階段：間奏與內在 | 2025.10.14 全英計畫教學觀摩日 · 落實前頁 B3U2 與 SEL 理念的公開實踐課</span></div>
                 <div class="flex flex-wrap items-center gap-1 text-[10px] font-black">
                     <span class="text-slate-600 mr-0.5"><i class="fa-solid fa-folder-open text-coral-500"></i> 教材原檔下載：</span>
                     <a href="SEL_U2_教材包/B3U2 Social Media標頭.docx" download class="bg-rose-600 hover:bg-rose-700 text-white px-2 py-0.5 rounded-full shadow-sm transition">📥 標頭.docx</a>
@@ -2981,8 +2968,7 @@
             <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
                 <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200 !mb-0">
                     <i class="fa-solid fa-compass text-lagoon-600"></i>
-                    <span>第三階段：間奏與內在 | 2025.10.14 全英計畫觀摩日 · 學生 SEL 立體海報手工書作品特寫</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-rose-100/90 text-rose-950 border border-rose-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">✨ 寓意三・淬：撫平社群風暴 ✕ 磨礪生命珍珠</span></div>
+                    <span>第三階段：間奏與內在 | 2025.10.14 全英計畫觀摩日 · 學生 SEL 立體海報手工書作品特寫</span></div>
                 <span class="text-xs font-black text-coral-700 bg-coral-50 border border-coral-200 px-3 py-1 rounded-full">
                     💡 可搭配右下角「🔴 投影筆 (L)」或點擊任一作品放大講解細節
                 </span>
@@ -3070,8 +3056,7 @@
             <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
                 <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200 !mb-0">
                     <i class="fa-solid fa-file-signature text-lagoon-600"></i>
-                    <span>第三階段：間奏與內在 | Social Media ✕ SEL 實體學習單與情緒字彙工具全解析</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-rose-100/90 text-rose-950 border border-rose-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">✨ 寓意三・淬：撫平社群風暴 ✕ 磨礪生命珍珠</span></div>
+                    <span>第三階段：間奏與內在 | Social Media ✕ SEL 實體學習單與情緒字彙工具全解析</span></div>
                 <div class="flex flex-wrap gap-1.5">
                     <a href="SEL_U2_教材包/B3U2學習單.docx" download class="inline-flex items-center gap-1 bg-lagoon-700 hover:bg-lagoon-800 text-white text-xs font-black px-3 py-1 rounded-full shadow transition">
                         <i class="fa-solid fa-download"></i> 下載《B3U2學習單.docx》
@@ -3150,8 +3135,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200">
                 <i class="fa-solid fa-globe text-coral-500"></i>
-                <span>第四階段：未來 | 數位能力大進化 · 雙 Google Sites 課程網站（高二5的魔法英文教室 × 可可創新實驗室）</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-teal-100/90 text-teal-950 border border-teal-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🌟 寓意一・成：璀璨珍珠揚帆 ✕ 航向世界大洋</span></div>
+                <span>第四階段：未來 | 數位能力大進化 · 雙 Google Sites 課程網站（高二5的魔法英文教室 × 可可創新實驗室）</span></div>
 
             <h2 class="text-4xl font-black text-slate-800 mb-1">數位能力大進化 🌐</h2>
             <p class="text-slate-600 text-base md:text-lg font-bold mb-2">自主打造雙教學雲端：「高二5的魔法英文教室」✕「可可創新實驗室」（名稱與內嵌畫面完全對應，可直接操作）</p>
@@ -3246,8 +3230,7 @@
         <div class="content-z max-w-6xl mx-auto w-full my-auto flex flex-col">
             <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200">
                 <i class="fa-solid fa-gift text-coral-500"></i>
-                <span>第四階段：未來 | 給雙語路上夥伴的安心著陸錦囊 ＆ 研習教材大禮包</span>
-             <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-teal-100/90 text-teal-950 border border-teal-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🌟 寓意一・成：璀璨珍珠揚帆 ✕ 航向世界大洋</span></div>
+                <span>第四階段：未來 | 給雙語路上夥伴的安心著陸錦囊 ＆ 研習教材大禮包</span></div>
 
             <h2 class="text-3xl md:text-5xl font-black text-slate-800 mb-1.5">與夥伴共好的雙語之路 🌿 步步踏實，自在啟航</h2>
             <p class="text-slate-600 text-sm md:text-base font-bold mb-3">從 0 到 1 的教學落地小步舞曲：挑一個最有感覺的點，明天就能在教室輕鬆出發！🎁</p>
@@ -3318,8 +3301,7 @@
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-sand-200 pb-2">
                 <div class="stage-badge self-start bg-coral-50 text-coral-600 border border-coral-200 !mb-0 text-xs md:text-sm">
                     <i class="fa-solid fa-heart text-coral-500"></i>
-                    <span>第五階段：結語與展望 | 研習教材下載百寶箱 ✕ 暖心回饋時間</span>
-                 <span class="ml-2 inline-flex items-center gap-1 text-[11px] font-black bg-emerald-100/90 text-emerald-950 border border-emerald-300 px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">🦪 寓意大圓滿：The World Is Your Oyster！</span></div>
+                    <span>第五階段：結語與展望 | 研習教材下載百寶箱 ✕ 暖心回饋時間</span></div>
                 <button type="button" onclick="goToSlide(1)" class="bg-amber-400 hover:bg-amber-300 active:scale-95 text-teal-950 font-black text-xs md:text-sm px-4 py-1.5 rounded-full shadow transition flex items-center gap-1.5 cursor-pointer">
                     <i class="fa-solid fa-rotate-left"></i> <span>回到第一頁 (首頁)</span>
                 </button>
