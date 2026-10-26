@@ -2389,85 +2389,156 @@
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start bg-lagoon-50 text-lagoon-700 border border-lagoon-200 !mb-0">
                     <i class="fa-solid fa-table-columns text-lagoon-600"></i>
-                    <span>第三階段：間奏與內在 | 閱讀思辨視覺化 · 教學生製作 KWL 閱讀策略與轉折詞小海報的過程</span></div>
-                <span class="text-xs font-black text-coral-700 bg-coral-50 border border-coral-200 px-3 py-1 rounded-full">
-                    💡 點擊任一學生海報作品可全螢幕放大，搭配右下角「🔴 投影筆 (L)」逐欄講解
-                </span>
+                    <span>第三階段：間奏與內在 | 閱讀思辨視覺化 · 教學生製作 KWL 閱讀策略小海報與學習歷程轉化</span></div>
+                <div class="flex flex-wrap items-center gap-1.5">
+                    <button onclick="openImageLightbox('web_photos/student_portfolio_feedback_composite.png', '🌟 學生學習歷程檔案 (EP) 認證與真情回饋（已去識別化）：報紙形式學習單 × 延伸寫作成果')" class="inline-flex items-center gap-1 bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-700 hover:to-rose-700 text-white text-xs font-black px-3 py-1 rounded-full shadow-md transition transform hover:scale-105 cursor-pointer ring-2 ring-amber-300">
+                        <i class="fa-solid fa-award text-yellow-200"></i> 🌟 學生學習歷程認證回饋(大圖)
+                    </button>
+                    <span class="text-xs font-black text-coral-700 bg-coral-50 border border-coral-200 px-3 py-1 rounded-full">
+                        💡 點擊任一作品可全螢幕放大講解
+                    </span>
+                </div>
             </div>
 
-            <h2 class="text-2xl md:text-4xl font-black text-slate-800 mb-0.5">閱讀思辨視覺化：教製作 KWL 小海報的過程 📊</h2>
-            <p class="text-slate-600 text-xs md:text-sm font-bold mb-2">從課前先備知識 (K)、提問鷹架 (W) 到課後統整與轉折詞分析 (L)，將三民課本單元化為一張張高顏值思辨海報</p>
+            <h2 class="text-2xl md:text-4xl font-black text-slate-800 mb-0.5">閱讀思辨視覺化：教製作 KWL 小海報 ＆ 學習歷程檔案 📊</h2>
+            <p class="text-slate-600 text-xs md:text-sm font-bold mb-2">從課前先備知識 (K)、提問鷹架 (W) 到統整轉折詞 (L)，更啟發學生將學習單自主昇華為「報紙形式」並通過學習歷程認證！</p>
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-stretch mb-2">
-                <!-- Left (7 cols): 4 Student Posters Downloaded Today -->
-                <div class="md:col-span-7 grid grid-cols-4 gap-2 h-[54vh]">
-                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-pink-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_kwl_attractive.jpg', 'KWL 小海報 ①：B3U3 Dying to be Attractive（流淚芭比主視覺 × What We Know / Want to Know / Have Learned）')">
-                        <img src="web_photos/today_kwl_attractive.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
-                        <div class="absolute bottom-0 inset-x-0 bg-pink-700/95 text-white text-[10px] p-1.5 text-center font-black">
-                            ① KWL：芭比流淚審美反思
+                <!-- Left (7 cols): Dual-Tab Showcase (Posters vs. Student Portfolio Feedback) -->
+                <div class="md:col-span-7 flex flex-col h-[54vh]">
+                    <!-- Tab Switcher (解決擁擠問題：隨心切換海報與歷程) -->
+                    <div class="flex items-center justify-between mb-1.5 bg-sand-100/90 p-1 rounded-xl border border-sand-300 shrink-0">
+                        <div class="flex items-center gap-1">
+                            <button id="slide24BtnPosters" onclick="switchSlide24Tab('posters')" class="px-3 py-1 rounded-lg text-xs font-black transition bg-pink-600 text-white shadow-sm flex items-center gap-1.5 cursor-pointer">
+                                <i class="fa-solid fa-palette"></i> 🎨 學生 KWL 思辨小海報 (4 件)
+                            </button>
+                            <button id="slide24BtnFeedback" onclick="switchSlide24Tab('feedback')" class="px-3 py-1 rounded-lg text-xs font-black transition bg-white text-slate-700 hover:bg-sand-100 border border-sand-200 flex items-center gap-1.5 cursor-pointer">
+                                <i class="fa-solid fa-graduation-cap text-amber-600"></i> 🌟 學生學習歷程認證感言 (2 件)
+                                <span class="bg-amber-100 text-amber-800 text-[10px] px-1.5 py-0.2 rounded-full font-bold">新加入</span>
+                            </button>
+                        </div>
+                        <span class="text-[11px] text-slate-500 font-bold hidden sm:inline-block pr-1.5">
+                            點擊可放大
+                        </span>
+                    </div>
+
+                    <!-- View 1: 4 Student Posters (Default View) -->
+                    <div id="slide24ViewPosters" class="grid grid-cols-4 gap-2 flex-1 min-h-0">
+                        <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-pink-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_kwl_attractive.jpg', 'KWL 小海報 ①：B3U3 Dying to be Attractive（流淚芭比主視覺 × What We Know / Want to Know / Have Learned）')">
+                            <img src="web_photos/today_kwl_attractive.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
+                            <div class="absolute bottom-0 inset-x-0 bg-pink-700/95 text-white text-[10px] p-1.5 text-center font-black">
+                                ① KWL：芭比流淚審美反思
+                            </div>
+                        </div>
+
+                        <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-purple-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_kwl_beauty.jpg', 'KWL 小海報 ②：B3U3 Dying to be Attractive（彩妝刷具眼影盤插畫 × 古今審美與健康代價）')">
+                            <img src="web_photos/today_kwl_beauty.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
+                            <div class="absolute bottom-0 inset-x-0 bg-purple-700/95 text-white text-[10px] p-1.5 text-center font-black">
+                                ② KWL：愛美彩妝與歷史代價
+                            </div>
+                        </div>
+
+                        <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_kwl_refugee.jpg', 'KWL 小海報 ③：Choose Love Shop for Refugee 難民議題（船舵轉盤 × KWL 三欄思辨 × 楊子儀、陳佳榆作品）')">
+                            <img src="web_photos/today_kwl_refugee.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
+                            <div class="absolute bottom-0 inset-x-0 bg-amber-700/95 text-white text-[10px] p-1.5 text-center font-black">
+                                ③ KWL：Choose Love 難民議題
+                            </div>
+                        </div>
+
+                        <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-lagoon-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_transitional_words.jpg', '閱讀結構小海報 ④：Finding Transitional Words: Opposition（Mongolian vs. Japanese 相撲對比與轉折詞分析）')">
+                            <img src="web_photos/today_transitional_words.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
+                            <div class="absolute bottom-0 inset-x-0 bg-lagoon-700/95 text-white text-[10px] p-1.5 text-center font-black">
+                                ④ 閱讀結構：Transitional Words
+                            </div>
                         </div>
                     </div>
 
-                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-purple-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_kwl_beauty.jpg', 'KWL 小海報 ②：B3U3 Dying to be Attractive（彩妝刷具眼影盤插畫 × 古今審美與健康代價）')">
-                        <img src="web_photos/today_kwl_beauty.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
-                        <div class="absolute bottom-0 inset-x-0 bg-purple-700/95 text-white text-[10px] p-1.5 text-center font-black">
-                            ② KWL：愛美彩妝與歷史代價
+                    <!-- View 2: 2 De-identified Student Portfolio Screenshots (EP System) -->
+                    <div id="slide24ViewFeedback" class="hidden grid grid-cols-2 gap-2.5 flex-1 min-h-0">
+                        <!-- Card 1: 延伸寫作成果認證 -->
+                        <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md bg-white h-full cursor-zoom-in flex flex-col justify-between" onclick="openImageLightbox('web_photos/student_portfolio_feedback_1.png', '學生學習歷程認證 ①：英文寫作成果（累積寫作力，挑戰英檢中高級）')">
+                            <div class="p-2 bg-amber-50/90 border-b border-amber-200 flex items-center justify-between">
+                                <span class="text-[11px] font-black text-amber-900"><i class="fa-solid fa-feather-pointed text-amber-600"></i> 學生學習歷程官方認證：延伸寫作</span>
+                                <span class="text-[9px] bg-emerald-100 text-emerald-800 font-extrabold px-1.5 py-0.5 rounded">已去識別化</span>
+                            </div>
+                            <div class="flex-1 min-h-0 p-1 flex items-center justify-center bg-slate-50">
+                                <img src="web_photos/student_portfolio_feedback_1.png" alt="" class="w-full h-full object-contain">
+                            </div>
+                            <div class="p-1.5 bg-amber-900/95 text-white text-[10px] text-center font-bold leading-tight">
+                                💬「謝謝老師用心備課和教學，設計延伸寫作讓我一點一滴累積寫作力！」
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-amber-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_kwl_refugee.jpg', 'KWL 小海報 ③：Choose Love Shop for Refugee 難民議題（船舵轉盤 × KWL 三欄思辨 × 楊子儀、陳佳榆作品）')">
-                        <img src="web_photos/today_kwl_refugee.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
-                        <div class="absolute bottom-0 inset-x-0 bg-amber-700/95 text-white text-[10px] p-1.5 text-center font-black">
-                            ③ KWL：Choose Love 難民議題
-                        </div>
-                    </div>
-
-                    <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-lagoon-400 shadow-md bg-white h-full cursor-zoom-in" onclick="openImageLightbox('web_photos/today_transitional_words.jpg', '閱讀結構小海報 ④：Finding Transitional Words: Opposition（Mongolian vs. Japanese 相撲對比與轉折詞分析）')">
-                        <img src="web_photos/today_transitional_words.jpg" alt="" class="w-full h-full object-contain bg-sand-100/60">
-                        <div class="absolute bottom-0 inset-x-0 bg-lagoon-700/95 text-white text-[10px] p-1.5 text-center font-black">
-                            ④ 閱讀結構：Transitional Words
+                        <!-- Card 2: 學習單設計成報紙形式認證 -->
+                        <div class="img-container relative group overflow-hidden rounded-2xl border-2 border-emerald-400 shadow-md bg-white h-full cursor-zoom-in flex flex-col justify-between" onclick="openImageLightbox('web_photos/student_portfolio_feedback_2.png', '學生學習歷程認證 ②：英文重點摘要（把學習單設計成報紙形式，以茲留念）')">
+                            <div class="p-2 bg-emerald-50/90 border-b border-emerald-200 flex items-center justify-between">
+                                <span class="text-[11px] font-black text-emerald-900"><i class="fa-solid fa-newspaper text-emerald-600"></i> 學生學習歷程官方認證：報紙形式</span>
+                                <span class="text-[9px] bg-emerald-600 text-white font-extrabold px-1.5 py-0.5 rounded">◎ 認證成功</span>
+                            </div>
+                            <div class="flex-1 min-h-0 p-1 flex items-center justify-center bg-slate-50">
+                                <img src="web_photos/student_portfolio_feedback_2.png" alt="" class="w-full h-full object-contain">
+                            </div>
+                            <div class="p-1.5 bg-emerald-900/95 text-white text-[10px] text-center font-bold leading-tight">
+                                💬「獲得上台分享機會，所以我把該次學習單設計成報紙的形式以茲留念！」
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right (5 cols): Step-by-Step KWL Teaching Process -->
-                <div class="md:col-span-5 flex flex-col justify-between space-y-2 h-[54vh]">
-                    <div class="bg-white p-2.5 rounded-2xl border-l-4 border-pink-500 border border-sand-200 shadow-sm">
+                <!-- Right (5 cols): Step-by-Step KWL Teaching Process + Connection to Portfolio -->
+                <div class="md:col-span-5 flex flex-col justify-between space-y-1.5 h-[54vh]">
+                    <div class="bg-white p-2 rounded-2xl border-l-4 border-pink-500 border border-sand-200 shadow-sm">
                         <div class="flex items-center justify-between mb-0.5">
                             <h4 class="font-black text-pink-700 text-xs md:text-sm">Step 1｜K — What We Know（喚醒先備知識）</h4>
                             <span class="text-[10px] font-extrabold bg-pink-50 text-pink-700 px-2 py-0.5 rounded border border-pink-200">Pre-reading</span>
                         </div>
                         <p class="text-slate-600 text-xs leading-snug font-medium">
-                            讀課文前先進行小組腦力激盪：例如 <i>Dying to be Attractive</i> 寫下對「美」的直覺（<i>Being attractive can bring benefits; different eras have different beauty standards</i>）；難民單元則寫下對 <i>Refugee</i> 處境的既有認知。
+                            讀課文前先進行小組腦力激盪：例如 <i>Dying to be Attractive</i> 寫下對「美」的直覺（<i>Being attractive brings benefits</i>）；難民單元則寫下對 <i>Refugee</i> 處境的既有認知。
                         </p>
                     </div>
 
-                    <div class="bg-white p-2.5 rounded-2xl border-l-4 border-amber-500 border border-sand-200 shadow-sm">
+                    <div class="bg-white p-2 rounded-2xl border-l-4 border-amber-500 border border-sand-200 shadow-sm">
                         <div class="flex items-center justify-between mb-0.5">
                             <h4 class="font-black text-amber-800 text-xs md:text-sm">Step 2｜W — What We Want to Know（三層次提問鷹架）</h4>
                             <span class="text-[10px] font-extrabold bg-amber-50 text-amber-800 px-2 py-0.5 rounded border border-amber-200">While-reading</span>
                         </div>
                         <p class="text-slate-600 text-xs leading-snug font-medium">
                             引導學生掌握主動探究與提問的關鍵，明芬老師設計<b>三格提問公式</b>：<br>
-                            🔹 <b>Keyword（核心關鍵字）</b> ➔ 🔹 <b>Who did what?（歷史人物做了什麼）</b> ➔ 🔹 <b>Why?（背後的文化與心理原因）</b>，讓提問精準聚焦課文核心！
+                            🔹 <b>Keyword（關鍵字）</b> ➔ 🔹 <b>Who did what?（人物行動）</b> ➔ 🔹 <b>Why?（文化心理動機）</b>，提問精準聚焦！
                         </p>
                     </div>
 
-                    <div class="bg-white p-2.5 rounded-2xl border-l-4 border-lagoon-600 border border-sand-200 shadow-sm">
+                    <div class="bg-white p-2 rounded-2xl border-l-4 border-lagoon-600 border border-sand-200 shadow-sm">
                         <div class="flex items-center justify-between mb-0.5">
-                            <h4 class="font-black text-lagoon-700 text-xs md:text-sm">Step 3｜L — What We Have Learned ＆ 轉折詞結構圖</h4>
+                            <h4 class="font-black text-lagoon-700 text-xs md:text-sm">Step 3｜L — What We Have Learned ＆ 轉化學習歷程</h4>
                             <span class="text-[10px] font-extrabold bg-lagoon-50 text-lagoon-800 px-2 py-0.5 rounded border border-lagoon-200">Post-reading</span>
                         </div>
                         <p class="text-slate-600 text-xs leading-snug font-medium">
-                            讀後統整各段舉例（法國國王路易十四高跟鞋、伊莉莎白一世鉛白粉底、維多利亞時期束腹、當代社群審美文化），並延伸製作 <b>Finding Transitional Words (Opposition: <i>while, whereas, in contrast</i>)</b> 對比海報，將閱讀理解轉化為寫作組織力！
+                            讀後統整舉例並延伸 <b>Transitional Words (Opposition: <i>while, in contrast</i>)</b> 對比海報。學生更將學習單<b>「自主設計為報紙形式」</b>上傳教育部學習歷程檔案系統獲認證通過！
                         </p>
+                    </div>
+
+                    <!-- Testimonial Callout Card -->
+                    <div class="bg-gradient-to-r from-amber-50 to-orange-50 p-2 rounded-xl border border-amber-300 shadow-2xs flex items-center justify-between gap-2 cursor-pointer hover:border-amber-400 transition" onclick="switchSlide24Tab('feedback')">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xl">📰</span>
+                            <div>
+                                <span class="text-[11px] font-black text-amber-950 flex items-center gap-1">
+                                    學生回饋迴響：學習單 ➔ 報紙形式 ➔ 學習歷程
+                                </span>
+                                <p class="text-[10px] text-slate-600 font-bold leading-tight">
+                                    點擊切換頁籤，即刻查看 2 張學生學習歷程官方認證感言截圖
+                                </p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] text-amber-700 font-black underline shrink-0"><i class="fa-solid fa-arrow-right"></i> 查看</span>
                     </div>
                 </div>
             </div>
 
-            <div class="quote-card py-1.5 px-4">
+            <div class="quote-card py-1 px-4">
                 <p class="font-quote text-xs text-slate-700 italic">
-                    「給學生清楚的 K-W-L 提問鷹架與轉折詞分析框架，孩子就能把課本文章讀深、讀透，創作出圖文並茂的英文思辨海報！」
+                    「給學生清楚的 K-W-L 鷹架框架，孩子不僅能創作出圖文並茂的英文思辨海報，更能自主昇華為報紙形式的學習歷程檔案，自信通過官方認證！」
                 </p>
             </div>
         </div>
@@ -3543,6 +3614,37 @@
             const el = document.getElementById(resultId);
             if (el) {
                 el.classList.toggle('hidden');
+            }
+        }
+
+        function switchSlide24Tab(tabName) {
+            const tabPosters = document.getElementById('slide24ViewPosters');
+            const tabFeedback = document.getElementById('slide24ViewFeedback');
+            const btnPosters = document.getElementById('slide24BtnPosters');
+            const btnFeedback = document.getElementById('slide24BtnFeedback');
+            
+            if (tabName === 'feedback') {
+                if (tabPosters) tabPosters.classList.add('hidden');
+                if (tabFeedback) tabFeedback.classList.remove('hidden');
+                if (btnPosters) {
+                    btnPosters.classList.remove('bg-pink-600', 'text-white', 'shadow-sm');
+                    btnPosters.classList.add('bg-white', 'text-slate-700', 'hover:bg-sand-100');
+                }
+                if (btnFeedback) {
+                    btnFeedback.classList.remove('bg-white', 'text-slate-700', 'hover:bg-sand-100');
+                    btnFeedback.classList.add('bg-amber-600', 'text-white', 'shadow-sm');
+                }
+            } else {
+                if (tabFeedback) tabFeedback.classList.add('hidden');
+                if (tabPosters) tabPosters.classList.remove('hidden');
+                if (btnFeedback) {
+                    btnFeedback.classList.remove('bg-amber-600', 'text-white', 'shadow-sm');
+                    btnFeedback.classList.add('bg-white', 'text-slate-700', 'hover:bg-sand-100');
+                }
+                if (btnPosters) {
+                    btnPosters.classList.remove('bg-white', 'text-slate-700', 'hover:bg-sand-100');
+                    btnPosters.classList.add('bg-pink-600', 'text-white', 'shadow-sm');
+                }
             }
         }
 
