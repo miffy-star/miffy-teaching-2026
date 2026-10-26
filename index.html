@@ -2818,7 +2818,7 @@
             <div class="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                 <div class="stage-badge self-start !mb-0">
                     <i class="fa-solid fa-chalkboard-user"></i>
-                    <span>第三階段：間奏與內在 | 2025.10.14 全英計畫教學觀摩日：Social Media ✕ SEL 完整教材包總覽</span>
+                    <span>第三階段：間奏與內在 | 2025.10.14 全英計畫教學觀摩日 · 落實前頁 B3U2 與 SEL 理念的公開實踐課</span>
                 </div>
                 <div class="flex flex-wrap items-center gap-1 text-[10px] font-black">
                     <span class="text-slate-600 mr-0.5"><i class="fa-solid fa-folder-open text-coral-500"></i> 教材原檔下載：</span>
@@ -3346,6 +3346,12 @@
         <div id="slideIndicator" class="font-mono font-bold text-xs md:text-sm text-slate-700 min-w-[54px] text-center px-0.5">01 / 33</div>
         <div id="btnNext" class="btn-nav" title="下一頁 (Right Arrow)"><i class="fa-solid fa-chevron-right"></i></div>
 
+        <!-- 2-Hour Pacing Badge -->
+        <button id="slidePaceBadge" type="button" onclick="togglePacingModal()" title="點擊查看 2 小時配速進度小抄 (快捷鍵 T)" class="tool-pill-btn !px-2.5 !py-1 text-xs font-black bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 shadow-sm transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-hourglass-half text-amber-600 animate-pulse"></i>
+            <span id="slidePaceText">0~30分 · 啟航</span>
+        </button>
+
         <button id="btnToggleTools" type="button" onclick="document.getElementById('extraToolsTray').classList.toggle('hidden')" class="tool-pill-btn !px-2.5 !py-1 text-xs" title="展開／收合投影筆與畫筆工具列">
             <i class="fa-solid fa-wand-magic-sparkles text-coral-500"></i>
             <span>工具</span>
@@ -3368,6 +3374,20 @@
             <button id="btnClearInk" type="button" class="tool-pill-btn !px-2.5 !py-1 hidden text-rose-700 border-rose-200 bg-rose-50" title="清除畫筆筆跡 (快捷鍵 C)">
                 <i class="fa-solid fa-eraser"></i>
                 <span>清除</span>
+            </button>
+            <!-- 2-Hour Stopwatch Timer -->
+            <div class="flex items-center gap-1 bg-white/90 border border-sand-300 rounded-full px-2 py-0.5 shadow-sm">
+                <button id="btnTimerToggle" type="button" class="cursor-pointer text-slate-700 hover:text-teal-700 flex items-center gap-1 text-xs font-mono font-bold" title="開始／暫停 120 分鐘計時 (點擊或快捷鍵 T)">
+                    <i id="timerIcon" class="fa-solid fa-play text-[10px] text-emerald-600"></i>
+                    <span id="timerDisplay">00:00:00</span>
+                </button>
+                <button id="btnTimerReset" type="button" class="cursor-pointer text-slate-400 hover:text-rose-600 text-[10px] px-1" title="重置計時器">
+                    <i class="fa-solid fa-rotate-left"></i>
+                </button>
+            </div>
+            <button id="btnOpenPacingModal" type="button" onclick="togglePacingModal()" class="tool-pill-btn !px-2.5 !py-1 text-xs font-bold text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-300 cursor-pointer whitespace-nowrap" title="開啟 2 小時控時小抄 (快捷鍵 T)">
+                <i class="fa-solid fa-table-list text-amber-600"></i>
+                <span class="hidden md:inline">2HR配速</span>
             </button>
             <a href="Miffy_Padlet_Toolkit.html" target="_blank" class="inline-flex items-center gap-1 bg-rose-600 hover:bg-rose-700 text-white text-xs font-black px-2.5 py-1 rounded-full shadow-sm transition whitespace-nowrap" title="開啟研習百寶箱與暖心回饋牆">
                 <i class="fa-solid fa-heart"></i> <span class="hidden sm:inline">回饋牆</span>
@@ -3658,6 +3678,7 @@
                 const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
                 if (progressBar) progressBar.style.width = progressPercent + "%";
                 if (typeof clearAnnotations === 'function') clearAnnotations();
+                if (typeof updatePacingBadge === 'function') updatePacingBadge(currentSlide);
             }
 
             function nextSlide() {
@@ -3889,6 +3910,62 @@
                 annotCanvas.addEventListener('touchend', endDraw);
             }
 
+            
+            // 2-Hour Workshop Pacing Logic
+            const PACING_RANGES = [
+                { start: 0, end: 13, text: '0~30分 · 啟航在地', targetRow: 'pacingRow-1' },
+                { start: 14, end: 22, text: '30~60分 · 跨域專案', targetRow: 'pacingRow-2' },
+                { start: 23, end: 29, text: '⭐ 65~95分 · 觀摩與SEL核心', targetRow: 'pacingRow-3' },
+                { start: 30, end: 31, text: '95~110分 · 數位與心法', targetRow: 'pacingRow-4' },
+                { start: 32, end: 32, text: '🎁 110~120分 · QA與回饋', targetRow: 'pacingRow-5' }
+            ];
+
+            function updatePacingBadge(idx) {
+                const badgeText = document.getElementById('slidePaceText');
+                if (!badgeText) return;
+                const currentStage = PACING_RANGES.find(r => idx >= r.start && idx <= r.end) || PACING_RANGES[0];
+                badgeText.textContent = currentStage.text;
+            }
+
+            function highlightPacingRow(idx) {
+                const currentStage = PACING_RANGES.find(r => idx >= r.start && idx <= r.end) || PACING_RANGES[0];
+                const badge = document.getElementById('modalCurrentSlideBadge');
+                if (badge) {
+                    badge.textContent = "目前：第 " + String(idx + 1).padStart(2, "0") + " / 33 頁 ➔ " + currentStage.text;
+                }
+                ['pacingRow-1', 'pacingRow-2', 'pacingRow-3', 'pacingRow-4', 'pacingRow-5'].forEach(rowId => {
+                    const rowEl = document.getElementById(rowId);
+                    if (!rowEl) return;
+                    if (rowId === currentStage.targetRow) {
+                        rowEl.classList.add('ring-4', 'ring-teal-500', 'shadow-lg');
+                    } else {
+                        rowEl.classList.remove('ring-4', 'ring-teal-500', 'shadow-lg');
+                    }
+                });
+            }
+
+            function togglePacingModal() {
+                const modal = document.getElementById('pacingModal');
+                if (!modal) return;
+                const isHidden = modal.classList.contains('hidden');
+                if (isHidden) {
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                    highlightPacingRow(currentSlide);
+                } else {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }
+            }
+
+            function closePacingModal() {
+                const modal = document.getElementById('pacingModal');
+                if (modal) {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }
+            }
+
             // 2-Hour Rehearsal Timer Logic
             const btnTimerToggle = document.getElementById('btnTimerToggle');
             const btnTimerReset = document.getElementById('btnTimerReset');
@@ -3937,6 +4014,7 @@
                     closeVideoModal();
                     closeCocoaLabModal();
                     closeImageLightbox();
+                    closePacingModal();
                     if (drawMode) toggleDrawMode(drawMode);
                 } else if (e.key === 'l' || e.key === 'L') {
                     e.preventDefault();
@@ -3952,7 +4030,7 @@
                     clearAnnotations();
                 } else if (e.key === 't' || e.key === 'T') {
                     e.preventDefault();
-                    toggleRehearsalTimer();
+                    togglePacingModal();
                 } else if (e.key === 'f' || e.key === 'F') {
                     e.preventDefault();
                     btnFullscreen.click();
@@ -4115,6 +4193,179 @@
             <div id="chibiPickerGrid" class="grid grid-cols-5 sm:grid-cols-8 gap-2 overflow-y-auto p-2 mt-2 bg-white rounded-2xl border border-sand-200"></div>
         </div>
     </div>
+    
+    <!-- 2-Hour Workshop Pacing Modal -->
+    <div id="pacingModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[250] hidden items-center justify-center p-3 md:p-6 transition-all" onclick="if(event.target===this) togglePacingModal()">
+        <div class="relative max-w-4xl w-full bg-white rounded-3xl shadow-2xl border border-sand-300 overflow-hidden flex flex-col max-h-[92vh] animate-fadeIn">
+            <!-- Modal Header -->
+            <div class="px-6 py-4 bg-gradient-to-r from-amber-500 via-orange-500 to-teal-700 text-white flex items-center justify-between shadow-md">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center text-xl shadow-inner">
+                        ⏱️
+                    </div>
+                    <div>
+                        <h3 class="text-lg md:text-xl font-black tracking-wide flex items-center gap-2">
+                            明芬老師 120 分鐘（2 小時）研習控時小抄
+                            <span class="text-xs bg-white/25 px-2.5 py-0.5 rounded-full font-bold">全場 33 頁精密配速</span>
+                        </h3>
+                        <p class="text-xs text-amber-100 font-medium">隨時掌握當前頁面目標時間 ✕ 安心從容掌控研習節奏</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span id="modalCurrentSlideBadge" class="bg-white text-slate-800 text-xs font-black px-3 py-1 rounded-full shadow">
+                        目前：第 01 / 33 頁
+                    </span>
+                    <button type="button" onclick="togglePacingModal()" class="w-9 h-9 rounded-full bg-black/20 hover:bg-black/40 text-white flex items-center justify-center font-bold text-sm transition cursor-pointer">
+                        ✕
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Body (Scrollable) -->
+            <div class="p-4 md:p-6 overflow-y-auto space-y-4 text-slate-800">
+                <!-- Pacing Timeline Cards -->
+                <div class="grid grid-cols-1 gap-2.5">
+                    <!-- Phase 1 -->
+                    <div id="pacingRow-1" class="p-3.5 rounded-2xl border transition-all duration-200 bg-amber-50/70 border-amber-200">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="bg-amber-500 text-white text-xs font-black px-2.5 py-0.5 rounded-lg shadow-sm">Part 1</span>
+                                <span class="font-black text-slate-800 text-sm md:text-base">啟航・在地踏查與尋寶（第 1 ~ 14 頁）</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-amber-900 bg-amber-200/80 px-2 py-0.5 rounded-md">目標：00 ~ 30 分鐘</span>
+                                <span class="text-[11px] text-slate-500">（約 2 分鐘 / 頁）</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            📍 <strong>內容重點</strong>：破冰引起動機、馬公高中在地外交、七股採蚵戶外雙語、安順鹽場單字尋寶謎紙實境解謎。<br>
+                            💡 <strong>明芬安心提示</strong>：開場時老師們剛入座，放輕鬆聊聊帶孩子走出教室的故事，帶出台南在地熱情即可，不用趕！
+                        </p>
+                    </div>
+
+                    <!-- Phase 2 -->
+                    <div id="pacingRow-2" class="p-3.5 rounded-2xl border transition-all duration-200 bg-orange-50/70 border-orange-200">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="bg-orange-500 text-white text-xs font-black px-2.5 py-0.5 rounded-lg shadow-sm">Part 2</span>
+                                <span class="font-black text-slate-800 text-sm md:text-base">探索・跨領域三大專案（第 15 ~ 23 頁）</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-orange-900 bg-orange-200/80 px-2 py-0.5 rounded-md">目標：30 ~ 60 分鐘</span>
+                                <span class="text-[11px] text-slate-500">（三大主題各約 10 分鐘）</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            📍 <strong>內容重點</strong>：蕃茄食農情境（第15~17頁）➔ 美妝化學實驗（第18~20頁）➔ 巧克力跨科手工書與官網（第21~23頁）。<br>
+                            💡 <strong>明芬安心提示</strong>：強調「跨科合作如何發生」，展示學生精美作品大圖。不用逐字讀投影片，讓大家驚艷成果！
+                        </p>
+                    </div>
+
+                    <!-- Break -->
+                    <div id="pacingRow-break" class="p-2.5 rounded-2xl border transition-all duration-200 bg-sky-50/80 border-sky-200 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-sky-500 text-white text-xs font-black px-2 py-0.5 rounded-lg shadow-sm">☕ 休息</span>
+                            <span class="font-black text-sky-900 text-xs md:text-sm">中場茶歇與動態伸展（5 分鐘）</span>
+                        </div>
+                        <span class="text-xs font-bold text-sky-800 bg-sky-200/70 px-2 py-0.5 rounded-md">目標：60 ~ 65 分鐘</span>
+                    </div>
+
+                    <!-- Phase 3 ⭐ Highlight -->
+                    <div id="pacingRow-3" class="p-3.5 rounded-2xl border-2 transition-all duration-200 bg-rose-50/80 border-rose-300 shadow-sm relative">
+                        <span class="absolute -top-2.5 right-4 bg-rose-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow">⭐ 全場核心亮點</span>
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="bg-rose-600 text-white text-xs font-black px-2.5 py-0.5 rounded-lg shadow-sm">Part 3</span>
+                                <span class="font-black text-rose-950 text-sm md:text-base">核心・全英公開課 ✕ SEL 深度實踐（第 24 ~ 30 頁）</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-black text-rose-900 bg-rose-200 px-2 py-0.5 rounded-md">目標：65 ~ 95 分鐘</span>
+                                <span class="text-[11px] text-rose-700 font-bold">（最充裕 30 分鐘）</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-700 mt-1.5 leading-relaxed">
+                            📍 <strong>內容重點</strong>：KWL思辨 ➔ 生活情境文法幽默寫作 ➔ <strong>三民 B3U2 課文脈絡與教學重點（第27頁）</strong> ➔ <strong>10/14 全英觀摩課實況（第28頁）</strong> ➔ <strong>SEL 掌舵海報立體手工書（兩腳釘船舵、心情溫度計，第29頁）</strong> ➔ <strong>SEL 雙語學習單實戰拆解（第30頁）</strong>。<br>
+                            💡 <strong>明芬安心提示</strong>：現場老師最渴望帶回去的實用寶藏！放慢腳步，聊聊孩子轉變與心理安全感，打動全場！
+                        </p>
+                    </div>
+
+                    <!-- Phase 4 -->
+                    <div id="pacingRow-4" class="p-3.5 rounded-2xl border transition-all duration-200 bg-teal-50/70 border-teal-200">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="bg-teal-600 text-white text-xs font-black px-2.5 py-0.5 rounded-lg shadow-sm">Part 4</span>
+                                <span class="font-black text-slate-800 text-sm md:text-base">賦能・雙網站現場演示 ✕ 雙語安心著陸（第 31 ~ 32 頁）</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-teal-900 bg-teal-200/80 px-2 py-0.5 rounded-md">目標：95 ~ 110 分鐘</span>
+                                <span class="text-[11px] text-slate-500">（約 15 分鐘）</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            📍 <strong>內容重點</strong>：點擊現場演示「明芬魔法教室」與「可可實驗室」雙網站（第31頁）➔ 給雙語夥伴的四大安心著陸心法（第32頁）。<br>
+                            💡 <strong>明芬安心提示</strong>：給現場感到焦慮的老師注入強心針，告訴大家「你不用很完美，才能開始雙語」！
+                        </p>
+                    </div>
+
+                    <!-- Phase 5 -->
+                    <div id="pacingRow-5" class="p-3.5 rounded-2xl border transition-all duration-200 bg-emerald-50/70 border-emerald-200">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="bg-emerald-600 text-white text-xs font-black px-2.5 py-0.5 rounded-lg shadow-sm">Part 5</span>
+                                <span class="font-black text-slate-800 text-sm md:text-base">共好・提問交流 ✕ 掃碼回饋 ✕ 百寶箱帶走（第 33 頁）</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-emerald-900 bg-emerald-200/80 px-2 py-0.5 rounded-md">目標：110 ~ 120 分鐘</span>
+                                <span class="text-[11px] text-slate-500">（最後 10 分鐘）</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            📍 <strong>內容重點</strong>：現場學員提問解答、邀請大家手機掃碼填寫專屬 Google 表單（7DmWkdctrZwfmaC96）、一鍵打包研習教材百寶箱。<br>
+                            💡 <strong>明芬安心提示</strong>：溫暖感謝大家的陪伴，提醒大家填寫表單給予肯定回饋，為未來研習邀約與好口碑鋪路！
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Emergency Pacing Knobs (應急調速錦囊) -->
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                    <h4 class="text-xs font-black text-slate-800 flex items-center gap-1.5 uppercase tracking-wide">
+                        <i class="fa-solid fa-sliders text-teal-600"></i> 明芬老師的「控時應急旋鈕」（超怕控時不佳？看這裡立刻安心）
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                        <div class="p-2.5 bg-white rounded-xl border border-amber-200 text-slate-700">
+                            <p class="font-black text-amber-900 flex items-center gap-1">
+                                🏎️ <strong>若發現講太快（還有很多時間）</strong>
+                            </p>
+                            <p class="mt-1 leading-relaxed text-slate-600">
+                                1. 在第 20 頁（美妝）或第 23 頁（巧克力）點開大圖，多講 1~2 個學生做實驗或寫作的趣事。<br>
+                                2. 在第 29 頁（SEL 掌舵海報手工書）向台下提問：「如果是各位老師，會想在班上用兩腳釘或心情溫度計試試看嗎？」，開放 2 位老師分享，輕鬆多用 5 分鐘！
+                            </p>
+                        </div>
+                        <div class="p-2.5 bg-white rounded-xl border border-rose-200 text-slate-700">
+                            <p class="font-black text-rose-900 flex items-center gap-1">
+                                🐢 <strong>若發現講太慢（時間快不夠了）</strong>
+                            </p>
+                            <p class="mt-1 leading-relaxed text-slate-600">
+                                1. Part 2（三大專案）直接看成品成果大圖，省略中間流程細節，一句話帶過。<br>
+                                2. 確保第 65 分鐘準時進入 Part 3（第 27~30 頁 B3U2 與觀摩課實錄），把最珍貴的 30 分鐘留給精華！
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-6 py-3 bg-sand-100 border-t border-sand-200 flex items-center justify-between text-xs text-slate-600">
+                <span class="flex items-center gap-1">
+                    <i class="fa-solid fa-keyboard text-slate-400"></i> 按下鍵盤 <strong>T</strong> 鍵或點擊下方徽章，可隨時開啟／關閉此小抄
+                </span>
+                <button type="button" onclick="togglePacingModal()" class="bg-slate-800 hover:bg-slate-900 text-white px-4 py-1.5 rounded-full font-bold shadow transition cursor-pointer">
+                    我知道了，關閉小抄
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
         let activeChibiImgEl = null;
         let chibiAnimPaused = false;
