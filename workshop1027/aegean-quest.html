@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>🏛️ 愛琴海守護神殿 · The Real 'Price' of Plastic (Teacher Miffy × Plickers 實體紙卡 × 希臘藍白風)</title>
+    <title>🏛️ 愛琴海高階學術神殿 · The Real 'Price' of Plastic (高中素養深思 × Plickers 零手機紙卡互動)</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -21,7 +21,8 @@
                             sky: '#6497b1',
                             light: '#b3cde0',
                             white: '#fefefe',
-                            sun: '#e28743'
+                            sun: '#e28743',
+                            navy: '#0f172a'
                         }
                     }
                 }
@@ -50,7 +51,7 @@
         }
         .greek-workspace {
             display: grid;
-            grid-template-columns: 370px 1fr;
+            grid-template-columns: 390px 1fr;
             min-height: calc(100vh - 76px);
         }
         @media (max-width: 1024px) {
@@ -110,42 +111,12 @@
         .plickers-card.rotate-B { transform: rotate(90deg); }
         .plickers-card.rotate-C { transform: rotate(180deg); }
         .plickers-card.rotate-D { transform: rotate(270deg); }
-
-        /* Speech bubble arrow */
-        .speech-bubble {
-            position: relative;
-            background: #ffffff;
-            border: 2px solid #38bdf8;
-            border-radius: 1rem;
-        }
-        .speech-bubble::after {
-            content: '';
-            position: absolute;
-            left: 20px;
-            bottom: -10px;
-            width: 0;
-            height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 10px solid #ffffff;
-        }
-        .speech-bubble::before {
-            content: '';
-            position: absolute;
-            left: 19px;
-            bottom: -13px;
-            width: 0;
-            height: 0;
-            border-left: 9px solid transparent;
-            border-right: 9px solid transparent;
-            border-top: 11px solid #38bdf8;
-        }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
 
     <!-- Top Aegean Navigation Header -->
-    <header class="h-[76px] px-4 md:px-6 bg-white/90 backdrop-blur-md border-b-2 border-sky-100 flex items-center justify-between sticky top-0 z-50 shadow-sm">
+    <header class="h-[76px] px-4 md:px-6 bg-white/95 backdrop-blur-md border-b-2 border-sky-100 flex items-center justify-between sticky top-0 z-50 shadow-sm">
         <div class="flex items-center gap-3">
             <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-sky-600 via-blue-600 to-amber-400 p-0.5 shadow-md flex items-center justify-center">
                 <div class="w-full h-full bg-white rounded-full flex items-center justify-center text-2xl">
@@ -154,18 +125,18 @@
             </div>
             <div>
                 <div class="greek-font font-black text-base md:text-xl tracking-wider text-sky-950 flex items-center gap-2">
-                    <span>AEGEAN SANCTUARY</span>
-                    <span class="text-[10px] md:text-[11px] bg-sky-700 text-white font-sans font-black px-2.5 py-0.5 rounded-full uppercase tracking-normal">愛琴海守護神殿</span>
+                    <span>AEGEAN ACADEMY</span>
+                    <span class="text-[10px] md:text-[11px] bg-sky-800 text-white font-sans font-black px-2.5 py-0.5 rounded-full uppercase tracking-normal">高階英文學術殿堂</span>
                 </div>
                 <div class="text-[10px] md:text-[11px] text-sky-700 font-bold tracking-wide">
-                    The Real 'Price' of Plastic · 希臘藍白風 ✕ Plickers 零手機紙卡互動
+                    The Real 'Price' of Plastic · 文本推論 ✕ 圖表交叉數據 ✕ 深度句型重構
                 </div>
             </div>
         </div>
 
         <div class="flex items-center gap-2 md:gap-3">
             <!-- Teacher Miffy Dynamic Header Avatar Pill -->
-            <div onclick="miffyTeacherCheer()" title="點擊明芬老師幫全班集氣！" class="flex items-center gap-2 bg-gradient-to-r from-sky-50 to-amber-50 hover:from-sky-100 hover:to-amber-100 border-2 border-sky-300 rounded-full pl-1.5 pr-3.5 py-1 transition cursor-pointer shadow-xs group">
+            <div onclick="miffyTeacherCheer()" title="點擊明芬老師給予引導！" class="flex items-center gap-2 bg-gradient-to-r from-sky-50 to-amber-50 hover:from-sky-100 hover:to-amber-100 border-2 border-sky-300 rounded-full pl-1.5 pr-3.5 py-1 transition cursor-pointer shadow-xs group">
                 <div class="w-10 h-10 rounded-full bg-white border border-sky-200 overflow-hidden flex items-center justify-center shadow-inner relative">
                     <img src="web_photos/chibi/exp_18.png" 
                          data-frame1="web_photos/chibi/exp_18.png" 
@@ -181,8 +152,8 @@
                 </div>
                 <div class="text-left hidden sm:block">
                     <div class="text-[10px] text-amber-700 font-black flex items-center gap-1">
-                        <span>🌟 主持導師</span>
-                        <span class="bg-amber-200 text-amber-900 text-[8px] px-1 rounded-sm">點我加油</span>
+                        <span>👩‍🏫 主持導師</span>
+                        <span class="bg-amber-200 text-amber-900 text-[8px] px-1 rounded-sm">學術思維引導</span>
                     </div>
                     <div class="text-xs font-black text-sky-950">林明芬 Teacher Miffy</div>
                 </div>
@@ -191,7 +162,7 @@
             <!-- Plickers Mode Quick Toggle Button -->
             <button onclick="openPlickersLiveModal()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-xs px-3.5 py-2 rounded-xl shadow-md flex items-center gap-1.5 transition transform hover:scale-105 cursor-pointer ring-2 ring-amber-300">
                 <i class="fa-solid fa-qrcode text-sm"></i>
-                <span class="hidden md:inline">零手機開玩：</span><span>Plickers 實體紙卡</span>
+                <span class="hidden md:inline">高階課堂思辨：</span><span>Plickers 實體紙卡</span>
             </button>
 
             <!-- Print Card Sheet Button -->
@@ -205,20 +176,20 @@
     <!-- Workspace: Left Santorini Rail + Right Aegean Archipelago -->
     <div class="greek-workspace flex-1">
 
-        <!-- Left Sidebar: Aegean Log, Teacher Guide & Temple Progress -->
+        <!-- Left Sidebar: Aegean Log, Teacher Guide & Academic Progress -->
         <aside class="bg-white/95 border-r-2 border-sky-100 p-5 md:p-6 flex flex-col justify-between overflow-y-auto shadow-sm">
             <div>
                 <!-- Heading Badge -->
                 <div class="inline-flex items-center gap-1.5 text-[11px] font-black tracking-widest uppercase text-sky-800 bg-sky-50 px-3 py-1 rounded-full border border-sky-200 mb-2">
                     <span class="w-2 h-2 rounded-full bg-sky-600"></span>
-                    <span>SANTORINI DISPATCH 航海日誌</span>
+                    <span>ADVANCED LOG 高中學測素養挑戰</span>
                 </div>
 
                 <h1 class="greek-font text-2xl md:text-3xl font-black text-sky-950 leading-tight mb-2">
-                    愛琴海上的<br><span class="text-sky-600 underline decoration-amber-400 decoration-4">減塑奧林帕斯</span>
+                    愛琴海上的<br><span class="text-sky-600 underline decoration-amber-400 decoration-4">減塑思辨奧林帕斯</span>
                 </h1>
 
-                <!-- 🌟 TEACHER MIFFY LIVE DISPATCH CARD (讓學生隨時知道誰是老師) -->
+                <!-- 🌟 TEACHER MIFFY LIVE DISPATCH CARD -->
                 <div class="bg-gradient-to-br from-sky-50 via-blue-50/60 to-white border-2 border-sky-200 rounded-2xl p-3.5 mb-4 shadow-sm relative overflow-hidden">
                     <div class="flex items-start gap-3">
                         <!-- Dynamic Teacher Avatar -->
@@ -238,11 +209,11 @@
                         <!-- Teacher Message -->
                         <div class="flex-1">
                             <div class="flex items-center justify-between mb-1">
-                                <span class="text-xs font-black text-sky-950">明芬老師的課堂叮嚀</span>
-                                <span class="text-[9px] bg-sky-200/80 text-sky-800 font-bold px-1.5 py-0.5 rounded-full">實體翻書防 AI</span>
+                                <span class="text-xs font-black text-sky-950">明芬老師的學術引導</span>
+                                <span class="text-[9px] bg-sky-200/80 text-sky-800 font-bold px-1.5 py-0.5 rounded-full">高階素養</span>
                             </div>
                             <p id="teacherSpeechBubble" class="text-xs text-slate-700 leading-relaxed font-medium bg-white/90 p-2 rounded-xl border border-sky-100 shadow-2xs">
-                                「歡迎來到愛琴海群島！我是明芬老師 👋 這場探險必須翻開英文課本 p.112~132。任何 AI 拍照搜題都找不到答案喔，拿出你的實力吧！」
+                                「同學們，這不是普通的單字克漏字！我們將結合『字裡行間推論 (Inferences)』、『USGS 魚腹圖表交叉比對』與『S+make/find/leave+O+OC 使役補語句型』。準備好動腦了嗎？」
                             </p>
                         </div>
                     </div>
@@ -251,59 +222,59 @@
                 <!-- Total Temple Progress -->
                 <div class="bg-gradient-to-br from-sky-50 to-blue-50/50 p-4 rounded-2xl border-2 border-sky-100 mb-4">
                     <div class="flex justify-between items-center text-xs mb-1.5 font-bold">
-                        <span class="text-sky-950 flex items-center gap-1"><i class="fa-solid fa-archway text-sky-600"></i> 神殿解鎖進度</span>
-                        <span id="readCount" class="text-amber-600 font-black">0 / 4 座衛城已光復</span>
+                        <span class="text-sky-950 flex items-center gap-1"><i class="fa-solid fa-graduation-cap text-sky-600"></i> 素養關卡研討進度</span>
+                        <span id="readCount" class="text-amber-600 font-black">0 / 4 座衛城已攻克</span>
                     </div>
                     <div class="h-3 bg-white rounded-full overflow-hidden p-0.5 border border-sky-200 shadow-inner">
                         <div id="progressFill" class="h-full bg-gradient-to-r from-sky-500 to-blue-600 rounded-full w-0 transition-all duration-500"></div>
                     </div>
                 </div>
 
-                <!-- 4 Island Mission Buttons -->
+                <!-- 4 Advanced Island Mission Buttons -->
                 <div class="space-y-2.5">
                     <!-- Island 1 Entry -->
-                    <button onclick="openIsland('island-1')" class="w-full text-left p-3 rounded-2xl bg-white hover:bg-sky-50/80 border-2 border-sky-100 hover:border-sky-300 transition flex items-center justify-between group cursor-pointer shadow-xs">
-                        <div class="flex items-center gap-2.5">
-                            <span class="w-9 h-9 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-lg group-hover:scale-110 transition">🏛️</span>
+                    <button onclick="openIsland('island-1')" class="w-full text-left p-3.5 rounded-2xl bg-white hover:bg-sky-50/80 border-2 border-sky-100 hover:border-sky-300 transition flex items-center justify-between group cursor-pointer shadow-xs">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl group-hover:scale-110 transition">🏛️</span>
                             <div>
-                                <div class="text-xs font-black text-slate-800 group-hover:text-sky-700 transition">01. 德爾菲密碼島 (Delphi)</div>
-                                <div class="text-[11px] text-slate-500">課本 p.114 數值神諭解密</div>
+                                <div class="text-xs font-black text-slate-800 group-hover:text-sky-700 transition">01. 德爾菲語氣與推論島</div>
+                                <div class="text-[11px] text-slate-500">閱讀策略：Read Between the Lines (Inferences)</div>
                             </div>
                         </div>
                         <span id="check-1" class="text-slate-300 text-sm font-bold">🔒</span>
                     </button>
 
                     <!-- Island 2 Entry -->
-                    <button onclick="openIsland('island-2')" class="w-full text-left p-3 rounded-2xl bg-white hover:bg-sky-50/80 border-2 border-sky-100 hover:border-sky-300 transition flex items-center justify-between group cursor-pointer shadow-xs">
-                        <div class="flex items-center gap-2.5">
-                            <span class="w-9 h-9 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-lg group-hover:scale-110 transition">🐟</span>
+                    <button onclick="openIsland('island-2')" class="w-full text-left p-3.5 rounded-2xl bg-white hover:bg-sky-50/80 border-2 border-sky-100 hover:border-sky-300 transition flex items-center justify-between group cursor-pointer shadow-xs">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-xl group-hover:scale-110 transition">📊</span>
                             <div>
-                                <div class="text-xs font-black text-slate-800 group-hover:text-sky-700 transition">02. 克里特微塑島 (Crete)</div>
-                                <div class="text-[11px] text-slate-500">課本 p.130 魚腹微塑膠圖表</div>
+                                <div class="text-xs font-black text-slate-800 group-hover:text-sky-700 transition">02. 克里特 USGS 數據交叉研判</div>
+                                <div class="text-[11px] text-slate-500">多模態圖表 (p.130) ✕ 排水下水道因果鏈</div>
                             </div>
                         </div>
                         <span id="check-2" class="text-slate-300 text-sm font-bold">🔒</span>
                     </button>
 
                     <!-- Island 3 Entry -->
-                    <button onclick="openIsland('island-3')" class="w-full text-left p-3 rounded-2xl bg-white hover:bg-sky-50/80 border-2 border-sky-100 hover:border-sky-300 transition flex items-center justify-between group cursor-pointer shadow-xs">
-                        <div class="flex items-center gap-2.5">
-                            <span class="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-lg group-hover:scale-110 transition">📜</span>
+                    <button onclick="openIsland('island-3')" class="w-full text-left p-3.5 rounded-2xl bg-white hover:bg-sky-50/80 border-2 border-sky-100 hover:border-sky-300 transition flex items-center justify-between group cursor-pointer shadow-xs">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl group-hover:scale-110 transition">📜</span>
                             <div>
-                                <div class="text-xs font-black text-slate-800 group-hover:text-sky-700 transition">03. 雅典句型衛城 (Athens)</div>
-                                <div class="text-[11px] text-slate-500">課本 p.128 S+make+O+OC</div>
+                                <div class="text-xs font-black text-slate-800 group-hover:text-sky-700 transition">03. 雅典受詞補語語法總壇</div>
+                                <div class="text-[11px] text-slate-500">S + make/find/leave + O + OC (形容詞/名詞/分詞)</div>
                             </div>
                         </div>
                         <span id="check-3" class="text-slate-300 text-sm font-bold">🔒</span>
                     </button>
 
                     <!-- Island 4 Entry -->
-                    <button onclick="openIsland('island-4')" class="w-full text-left p-3 rounded-2xl bg-white hover:bg-sky-50/80 border-2 border-sky-100 hover:border-sky-300 transition flex items-center justify-between group cursor-pointer shadow-xs">
-                        <div class="flex items-center gap-2.5">
-                            <span class="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg group-hover:scale-110 transition">🕊️</span>
+                    <button onclick="openIsland('island-4')" class="w-full text-left p-3.5 rounded-2xl bg-white hover:bg-sky-50/80 border-2 border-sky-100 hover:border-sky-300 transition flex items-center justify-between group cursor-pointer shadow-xs">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl group-hover:scale-110 transition">⚖️</span>
                             <div>
-                                <div class="text-xs font-black text-slate-800 group-hover:text-sky-700 transition">04. 羅德守護島 (Rhodes)</div>
-                                <div class="text-[11px] text-slate-500">課本 p.116 減塑神聖誓約</div>
+                                <div class="text-xs font-black text-slate-800 group-hover:text-sky-700 transition">04. 羅德多方權責矩陣評估</div>
+                                <div class="text-[11px] text-slate-500">製造商 vs. 政府 vs. 消費者政策思辨</div>
                             </div>
                         </div>
                         <span id="check-4" class="text-slate-300 text-sm font-bold">🔒</span>
@@ -315,8 +286,8 @@
                     <div class="flex items-center gap-2.5">
                         <span class="text-2xl text-amber-300">🏛️</span>
                         <div class="text-left">
-                            <div class="text-xs font-black tracking-wide text-white">中央帕德嫩神殿：授勳大廳</div>
-                            <div class="text-[10px] text-sky-200">完成四島頒發愛琴海金獎</div>
+                            <div class="text-xs font-black tracking-wide text-white">帕德嫩高階學術桂冠授勳廳</div>
+                            <div class="text-[10px] text-sky-200">完成四島高階思辨領取評鑑證明</div>
                         </div>
                     </div>
                     <span class="text-amber-300 font-black text-lg">↗</span>
@@ -345,9 +316,9 @@
             <!-- Map Top Overlay Bar -->
             <div class="flex flex-wrap items-center justify-between gap-3 pointer-events-none z-10">
                 <div class="bg-white/95 backdrop-blur-md border-2 border-sky-200 px-5 py-2.5 rounded-2xl shadow-sm">
-                    <span class="text-[10px] font-black tracking-widest uppercase text-sky-800">AEGEAN SEA MAP · 愛琴海諸島</span>
+                    <span class="text-[10px] font-black tracking-widest uppercase text-sky-800">AEGEAN SEA MAP · 高階素養學術航道</span>
                     <h2 class="greek-font text-lg md:text-xl font-black text-sky-950 m-0 flex items-center gap-2">
-                        <span>四座蔚藍神廟，一段真實減塑探尋</span>
+                        <span>四座蔚藍哲思神廟，一場深度的英文批判思考</span>
                     </h2>
                 </div>
                 <div class="hidden md:flex items-center gap-3 bg-white/95 px-4 py-2 rounded-full border border-sky-200 text-xs font-bold text-sky-900 shadow-xs pointer-events-auto">
@@ -359,10 +330,10 @@
                              onerror="this.style.display='none'" 
                              style="color: transparent;" 
                              class="w-6 h-6 object-contain">
-                        <span>明芬老師全程在線指引</span>
+                        <span>明芬老師全程在線提問</span>
                     </div>
                     <span class="text-slate-300">|</span>
-                    <span class="text-sky-700"><i class="fa-solid fa-water"></i> 支援 100% 零手機紙卡</span>
+                    <span class="text-sky-700"><i class="fa-solid fa-water"></i> 零手機 Plickers 即時辯論</span>
                 </div>
             </div>
 
@@ -371,34 +342,34 @@
 
                 <!-- Classical Blue Dome Island 1: Delphi (Top-Left) -->
                 <div onclick="openIsland('island-1')" class="greek-island-node absolute top-2 left-4 md:left-12 cursor-pointer" style="animation-delay: 0s;">
-                    <div class="w-40 md:w-48 bg-white/95 backdrop-blur-md border-2 border-sky-300 rounded-3xl p-3.5 shadow-xl text-center relative group">
+                    <div class="w-44 md:w-52 bg-white/95 backdrop-blur-md border-2 border-sky-300 rounded-3xl p-3.5 shadow-xl text-center relative group">
                         <!-- Blue Dome Icon -->
                         <div class="w-14 h-14 bg-gradient-to-b from-sky-500 to-blue-700 rounded-full border-2 border-white shadow-md flex items-center justify-center text-3xl mx-auto mb-1.5 text-white">
                             🏛️
                         </div>
                         <span class="text-[9px] font-black bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full uppercase border border-sky-200">STAGE 01</span>
-                        <h3 class="text-xs md:text-sm font-black text-slate-800 mt-1">德爾菲密碼島</h3>
-                        <p class="text-[10px] text-slate-500 font-bold">p.114 數值神諭解碼</p>
+                        <h3 class="text-xs md:text-sm font-black text-slate-800 mt-1">德爾菲推論神殿</h3>
+                        <p class="text-[10px] text-slate-500 font-bold">字裡行間讀出作者立場與生態鏈</p>
                         <div id="badge-1" class="absolute -top-2 -right-2 bg-slate-200 text-slate-600 text-[10px] font-black px-2 py-0.5 rounded-full border border-slate-300">未解開</div>
                     </div>
                 </div>
 
                 <!-- Classical Blue Dome Island 2: Crete (Top-Right) -->
                 <div onclick="openIsland('island-2')" class="greek-island-node absolute top-8 right-4 md:right-16 cursor-pointer" style="animation-delay: 1.5s;">
-                    <div class="w-40 md:w-48 bg-white/95 backdrop-blur-md border-2 border-sky-300 rounded-3xl p-3.5 shadow-xl text-center relative group">
+                    <div class="w-44 md:w-52 bg-white/95 backdrop-blur-md border-2 border-sky-300 rounded-3xl p-3.5 shadow-xl text-center relative group">
                         <div class="w-14 h-14 bg-gradient-to-b from-cyan-500 to-blue-700 rounded-full border-2 border-white shadow-md flex items-center justify-center text-3xl mx-auto mb-1.5 text-white">
-                            🐟
+                            📊
                         </div>
                         <span class="text-[9px] font-black bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded-full uppercase border border-cyan-200">STAGE 02</span>
-                        <h3 class="text-xs md:text-sm font-black text-slate-800 mt-1">克里特微塑島</h3>
-                        <p class="text-[10px] text-slate-500 font-bold">p.130 魚肚微塑膠解剖</p>
+                        <h3 class="text-xs md:text-sm font-black text-slate-800 mt-1">克里特微塑數據島</h3>
+                        <p class="text-[10px] text-slate-500 font-bold">USGS 魚腹圖表與下水道源頭交叉比對</p>
                         <div id="badge-2" class="absolute -top-2 -right-2 bg-slate-200 text-slate-600 text-[10px] font-black px-2 py-0.5 rounded-full border border-slate-300">未解開</div>
                     </div>
                 </div>
 
-                <!-- Central Grand Parthenon Temple: 帕德嫩守護神殿 with Teacher Miffy Standing Guard (Center) -->
+                <!-- Central Grand Parthenon Temple (Center) -->
                 <div onclick="openCertificate()" class="greek-island-node absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20" style="animation-delay: 2.8s;">
-                    <div class="w-52 md:w-60 bg-white/98 backdrop-blur-md border-4 border-amber-400 rounded-3xl p-4 shadow-2xl text-center group ring-4 ring-sky-300/40 relative">
+                    <div class="w-56 md:w-64 bg-white/98 backdrop-blur-md border-4 border-amber-400 rounded-3xl p-4 shadow-2xl text-center group ring-4 ring-sky-300/40 relative">
                         
                         <!-- Teacher Miffy Placed on Temple Top -->
                         <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-16 h-16 pointer-events-none">
@@ -415,33 +386,33 @@
                             🏛️
                         </div>
                         <span class="text-[9px] font-black bg-amber-400 text-slate-950 px-2.5 py-0.5 rounded-full uppercase tracking-wider font-sans">PARTHENON</span>
-                        <h3 class="greek-font text-base md:text-lg font-black text-slate-900 mt-1">明芬老師神殿</h3>
-                        <p class="text-[10px] text-sky-800 font-bold">通關四島領取愛琴海桂冠</p>
+                        <h3 class="greek-font text-base md:text-lg font-black text-slate-900 mt-1">明芬老師學術神殿</h3>
+                        <p class="text-[10px] text-sky-800 font-bold">攻克四島領取愛琴海高級學術桂冠</p>
                     </div>
                 </div>
 
                 <!-- Classical Blue Dome Island 3: Athens (Bottom-Left) -->
                 <div onclick="openIsland('island-3')" class="greek-island-node absolute bottom-6 left-6 md:left-20 cursor-pointer" style="animation-delay: 2s;">
-                    <div class="w-40 md:w-48 bg-white/95 backdrop-blur-md border-2 border-sky-300 rounded-3xl p-3.5 shadow-xl text-center relative group">
+                    <div class="w-44 md:w-52 bg-white/95 backdrop-blur-md border-2 border-sky-300 rounded-3xl p-3.5 shadow-xl text-center relative group">
                         <div class="w-14 h-14 bg-gradient-to-b from-indigo-500 to-blue-800 rounded-full border-2 border-white shadow-md flex items-center justify-center text-3xl mx-auto mb-1.5 text-white">
                             📜
                         </div>
                         <span class="text-[9px] font-black bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded-full uppercase border border-indigo-200">STAGE 03</span>
-                        <h3 class="text-xs md:text-sm font-black text-slate-800 mt-1">雅典句型衛城</h3>
-                        <p class="text-[10px] text-slate-500 font-bold">p.128 S+make+O+OC</p>
+                        <h3 class="text-xs md:text-sm font-black text-slate-800 mt-1">雅典使役受補衛城</h3>
+                        <p class="text-[10px] text-slate-500 font-bold">S+make/find/leave+O+OC 語意重構</p>
                         <div id="badge-3" class="absolute -top-2 -right-2 bg-slate-200 text-slate-600 text-[10px] font-black px-2 py-0.5 rounded-full border border-slate-300">未解開</div>
                     </div>
                 </div>
 
                 <!-- Classical Blue Dome Island 4: Rhodes (Bottom-Right) -->
                 <div onclick="openIsland('island-4')" class="greek-island-node absolute bottom-4 right-6 md:right-24 cursor-pointer" style="animation-delay: 3.5s;">
-                    <div class="w-40 md:w-48 bg-white/95 backdrop-blur-md border-2 border-sky-300 rounded-3xl p-3.5 shadow-xl text-center relative group">
+                    <div class="w-44 md:w-52 bg-white/95 backdrop-blur-md border-2 border-sky-300 rounded-3xl p-3.5 shadow-xl text-center relative group">
                         <div class="w-14 h-14 bg-gradient-to-b from-rose-500 to-amber-600 rounded-full border-2 border-white shadow-md flex items-center justify-center text-3xl mx-auto mb-1.5 text-white">
-                            🕊️
+                            ⚖️
                         </div>
                         <span class="text-[9px] font-black bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full uppercase border border-rose-200">STAGE 04</span>
-                        <h3 class="text-xs md:text-sm font-black text-slate-800 mt-1">羅德守護島</h3>
-                        <p class="text-[10px] text-slate-500 font-bold">p.116 減塑誓約行動</p>
+                        <h3 class="text-xs md:text-sm font-black text-slate-800 mt-1">羅德權責政策島</h3>
+                        <p class="text-[10px] text-slate-500 font-bold">企業包裝義務 vs. 政府立法政策思辨</p>
                         <div id="badge-4" class="absolute -top-2 -right-2 bg-slate-200 text-slate-600 text-[10px] font-black px-2 py-0.5 rounded-full border border-slate-300">未解開</div>
                     </div>
                 </div>
@@ -450,7 +421,7 @@
             <!-- Bottom Aegean Footnote -->
             <div class="text-center z-10 flex flex-wrap items-center justify-center gap-2">
                 <span class="inline-flex items-center gap-2 bg-white/90 backdrop-blur border border-sky-200 text-xs font-bold text-sky-900 px-5 py-2 rounded-full shadow-sm">
-                    <span>🌊 點擊島嶼展開任務｜手持 Plickers 紙卡向鏡頭舉牌，或直接點選螢幕答題！</span>
+                    <span>💡 挑戰包含：字裡行間推論 (Inferences) ➔ 圖表交叉統計比對 ➔ 使役動詞受詞補語語義重構 ➔ 權責歸屬申論</span>
                 </span>
             </div>
         </main>
@@ -458,13 +429,13 @@
 
     <!-- Slide-in Mission Drawer (Greek Temple Style) -->
     <div id="panelScrim" onclick="closePanel()" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 hidden transition-opacity"></div>
-    <section id="missionPanel" class="fixed right-0 top-0 bottom-0 w-full max-w-xl bg-white border-l-4 border-sky-600 z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+    <section id="missionPanel" class="fixed right-0 top-0 bottom-0 w-full max-w-2xl bg-white border-l-4 border-sky-600 z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
         <!-- Panel Header -->
         <header class="p-5 border-b-2 border-sky-100 bg-sky-50 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <span id="panelIcon" class="text-3xl">🏛️</span>
                 <div>
-                    <span id="panelKicker" class="text-[10px] font-black text-sky-700 tracking-wider uppercase">STAGE QUEST</span>
+                    <span id="panelKicker" class="text-[10px] font-black text-sky-700 tracking-wider uppercase">ADVANCED QUEST</span>
                     <h2 id="panelTitle" class="greek-font text-lg md:text-xl font-black text-slate-900 m-0">島嶼標題</h2>
                 </div>
             </div>
@@ -476,10 +447,10 @@
         <!-- Panel Tabs -->
         <div class="flex border-b border-sky-100 bg-white">
             <button id="tabBtnQuest" onclick="switchPanelTab('quest')" class="flex-1 py-3 text-xs font-black text-sky-700 border-b-2 border-sky-600 flex items-center justify-center gap-1.5 cursor-pointer">
-                <i class="fa-solid fa-gamepad"></i> 挑戰任務 (防 AI)
+                <i class="fa-solid fa-brain"></i> 高階素養思辨 (防 AI)
             </button>
             <button id="tabBtnMaterial" onclick="switchPanelTab('material')" class="flex-1 py-3 text-xs font-black text-slate-400 hover:text-slate-800 flex items-center justify-center gap-1.5 cursor-pointer">
-                <i class="fa-solid fa-book-open"></i> 課本重點解析
+                <i class="fa-solid fa-book-open"></i> 課本深度研讀考點
             </button>
         </div>
 
@@ -489,31 +460,7 @@
         </div>
     </section>
 
-    <!-- Anti-AI Surprise Dialog Modal (明芬老師現身抓包 AI) -->
-    <dialog id="aiTrapModal" class="bg-transparent backdrop:bg-slate-900/80 p-4 max-w-md w-full">
-        <div class="bg-white border-4 border-amber-400 rounded-3xl p-6 text-slate-900 shadow-2xl relative text-center">
-            <button onclick="document.getElementById('aiTrapModal').close()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl font-bold">✕</button>
-            <div class="w-24 h-24 mx-auto mb-2 flex items-center justify-center">
-                <img src="web_photos/chibi/exp_14.png" 
-                     data-frame1="web_photos/chibi/exp_14.png" 
-                     data-frame2="web_photos/chibi/exp_16.png" 
-                     alt="" 
-                     onerror="this.style.display='none'" 
-                     style="color: transparent;" 
-                     class="w-full h-full object-contain chibi-animated">
-            </div>
-            <h3 class="text-xl font-black text-sky-950 mb-1">抓到了！想請 AI 幫忙？😆</h3>
-            <p class="text-xs text-amber-700 font-bold mb-3">明芬老師微笑看著你：這題 ChatGPT 解不出來！</p>
-            <div class="bg-amber-50 p-3.5 rounded-2xl border border-amber-200 text-xs text-slate-700 leading-relaxed text-left mb-4 font-medium">
-                「老師出的密碼是按照實體課本第 114 頁與 115 頁的特定句子設計的。網路上沒有現成題庫，AI 就算再聰明也沒看過你的課本～快乖乖翻開書頁自己找答案吧！💪」
-            </div>
-            <button onclick="document.getElementById('aiTrapModal').close()" class="w-full bg-sky-700 hover:bg-sky-800 text-white font-black py-2.5 rounded-xl transition cursor-pointer shadow-sm">
-                我知道了，我翻課本！📖
-            </button>
-        </div>
-    </dialog>
-
-    <!-- Plickers Live Classroom Scan Modal (零手機全班紙卡掃描介面) -->
+    <!-- Plickers Live Classroom Scan Modal (高階全班多方思辨掃描儀) -->
     <dialog id="plickersModal" class="bg-transparent backdrop:bg-slate-900/80 p-4 max-w-2xl w-full">
         <div class="bg-white border-4 border-sky-600 rounded-3xl p-6 md:p-8 text-slate-900 shadow-2xl relative text-left">
             <button onclick="document.getElementById('plickersModal').close()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl font-bold">✕</button>
@@ -529,39 +476,42 @@
                          class="w-full h-full object-contain chibi-waving">
                 </div>
                 <div>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-sky-700 bg-sky-100 px-2.5 py-0.5 rounded-full">NO-PHONE CLASSROOM</span>
-                    <h3 class="text-xl md:text-2xl font-black text-slate-900">明芬老師 × Plickers 實體紙卡全班掃描系統</h3>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-sky-700 bg-sky-100 px-2.5 py-0.5 rounded-full">HIGH-SCHOOL NO-PHONE DEBATE</span>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-900">明芬老師 × Plickers 課堂深度批判性投票</h3>
                 </div>
             </div>
 
-            <p class="text-xs text-slate-600 mb-5 leading-relaxed font-medium">
-                在禁止使用手機的國高中課堂中，老師只要預先印好每位學生的幾何紙卡（四邊分別是 A、B、C、D）。
-                學生只要將自己選的答案朝上舉起，老師拿手機或平板鏡頭掃視全班 2 秒，電腦螢幕即時統計全班答題分佈！
+            <p class="text-xs text-slate-600 mb-4 leading-relaxed font-medium">
+                在高中禁止攜帶手機的課堂中，透過 Plickers 四向紙卡，全班能即刻針對爭議性環境政策進行無聲表決與統計，避免「隨波逐流」，展現每位同學的獨立批判思維！
             </p>
 
             <!-- Interactive Simulation of Plickers Scanner -->
             <div class="bg-sky-50 p-4 rounded-2xl border-2 border-sky-200 mb-5">
                 <div class="flex items-center justify-between mb-3 text-xs font-bold text-sky-950">
-                    <span>當前投影題目：<b>微塑膠最主要的來源是？</b></span>
-                    <span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full text-[10px]">35 位學生已舉牌</span>
+                    <span>課堂思辨論題：<b>根據課本第 5 段，若要徹底終結海洋「塑膠濃湯」，哪一方應承擔最高財務與法律責任？</b></span>
+                    <span class="bg-indigo-100 text-indigo-900 px-2 py-0.5 rounded-full text-[10px]">全班 42 位高一生已表態</span>
                 </div>
 
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
-                    <div class="p-2.5 bg-white rounded-xl border border-sky-200 text-center">
-                        <span class="text-[10px] text-slate-500 font-bold block">A. 柔珠洗面乳</span>
-                        <span class="text-lg font-black text-slate-700">2 人 (6%)</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+                    <div class="p-3 bg-white rounded-xl border border-sky-200 text-left">
+                        <span class="text-[11px] font-black text-slate-800 block">A. 製造商 (Manufacturers)</span>
+                        <p class="text-[10px] text-slate-500 mt-0.5">責任在源頭設計：應全面禁止在合成衣物與日常用品使用微塑膠與不可分解包裝。</p>
+                        <div class="text-xs font-black text-sky-700 mt-1">16 人 (38%)</div>
                     </div>
-                    <div class="p-2.5 bg-white rounded-xl border-2 border-emerald-500 bg-emerald-50/50 text-center">
-                        <span class="text-[10px] text-emerald-700 font-black block">B. 洗滌衣物纖維</span>
-                        <span class="text-lg font-black text-emerald-700">30 人 (86%) ✓</span>
+                    <div class="p-3 bg-white rounded-xl border border-sky-200 text-left">
+                        <span class="text-[11px] font-black text-slate-800 block">B. 國家政府 (Governments)</span>
+                        <p class="text-[10px] text-slate-500 mt-0.5">強制升級市政污水處理廠（drains）微纖維攔截系統，並課徵高額塑膠稅。</p>
+                        <div class="text-xs font-black text-sky-700 mt-1">14 人 (33%)</div>
                     </div>
-                    <div class="p-2.5 bg-white rounded-xl border border-sky-200 text-center">
-                        <span class="text-[10px] text-slate-500 font-bold block">C. 塑膠瓶罐</span>
-                        <span class="text-lg font-black text-slate-700">2 人 (6%)</span>
+                    <div class="p-3 bg-white rounded-xl border border-sky-200 text-left">
+                        <span class="text-[11px] font-black text-slate-800 block">C. 消費者大眾 (Consumers)</span>
+                        <p class="text-[10px] text-slate-500 mt-0.5">拒買瓶裝水、降低快時尚消費頻率，自備容器，用市場機制淘汰劣質商品。</p>
+                        <div class="text-xs font-black text-sky-700 mt-1">8 人 (19%)</div>
                     </div>
-                    <div class="p-2.5 bg-white rounded-xl border border-sky-200 text-center">
-                        <span class="text-[10px] text-slate-500 font-bold block">D. 塑膠袋</span>
-                        <span class="text-lg font-black text-slate-700">1 人 (2%)</span>
+                    <div class="p-3 bg-white rounded-xl border border-sky-200 text-left">
+                        <span class="text-[11px] font-black text-slate-800 block">D. 環保倡議團體 (NGOs)</span>
+                        <p class="text-[10px] text-slate-500 mt-0.5">作為跨國監督與國際公約（如聯合國公約）的仲裁與海洋清理發動者。</p>
+                        <div class="text-xs font-black text-sky-700 mt-1">4 人 (10%)</div>
                     </div>
                 </div>
 
@@ -569,7 +519,7 @@
                 <div class="bg-white p-3 rounded-xl border border-sky-200 flex items-center justify-between gap-4">
                     <div class="text-xs text-slate-600">
                         <b>體驗旋轉你的紙卡：</b><br>
-                        點擊右側紙卡按鈕，旋轉至你的答案（朝上的英文字母代表你的選擇）
+                        點擊右側紙卡按鈕，將你主張的代表邊（A、B、C 或 D）朝上向老師展示
                     </div>
                     <div id="demoCard" class="plickers-card w-16 h-16 shadow-xs border-2 border-slate-900 cursor-pointer" onclick="rotateDemoCard()">
                         <span class="absolute top-0.5 text-[9px] font-black text-slate-900">A</span>
@@ -582,7 +532,7 @@
             </div>
 
             <div class="flex flex-wrap items-center justify-between gap-2">
-                <span class="text-[11px] text-slate-500 font-bold">💡 支援與 Plickers.com 帳號連動</span>
+                <span class="text-[11px] text-slate-500 font-bold">💡 支援無手機課堂 100% 全員參與辯論</span>
                 <div class="flex gap-2">
                     <button onclick="openPrintCardsDialog()" class="bg-sky-700 hover:bg-sky-800 text-white text-xs font-black px-4 py-2 rounded-xl transition">
                         列印本課專屬紙卡 (PDF/A4)
@@ -595,68 +545,53 @@
         </div>
     </dialog>
 
-    <!-- Printable Cards Modal (一鍵列印全班 40 號紙卡) -->
+    <!-- Printable Cards Modal -->
     <dialog id="printCardsDialog" class="bg-transparent backdrop:bg-slate-900/80 p-4 max-w-3xl w-full">
         <div class="bg-white rounded-3xl p-6 md:p-8 text-slate-900 shadow-2xl relative">
             <button onclick="document.getElementById('printCardsDialog').close()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl font-bold">✕</button>
             <div class="flex items-center gap-3 mb-2">
                 <span class="text-3xl">🖨️</span>
-                <h3 class="text-xl md:text-2xl font-black text-slate-900">Unit 6 專屬 Plickers 互動紙卡 (A4 列印版)</h3>
+                <h3 class="text-xl md:text-2xl font-black text-slate-900">Unit 6 高中課堂專屬 Plickers 互動紙卡 (A4 列印版)</h3>
             </div>
-            <p class="text-xs text-slate-600 mb-4 font-medium">每張 A4 可裁切為 2 張大卡或 4 張中卡。學生每人持有一張，四邊分別對應 A、B、C、D。</p>
+            <p class="text-xs text-slate-600 mb-4 font-medium">每張 A4 包含專屬編號，四個旋轉邊代表 A、B、C、D 四種論點。學生手持卡片，無需網路、不用手機！</p>
 
             <!-- Printable Sheet Preview (Cards 1 to 4 preview) -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-100 p-4 rounded-2xl border-2 border-dashed border-slate-300 mb-5">
-                <!-- Card 1 -->
                 <div class="bg-white p-3 rounded-xl border-2 border-slate-800 shadow-xs flex flex-col items-center justify-between aspect-square relative">
                     <span class="text-[10px] font-black text-slate-900">A</span>
                     <div class="w-full flex justify-between items-center text-[10px] font-black px-1">
                         <span>D</span>
-                        <div class="w-12 h-12 bg-slate-900 rounded-md flex items-center justify-center text-white text-xs font-mono font-bold">
-                            #01
-                        </div>
+                        <div class="w-12 h-12 bg-slate-900 rounded-md flex items-center justify-center text-white text-xs font-mono font-bold">#01</div>
                         <span>B</span>
                     </div>
                     <span class="text-[10px] font-black text-slate-900">C</span>
                     <span class="absolute bottom-1 right-1 text-[8px] text-slate-400">1號同學</span>
                 </div>
-
-                <!-- Card 2 -->
                 <div class="bg-white p-3 rounded-xl border-2 border-slate-800 shadow-xs flex flex-col items-center justify-between aspect-square relative">
                     <span class="text-[10px] font-black text-slate-900">A</span>
                     <div class="w-full flex justify-between items-center text-[10px] font-black px-1">
                         <span>D</span>
-                        <div class="w-12 h-12 bg-slate-900 rounded-md flex items-center justify-center text-white text-xs font-mono font-bold">
-                            #02
-                        </div>
+                        <div class="w-12 h-12 bg-slate-900 rounded-md flex items-center justify-center text-white text-xs font-mono font-bold">#02</div>
                         <span>B</span>
                     </div>
                     <span class="text-[10px] font-black text-slate-900">C</span>
                     <span class="absolute bottom-1 right-1 text-[8px] text-slate-400">2號同學</span>
                 </div>
-
-                <!-- Card 3 -->
                 <div class="bg-white p-3 rounded-xl border-2 border-slate-800 shadow-xs flex flex-col items-center justify-between aspect-square relative">
                     <span class="text-[10px] font-black text-slate-900">A</span>
                     <div class="w-full flex justify-between items-center text-[10px] font-black px-1">
                         <span>D</span>
-                        <div class="w-12 h-12 bg-slate-900 rounded-md flex items-center justify-center text-white text-xs font-mono font-bold">
-                            #03
-                        </div>
+                        <div class="w-12 h-12 bg-slate-900 rounded-md flex items-center justify-center text-white text-xs font-mono font-bold">#03</div>
                         <span>B</span>
                     </div>
                     <span class="text-[10px] font-black text-slate-900">C</span>
                     <span class="absolute bottom-1 right-1 text-[8px] text-slate-400">3號同學</span>
                 </div>
-
-                <!-- Card 4 -->
                 <div class="bg-white p-3 rounded-xl border-2 border-slate-800 shadow-xs flex flex-col items-center justify-between aspect-square relative">
                     <span class="text-[10px] font-black text-slate-900">A</span>
                     <div class="w-full flex justify-between items-center text-[10px] font-black px-1">
                         <span>D</span>
-                        <div class="w-12 h-12 bg-slate-900 rounded-md flex items-center justify-center text-white text-xs font-mono font-bold">
-                            #04
-                        </div>
+                        <div class="w-12 h-12 bg-slate-900 rounded-md flex items-center justify-center text-white text-xs font-mono font-bold">#04</div>
                         <span>B</span>
                     </div>
                     <span class="text-[10px] font-black text-slate-900">C</span>
@@ -666,7 +601,7 @@
 
             <div class="flex justify-end gap-2">
                 <button onclick="window.print()" class="bg-sky-700 hover:bg-sky-800 text-white text-xs font-black px-5 py-2.5 rounded-xl transition shadow flex items-center gap-1.5 cursor-pointer">
-                    <i class="fa-solid fa-print"></i> 直接列印紙卡 (Print Cards)
+                    <i class="fa-solid fa-print"></i> 列印全班紙卡 (Print Cards)
                 </button>
                 <button onclick="document.getElementById('printCardsDialog').close()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-black px-4 py-2.5 rounded-xl transition">
                     關閉
@@ -675,51 +610,70 @@
         </div>
     </dialog>
 
-    <!-- Certificate Modal (Aegean Gold Greek Award with Teacher Miffy Seal) -->
-    <dialog id="certDialog" class="bg-transparent backdrop:bg-slate-900/80 p-4 max-w-xl w-full">
+    <!-- Certificate Modal (Aegean Academic Honor Laurel) -->
+    <dialog id="certDialog" class="bg-transparent backdrop:bg-slate-900/80 p-4 max-w-2xl w-full">
         <div class="bg-white border-4 border-amber-400 rounded-3xl p-6 md:p-8 text-slate-900 shadow-2xl relative text-center">
             <button onclick="document.getElementById('certDialog').close()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-xl font-bold">✕</button>
             <span class="text-4xl">🏛️</span>
-            <h3 class="greek-font text-2xl font-black text-sky-950 mt-1 mb-0.5">AEGEAN GUARDIAN LAUREL</h3>
-            <p class="text-xs text-sky-800 font-bold mb-4">愛琴海守護神殿 · 減塑奧林帕斯桂冠證書</p>
+            <h3 class="greek-font text-2xl font-black text-sky-950 mt-1 mb-0.5">AEGEAN ACADEMIC EXCELLENCE</h3>
+            <p class="text-xs text-sky-800 font-bold mb-4">愛琴海守護神殿 · 高階英文素養與批判思辨榮譽評鑑</p>
 
             <!-- Printable Certificate Box -->
-            <div id="certificatePrintArea" class="bg-gradient-to-b from-[#f0f9ff] via-[#ffffff] to-[#fffbeb] text-slate-900 p-6 md:p-7 rounded-2xl border-4 border-amber-400 text-center relative overflow-hidden shadow-xl mb-4">
-                <div class="text-[10px] font-black uppercase tracking-widest text-sky-800 border-b border-sky-200 pb-1 mb-3">
-                    Bilingual Cross-Disciplinary Ecology Certificate
+            <div id="certificatePrintArea" class="bg-gradient-to-b from-[#f0f9ff] via-[#ffffff] to-[#fffbeb] text-slate-900 p-6 md:p-8 rounded-2xl border-4 border-amber-400 text-left relative overflow-hidden shadow-xl mb-4">
+                <div class="flex items-center justify-between border-b border-sky-200 pb-2 mb-3">
+                    <div class="text-[10px] font-black uppercase tracking-widest text-sky-800">
+                        Senior High School Bilingual Ecology & Critical Thinking Honors
+                    </div>
+                    <div class="text-[10px] font-bold text-amber-700">ACADEMIC TIER: LEVEL 1</div>
                 </div>
-                <h4 class="greek-font text-2xl font-black text-sky-950 mb-1">DIPLOMA OF EXCELLENCE</h4>
-                <p class="text-[11px] text-slate-600 font-bold mb-3">Unit 6: The Real 'Price' of Plastic</p>
-                <p class="text-xs text-slate-700">茲證明愛琴海減塑守護者：</p>
+                
+                <h4 class="greek-font text-2xl font-black text-sky-950 mb-1 text-center">CERTIFICATE OF SCHOLARLY MERIT</h4>
+                <p class="text-xs text-center text-slate-600 font-bold mb-4">Unit 6: The Real 'Price' of Plastic (In-depth Discourse)</p>
+                
+                <p class="text-xs text-slate-700">茲證明高階批判思辨學者 (Honoree)：</p>
                 <div id="certName" class="greek-font text-2xl font-black text-amber-700 my-1 underline decoration-amber-400">
-                    Miffy's Hero
+                    Miffy's Scholar
                 </div>
-                <p id="certPledge" class="text-xs text-slate-700 bg-white/90 p-2.5 rounded-xl border border-sky-200 my-3 font-medium">
-                    🌱 誓約行動：落實自備水壺、拒絕微塑膠，共同守護湛藍海洋！
-                </p>
+
+                <div class="grid grid-cols-2 gap-2 my-3 text-[11px] bg-sky-50/70 p-3 rounded-xl border border-sky-200">
+                    <div><b>1. 閱讀策略推論：</b><span class="text-emerald-700 font-bold">✓ 精確識別作者積極態度 (Hopeful)</span></div>
+                    <div><b>2. 多模態數據交叉：</b><span class="text-emerald-700 font-bold">✓ 破解 70.9% 洗衣纖維水文鏈</span></div>
+                    <div><b>3. 使役受詞補語語法：</b><span class="text-emerald-700 font-bold">✓ 3 階核心句構 100% 掌握</span></div>
+                    <div><b>4. 權責矩陣思辨：</b><span class="text-emerald-700 font-bold">✓ 完整論述企業與法制架構</span></div>
+                </div>
+
+                <div class="bg-white p-3 rounded-xl border border-slate-200 text-xs text-slate-800 mb-3 leading-relaxed">
+                    <b>學者核心行動政策宣言 (Scholarly Thesis)：</b>
+                    <p id="certPledge" class="text-sky-950 font-medium italic mt-1">
+                        "Systemic change requires regulating synthetic microfibers at the industrial level rather than placing the entire moral burden on consumers."
+                    </p>
+                </div>
+
                 <div class="flex items-center justify-between pt-2 border-t border-sky-200 text-xs">
-                    <div class="text-left flex items-center gap-2">
+                    <div class="flex items-center gap-2.5">
                         <img src="web_photos/chibi/happy_03.png" 
                              data-frame1="web_photos/chibi/happy_03.png" 
                              data-frame2="web_photos/chibi/happy_04.png" 
                              alt="" 
                              onerror="this.style.display='none'" 
                              style="color: transparent;" 
-                             class="w-10 h-10 object-contain">
+                             class="w-11 h-11 object-contain">
                         <div>
-                            <span class="block text-[9px] text-slate-500 font-bold">指導教師</span>
-                            <span class="font-black text-slate-900">林明芬 老師 (Teacher Miffy)</span>
+                            <span class="block text-[9px] text-slate-500 font-bold">主持評審與指導教師</span>
+                            <span class="font-black text-slate-900 text-sm">林明芬 老師 (Teacher Miffy)</span>
                         </div>
                     </div>
-                    <div class="w-14 h-14 rounded-full border-2 border-amber-500 flex items-center justify-center text-amber-700 font-black text-[10px] transform -rotate-12 bg-amber-50 shadow-sm">
-                        AEGEAN<br>VERIFIED
+                    <div class="w-16 h-16 rounded-full border-2 border-amber-500 flex flex-col items-center justify-center text-amber-700 font-black text-[9px] transform -rotate-12 bg-amber-50 shadow-sm leading-tight text-center">
+                        <span>AEGEAN</span>
+                        <span>SCHOLAR</span>
+                        <span>VERIFIED</span>
                     </div>
                 </div>
             </div>
 
             <div class="flex items-center justify-center gap-3">
-                <button onclick="window.print()" class="bg-sky-700 hover:bg-sky-800 text-white text-xs font-black px-4 py-2.5 rounded-xl transition shadow flex items-center gap-1.5 cursor-pointer">
-                    <i class="fa-solid fa-print"></i> 列印 / 存為 PDF 證書
+                <button onclick="window.print()" class="bg-sky-700 hover:bg-sky-800 text-white text-xs font-black px-5 py-2.5 rounded-xl transition shadow flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-print"></i> 列印 / 存為學術榮譽 PDF 證書
                 </button>
                 <button onclick="document.getElementById('certDialog').close()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-black px-4 py-2.5 rounded-xl transition">
                     關閉
@@ -731,28 +685,36 @@
     <!-- Application Script -->
     <script>
         let player = {
-            name: "Miffy's Student",
+            name: "Miffy's Scholar",
             unlocked: { 1: false, 2: false, 3: false, 4: false },
-            pledge: "Bring my own reusable container every day.",
-            reflection: "Keep the Aegean blue and plastic-free!"
+            stage3Completed: 0,
+            pledge: "Advocate for legal restrictions on industrial microfiber discharge and hold fast-fashion manufacturers accountable.",
+            reflection: "True ecological balance demands systemic industrial accountability, not merely consumer sacrifices."
         };
 
         const islandsData = {
             'island-1': {
                 id: 1,
-                name: "01. 德爾菲密碼島 (Delphi)",
-                kicker: "STAGE 01 · 課本數據神諭解碼",
+                name: "01. 德爾菲推論神殿 (Delphi)",
+                kicker: "STAGE 01 · 閱讀策略：Read Between the Lines (Inferences)",
                 icon: "🏛️",
-                teacherHint: "翻開英文課本 p.114 第 1 段找出美國寶特瓶繞地球次數，再看 p.115 第 4 段找出聯合國統計的海洋塑膠佔比，相乘就是解鎖密碼！",
+                teacherHint: "翻開課本 p.114 與 p.116！閱讀不能只讀表面字面，請推論作者舉例的真正意圖與字裡行間的態度（Attitude）。這需要深刻的語意理解！",
                 materialHtml: `
                     <div class="space-y-3 text-xs text-slate-700 leading-relaxed">
                         <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-200">
-                            <b class="text-sky-900 text-sm">課本 p.114 第 1、2 段重點導讀：</b>
-                            <p class="mt-1">塑膠製品通常只用一次就被丟棄。事實上，美國人每週丟棄 <b>3.5 億（350 million）</b>個塑膠瓶！如果首尾相連（laid end to end），足以繞地球 <b>5 次</b>！</p>
+                            <b class="text-sky-900 text-sm">課本 p.114 閱讀策略導讀 (Reading Strategy: Making Inferences)：</b>
+                            <p class="mt-1">
+                                <i>"Not all information is directly stated in a passage. Readers often need to read between the lines, that is, to make inferences. When you infer, you look for clues in the passage and figure out the writer's real meaning with your own background knowledge."</i>
+                            </p>
                         </div>
-                        <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-200">
-                            <b class="text-amber-800 text-sm">課本 p.115 第 4 段重點：</b>
-                            <p class="mt-1">根據聯合國（UN）統計，海洋垃圾中有高達 <b>80%</b> 是塑膠製品！生物學家甚至稱海洋為「塑膠濃湯（plastic soup）」。</p>
+                        <div class="p-3.5 bg-amber-50 rounded-2xl border border-amber-200">
+                            <b class="text-amber-900 text-sm">課本 p.116 第 5 段關鍵作者筆觸：</b>
+                            <p class="mt-1">
+                                <i>"However, it is not too late to take action... Each of us has the power to change the world. Let's begin today and work together to save our planet."</i>
+                            </p>
+                            <p class="mt-1 text-slate-600 font-bold">
+                                考點思考：儘管通篇揭露大量悲劇數據，作者在文末的真實態度究竟是 Depressing (令人沮喪)、Objective (冷靜客觀) 還是 Hopeful (充滿希望)？
+                            </p>
                         </div>
                     </div>
                 `,
@@ -768,52 +730,89 @@
                                  style="color: transparent;" 
                                  class="w-8 h-8 object-contain shrink-0">
                             <p class="text-xs text-amber-950 font-bold leading-tight">
-                                明芬老師叮嚀：拿出課本對照第 114 頁與第 115 頁數字，AI 在這裡毫無用武之地！
+                                明芬老師考考你：請同時完成下列兩道「推論題（Inference Check）」，才能解鎖德爾菲神殿的神聖銘文！
                             </p>
                         </div>
 
-                        <div class="bg-sky-50 p-4 rounded-2xl border border-sky-200">
-                            <span class="text-xs font-black text-sky-900 block mb-1">🔐 課本實體密碼鎖 (防 AI 偷看)</span>
-                            <p class="text-xs text-slate-600 leading-relaxed font-medium">
-                                翻開課本第 114 頁找出「美國寶特瓶繞地球次數（A）」，再翻到第 115 頁找出「聯合國統計海洋塑膠垃圾佔比（B%）」。
-                            </p>
-                            <div class="mt-2.5 p-2 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-900 font-mono font-bold">
-                                德爾菲神諭公式：B (%) × A (次數) = 三位數密碼
+                        <!-- Question 1 -->
+                        <div class="bg-white p-3.5 rounded-2xl border border-slate-200">
+                            <span class="text-xs font-black text-sky-900 block mb-1.5">
+                                Q1. [推論寫作目的] 根據課本第 5 段作者列舉「自備購物袋、停止購買瓶裝水」等具體例子，其真正的寫作目的（Author's Purpose）為何？(課本 p.116 Reading Strategy Check)
+                            </span>
+                            <div class="space-y-1.5">
+                                <label class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 hover:bg-sky-50 cursor-pointer text-xs">
+                                    <input type="radio" name="inferQ1" value="A">
+                                    <span>(A) To demand an immediate shutdown of all plastic manufacturing factories.</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 hover:bg-sky-50 cursor-pointer text-xs">
+                                    <input type="radio" name="inferQ1" value="B">
+                                    <span class="font-bold text-sky-950">(B) To urge readers to actively reduce and minimize their daily consumption of plastic items.</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 hover:bg-sky-50 cursor-pointer text-xs">
+                                    <input type="radio" name="inferQ1" value="C">
+                                    <span>(C) To solely hold municipal waste management departments accountable.</span>
+                                </label>
                             </div>
                         </div>
 
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1">輸入解鎖密碼：</label>
-                            <input id="quest1Input" type="number" placeholder="輸入 3 位數" class="w-full bg-white border-2 border-sky-300 rounded-xl px-4 py-2.5 text-slate-900 font-mono text-center text-lg font-bold focus:border-sky-600 outline-none">
+                        <!-- Question 2 -->
+                        <div class="bg-white p-3.5 rounded-2xl border border-slate-200">
+                            <span class="text-xs font-black text-sky-900 block mb-1.5">
+                                Q2. [推論作者語氣] 在揭露了海洋被稱為「塑膠濃湯（plastic soup）」與幼鳥餓死等嚴峻事實後，作者在結論段（Paragraph 5）所抱持的情感語氣（Tone / Attitude）為何？(課本 p.116 第 2 題)
+                            </span>
+                            <div class="space-y-1.5">
+                                <label class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 hover:bg-sky-50 cursor-pointer text-xs">
+                                    <input type="radio" name="inferQ2" value="A">
+                                    <span>(A) Depressing and cynical (感到絕望與諷刺)</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 hover:bg-sky-50 cursor-pointer text-xs">
+                                    <input type="radio" name="inferQ2" value="B">
+                                    <span>(B) Purely indifferent and detached (漠不關心與抽離)</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 hover:bg-sky-50 cursor-pointer text-xs">
+                                    <input type="radio" name="inferQ2" value="C">
+                                    <span class="font-bold text-sky-950">(C) Hopeful and empowering (充滿希望並賦予大眾改變力量)</span>
+                                </label>
+                            </div>
                         </div>
 
-                        <div class="flex gap-2">
-                            <button onclick="verifyIsland1()" class="flex-1 bg-sky-700 hover:bg-sky-800 text-white font-black py-2.5 rounded-xl transition cursor-pointer shadow-sm">
-                                驗證密碼並登陸島嶼 🔓
-                            </button>
-                            <button onclick="triggerAiTrap()" class="bg-slate-100 hover:bg-rose-50 text-slate-500 hover:text-rose-600 text-xs font-bold px-3 py-2 rounded-xl border border-slate-200 transition" title="偷用 AI 解題？">
-                                🤖 AI 解題
-                            </button>
-                        </div>
-                        <p id="quest1Err" class="text-rose-500 text-xs font-bold text-center hidden">❌ 密碼錯誤！提示：80 乘以 5 等於多少呢？</p>
+                        <button onclick="verifyIsland1()" class="w-full bg-sky-700 hover:bg-sky-800 text-white font-black py-2.5 rounded-xl transition cursor-pointer shadow-sm">
+                            提交學術推論判斷並解鎖神殿 🔓
+                        </button>
+                        <p id="quest1Err" class="text-rose-500 text-xs font-bold text-center hidden">❌ 答案不正確！請回頭細讀課文第 116 頁末段："However, it is not too late..."，體會作者是積極呼籲還是悲觀放棄！</p>
                     </div>
                 `
             },
             'island-2': {
                 id: 2,
-                name: "02. 克里特微塑島 (Crete)",
-                kicker: "STAGE 02 · 魚腹圖表解讀 ＆ Plickers 選擇",
-                icon: "🐟",
-                teacherHint: "請大家看到課本 p.130 的 Infographics 圖表，微塑膠最高佔比高達 70.9% 的 Fibers 是如何進入大海的？請找出第 115 頁關鍵句子！",
+                name: "02. 克里特微塑數據島 (Crete)",
+                kicker: "STAGE 02 · 多模態圖表 (p.130) ✕ 排水下水道因果鏈",
+                icon: "📊",
+                teacherHint: "請仔細看課本 p.130 的 USGS 調查圖表！為什麼一般人以為柔珠洗面乳（Beads）是罪魁禍首，但圖表中高達 70.9% 卻是衣服微纖維（Fibers）？兩者背後的水文傳輸途徑有何關聯？",
                 materialHtml: `
                     <div class="space-y-3 text-xs text-slate-700 leading-relaxed">
                         <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-200">
-                            <b class="text-cyan-900 text-sm">課本 p.130 Infographics 分析：</b>
-                            <p class="mt-1">美國地質調查局研究顯示，河川魚類體內微塑膠比例最高的是 <b>Fibers & Lines（70.9%）</b>，其次是 Bottles & Containers（16.7%）。</p>
+                            <b class="text-cyan-900 text-sm">課本 p.130 USGS & SUNY Fredonia 河川微塑膠型態數據：</b>
+                            <div class="grid grid-cols-2 gap-2 mt-2 font-mono text-[11px]">
+                                <div class="bg-white p-2 rounded border border-sky-200">
+                                    <span class="text-sky-700 font-bold">Fibers & Lines:</span> <b>70.9%</b> (極端多數)
+                                </div>
+                                <div class="bg-white p-2 rounded border border-sky-200">
+                                    <span class="text-amber-700 font-bold">Bottles & Containers:</span> <b>16.7%</b>
+                                </div>
+                                <div class="bg-white p-2 rounded border border-sky-200">
+                                    <span class="text-slate-600 font-bold">Foams:</span> <b>9.4%</b>
+                                </div>
+                                <div class="bg-white p-2 rounded border border-sky-200">
+                                    <span class="text-rose-600 font-bold">Beads & Pellets:</span> <b>1.6%</b> (極微量)
+                                </div>
+                            </div>
                         </div>
-                        <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-200">
-                            <b class="text-sky-900 text-sm">課本 p.115 第 3 段關鍵句：</b>
-                            <p class="mt-1"><i>"When people wash their clothes, plastic microfibers are flushed down drains and into rivers and oceans."</i></p>
+                        <div class="p-3.5 bg-cyan-50 rounded-2xl border border-cyan-200">
+                            <b class="text-cyan-950 text-sm">課本 p.115 第 3 段機制說明：</b>
+                            <p class="mt-1">
+                                <i>"Clothes also contain microplastics in the shape of plastic fibers. When people wash their clothes, these substances go into the water. The polluted water then goes down the drains. From there, it will one day enter the ocean."</i>
+                            </p>
                         </div>
                     </div>
                 `,
@@ -829,54 +828,81 @@
                                  style="color: transparent;" 
                                  class="w-8 h-8 object-contain shrink-0">
                             <p class="text-xs text-cyan-950 font-bold leading-tight">
-                                明芬老師提問：如果使用 Plickers 紙卡，請將正確選項那一邊轉到朝上舉起！
+                                明芬老師：這是多模態圖表與文本綜合分析題！請進行數據推導與因果辨析。
                             </p>
                         </div>
 
-                        <div class="bg-sky-50 p-3 rounded-2xl border border-sky-200">
-                            <span class="text-xs font-black text-sky-900">課本 p.130 魚腹微塑膠排行榜</span>
-                            <div class="bg-white p-2 rounded-xl mt-2 text-xs font-mono text-left space-y-1 border border-sky-100">
-                                <div class="text-rose-600">1.6% Beads & Pellets (柔珠)</div>
-                                <div class="text-amber-700">16.7% Bottles & Containers (瓶罐)</div>
-                                <div class="text-sky-700 font-black border-l-4 border-sky-600 pl-2">70.9% Fibers & Lines (纖維) ➔ 最高！</div>
+                        <!-- Question 1: Cross-Data Calculation & Analysis -->
+                        <div class="bg-white p-3.5 rounded-2xl border border-slate-200">
+                            <span class="text-xs font-black text-sky-900 block mb-1.5">
+                                Q1. [數據推論] 根據課本 p.130 統計，洗衣產生的微纖維（Fibers: 70.9%）約為磨砂膏微柔珠（Beads: 1.6%）的幾倍？這說明了什麼環境法制盲點？
+                            </span>
+                            <div class="space-y-1.5">
+                                <label class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 hover:bg-sky-50 cursor-pointer text-xs">
+                                    <input type="radio" name="creteQ1" value="A">
+                                    <span>(A) 約 5 倍；因此只要禁止化妝品添加柔珠即可徹底解決海洋微塑膠問題。</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 hover:bg-sky-50 cursor-pointer text-xs">
+                                    <input type="radio" name="creteQ1" value="B">
+                                    <span class="font-bold text-sky-950">(B) 超過 44 倍；若各國政府僅立法禁用柔珠，忽視快時尚紡織品的化學纖維排放，將無法阻絕最大污染源。</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 hover:bg-sky-50 cursor-pointer text-xs">
+                                    <input type="radio" name="creteQ1" value="C">
+                                    <span>(C) 兩者比例接近，均為海灘遊客隨手拋棄所造成。</span>
+                                </label>
                             </div>
                         </div>
 
-                        <div class="text-xs text-slate-800 font-bold">
-                            問題：這高達 70.9% 的 Fibers 是如何進入下水道並流進大海的？(課本 p.115 第 3 段)
+                        <!-- Question 2: Biological & Ingestion Mechanism -->
+                        <div class="bg-white p-3.5 rounded-2xl border border-slate-200">
+                            <span class="text-xs font-black text-sky-900 block mb-1.5">
+                                Q2. [因果鏈比對] 課本第 4 段提到魚類與幼鳥攝入塑膠的致死機制不同。下列哪一項敘述完全符合文本事實？(課本 p.115 Lines 22-31)
+                            </span>
+                            <div class="space-y-1.5">
+                                <label class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 hover:bg-sky-50 cursor-pointer text-xs">
+                                    <input type="radio" name="creteQ2" value="A">
+                                    <span>(A) 幼鳥是因吸入下水道化學氣體而中毒，魚類則因胃部被寶特瓶塞滿而窒息。</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 hover:bg-sky-50 cursor-pointer text-xs">
+                                    <input type="radio" name="creteQ2" value="B">
+                                    <span class="font-bold text-sky-950">(B) 親鳥將塑膠垃圾誤認為食物餵食幼鳥導致其未獲真正養分而餓死（starving to death）；而魚類則攝入吸附有害化學物質的微塑膠而引發重病。</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 hover:bg-sky-50 cursor-pointer text-xs">
+                                    <input type="radio" name="creteQ2" value="C">
+                                    <span>(C) 海洋生物均具備消化微塑膠的能力，死亡僅是由於水溫過高。</span>
+                                </label>
+                            </div>
                         </div>
 
-                        <div class="space-y-2">
-                            <button onclick="verifyIsland2(false)" class="w-full text-left p-3 rounded-xl bg-white hover:bg-sky-50 text-xs text-slate-700 border border-slate-200">
-                                <b>A.</b> 人們吃太多海鮮罐頭隨手亂丟。
-                            </button>
-                            <button onclick="verifyIsland2(true)" class="w-full text-left p-3 rounded-xl bg-sky-100/70 hover:bg-sky-100 text-xs text-sky-950 font-bold border-2 border-sky-500 shadow-xs">
-                                <b>B.</b> 人們洗衣服時，衣物中的塑膠微纖維隨廢水沖入下水道（drains）。
-                            </button>
-                            <button onclick="verifyIsland2(false)" class="w-full text-left p-3 rounded-xl bg-white hover:bg-sky-50 text-xs text-slate-700 border border-slate-200">
-                                <b>C.</b> 漁夫捕魚時繩子全部掉入海裡。
-                            </button>
-                        </div>
-                        <p id="quest2Err" class="text-rose-500 text-xs font-bold text-center hidden">❌ 錯誤！請看課文第 115 頁第 3 段第 15 行：When people wash their clothes...</p>
+                        <button onclick="verifyIsland2()" class="w-full bg-sky-700 hover:bg-sky-800 text-white font-black py-2.5 rounded-xl transition cursor-pointer shadow-sm">
+                            提交數據交叉研判結果 🔓
+                        </button>
+                        <p id="quest2Err" class="text-rose-500 text-xs font-bold text-center hidden">❌ 分析有誤！請回顧 70.9% ÷ 1.6% ≈ 44.3 倍，並檢視第 4 段中 birds 餓死與 fish 重病的各自機制！</p>
                     </div>
                 `
             },
             'island-3': {
                 id: 3,
-                name: "03. 雅典句型衛城 (Athens)",
-                kicker: "STAGE 03 · S + make + O + OC 句型法力",
+                name: "03. 雅典使役受補衛城 (Athens)",
+                kicker: "STAGE 03 · S + make/find/leave/keep + O + OC 核心語法法力",
                 icon: "📜",
-                teacherHint: "本課核心文法：S + make + O + OC（受詞補語）。有害化學物質使魚類生了重病，該怎麼排序呢？",
+                teacherHint: "翻開課本 p.128~129！高中核心句構：S + make/find/leave/keep + O + OC。受詞補語可以是形容詞、名詞、現在分詞或過去分詞。請依序完成 3 句深度學術句型重組！",
                 materialHtml: `
                     <div class="space-y-3 text-xs text-slate-700 leading-relaxed">
                         <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-200">
-                            <b class="text-indigo-900 text-sm">課本 p.128 核心受詞補語公式：</b>
-                            <p class="font-mono text-sky-800 mt-1 font-bold">S + make / find / leave + O + OC (形容詞 / 名詞)</p>
-                            <p class="mt-1">受詞補語用來補充說明受詞的狀態或特質。</p>
-                        </div>
-                        <div class="p-3.5 bg-indigo-50 rounded-2xl border border-indigo-200">
-                            <b class="text-indigo-950 text-sm">例句解析：</b>
-                            <p class="mt-1 font-mono text-xs">The harmful chemicals (S) + make (V) + a fish (O) + terribly sick (OC).</p>
+                            <b class="text-indigo-900 text-sm">課本 p.128 核心受詞補語語法結構：</b>
+                            <div class="mt-2 space-y-1.5 font-mono text-xs">
+                                <div class="bg-white p-2 rounded border border-indigo-200">
+                                    <b>S + leave / keep / find + O + [ adj. / prep. phrase / V-ing / p.p. ]</b>
+                                </div>
+                                <div class="bg-white p-2 rounded border border-indigo-200">
+                                    <b>S + make + O + [ adj. / Noun ]</b>
+                                </div>
+                            </div>
+                            <p class="mt-2 text-slate-600">
+                                例句 1: <i>The large amount of plastic waste has made it one of the biggest environmental problems of our age.</i> (S + make + O + N)<br>
+                                例句 2: <i>Experts have found many dead animals' stomachs full of plastic trash.</i> (S + find + O + Adj Phrase)
+                            </p>
                         </div>
                     </div>
                 `,
@@ -892,45 +918,57 @@
                                  style="color: transparent;" 
                                  class="w-8 h-8 object-contain shrink-0">
                             <p class="text-xs text-indigo-950 font-bold leading-tight">
-                                明芬老師考考你：依序點選下方詞塊，組裝出課本 p.128 的經典使役結構！
+                                明芬老師：高中的受詞補語句型要求嚴謹的格位與語意邏輯。請完成以下這句高階學測等級的複合句型組裝！
                             </p>
                         </div>
 
-                        <div class="bg-sky-50 p-3 rounded-2xl border border-sky-200">
-                            <span class="text-xs font-bold text-sky-900 block mb-1">🎯 任務：依序點擊詞卡，拼出使役句型</span>
-                            <div id="slotArea" class="min-h-[44px] bg-white border-2 border-dashed border-sky-400 rounded-xl p-2 flex flex-wrap gap-2 items-center">
-                                <span id="slotHint" class="text-slate-400 text-xs italic">點擊下方詞卡依序放入此處...</span>
+                        <div class="bg-sky-50 p-3.5 rounded-2xl border border-sky-200">
+                            <span class="text-xs font-black text-sky-900 block mb-1">
+                                🎯 任務目標：重組出具有完整 S + make + O + OC (名詞補語) 與後位修飾的高階學術句
+                            </span>
+                            <div class="text-[11px] text-slate-600 mb-2">
+                                中文語意：「大量被丟棄的塑膠垃圾，已使全世界的海洋成為這時代最嚴重的環境災難。」
+                            </div>
+                            
+                            <div id="slotArea" class="min-h-[50px] bg-white border-2 border-dashed border-sky-400 rounded-xl p-2.5 flex flex-wrap gap-2 items-center">
+                                <span id="slotHint" class="text-slate-400 text-xs italic">點擊下方詞塊依序放入此處...</span>
                             </div>
                         </div>
 
                         <div>
-                            <span class="text-xs text-slate-500 font-bold block mb-2">可選詞卡：</span>
+                            <span class="text-xs text-slate-500 font-bold block mb-2">備選詞塊（包含干擾項，請精準辨析）：</span>
                             <div id="cardBank" class="flex flex-wrap gap-2"></div>
                         </div>
 
                         <div class="flex justify-between items-center pt-2">
-                            <button onclick="resetSlot()" class="text-slate-400 hover:text-slate-700 text-xs underline cursor-pointer">重置卡片</button>
-                            <button onclick="verifyIsland3()" class="bg-sky-700 hover:bg-sky-800 text-white font-black text-xs px-5 py-2.5 rounded-xl transition cursor-pointer shadow-sm">驗證句型 🚀</button>
+                            <button onclick="resetSlot()" class="text-slate-400 hover:text-slate-700 text-xs underline cursor-pointer">重置詞塊</button>
+                            <button onclick="verifyIsland3()" class="bg-sky-700 hover:bg-sky-800 text-white font-black text-xs px-5 py-2.5 rounded-xl transition cursor-pointer shadow-sm">驗證句法結構 🚀</button>
                         </div>
-                        <p id="quest3Err" class="text-rose-500 text-xs font-bold text-center hidden">❌ 順序不正確！提示結構：make ➔ a fish ➔ terribly sick</p>
+                        <p id="quest3Err" class="text-rose-500 text-xs font-bold text-center hidden">❌ 語意順序或句型不合乎規範！結構：主詞片語 ➔ has made ➔ 受詞 ➔ 名詞補語 (one of the biggest...)</p>
                     </div>
                 `
             },
             'island-4': {
                 id: 4,
-                name: "04. 羅德守護島 (Rhodes)",
-                kicker: "STAGE 04 · 奧林帕斯神聖減塑承諾",
-                icon: "🕊️",
-                teacherHint: "來到最後一座島嶼！翻開課本 p.116，每個人都有改變世界的力量。選下你的減塑承諾，明芬老師親簽守護者證書給你！",
+                name: "04. 羅德權責政策島 (Rhodes)",
+                kicker: "STAGE 04 · 企業包裝義務 vs. 政府法制 vs. 個人思辨",
+                icon: "⚖️",
+                teacherHint: "翻開課本 p.116 與 p.118！不要只寫簡單的自備水壺，請評估環保團體為何同時向「製造商（Manufacturers）」與「政府（Governments）」施壓？真正的環境正義在哪裡？",
                 materialHtml: `
                     <div class="space-y-3 text-xs text-slate-700 leading-relaxed">
                         <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-200">
-                            <b class="text-rose-900 text-sm">課本 p.116 解決方案（Solutions）：</b>
-                            <p class="mt-1"><i>"Each of us has the power to change the world. Let's begin today!"</i></p>
+                            <b class="text-rose-900 text-sm">課本 p.116 第 5 段體系改革主張：</b>
+                            <p class="mt-1">
+                                <i>"These groups are not only asking manufacturers to use less plastic in their products and packaging but also calling on governments to start programs to clean the ocean."</i>
+                            </p>
                         </div>
                         <div class="p-3.5 bg-amber-50 rounded-2xl border border-amber-200">
-                            <b class="text-amber-900 text-sm">生活三部曲：</b>
-                            <p class="mt-1">1. 自備環保杯與環保袋。<br>2. 購買天然纖維衣物。<br>3. 拒絕一次性過度包裝。</p>
+                            <b class="text-amber-900 text-sm">課本 p.118 Graphic Organizer 結構對比：</b>
+                            <p class="mt-1">
+                                解決方案必須雙管齊下：
+                                1. 個體消費者的 Dos & Don'ts（自備容器、避開微塑膠產品）。<br>
+                                2. 結構性力量（生產端企業減塑義務與政府跨國清源法規）。
+                            </p>
                         </div>
                     </div>
                 `,
@@ -946,41 +984,47 @@
                                  style="color: transparent;" 
                                  class="w-8 h-8 object-contain shrink-0">
                             <p class="text-xs text-rose-950 font-bold leading-tight">
-                                明芬老師：這是最神聖的最後一關！寫下你的真實名字與英文心願，領取金獎證書！
+                                明芬老師：身為具有全球素養的高中生，請提出你對「微塑膠真實代價」的結構性政策宣言！
                             </p>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1">守護者英文姓名 (Hero Name)：</label>
-                            <input id="userNameInput" type="text" placeholder="例如：Alex Lin" class="w-full bg-white border border-sky-300 rounded-xl px-3 py-2 text-xs text-slate-800 outline-none focus:border-sky-600 mb-3 font-bold">
+                            <label class="block text-xs font-bold text-slate-700 mb-1">學者全名與英文署名 (Scholar Full Name)：</label>
+                            <input id="userNameInput" type="text" placeholder="例如：Alex C. Lin" class="w-full bg-white border border-sky-300 rounded-xl px-3 py-2 text-xs text-slate-800 outline-none focus:border-sky-600 mb-3 font-bold">
                         </div>
 
-                        <div class="text-xs text-slate-600 leading-relaxed">
-                            請在奧林帕斯神殿前立下一項你的生活減塑誓約：
+                        <div class="text-xs text-slate-700 font-bold mb-1.5">
+                            選擇你認為最能根治海洋微塑膠的「核心政策槓桿」：
                         </div>
 
                         <div class="space-y-2">
-                            <label class="flex items-center gap-2 p-2.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-sky-400">
-                                <input type="radio" name="userPledge" value="Stop buying bottled water and bring my own reusable container." checked class="text-sky-600">
-                                <span class="text-xs text-slate-800">💧 拒買瓶裝水，自備環保水壺上學</span>
+                            <label class="flex items-start gap-2.5 p-3 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-sky-400">
+                                <input type="radio" name="userPledge" value="Mandate extended producer responsibility (EPR) on textile and packaging corporations." checked class="mt-1 text-sky-600">
+                                <div class="text-xs text-slate-800 leading-snug">
+                                    <b>生產者延伸責任制 (EPR)：</b> 強制快時尚與包裝製造商承擔產品回收與全生命週期環境成本，從工業源頭淘汰有害聚酯纖維。
+                                </div>
                             </label>
-                            <label class="flex items-center gap-2 p-2.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-sky-400">
-                                <input type="radio" name="userPledge" value="Reuse shopping bags and refuse single-use plastic bags." class="text-sky-600">
-                                <span class="text-xs text-slate-800">🛍️ 購物隨身帶環保袋，堅拒一次性塑膠袋</span>
+                            <label class="flex items-start gap-2.5 p-3 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-sky-400">
+                                <input type="radio" name="userPledge" value="Enforce municipal infrastructure upgrades on household drain filtration systems." class="mt-1 text-sky-600">
+                                <div class="text-xs text-slate-800 leading-snug">
+                                    <b>公共基礎設施立法：</b> 規定洗衣機製造商內建微纖維高精度濾網，並全面升級城市污水處理廠攔截設施。
+                                </div>
                             </label>
-                            <label class="flex items-center gap-2 p-2.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-sky-400">
-                                <input type="radio" name="userPledge" value="Avoid products with microplastics to protect ocean animals." class="text-sky-600">
-                                <span class="text-xs text-slate-800">🧴 拒買含柔珠保養品，保護海洋生物</span>
+                            <label class="flex items-start gap-2.5 p-3 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-sky-400">
+                                <input type="radio" name="userPledge" value="Establish severe tax disincentives on single-use plastics while subsidizing reusable materials." class="mt-1 text-sky-600">
+                                <div class="text-xs text-slate-800 leading-snug">
+                                    <b>綠色經濟課稅：</b> 對一次性塑膠瓶罐課徵高額環境稅，全面補貼循環經濟容器。
+                                </div>
                             </label>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1">用一句英文寫下對海洋的心願：</label>
-                            <input id="userReflection" type="text" placeholder="e.g. Keep the Aegean sea pure and blue!" class="w-full bg-white border border-sky-300 rounded-xl px-3 py-2 text-xs text-slate-800 outline-none focus:border-sky-600">
+                            <label class="block text-xs font-bold text-slate-700 mb-1">以學術英文撰寫一句你的生態警語或政策宣示 (Academic Statement)：</label>
+                            <input id="userReflection" type="text" placeholder="e.g. True ecological balance demands systemic industrial accountability, not merely consumer sacrifices." class="w-full bg-white border border-sky-300 rounded-xl px-3 py-2 text-xs text-slate-800 outline-none focus:border-sky-600">
                         </div>
 
                         <button onclick="verifyIsland4()" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black py-2.5 rounded-xl transition cursor-pointer shadow">
-                            簽署誓約並完成本島挑戰 ✍️
+                            簽署學術政策宣言並生成奧林帕斯評鑑證書 ✍️
                         </button>
                     </div>
                 `
@@ -988,7 +1032,17 @@
         };
 
         let currentActiveIsland = null;
-        const targetWords = ["The harmful chemicals", "make", "a fish", "terribly sick"];
+        
+        // Advanced Sentence Bank for Island 3
+        const targetWords = [
+            "The large amount of discarded plastic waste",
+            "has made",
+            "the world's oceans",
+            "one of the biggest environmental disasters",
+            "of our age"
+        ];
+        const distractorWords = ["have made", "making", "are becoming"];
+        let allIsland3Cards = [...targetWords, ...distractorWords].sort(() => 0.5 - Math.random());
         let userSelectedWords = [];
 
         // Dual-frame animation switcher for all Miffy chibi stickers
@@ -1015,11 +1069,11 @@
                 origin: { y: 0.3 }
             });
             const quotes = [
-                "「同學們加油！愛琴海的湛藍需要我們一起守護！🌊」",
-                "「不要偷用 AI 喔，老師出的題目都在課本裡！翻開 p.114 看看～📖」",
-                "「這題文法 S+make+O+OC 是大考必考，大家認真拼好詞卡！✍️」",
-                "「用實體紙卡舉牌答題超好玩，大家都跟上了嗎？🎉」",
-                "「破完全部四座島，明芬老師親自頒發奧林帕斯金獎證書！🏆」"
+                "「學測等級的推論題需要耐心讀出字裡行間（Read between the lines）的意涵！加油！」",
+                "「認真看課本第 130 頁圖表，70.9% 的纖維與下水道排放有著關鍵因果關係喔！🌊」",
+                "「受詞補語 S + make/find/leave + O + OC 是高中英文的大考常勝軍，一定要搞懂！✍️」",
+                "「真正的環境問題不是怪罪個人，而是思考製造商與法制該如何改革！💡」",
+                "「完成這四座深度島嶼，你就是真正的愛琴海環境守護學者！🏆」"
             ];
             const q = quotes[Math.floor(Math.random() * quotes.length)];
             const bubble = document.getElementById('teacherSpeechBubble');
@@ -1028,10 +1082,6 @@
                 bubble.classList.add('ring-2', 'ring-amber-400');
                 setTimeout(() => bubble.classList.remove('ring-2', 'ring-amber-400'), 1500);
             }
-        }
-
-        function triggerAiTrap() {
-            document.getElementById('aiTrapModal').showModal();
         }
 
         function openIsland(islandKey) {
@@ -1078,19 +1128,21 @@
 
         function updateOverallProgress() {
             let count = Object.values(player.unlocked).filter(Boolean).length;
-            document.getElementById('readCount').textContent = `${count} / 4 座衛城已光復`;
+            document.getElementById('readCount').textContent = `${count} / 4 座衛城已攻克`;
             document.getElementById('progressFill').style.width = `${(count / 4) * 100}%`;
         }
 
         function verifyIsland1() {
-            const val = document.getElementById('quest1Input').value.trim();
+            const q1 = document.querySelector('input[name="inferQ1"]:checked');
+            const q2 = document.querySelector('input[name="inferQ2"]:checked');
             const err = document.getElementById('quest1Err');
-            if (val === '400') {
+
+            if (q1 && q1.value === 'B' && q2 && q2.value === 'C') {
                 err.classList.add('hidden');
                 player.unlocked[1] = true;
                 document.getElementById('check-1').textContent = "✓";
                 document.getElementById('check-1').className = "text-sky-600 text-sm font-bold";
-                document.getElementById('badge-1').textContent = "已光復";
+                document.getElementById('badge-1').textContent = "已攻克";
                 document.getElementById('badge-1').className = "absolute -top-2 -right-2 bg-sky-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full";
                 updateOverallProgress();
                 confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
@@ -1100,14 +1152,17 @@
             }
         }
 
-        function verifyIsland2(isCorrect) {
+        function verifyIsland2() {
+            const q1 = document.querySelector('input[name="creteQ1"]:checked');
+            const q2 = document.querySelector('input[name="creteQ2"]:checked');
             const err = document.getElementById('quest2Err');
-            if (isCorrect) {
+
+            if (q1 && q1.value === 'B' && q2 && q2.value === 'B') {
                 err.classList.add('hidden');
                 player.unlocked[2] = true;
                 document.getElementById('check-2').textContent = "✓";
                 document.getElementById('check-2').className = "text-sky-600 text-sm font-bold";
-                document.getElementById('badge-2').textContent = "已光復";
+                document.getElementById('badge-2').textContent = "已攻克";
                 document.getElementById('badge-2').className = "absolute -top-2 -right-2 bg-sky-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full";
                 updateOverallProgress();
                 confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
@@ -1131,21 +1186,21 @@
             bank.innerHTML = '';
 
             if (userSelectedWords.length === 0) {
-                slot.innerHTML = '<span class="text-slate-400 text-xs italic">點擊下方詞卡依序放入此處...</span>';
+                slot.innerHTML = '<span class="text-slate-400 text-xs italic">點擊下方詞塊依序放入此處...</span>';
             } else {
                 userSelectedWords.forEach((w, idx) => {
                     const span = document.createElement('span');
-                    span.className = 'bg-sky-600 text-white text-xs font-black px-2.5 py-1 rounded-lg cursor-pointer flex items-center gap-1 shadow-xs';
+                    span.className = 'bg-sky-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg cursor-pointer flex items-center gap-1.5 shadow-xs';
                     span.innerHTML = `${w} <i class="fa-solid fa-xmark text-[9px]"></i>`;
                     span.onclick = () => { userSelectedWords.splice(idx, 1); renderCards(); };
                     slot.appendChild(span);
                 });
             }
 
-            const unselected = targetWords.filter(w => !userSelectedWords.includes(w));
+            const unselected = allIsland3Cards.filter(w => !userSelectedWords.includes(w));
             unselected.forEach(w => {
                 const btn = document.createElement('button');
-                btn.className = 'bg-white hover:bg-sky-50 text-sky-900 border border-sky-300 font-bold text-xs px-3 py-1.5 rounded-lg shadow-2xs transition cursor-pointer';
+                btn.className = 'bg-white hover:bg-sky-50 text-sky-950 border-2 border-sky-200 font-bold text-xs px-3 py-1.5 rounded-lg shadow-2xs transition cursor-pointer';
                 btn.textContent = w;
                 btn.onclick = () => { userSelectedWords.push(w); renderCards(); };
                 bank.appendChild(btn);
@@ -1167,7 +1222,7 @@
                 player.unlocked[3] = true;
                 document.getElementById('check-3').textContent = "✓";
                 document.getElementById('check-3').className = "text-sky-600 text-sm font-bold";
-                document.getElementById('badge-3').textContent = "已光復";
+                document.getElementById('badge-3').textContent = "已攻克";
                 document.getElementById('badge-3').className = "absolute -top-2 -right-2 bg-sky-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full";
                 updateOverallProgress();
                 confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
@@ -1191,7 +1246,7 @@
             player.unlocked[4] = true;
             document.getElementById('check-4').textContent = "✓";
             document.getElementById('check-4').className = "text-sky-600 text-sm font-bold";
-            document.getElementById('badge-4').textContent = "已光復";
+            document.getElementById('badge-4').textContent = "已攻克";
             document.getElementById('badge-4').className = "absolute -top-2 -right-2 bg-sky-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full";
             updateOverallProgress();
 
@@ -1202,7 +1257,7 @@
         function openCertificate() {
             const cert = document.getElementById('certDialog');
             document.getElementById('certName').textContent = player.name;
-            document.getElementById('certPledge').innerHTML = `🌱 誓約行動：${player.pledge}<br><i class="text-sky-700 mt-1 block">"${player.reflection}"</i>`;
+            document.getElementById('certPledge').textContent = `"${player.reflection}" (${player.pledge})`;
             cert.showModal();
             confetti({ particleCount: 100, spread: 80, origin: { y: 0.5 } });
         }
