@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌊 海洋救援行動：塑膠的真實代價 | The Real 'Price' of Plastic</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Confetti JS for Celebration -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ocean: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            600: '#0284c7',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .stage-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .drag-item {
+            cursor: grab;
+            user-select: none;
+        }
+        .drag-item:active {
+            cursor: grabbing;
+        }
+        .drop-zone {
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .drop-zone.drag-over {
+            background-color: #e0f2fe !important;
+            border-color: #0284c7 !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-amber-400 selection:text-slate-900">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-ocean-950/90 backdrop-blur border-b border-ocean-800 sticky top-0 z-50 px-4 py-3">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl animate-bounce">🐢</span>
+                <div>
+                    <h1 class="text-base md:text-lg font-black tracking-tight text-white flex items-center gap-2">
+                        <span>The Real 'Price' of Plastic</span>
+                        <span class="bg-amber-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">闖關模式</span>
+                    </h1>
+                    <p class="text-[11px] text-ocean-100 font-bold">高中英文 Unit 6 ✕ 雙語跨域自主探究</p>
+                </div>
+            </div>
+            <!-- Progress Counter -->
+            <div class="flex items-center gap-2 text-xs font-black bg-ocean-900/80 px-3 py-1.5 rounded-full border border-ocean-700">
+                <span id="progressText" class="text-amber-400">關卡 1 / 4</span>
+                <div class="w-16 bg-ocean-950 h-2 rounded-full overflow-hidden border border-ocean-800">
+                    <div id="progressBar" class="bg-amber-400 h-full w-1/4 transition-all duration-300"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Game Container -->
+    <main class="flex-1 max-w-3xl w-full mx-auto p-4 md:p-6 flex flex-col justify-center">
+
+        <!-- Welcome Stage (Intro) -->
+        <section id="stage-welcome" class="stage-card bg-slate-800/95 border-2 border-ocean-600 rounded-3xl p-6 md:p-8 shadow-2xl text-center">
+            <div class="w-20 h-20 bg-ocean-900/80 rounded-full border-4 border-amber-400 flex items-center justify-center text-4xl mx-auto mb-4 shadow-lg">
+                🌊
+            </div>
+            <span class="inline-block bg-ocean-700/60 text-ocean-200 text-xs font-black px-3 py-1 rounded-full border border-ocean-500 mb-2">
+                MISSION BRIEFING 任務簡報
+            </span>
+            <h2 class="text-2xl md:text-3xl font-black text-white mb-3">
+                拯救「塑膠濃湯」中的海洋生命！
+            </h2>
+            <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-6 font-medium max-w-xl mx-auto">
+                生物學家指出，全球每年有 80% 的海洋垃圾是塑膠，海洋已經變成可怕的 <b class="text-amber-400 font-bold">"plastic soup"</b>。
+                現在海龜、小魚與信天翁正在面臨危機！請運用課文中所學的英文線索，化身海洋調查員，逐一解開 4 大關卡！
+            </p>
+
+            <div class="bg-ocean-950/60 rounded-2xl p-4 border border-ocean-800 mb-6 text-left max-w-md mx-auto space-y-2">
+                <div class="flex items-center gap-2 text-xs text-amber-300 font-bold">
+                    <i class="fa-solid fa-shield-halved"></i> <span>本系統啟動「防 AI 直抄機制」：</span>
+                </div>
+                <ul class="text-xs text-slate-300 space-y-1 pl-5 list-disc font-medium">
+                    <li>依據課本圖表與特定段落數值解碼</li>
+                    <li>互動動詞拖曳與句子重組操作</li>
+                    <li>完成後獲頒由林明芬老師認證之專屬通關證書！</li>
+                </ul>
+            </div>
+
+            <div class="max-w-xs mx-auto mb-6">
+                <label class="block text-xs font-bold text-slate-400 mb-1 text-left" for="playerInput">請輸入冒險者英文名字 (用於證書)：</label>
+                <input id="playerInput" type="text" placeholder="e.g. Miffy Lin" class="w-full bg-slate-900 border-2 border-ocean-700 rounded-xl px-4 py-2.5 text-white font-bold placeholder-slate-500 focus:outline-none focus:border-amber-400 transition text-center">
+            </div>
+
+            <button onclick="startQuest()" class="w-full max-w-xs bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black py-3 rounded-2xl shadow-lg shadow-amber-500/20 transition transform hover:scale-105 active:scale-95 text-base cursor-pointer">
+                🚀 啟動海洋調查任務
+            </button>
+        </section>
+
+        <!-- Stage 1: Reading Numerical Decryption (防AI: 課本特定數據密碼) -->
+        <section id="stage-1" class="stage-card hidden bg-slate-800/95 border-2 border-ocean-600 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-700">
+                <span class="bg-ocean-700 text-ocean-100 text-xs font-black px-2.5 py-1 rounded-md">
+                    STAGE 1｜課本密碼解密
+                </span>
+                <span class="text-xs text-slate-400 font-bold"><i class="fa-solid fa-book-open"></i> 鎖定課文第 114 頁 第 1、2 段</span>
+            </div>
+
+            <h3 class="text-xl md:text-2xl font-black text-white mb-2 flex items-center gap-2">
+                <span>🔐 解開「陸地塑膠流入量」三位數密碼</span>
+            </h3>
+            <p class="text-sm text-slate-300 mb-4 leading-relaxed font-medium">
+                AI 搜尋引擎無法讀取你的實體紙本！請翻開課本第 114 頁第 1 段，找出下列兩個關鍵數字，相乘計算後解鎖密碼：
+            </p>
+
+            <div class="bg-ocean-950/70 p-4 rounded-2xl border border-ocean-800 space-y-3 mb-6">
+                <div class="text-xs md:text-sm text-slate-200">
+                    <span class="text-amber-400 font-black">線索 A (第 1 段)：</span>
+                    美國人每週丟棄的寶特瓶首尾相連，長度足以繞行地球（Circle the earth）<b>幾次</b>？
+                </div>
+                <div class="text-xs md:text-sm text-slate-200">
+                    <span class="text-amber-400 font-black">線索 B (第 4 段)：</span>
+                    根據 UN（聯合國）統計，海洋垃圾中有百分之<b>多少 (%)</b> 是塑膠製品？
+                </div>
+                <div class="p-2.5 bg-amber-500/10 border border-amber-500/30 rounded-xl text-xs text-amber-200 font-bold">
+                    💡 <b>通關密碼公式</b>：線索 B (百分比數字) × 線索 A (次數) = <b>三位數密碼</b> (Passcode)
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
+                <input id="stage1Input" type="number" placeholder="輸入 3 位數解鎖密碼" class="bg-slate-900 border-2 border-ocean-700 rounded-xl px-4 py-2.5 text-white font-mono text-center text-lg font-bold w-48 focus:outline-none focus:border-amber-400">
+                <button onclick="checkStage1()" class="bg-ocean-600 hover:bg-ocean-500 text-white font-black px-6 py-2.5 rounded-xl shadow transition transform hover:scale-105 active:scale-95 cursor-pointer">
+                    解鎖關卡 🔓
+                </button>
+            </div>
+            <p id="stage1Error" class="text-rose-400 text-xs font-bold text-center hidden">
+                ❌ 密碼錯誤！提示：線索 B 是 80，線索 A 是 5，相乘是多少呢？
+            </p>
+        </section>
+
+        <!-- Stage 2: Infographic Fish Dissection (防AI: 課本圖表互動解謎) -->
+        <section id="stage-2" class="stage-card hidden bg-slate-800/95 border-2 border-ocean-600 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-700">
+                <span class="bg-emerald-700 text-emerald-100 text-xs font-black px-2.5 py-1 rounded-md">
+                    STAGE 2｜圖表解讀 × 海洋生物解剖
+                </span>
+                <span class="text-xs text-slate-400 font-bold"><i class="fa-solid fa-chart-pie"></i> 鎖定課本第 130 頁 Infographics</span>
+            </div>
+
+            <h3 class="text-xl md:text-2xl font-black text-white mb-2">
+                🐟 誰是魚腹中最大的微塑膠凶手？
+            </h3>
+            <p class="text-sm text-slate-300 mb-4 font-medium">
+                請觀察課本第 130 頁這條被微塑膠（Microplastics）填滿的魚肚剖面圖，回答下列偵探問題：
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <!-- Visual Card simulating the fish infographic -->
+                <div class="bg-ocean-950 p-4 rounded-2xl border border-ocean-800 flex flex-col items-center justify-center text-center">
+                    <div class="text-5xl mb-2">🐟</div>
+                    <span class="text-xs font-black text-slate-400">課本 130 頁微塑膠比例圖</span>
+                    <div class="w-full mt-3 space-y-1 text-[11px] font-mono">
+                        <div class="flex justify-between bg-slate-800 px-2 py-0.5 rounded text-rose-300 font-bold">
+                            <span>1.6%</span> <span>Beads & Pellets</span>
+                        </div>
+                        <div class="flex justify-between bg-slate-800 px-2 py-0.5 rounded text-amber-300 font-bold">
+                            <span>3.3%</span> <span>Bags & Wrappers</span>
+                        </div>
+                        <div class="flex justify-between bg-slate-800 px-2 py-0.5 rounded text-yellow-300 font-bold">
+                            <span>7.6%</span> <span>Foams</span>
+                        </div>
+                        <div class="flex justify-between bg-slate-800 px-2 py-0.5 rounded text-blue-300 font-bold">
+                            <span>16.7%</span> <span>Bottles & Containers</span>
+                        </div>
+                        <div class="flex justify-between bg-ocean-800 px-2 py-0.5 rounded text-emerald-300 font-black border border-emerald-500">
+                            <span>70.9%</span> <span>Fibers & Lines (衣物洗滌纖維)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col justify-center space-y-3 text-xs md:text-sm">
+                    <div class="font-bold text-slate-200">
+                        依據課文第 115 頁第 3 段，這高達 <b>70.9%</b> 的 Fibers & Lines 是如何進入下水道並流入大海的？
+                    </div>
+                    <div class="space-y-2">
+                        <button onclick="chooseStage2(false)" class="w-full text-left p-2.5 rounded-xl border border-slate-700 bg-slate-900/60 hover:bg-slate-700 transition font-medium text-slate-300 text-xs">
+                            A. 工廠直接將大量廢棄漁網丟進海裡。
+                        </button>
+                        <button onclick="chooseStage2(true)" class="w-full text-left p-2.5 rounded-xl border border-ocean-600 bg-ocean-950/80 hover:bg-ocean-900 transition font-bold text-ocean-100 text-xs">
+                            B. 人們洗衣服時，衣服裡的塑膠微纖維（Plastic fibers）隨廢水沖入排水溝（drains）。
+                        </button>
+                        <button onclick="chooseStage2(false)" class="w-full text-left p-2.5 rounded-xl border border-slate-700 bg-slate-900/60 hover:bg-slate-700 transition font-medium text-slate-300 text-xs">
+                            C. 塑膠牙膏磨砂顆粒經由雨水從山頂沖下來。
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <p id="stage2Error" class="text-rose-400 text-xs font-bold text-center hidden">
+                ❌ 再讀一次第 115 頁第 3 段：Clothes also contain microplastics in the shape of plastic fibers...
+            </p>
+        </section>
+
+        <!-- Stage 3: Sentence Structure Drag & Drop (防AI: 句型結構拖曳) -->
+        <section id="stage-3" class="stage-card hidden bg-slate-800/95 border-2 border-ocean-600 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-700">
+                <span class="bg-purple-700 text-purple-100 text-xs font-black px-2.5 py-1 rounded-md">
+                    STAGE 3｜句型實戰：使役與受詞補語
+                </span>
+                <span class="text-xs text-slate-400 font-bold"><i class="fa-solid fa-puzzle-piece"></i> 課本 128 頁 S + make/find + O + OC</span>
+            </div>
+
+            <h3 class="text-xl md:text-2xl font-black text-white mb-2">
+                🧩 拼裝受詞補語（Object Complement）
+            </h3>
+            <p class="text-sm text-slate-300 mb-4 font-medium">
+                課本第 128 頁重點文法：<b>S + make + O + OC (adj. / N)</b>。請將下方打散的單字卡，依序拖曳（或依序點擊）進卡槽，重組出課本核心金句：
+            </p>
+
+            <div class="bg-ocean-950 p-4 rounded-2xl border border-ocean-800 mb-6">
+                <p class="text-xs font-bold text-amber-300 mb-2">🎯 任務目標：組合出「微塑膠中的有害化學物質讓魚病得很嚴重」</p>
+                <div class="text-xs text-slate-400 font-mono mb-3">句型結構：The harmful chemicals [make] [a fish] [terribly sick].</div>
+
+                <!-- Drop Target Slot Area -->
+                <div id="dropSlots" class="min-h-[50px] bg-slate-900/90 border-2 border-dashed border-ocean-600 rounded-xl p-2 flex flex-wrap items-center gap-2">
+                    <span id="slotPlaceholder" class="text-slate-500 text-xs font-bold italic p-1">點擊下方詞卡依序放入此處...</span>
+                </div>
+            </div>
+
+            <!-- Draggable / Clickable Word Cards -->
+            <div class="mb-4">
+                <span class="text-xs text-slate-400 font-bold block mb-2">點擊詞卡進行重組（點擊上方已放入的詞卡可撤回）：</span>
+                <div id="wordCardsBank" class="flex flex-wrap gap-2">
+                    <!-- Cards will be populated by JS -->
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center pt-2">
+                <button onclick="resetStage3()" class="text-slate-400 hover:text-white text-xs font-bold underline cursor-pointer">
+                    重置卡片
+                </button>
+                <button onclick="checkStage3()" class="bg-purple-600 hover:bg-purple-500 text-white font-black px-6 py-2.5 rounded-xl shadow transition transform hover:scale-105 active:scale-95 cursor-pointer">
+                    驗證句型結構 🚀
+                </button>
+            </div>
+            <p id="stage3Error" class="text-rose-400 text-xs font-bold text-center mt-3 hidden">
+                ❌ 順序不正確！提示結構：make (動詞) ➔ a fish (受詞) ➔ terribly sick (受詞補語形容詞)
+            </p>
+        </section>
+
+        <!-- Stage 4: Critical Thinking & Personal Pledge (防AI: 個性化反思) -->
+        <section id="stage-4" class="stage-card hidden bg-slate-800/95 border-2 border-ocean-600 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-700">
+                <span class="bg-rose-700 text-rose-100 text-xs font-black px-2.5 py-1 rounded-md">
+                    STAGE 4｜決策行動：減塑承諾
+                </span>
+                <span class="text-xs text-slate-400 font-bold"><i class="fa-solid fa-earth-americas"></i> 課本 116 頁 Solutions & Think Critically</span>
+            </div>
+
+            <h3 class="text-xl md:text-2xl font-black text-white mb-2">
+                🌱 你的減塑承諾：拯救地球行動
+            </h3>
+            <p class="text-sm text-slate-300 mb-4 font-medium">
+                課本第 116 頁說：<i>"Each of us has the power to change the world."</i> 請選擇並寫下一件你今天願意開始做的減塑小行動（將自動印在你的通關證書上）：
+            </p>
+
+            <div class="space-y-3 mb-6">
+                <label class="block text-xs font-bold text-slate-300">選擇一項你在校園或生活中的減塑承諾：</label>
+                <div class="space-y-2">
+                    <label class="flex items-center gap-3 p-3 bg-ocean-950/80 rounded-xl border border-ocean-800 hover:border-amber-400 cursor-pointer transition">
+                        <input type="radio" name="pledgeOption" value="Bring my own reusable water container to school every day." checked class="text-amber-500 focus:ring-0">
+                        <span class="text-xs text-slate-200 font-medium">💧 <b>Stop bottled water</b>: 每天自備環保水壺，不買瓶裝水。</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 bg-ocean-950/80 rounded-xl border border-ocean-800 hover:border-amber-400 cursor-pointer transition">
+                        <input type="radio" name="pledgeOption" value="Refuse single-use plastic bags and always bring a reusable bag." class="text-amber-500 focus:ring-0">
+                        <span class="text-xs text-slate-200 font-medium">🛍️ <b>Reuse shopping bags</b>: 外出購物隨身帶購物袋，堅拒塑膠袋。</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-3 bg-ocean-950/80 rounded-xl border border-ocean-800 hover:border-amber-400 cursor-pointer transition">
+                        <input type="radio" name="pledgeOption" value="Check labels to avoid using products containing microplastics." class="text-amber-500 focus:ring-0">
+                        <span class="text-xs text-slate-200 font-medium">🧴 <b>Say NO to microplastics</b>: 購買洗面乳時檢視成分，拒絕含柔珠產品。</span>
+                    </label>
+                </div>
+
+                <div class="pt-2">
+                    <label class="block text-xs font-bold text-slate-300 mb-1" for="customThought">用一句英文寫下你想對受苦海龜或海洋說的話 (English Reflection)：</label>
+                    <input id="customThought" type="text" placeholder="e.g. Dear Sea Turtle, we promise to stop making the ocean a plastic soup!" class="w-full bg-slate-900 border-2 border-ocean-700 rounded-xl px-4 py-2 text-white font-medium text-xs focus:outline-none focus:border-amber-400">
+                </div>
+            </div>
+
+            <button onclick="completeQuest()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-black py-3 rounded-2xl shadow-lg shadow-emerald-500/20 transition transform hover:scale-105 active:scale-95 text-base cursor-pointer">
+                🏆 領取海洋冒險家通關證書！
+            </button>
+        </section>
+
+        <!-- Final Certificate Stage (通關證書) -->
+        <section id="stage-cert" class="stage-card hidden bg-slate-800/95 border-2 border-amber-400 rounded-3xl p-6 md:p-8 shadow-2xl text-center">
+            <div class="mb-4">
+                <span class="text-4xl">🎉</span>
+                <h3 class="text-2xl md:text-3xl font-black text-amber-400 mt-2">恭喜通關！海洋守護者！</h3>
+                <p class="text-xs text-slate-300 font-bold">你已成功擊破所有難題，證實具備高階閱讀思辨力！</p>
+            </div>
+
+            <!-- Certificate Visual Box (Can be screenshotted/printed) -->
+            <div id="certificateCard" class="bg-gradient-to-b from-ocean-50 to-amber-50 text-slate-900 p-6 md:p-8 rounded-2xl border-4 border-amber-400 shadow-xl max-w-lg mx-auto text-center relative overflow-hidden my-4">
+                <div class="absolute top-2 right-2 opacity-10 text-8xl pointer-events-none">🐢</div>
+                <div class="text-[11px] font-black uppercase tracking-widest text-ocean-800 border-b-2 border-ocean-200 pb-2 mb-4">
+                    Certificate of Achievement 雙語跨域自主探究認證
+                </div>
+                <h4 class="text-2xl md:text-3xl font-black text-ocean-950 font-serif mb-1">
+                    OCEAN GUARDIAN AWARD
+                </h4>
+                <p class="text-xs text-slate-600 font-bold mb-4">Unit 6: The Real 'Price' of Plastic</p>
+                
+                <p class="text-sm text-slate-700 font-medium">特此頒發給海洋冒險家：</p>
+                <div id="certPlayerName" class="text-2xl font-black text-amber-700 my-1 font-serif underline decoration-amber-400 decoration-2">
+                    Adventurer
+                </div>
+
+                <div class="bg-white/90 p-3 rounded-xl border border-ocean-200 my-4 text-left text-xs text-slate-700 space-y-1">
+                    <p><b>🌱 減塑實踐承諾</b>：<span id="certPledgeText" class="text-ocean-700 font-bold"></span></p>
+                    <p><b>💬 海洋深情反思</b>：<i id="certThoughtText" class="text-slate-600"></i></p>
+                </div>
+
+                <div class="flex items-center justify-between pt-3 border-t border-ocean-200 text-xs">
+                    <div class="text-left">
+                        <span class="block text-[10px] text-slate-500">認證指導老師</span>
+                        <span class="font-black text-ocean-900">Miffy Lin 林明芬老師</span>
+                    </div>
+                    <div class="w-12 h-12 rounded-full border-2 border-rose-500 flex items-center justify-center text-rose-600 font-black text-[10px] transform -rotate-12 bg-rose-50 shadow-xs">
+                        PASSED<br>認證通過
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
+                <button onclick="window.print()" class="bg-ocean-600 hover:bg-ocean-500 text-white font-black px-5 py-2.5 rounded-xl shadow transition text-xs flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-print"></i> 列印 / 另存 PDF 證書
+                </button>
+                <button onclick="location.reload()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-black px-5 py-2.5 rounded-xl shadow transition text-xs flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-rotate-right"></i> 重新闖關
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-ocean-950 border-t border-ocean-900 py-3 text-center text-xs text-slate-500">
+        高中英文 Unit 6 ✕ 雙語跨域闖關系統 · Designed with ❤️ for Teacher Miffy's Classes
+    </footer>
+
+    <!-- Game Logic Script -->
+    <script>
+        let playerName = "Adventurer";
+
+        function updateProgress(step, total) {
+            document.getElementById('progressText').textContent = `關卡 ${step} / ${total}`;
+            document.getElementById('progressBar').style.width = `${(step / total) * 100}%`;
+        }
+
+        function showStage(stageId) {
+            const stages = ['stage-welcome', 'stage-1', 'stage-2', 'stage-3', 'stage-4', 'stage-cert'];
+            stages.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.add('hidden');
+            });
+            const target = document.getElementById(stageId);
+            if (target) target.classList.remove('hidden');
+        }
+
+        function startQuest() {
+            const nameInput = document.getElementById('playerInput').value.trim();
+            if (nameInput) playerName = nameInput;
+            showStage('stage-1');
+            updateProgress(1, 4);
+        }
+
+        // Stage 1 Check: 80% * 5 times = 400
+        function checkStage1() {
+            const val = document.getElementById('stage1Input').value.trim();
+            const err = document.getElementById('stage1Error');
+            if (val === '400') {
+                err.classList.add('hidden');
+                confetti({ particleCount: 50, spread: 60, origin: { y: 0.7 } });
+                showStage('stage-2');
+                updateProgress(2, 4);
+            } else {
+                err.classList.remove('hidden');
+            }
+        }
+
+        // Stage 2 Check: B is correct
+        function chooseStage2(isCorrect) {
+            const err = document.getElementById('stage2Error');
+            if (isCorrect) {
+                err.classList.add('hidden');
+                confetti({ particleCount: 50, spread: 60, origin: { y: 0.7 } });
+                initStage3();
+                showStage('stage-3');
+                updateProgress(3, 4);
+            } else {
+                err.classList.remove('hidden');
+            }
+        }
+
+        // Stage 3: Sentence Drag/Click
+        const targetWords = ["The harmful chemicals", "make", "a fish", "terribly sick"];
+        let currentWordsInSlot = [];
+
+        function initStage3() {
+            currentWordsInSlot = [];
+            renderStage3();
+        }
+
+        function renderStage3() {
+            const slot = document.getElementById('dropSlots');
+            const bank = document.getElementById('wordCardsBank');
+            slot.innerHTML = '';
+            bank.innerHTML = '';
+
+            if (currentWordsInSlot.length === 0) {
+                slot.innerHTML = '<span class="text-slate-500 text-xs font-bold italic p-1">點擊下方詞卡依序放入此處...</span>';
+            } else {
+                currentWordsInSlot.forEach((w, idx) => {
+                    const chip = document.createElement('span');
+                    chip.className = 'bg-amber-400 text-slate-950 font-black text-xs px-3 py-1.5 rounded-lg shadow-sm cursor-pointer hover:bg-amber-300 transition flex items-center gap-1.5';
+                    chip.innerHTML = `${w} <i class="fa-solid fa-xmark text-[10px]"></i>`;
+                    chip.onclick = () => removeWordFromSlot(idx);
+                    slot.appendChild(chip);
+                });
+            }
+
+            // Available words
+            const available = targetWords.filter(w => !currentWordsInSlot.includes(w));
+            available.forEach(w => {
+                const btn = document.createElement('button');
+                btn.className = 'bg-slate-700 hover:bg-ocean-600 text-white font-bold text-xs px-3 py-1.5 rounded-lg border border-slate-600 transition shadow-sm cursor-pointer';
+                btn.textContent = w;
+                btn.onclick = () => addWordToSlot(w);
+                bank.appendChild(btn);
+            });
+        }
+
+        function addWordToSlot(w) {
+            currentWordsInSlot.push(w);
+            renderStage3();
+        }
+
+        function removeWordFromSlot(idx) {
+            currentWordsInSlot.splice(idx, 1);
+            renderStage3();
+        }
+
+        function resetStage3() {
+            currentWordsInSlot = [];
+            renderStage3();
+            document.getElementById('stage3Error').classList.add('hidden');
+        }
+
+        function checkStage3() {
+            const err = document.getElementById('stage3Error');
+            const userStr = currentWordsInSlot.join(' ');
+            const targetStr = targetWords.join(' ');
+
+            if (userStr === targetStr) {
+                err.classList.add('hidden');
+                confetti({ particleCount: 60, spread: 70, origin: { y: 0.6 } });
+                showStage('stage-4');
+                updateProgress(4, 4);
+            } else {
+                err.classList.remove('hidden');
+            }
+        }
+
+        // Stage 4 & Completion
+        function completeQuest() {
+            const selectedPledge = document.querySelector('input[name="pledgeOption"]:checked').value;
+            const thought = document.getElementById('customThought').value.trim() || "Let's save the ocean together!";
+
+            document.getElementById('certPlayerName').textContent = playerName;
+            document.getElementById('certPledgeText').textContent = selectedPledge;
+            document.getElementById('certThoughtText').textContent = `"${thought}"`;
+
+            showStage('stage-cert');
+            confetti({ particleCount: 120, spread: 100, origin: { y: 0.5 } });
+        }
+    </script>
+</body>
+</html>
