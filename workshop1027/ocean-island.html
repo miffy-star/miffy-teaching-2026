@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="zh-Hant" data-theme="ocean">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>🌊 海洋救援夢幻島 · The Real 'Price' of Plastic</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --bg: #071927;
+            --surface: #0f2b3e;
+            --surface-card: #153850;
+            --line: #1e4d6d;
+            --text-main: #f0f9ff;
+            --text-muted: #8ec5e6;
+            --accent: #f59e0b;
+            --ocean-blue: #0284c7;
+        }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, sans-serif;
+            overflow-x: hidden;
+        }
+        /* Layout Grid like HongYan's Island */
+        .island-workspace {
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            min-height: calc(100vh - 70px);
+        }
+        @media (max-width: 900px) {
+            .island-workspace {
+                grid-template-columns: 1fr;
+            }
+            .rail-sidebar {
+                border-right: 0 !important;
+                border-bottom: 2px solid var(--line);
+            }
+        }
+        .island-map-stage {
+            background: radial-gradient(circle at 50% 40%, #0e3753 0%, #082132 50%, #04121d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        /* Floating animations for islands */
+        @keyframes float-island {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(0.5deg); }
+        }
+        .island-node {
+            animation: float-island 5s ease-in-out infinite;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .island-node:hover {
+            transform: translateY(-12px) scale(1.05) !important;
+            filter: drop-shadow(0 15px 25px rgba(2, 132, 199, 0.4));
+        }
+        /* Ocean Ripples in background */
+        .ripple {
+            position: absolute;
+            border: 1px dashed rgba(142, 197, 230, 0.15);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--line);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Top Navigation Header (HongYan Style) -->
+    <header class="h-[70px] px-6 bg-[#061521] border-b border-[#163850] flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-cyan-600 to-amber-400 flex items-center justify-center text-xl shadow-md shadow-cyan-500/20">
+                🐢
+            </div>
+            <div>
+                <div class="font-black text-base md:text-lg tracking-wide text-white flex items-center gap-2">
+                    <span>海洋救援夢幻島</span>
+                    <span class="text-[10px] bg-amber-500 text-slate-950 font-black px-2 py-0.5 rounded-full uppercase">UNIT 6</span>
+                </div>
+                <div class="text-[10px] text-sky-400 font-bold tracking-widest uppercase">
+                    The Real 'Price' of Plastic · 雙語跨域自主闖關
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <!-- Student Profile Badge -->
+            <div class="bg-[#0f2b3e] border border-[#1e4d6d] px-3 py-1.5 rounded-full flex items-center gap-2">
+                <span class="text-xs text-slate-400">冒險者：</span>
+                <span id="headerPlayerName" class="text-xs font-black text-amber-400">探險家</span>
+                <button onclick="renamePlayer()" class="text-slate-400 hover:text-white text-[11px]"><i class="fa-solid fa-pen"></i></button>
+            </div>
+            <button onclick="openHelpModal()" class="w-9 h-9 rounded-full bg-[#153850] border border-[#22577a] hover:bg-sky-600 text-white flex items-center justify-center text-sm shadow transition">
+                <i class="fa-solid fa-question"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Workspace Grid Layout: Left Rail + Right Interactive Archipelago -->
+    <div class="island-workspace flex-1">
+
+        <!-- Left Sidebar: Progress Rail & Mission List -->
+        <aside class="rail-sidebar bg-[#091f30] border-r border-[#163850] p-6 flex flex-col justify-between overflow-y-auto">
+            <div>
+                <div class="text-[11px] font-black tracking-widest uppercase text-sky-400 mb-1 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                    <span>ARCHIPELAGO LOG 探索日誌</span>
+                </div>
+                <h1 class="text-2xl font-black text-white leading-tight mb-2">
+                    航向你的<br><span class="text-amber-400">海洋救援群島</span>
+                </h1>
+                <p class="text-xs text-sky-200/70 mb-5 leading-relaxed font-medium">
+                    結合高中英文課本 p.112~132。請逐一登陸 4 座特色任務島，翻開課本找線索，親自解救塑膠濃湯（Plastic Soup）中的生靈！
+                </p>
+
+                <!-- Total Progress Bar -->
+                <div class="bg-[#061521] p-3 rounded-2xl border border-[#163850] mb-5">
+                    <div class="flex justify-between items-center text-xs mb-1.5 font-bold">
+                        <span class="text-slate-300">群島探索進度</span>
+                        <span id="readCount" class="text-amber-400 font-black">0 / 4 座島嶼已解開</span>
+                    </div>
+                    <div class="h-2.5 bg-slate-800 rounded-full overflow-hidden p-0.5 border border-slate-700">
+                        <div id="progressFill" class="h-full bg-gradient-to-r from-cyan-400 to-amber-400 rounded-full w-0 transition-all duration-500"></div>
+                    </div>
+                </div>
+
+                <!-- Island Course List (Click to open mission) -->
+                <div class="space-y-2.5">
+                    <!-- Island 1 Entry -->
+                    <button onclick="openIsland('island-1')" class="w-full text-left p-3 rounded-xl bg-[#0f2b3e] hover:bg-[#153850] border border-[#1e4d6d] transition flex items-center justify-between group cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl group-hover:scale-110 transition">🏝️</span>
+                            <div>
+                                <div class="text-xs font-black text-white group-hover:text-amber-400 transition">01. 陸地密碼島</div>
+                                <div class="text-[10px] text-slate-400">課本 p.114 數值相乘解密</div>
+                            </div>
+                        </div>
+                        <span id="check-1" class="text-slate-600 text-sm font-bold">🔒</span>
+                    </button>
+
+                    <!-- Island 2 Entry -->
+                    <button onclick="openIsland('island-2')" class="w-full text-left p-3 rounded-xl bg-[#0f2b3e] hover:bg-[#153850] border border-[#1e4d6d] transition flex items-center justify-between group cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl group-hover:scale-110 transition">🐟</span>
+                            <div>
+                                <div class="text-xs font-black text-white group-hover:text-amber-400 transition">02. 魚腹解剖島</div>
+                                <div class="text-[10px] text-slate-400">課本 p.130 微塑膠比例圖表</div>
+                            </div>
+                        </div>
+                        <span id="check-2" class="text-slate-600 text-sm font-bold">🔒</span>
+                    </button>
+
+                    <!-- Island 3 Entry -->
+                    <button onclick="openIsland('island-3')" class="w-full text-left p-3 rounded-xl bg-[#0f2b3e] hover:bg-[#153850] border border-[#1e4d6d] transition flex items-center justify-between group cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl group-hover:scale-110 transition">🧩</span>
+                            <div>
+                                <div class="text-xs font-black text-white group-hover:text-amber-400 transition">03. 受詞補語法力島</div>
+                                <div class="text-[10px] text-slate-400">課本 p.128 S+make+O+OC 拼裝</div>
+                            </div>
+                        </div>
+                        <span id="check-3" class="text-slate-600 text-sm font-bold">🔒</span>
+                    </button>
+
+                    <!-- Island 4 Entry -->
+                    <button onclick="openIsland('island-4')" class="w-full text-left p-3 rounded-xl bg-[#0f2b3e] hover:bg-[#153850] border border-[#1e4d6d] transition flex items-center justify-between group cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl group-hover:scale-110 transition">🌱</span>
+                            <div>
+                                <div class="text-xs font-black text-white group-hover:text-amber-400 transition">04. 守護誓約島</div>
+                                <div class="text-[10px] text-slate-400">課本 p.116 減塑承諾與反思</div>
+                            </div>
+                        </div>
+                        <span id="check-4" class="text-slate-600 text-sm font-bold">🔒</span>
+                    </button>
+                </div>
+
+                <!-- Central Plaza Entry (Certificate) -->
+                <button onclick="openCertificate()" class="w-full mt-4 p-3.5 rounded-2xl bg-gradient-to-r from-amber-500/20 to-cyan-500/20 hover:from-amber-500/30 hover:to-cyan-500/30 border-2 border-amber-400/50 flex items-center justify-between group cursor-pointer transition">
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-2xl text-amber-400">🏛️</span>
+                        <div class="text-left">
+                            <div class="text-xs font-black text-amber-300">中央神殿：海洋守護者大廳</div>
+                            <div class="text-[10px] text-slate-400">完成四島領取認證獎章</div>
+                        </div>
+                    </div>
+                    <span class="text-amber-400 font-black text-sm">↗</span>
+                </button>
+            </div>
+
+            <!-- Footer -->
+            <div class="pt-6 border-t border-[#163850] text-[11px] text-slate-500 flex justify-between items-center">
+                <span>指導老師：林明芬老師</span>
+                <span class="text-sky-500 font-bold">Miffy's Island</span>
+            </div>
+        </aside>
+
+        <!-- Right: Interactive 2.5D Archipelago Map Stage -->
+        <main class="island-map-stage p-6 flex flex-col justify-between min-h-[550px]">
+            
+            <!-- Map Top Overlay Banner -->
+            <div class="flex flex-wrap items-center justify-between gap-3 pointer-events-none z-10">
+                <div class="bg-[#091f30]/90 backdrop-blur border border-[#163850] px-4 py-2 rounded-2xl shadow-lg">
+                    <span class="text-[10px] font-black tracking-widest uppercase text-amber-400">OCEAN ARCHIPELAGO MAP</span>
+                    <h2 class="text-lg md:text-xl font-black text-white m-0 flex items-center gap-2">
+                        <span>四座任務島嶼，一場思辨冒險</span>
+                        <span class="text-xs font-bold text-sky-400 font-sans">點擊地圖上的島嶼登陸 🚢</span>
+                    </h2>
+                </div>
+                <div class="hidden md:flex items-center gap-2 bg-[#091f30]/80 px-3 py-1.5 rounded-full border border-[#163850] text-xs font-bold text-slate-300">
+                    <i class="fa-solid fa-compass text-sky-400 animate-spin" style="animation-duration: 12s;"></i>
+                    <span>海域坐標：UNIT 6 ECOLOGY</span>
+                </div>
+            </div>
+
+            <!-- The 4 Floating Islands on the Map (Interactive Nodes) -->
+            <div class="relative w-full max-w-4xl mx-auto h-[480px] my-auto">
+                <!-- Background Ocean Water Ripples -->
+                <div class="ripple w-72 h-72 top-10 left-10"></div>
+                <div class="ripple w-96 h-96 bottom-5 right-10"></div>
+                <div class="ripple w-[420px] h-[420px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-30"></div>
+
+                <!-- Island 1: 陸地密碼島 (Top-Left) -->
+                <div onclick="openIsland('island-1')" class="island-node absolute top-4 left-6 md:left-12 cursor-pointer" style="animation-delay: 0s;">
+                    <div class="w-36 md:w-44 bg-[#0d273a]/90 backdrop-blur border-2 border-sky-400/80 rounded-3xl p-3.5 shadow-2xl text-center relative group">
+                        <div class="w-14 h-14 bg-gradient-to-br from-sky-400 to-blue-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-1.5 shadow-lg shadow-sky-500/30">
+                            🏝️
+                        </div>
+                        <span class="text-[9px] font-black bg-sky-500/20 text-sky-300 px-2 py-0.5 rounded-full uppercase border border-sky-400/30">STAGE 01</span>
+                        <h3 class="text-xs md:text-sm font-black text-white mt-1">陸地密碼島</h3>
+                        <p class="text-[10px] text-slate-300 font-medium">翻閱 p.114 算密碼</p>
+                        <div id="badge-1" class="absolute -top-2 -right-2 bg-slate-700 text-slate-300 text-[10px] font-black px-2 py-0.5 rounded-full border border-slate-500">未解開</div>
+                    </div>
+                </div>
+
+                <!-- Island 2: 魚腹解剖島 (Top-Right) -->
+                <div onclick="openIsland('island-2')" class="island-node absolute top-10 right-6 md:right-16 cursor-pointer" style="animation-delay: 1.2s;">
+                    <div class="w-36 md:w-44 bg-[#0d273a]/90 backdrop-blur border-2 border-emerald-400/80 rounded-3xl p-3.5 shadow-2xl text-center relative group">
+                        <div class="w-14 h-14 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-1.5 shadow-lg shadow-emerald-500/30">
+                            🐟
+                        </div>
+                        <span class="text-[9px] font-black bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full uppercase border border-emerald-400/30">STAGE 02</span>
+                        <h3 class="text-xs md:text-sm font-black text-white mt-1">魚腹解剖島</h3>
+                        <p class="text-[10px] text-slate-300 font-medium">p.130 微塑膠圖表</p>
+                        <div id="badge-2" class="absolute -top-2 -right-2 bg-slate-700 text-slate-300 text-[10px] font-black px-2 py-0.5 rounded-full border border-slate-500">未解開</div>
+                    </div>
+                </div>
+
+                <!-- Central Ocean Sanctuary: 海洋神殿 (Center) -->
+                <div onclick="openCertificate()" class="island-node absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20" style="animation-delay: 2.5s;">
+                    <div class="w-44 md:w-52 bg-gradient-to-b from-[#183e58]/95 to-[#0b2030]/95 backdrop-blur border-4 border-amber-400 rounded-3xl p-4 shadow-2xl text-center group ring-4 ring-amber-400/20">
+                        <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-2 shadow-lg shadow-amber-500/30">
+                            🏛️
+                        </div>
+                        <span class="text-[9px] font-black bg-amber-400 text-slate-950 px-2 py-0.5 rounded-full uppercase">CENTRAL PLAZA</span>
+                        <h3 class="text-sm md:text-base font-black text-white mt-1">海洋守護神殿</h3>
+                        <p class="text-[10px] text-amber-300 font-bold">總複習 ✕ 頒發榮譽證書</p>
+                    </div>
+                </div>
+
+                <!-- Island 3: 受詞補語法力島 (Bottom-Left) -->
+                <div onclick="openIsland('island-3')" class="island-node absolute bottom-6 left-8 md:left-20 cursor-pointer" style="animation-delay: 1.8s;">
+                    <div class="w-36 md:w-44 bg-[#0d273a]/90 backdrop-blur border-2 border-purple-400/80 rounded-3xl p-3.5 shadow-2xl text-center relative group">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-1.5 shadow-lg shadow-purple-500/30">
+                            🧩
+                        </div>
+                        <span class="text-[9px] font-black bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full uppercase border border-purple-400/30">STAGE 03</span>
+                        <h3 class="text-xs md:text-sm font-black text-white mt-1">受詞補語島</h3>
+                        <p class="text-[10px] text-slate-300 font-medium">p.128 S+make+O+OC</p>
+                        <div id="badge-3" class="absolute -top-2 -right-2 bg-slate-700 text-slate-300 text-[10px] font-black px-2 py-0.5 rounded-full border border-slate-500">未解開</div>
+                    </div>
+                </div>
+
+                <!-- Island 4: 守護誓約島 (Bottom-Right) -->
+                <div onclick="openIsland('island-4')" class="island-node absolute bottom-4 right-8 md:right-20 cursor-pointer" style="animation-delay: 3s;">
+                    <div class="w-36 md:w-44 bg-[#0d273a]/90 backdrop-blur border-2 border-rose-400/80 rounded-3xl p-3.5 shadow-2xl text-center relative group">
+                        <div class="w-14 h-14 bg-gradient-to-br from-rose-400 to-red-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-1.5 shadow-lg shadow-rose-500/30">
+                            🌱
+                        </div>
+                        <span class="text-[9px] font-black bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-full uppercase border border-rose-400/30">STAGE 04</span>
+                        <h3 class="text-xs md:text-sm font-black text-white mt-1">守護誓約島</h3>
+                        <p class="text-[10px] text-slate-300 font-medium">p.116 減塑行動誓言</p>
+                        <div id="badge-4" class="absolute -top-2 -right-2 bg-slate-700 text-slate-300 text-[10px] font-black px-2 py-0.5 rounded-full border border-slate-500">未解開</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Bottom Hint -->
+            <div class="text-center z-10">
+                <span class="inline-block bg-[#091f30]/80 border border-[#163850] text-xs font-bold text-sky-300 px-4 py-1.5 rounded-full shadow">
+                    💡 提示：點擊任一座小島，右側即刻滑出專屬「防 AI 挑戰關卡」與「教材導讀」！
+                </span>
+            </div>
+        </main>
+    </div>
+
+    <!-- Slide-in Mission Dialog Panel (HongYan's Dialog Modal) -->
+    <div id="panelScrim" onclick="closePanel()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+    <section id="missionPanel" class="fixed right-0 top-0 bottom-0 w-full max-w-xl bg-[#0b2234] border-l-2 border-[#1e4d6d] z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Panel Header -->
+        <header class="p-5 border-b border-[#163850] bg-[#071927] flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+                <span id="panelIcon" class="text-3xl">🏝️</span>
+                <div>
+                    <span id="panelKicker" class="text-[10px] font-black text-sky-400 tracking-wider uppercase">STAGE MISSION</span>
+                    <h2 id="panelTitle" class="text-lg md:text-xl font-black text-white m-0">任務島嶼標題</h2>
+                </div>
+            </div>
+            <button onclick="closePanel()" class="w-9 h-9 rounded-full bg-[#153850] hover:bg-rose-600 text-white flex items-center justify-center transition cursor-pointer">
+                ✕
+            </button>
+        </header>
+
+        <!-- Panel Tabs (Material vs Quest) -->
+        <div class="flex border-b border-[#163850] bg-[#091f30]">
+            <button id="tabBtnQuest" onclick="switchPanelTab('quest')" class="flex-1 py-3 text-xs font-black text-amber-400 border-b-2 border-amber-400 flex items-center justify-center gap-1.5 cursor-pointer">
+                <i class="fa-solid fa-gamepad"></i> 闖關挑戰 (防 AI)
+            </button>
+            <button id="tabBtnMaterial" onclick="switchPanelTab('material')" class="flex-1 py-3 text-xs font-black text-slate-400 hover:text-white flex items-center justify-center gap-1.5 cursor-pointer">
+                <i class="fa-solid fa-book-open"></i> 課本重點解析
+            </button>
+        </div>
+
+        <!-- Panel Body Content -->
+        <div id="panelBody" class="flex-1 p-6 overflow-y-auto">
+            <!-- Dynamic Mission Content Injected by JS -->
+        </div>
+    </section>
+
+    <!-- Certificate Modal Dialog -->
+    <dialog id="certDialog" class="bg-transparent backdrop:bg-black/80 p-4 max-w-xl w-full">
+        <div class="bg-[#0b2234] border-4 border-amber-400 rounded-3xl p-6 md:p-8 text-center text-white shadow-2xl relative">
+            <button onclick="document.getElementById('certDialog').close()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">✕</button>
+            <span class="text-4xl">🏆</span>
+            <h3 class="text-2xl font-black text-amber-400 mt-2 mb-1">海洋守護者認證大廳</h3>
+            <p class="text-xs text-sky-200 mb-4">完成全部四座島嶼之探險家榮譽勳章</p>
+
+            <!-- Printable Certificate Box -->
+            <div id="certificatePrintArea" class="bg-gradient-to-b from-[#f0f9ff] to-[#fffbeb] text-slate-900 p-6 rounded-2xl border-4 border-amber-400 text-center relative overflow-hidden shadow-xl mb-4">
+                <div class="text-[10px] font-black uppercase tracking-widest text-sky-800 border-b border-sky-200 pb-1 mb-3">
+                    Bilingual Cross-Disciplinary Ecology Certificate
+                </div>
+                <h4 class="text-2xl font-black text-slate-900 font-serif mb-1">OCEAN GUARDIAN AWARD</h4>
+                <p class="text-[11px] text-slate-600 font-bold mb-3">Unit 6: The Real 'Price' of Plastic</p>
+                <p class="text-xs text-slate-700">特此頒發給海洋探險家：</p>
+                <div id="certName" class="text-2xl font-black text-amber-700 my-1 underline decoration-amber-400">
+                    Adventurer
+                </div>
+                <p id="certPledge" class="text-xs text-slate-700 bg-white/80 p-2 rounded-lg border border-sky-100 my-3 font-medium">
+                    🌱 誓約行動：落實自備購物袋與環保杯，拒絕海洋成為塑膠濃湯！
+                </p>
+                <div class="flex items-center justify-between pt-2 border-t border-sky-200 text-xs">
+                    <div class="text-left">
+                        <span class="block text-[9px] text-slate-500">指導教師</span>
+                        <span class="font-black text-slate-900">林明芬 老師 (Miffy Lin)</span>
+                    </div>
+                    <div class="w-12 h-12 rounded-full border-2 border-rose-500 flex items-center justify-center text-rose-600 font-black text-[9px] transform -rotate-12 bg-rose-50 shadow-sm">
+                        PASSED<br>認證通過
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center gap-3">
+                <button onclick="window.print()" class="bg-sky-600 hover:bg-sky-500 text-white text-xs font-black px-4 py-2 rounded-xl transition shadow">
+                    <i class="fa-solid fa-print"></i> 列印 / 另存 PDF
+                </button>
+                <button onclick="document.getElementById('certDialog').close()" class="bg-slate-700 hover:bg-slate-600 text-white text-xs font-black px-4 py-2 rounded-xl transition">
+                    關閉
+                </button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Help Dialog -->
+    <dialog id="helpDialog" class="bg-transparent backdrop:bg-black/80 p-4 max-w-md w-full">
+        <div class="bg-[#0b2234] border-2 border-[#1e4d6d] rounded-2xl p-6 text-white text-left">
+            <h3 class="text-lg font-black text-amber-400 mb-2">🧭 夢幻島闖關指南</h3>
+            <ul class="text-xs text-slate-300 space-y-2 list-disc pl-5 mb-4 leading-relaxed font-medium">
+                <li>本網頁架構靈感源自黃泓諺（紅焰）老師的《教學夢幻島》2.5D 群島佈局。</li>
+                <li>點擊地圖上的 4 座島嶼，可開啟專屬闖關視窗。</li>
+                <li>所有題目皆設計為<b>「防 AI 解題機制」</b>，必須親自翻開課本比對數值與圖表。</li>
+                <li>完成 4 座島嶼後，即可解鎖中央神殿之認證證書！</li>
+            </ul>
+            <button onclick="document.getElementById('helpDialog').close()" class="w-full bg-sky-600 hover:bg-sky-500 text-white text-xs font-black py-2 rounded-xl">
+                我知道了，開始探險！
+            </button>
+        </div>
+    </dialog>
+
+    <!-- Island Application Logic -->
+    <script>
+        let player = {
+            name: "Miffy's Student",
+            unlocked: { 1: false, 2: false, 3: false, 4: false },
+            pledge: "Bring my own reusable container every day.",
+            reflection: "Save the turtles and keep our ocean clean!"
+        };
+
+        const islandsData = {
+            'island-1': {
+                id: 1,
+                name: "01. 陸地密碼島",
+                kicker: "STAGE 01 · 課本數據相乘解鎖",
+                icon: "🏝️",
+                materialHtml: `
+                    <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
+                        <div class="p-3 bg-[#071927] rounded-xl border border-[#163850]">
+                            <b class="text-sky-300 text-sm">課本 p.114 第 1、2 段重點導讀：</b>
+                            <p class="mt-1">塑膠製品通常只用一次就被丟棄。事實上，美國人每週丟棄 <b>3.5 億（350 million）</b>個塑膠瓶！如果首尾相連（laid end to end），足以繞地球 <b>5 次</b>！</p>
+                        </div>
+                        <div class="p-3 bg-[#071927] rounded-xl border border-[#163850]">
+                            <b class="text-amber-300 text-sm">課本 p.115 第 4 段重點：</b>
+                            <p class="mt-1">根據聯合國（UN）統計，海洋垃圾中有高達 <b>80%</b> 是塑膠製品！生物學家甚至稱海洋為「塑膠濃湯（plastic soup）」。</p>
+                        </div>
+                    </div>
+                `,
+                questHtml: `
+                    <div class="space-y-4">
+                        <div class="bg-[#071927] p-4 rounded-2xl border border-[#163850]">
+                            <span class="text-xs font-black text-amber-400 block mb-1">🔐 實體課本密碼鎖 (防 AI 機制)</span>
+                            <p class="text-xs text-slate-300 leading-relaxed font-medium">
+                                翻開課本第 114 頁找出「美國寶特瓶繞地球次數（A）」，再翻到第 115 頁找出「聯合國統計海洋塑膠垃圾佔比（B%）」。
+                            </p>
+                            <div class="mt-3 p-2 bg-amber-500/10 border border-amber-500/20 rounded-lg text-xs text-amber-300 font-mono">
+                                解鎖密碼公式：B (%) × A (次數) = 三位數密碼
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 mb-1">輸入解鎖密碼：</label>
+                            <input id="quest1Input" type="number" placeholder="輸入 3 位數" class="w-full bg-[#071927] border-2 border-sky-700 rounded-xl px-4 py-2.5 text-white font-mono text-center text-lg font-bold focus:border-amber-400 outline-none">
+                        </div>
+                        <button onclick="verifyIsland1()" class="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-black py-2.5 rounded-xl transition cursor-pointer">
+                            驗證密碼並登陸島嶼 🔓
+                        </button>
+                        <p id="quest1Err" class="text-rose-400 text-xs font-bold text-center hidden">❌ 密碼錯誤！提示：80 乘以 5 等於多少呢？</p>
+                    </div>
+                `
+            },
+            'island-2': {
+                id: 2,
+                name: "02. 魚腹解剖島",
+                kicker: "STAGE 02 · 微塑膠圖表推論",
+                icon: "🐟",
+                materialHtml: `
+                    <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
+                        <div class="p-3 bg-[#071927] rounded-xl border border-[#163850]">
+                            <b class="text-emerald-300 text-sm">課本 p.130 Infographics 分析：</b>
+                            <p class="mt-1">美國地質調查局研究顯示，河川魚類體內微塑膠比例最高的是 <b>Fibers & Lines（70.9%）</b>，其次是 Bottles (16.7%)、Foams (7.6%)、Bags (3.3%)，柔珠 Beads 僅佔 1.6%。</p>
+                        </div>
+                        <div class="p-3 bg-[#071927] rounded-xl border border-[#163850]">
+                            <b class="text-amber-300 text-sm">課本 p.115 第 3 段重要單字：</b>
+                            <ul class="list-disc pl-4 mt-1 space-y-1">
+                                <li><b>microplastics</b>：微塑膠、塑膠微粒</li>
+                                <li><b>drains</b>：排水溝、下水道</li>
+                                <li><b>fibers</b>：纖維</li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+                questHtml: `
+                    <div class="space-y-4">
+                        <div class="bg-[#071927] p-3 rounded-2xl border border-[#163850] text-center">
+                            <span class="text-xs font-black text-emerald-400">課本 p.130 魚腹微塑膠排行榜</span>
+                            <div class="bg-slate-900/80 p-2 rounded-xl mt-2 text-xs font-mono text-left space-y-1">
+                                <div class="text-rose-300">1.6% Beads & Pellets (柔珠)</div>
+                                <div class="text-amber-300">16.7% Bottles & Containers (瓶罐)</div>
+                                <div class="text-emerald-300 font-bold border-l-2 border-emerald-400 pl-2">70.9% Fibers & Lines (纖維) ➔ 最高！</div>
+                            </div>
+                        </div>
+
+                        <div class="text-xs text-slate-200 font-bold">
+                            問題：這高達 70.9% 的 Fibers 是如何進入下水道並流進大海的？(課本 p.115 第 3 段)
+                        </div>
+
+                        <div class="space-y-2">
+                            <button onclick="verifyIsland2(false)" class="w-full text-left p-2.5 rounded-xl bg-[#071927] hover:bg-[#163850] text-xs text-slate-300 border border-slate-700">
+                                A. 人們吃太多海鮮罐頭隨手亂丟。
+                            </button>
+                            <button onclick="verifyIsland2(true)" class="w-full text-left p-2.5 rounded-xl bg-emerald-950/60 hover:bg-emerald-900/80 text-xs text-emerald-200 font-bold border border-emerald-500">
+                                B. 人們洗衣服時，衣物中的塑膠纖維隨廢水沖入下水道（drains）。
+                            </button>
+                            <button onclick="verifyIsland2(false)" class="w-full text-left p-2.5 rounded-xl bg-[#071927] hover:bg-[#163850] text-xs text-slate-300 border border-slate-700">
+                                C. 漁夫捕魚時繩子全部掉入海裡。
+                            </button>
+                        </div>
+                        <p id="quest2Err" class="text-rose-400 text-xs font-bold text-center hidden">❌ 錯誤！請看課文第 115 頁第 3 段第 15 行：When people wash their clothes...</p>
+                    </div>
+                `
+            },
+            'island-3': {
+                id: 3,
+                name: "03. 受詞補語法力島",
+                kicker: "STAGE 03 · S + make + O + OC 句型重組",
+                icon: "🧩",
+                materialHtml: `
+                    <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
+                        <div class="p-3 bg-[#071927] rounded-xl border border-[#163850]">
+                            <b class="text-purple-300 text-sm">課本 p.128 核心文法公式：</b>
+                            <p class="font-mono text-amber-300 mt-1">S + make / find / leave + O + OC (形容詞 / 名詞)</p>
+                            <p class="mt-1">受詞補語用來補充說明受詞的狀態或身份。</p>
+                        </div>
+                        <div class="p-3 bg-[#071927] rounded-xl border border-[#163850]">
+                            <b class="text-slate-200 text-sm">課文例句拆解：</b>
+                            <p class="mt-1">The harmful chemicals that microplastics contain <b>make a fish terribly sick</b>.</p>
+                            <p class="text-[11px] text-slate-400 mt-0.5">主詞：The harmful chemicals ｜ 動詞：make ｜ 受詞：a fish ｜ 受詞補語：terribly sick (adj.)</p>
+                        </div>
+                    </div>
+                `,
+                questHtml: `
+                    <div class="space-y-4">
+                        <div class="bg-[#071927] p-3 rounded-2xl border border-[#163850]">
+                            <span class="text-xs font-bold text-purple-300 block mb-1">🎯 任務：依序點擊詞卡，拼出課本受詞補語金句</span>
+                            <div id="slotArea" class="min-h-[44px] bg-slate-900 border-2 border-dashed border-purple-500 rounded-xl p-2 flex flex-wrap gap-2 items-center">
+                                <span id="slotHint" class="text-slate-500 text-xs italic">點擊下方詞卡依序放入此處...</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-xs text-slate-400 font-bold block mb-2">可選詞卡：</span>
+                            <div id="cardBank" class="flex flex-wrap gap-2"></div>
+                        </div>
+
+                        <div class="flex justify-between items-center pt-2">
+                            <button onclick="resetSlot()" class="text-slate-400 hover:text-white text-xs underline cursor-pointer">重置卡片</button>
+                            <button onclick="verifyIsland3()" class="bg-purple-600 hover:bg-purple-500 text-white font-black text-xs px-5 py-2.5 rounded-xl transition cursor-pointer">驗證句型 🚀</button>
+                        </div>
+                        <p id="quest3Err" class="text-rose-400 text-xs font-bold text-center hidden">❌ 順序不正確！提示結構：make ➔ a fish ➔ terribly sick</p>
+                    </div>
+                `
+            },
+            'island-4': {
+                id: 4,
+                name: "04. 守護誓約島",
+                kicker: "STAGE 04 · 減塑生活實踐承諾",
+                icon: "🌱",
+                materialHtml: `
+                    <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
+                        <div class="p-3 bg-[#071927] rounded-xl border border-[#163850]">
+                            <b class="text-rose-300 text-sm">課本 p.116 解決方案（Solutions）：</b>
+                            <ul class="list-disc pl-4 mt-1 space-y-1">
+                                <li><b>Reuse</b>: 重複使用塑膠袋或購物時自備提袋。</li>
+                                <li><b>Stop bottled water</b>: 停止購買瓶裝水，改用環保水壺。</li>
+                                <li><b>Recycle</b>: 正確落實塑膠分類回收。</li>
+                                <li><b>Say NO to microplastics</b>: 不購買含微塑膠柔珠的洗卸用品。</li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+                questHtml: `
+                    <div class="space-y-4">
+                        <div class="text-xs text-slate-300 leading-relaxed">
+                            課本第 116 頁金句：<i>"Each of us has the power to change the world. Let's begin today!"</i>
+                            請挑選一項你在高中生活中願意立刻落實的承諾：
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-2 p-2.5 bg-[#071927] rounded-xl border border-slate-700 cursor-pointer">
+                                <input type="radio" name="userPledge" value="Stop buying bottled water and bring my own reusable container." checked class="text-amber-500">
+                                <span class="text-xs text-slate-200">💧 拒買瓶裝水，自備環保水壺上學</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-2.5 bg-[#071927] rounded-xl border border-slate-700 cursor-pointer">
+                                <input type="radio" name="userPledge" value="Reuse shopping bags and refuse single-use plastic bags." class="text-amber-500">
+                                <span class="text-xs text-slate-200">🛍️ 購物隨身帶提袋，拒絕一次性塑膠袋</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-2.5 bg-[#071927] rounded-xl border border-slate-700 cursor-pointer">
+                                <input type="radio" name="userPledge" value="Avoid products with microplastics to protect ocean animals." class="text-amber-500">
+                                <span class="text-xs text-slate-200">🧴 檢查保養洗沐成分，拒用含柔珠商品</span>
+                            </label>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 mb-1">用一句英文寫下你想對海洋說的話：</label>
+                            <input id="userReflection" type="text" placeholder="e.g. Dear Ocean, I promise to reduce plastic for you!" class="w-full bg-[#071927] border border-sky-700 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-amber-400">
+                        </div>
+
+                        <button onclick="verifyIsland4()" class="w-full bg-gradient-to-r from-rose-500 to-amber-500 hover:from-rose-400 hover:to-amber-400 text-slate-950 font-black py-2.5 rounded-xl transition cursor-pointer">
+                            簽署誓約並完成本島挑戰 ✍️
+                        </button>
+                    </div>
+                `
+            }
+        };
+
+        let currentActiveIsland = null;
+        const targetWords = ["The harmful chemicals", "make", "a fish", "terribly sick"];
+        let userSelectedWords = [];
+
+        function openIsland(islandKey) {
+            currentActiveIsland = islandsData[islandKey];
+            if (!currentActiveIsland) return;
+
+            document.getElementById('panelIcon').textContent = currentActiveIsland.icon;
+            document.getElementById('panelKicker').textContent = currentActiveIsland.kicker;
+            document.getElementById('panelTitle').textContent = currentActiveIsland.name;
+
+            switchPanelTab('quest');
+
+            document.getElementById('panelScrim').classList.remove('hidden');
+            document.getElementById('missionPanel').classList.remove('translate-x-full');
+        }
+
+        function closePanel() {
+            document.getElementById('panelScrim').classList.add('hidden');
+            document.getElementById('missionPanel').classList.add('translate-x-full');
+        }
+
+        function switchPanelTab(tab) {
+            const btnQuest = document.getElementById('tabBtnQuest');
+            const btnMat = document.getElementById('tabBtnMaterial');
+            const body = document.getElementById('panelBody');
+
+            if (tab === 'quest') {
+                btnQuest.className = "flex-1 py-3 text-xs font-black text-amber-400 border-b-2 border-amber-400 flex items-center justify-center gap-1.5 cursor-pointer";
+                btnMat.className = "flex-1 py-3 text-xs font-black text-slate-400 hover:text-white flex items-center justify-center gap-1.5 cursor-pointer";
+                body.innerHTML = currentActiveIsland.questHtml;
+                if (currentActiveIsland.id === 3) initIsland3Cards();
+            } else {
+                btnMat.className = "flex-1 py-3 text-xs font-black text-sky-400 border-b-2 border-sky-400 flex items-center justify-center gap-1.5 cursor-pointer";
+                btnQuest.className = "flex-1 py-3 text-xs font-black text-slate-400 hover:text-white flex items-center justify-center gap-1.5 cursor-pointer";
+                body.innerHTML = currentActiveIsland.materialHtml;
+            }
+        }
+
+        function updateOverallProgress() {
+            let count = Object.values(player.unlocked).filter(Boolean).length;
+            document.getElementById('readCount').textContent = `${count} / 4 座島嶼已解開`;
+            document.getElementById('progressFill').style.width = `${(count / 4) * 100}%`;
+        }
+
+        // Island 1 verification (400)
+        function verifyIsland1() {
+            const val = document.getElementById('quest1Input').value.trim();
+            const err = document.getElementById('quest1Err');
+            if (val === '400') {
+                err.classList.add('hidden');
+                player.unlocked[1] = true;
+                document.getElementById('check-1').textContent = "✓";
+                document.getElementById('check-1').className = "text-emerald-400 text-sm font-bold";
+                document.getElementById('badge-1').textContent = "已解開";
+                document.getElementById('badge-1').className = "absolute -top-2 -right-2 bg-emerald-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full";
+                updateOverallProgress();
+                confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
+                setTimeout(() => { closePanel(); }, 800);
+            } else {
+                err.classList.remove('hidden');
+            }
+        }
+
+        // Island 2 verification (B is true)
+        function verifyIsland2(isCorrect) {
+            const err = document.getElementById('quest2Err');
+            if (isCorrect) {
+                err.classList.add('hidden');
+                player.unlocked[2] = true;
+                document.getElementById('check-2').textContent = "✓";
+                document.getElementById('check-2').className = "text-emerald-400 text-sm font-bold";
+                document.getElementById('badge-2').textContent = "已解開";
+                document.getElementById('badge-2').className = "absolute -top-2 -right-2 bg-emerald-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full";
+                updateOverallProgress();
+                confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
+                setTimeout(() => { closePanel(); }, 800);
+            } else {
+                err.classList.remove('hidden');
+            }
+        }
+
+        // Island 3 Cards Setup
+        function initIsland3Cards() {
+            userSelectedWords = [];
+            renderCards();
+        }
+
+        function renderCards() {
+            const slot = document.getElementById('slotArea');
+            const bank = document.getElementById('cardBank');
+            if (!slot || !bank) return;
+
+            slot.innerHTML = '';
+            bank.innerHTML = '';
+
+            if (userSelectedWords.length === 0) {
+                slot.innerHTML = '<span class="text-slate-500 text-xs italic">點擊下方詞卡依序放入此處...</span>';
+            } else {
+                userSelectedWords.forEach((w, idx) => {
+                    const span = document.createElement('span');
+                    span.className = 'bg-amber-400 text-slate-950 text-xs font-black px-2.5 py-1 rounded-lg cursor-pointer flex items-center gap-1';
+                    span.innerHTML = `${w} <i class="fa-solid fa-xmark text-[9px]"></i>`;
+                    span.onclick = () => { userSelectedWords.splice(idx, 1); renderCards(); };
+                    slot.appendChild(span);
+                });
+            }
+
+            const unselected = targetWords.filter(w => !userSelectedWords.includes(w));
+            unselected.forEach(w => {
+                const btn = document.createElement('button');
+                btn.className = 'bg-[#071927] hover:bg-sky-600 text-slate-200 hover:text-white text-xs font-bold px-3 py-1.5 rounded-xl border border-slate-700 transition cursor-pointer';
+                btn.textContent = w;
+                btn.onclick = () => { userSelectedWords.push(w); renderCards(); };
+                bank.appendChild(btn);
+            });
+        }
+
+        function resetSlot() {
+            userSelectedWords = [];
+            renderCards();
+            document.getElementById('quest3Err').classList.add('hidden');
+        }
+
+        function verifyIsland3() {
+            const err = document.getElementById('quest3Err');
+            if (userSelectedWords.join(' ') === targetWords.join(' ')) {
+                err.classList.add('hidden');
+                player.unlocked[3] = true;
+                document.getElementById('check-3').textContent = "✓";
+                document.getElementById('check-3').className = "text-emerald-400 text-sm font-bold";
+                document.getElementById('badge-3').textContent = "已解開";
+                document.getElementById('badge-3').className = "absolute -top-2 -right-2 bg-emerald-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full";
+                updateOverallProgress();
+                confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
+                setTimeout(() => { closePanel(); }, 800);
+            } else {
+                err.classList.remove('hidden');
+            }
+        }
+
+        // Island 4 verification
+        function verifyIsland4() {
+            const radio = document.querySelector('input[name="userPledge"]:checked');
+            if (radio) player.pledge = radio.value;
+            const ref = document.getElementById('userReflection').value.trim();
+            if (ref) player.reflection = ref;
+
+            player.unlocked[4] = true;
+            document.getElementById('check-4').textContent = "✓";
+            document.getElementById('check-4').className = "text-emerald-400 text-sm font-bold";
+            document.getElementById('badge-4').textContent = "已解開";
+            document.getElementById('badge-4').className = "absolute -top-2 -right-2 bg-emerald-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full";
+            updateOverallProgress();
+            confetti({ particleCount: 80, spread: 70, origin: { y: 0.5 } });
+
+            setTimeout(() => {
+                closePanel();
+                openCertificate();
+            }, 800);
+        }
+
+        function openCertificate() {
+            document.getElementById('certName').textContent = player.name;
+            document.getElementById('certPledge').textContent = `🌱 誓約行動：${player.pledge} — "${player.reflection}"`;
+            document.getElementById('certDialog').showModal();
+        }
+
+        function openHelpModal() {
+            document.getElementById('helpDialog').showModal();
+        }
+
+        function renamePlayer() {
+            const n = prompt("請輸入您的探險家英文名字：", player.name);
+            if (n && n.trim()) {
+                player.name = n.trim();
+                document.getElementById('headerPlayerName').textContent = player.name;
+            }
+        }
+    </script>
+</body>
+</html>
