@@ -8522,8 +8522,6 @@ function loadStageUnit(unitKey) {
   if(title) title.textContent = "📖 " + u.title;
 
   // Clone Right Pane Vocab Cards from Main Page
-  var vocabSource = document.querySelector('details.stg summary:has(span:contains("' + unitKey + '"))');
-  // Fallback selector by text
   var targetCard = null;
   document.querySelectorAll('details.stg').forEach(function(det) {
     var sum = det.querySelector('summary');
@@ -8532,24 +8530,40 @@ function loadStageUnit(unitKey) {
     }
   });
 
+  // Fallback if not found (e.g. U01~U03)
+  if(!targetCard) {
+    document.querySelectorAll('#t-g10 details.stg').forEach(function(det) {
+      var sum = det.querySelector('summary');
+      if(sum && sum.textContent.indexOf('Vocabulary') !== -1) {
+        // check if parent unit matches
+        var parentUnit = det.closest('details.lb');
+        if(parentUnit) {
+          var pSum = parentUnit.querySelector('summary');
+          if(pSum && pSum.textContent.indexOf(unitKey) !== -1) {
+            targetCard = det;
+          }
+        }
+      }
+    });
+  }
+
   var vocabPane = document.getElementById('stage-pane-vocab');
   if(vocabPane) {
     if(targetCard) {
       var content = targetCard.querySelector('.sb');
       vocabPane.innerHTML = content ? content.innerHTML : '<p>載入單字語塊中…</p>';
     } else {
-      vocabPane.innerHTML = '<p style="color:#64748b">本課語塊剖析準備中…</p>';
+      vocabPane.innerHTML = '<div style="padding:24px;color:#831843;font-size:18px;">🎯 本課核心語塊講義整理中…</div>';
     }
   }
 
-  // Clone Scaffold notes if U04
+  // Clone Scaffold notes if U04 or others
   var scaffoldPane = document.getElementById('stage-scaffold-content');
   if(scaffoldPane) {
-    var scCard = document.querySelector('details.stg summary:has(span)');
     var foundSc = null;
     document.querySelectorAll('details.stg').forEach(function(det) {
       var sum = det.querySelector('summary');
-      if(sum && sum.textContent.indexOf('導讀包') !== -1) {
+      if(sum && (sum.textContent.indexOf('導讀包') !== -1 || sum.textContent.indexOf('學習痛點') !== -1)) {
         foundSc = det;
       }
     });
@@ -8557,7 +8571,7 @@ function loadStageUnit(unitKey) {
       var scContent = foundSc.querySelector('.sb');
       scaffoldPane.innerHTML = scContent ? scContent.innerHTML : '';
     } else {
-      scaffoldPane.innerHTML = '<p style="color:#64748b">本單元導讀指南準備中…</p>';
+      scaffoldPane.innerHTML = '<div style="padding:24px;color:#831843;font-size:18px;">🌱 本單元導讀指南準備中…</div>';
     }
   }
 }
