@@ -625,7 +625,7 @@ window.addEventListener('message', function(e){
 
 
 <div class="hd"><span class="av av-l av-super" role="img"></span>
-<h1>📚 Miffy's English Studio</h1>
+<h1>✨ 🎀 Miffy's English Studio 🎀 ✨</h1>
 <p>115 學年度第一學期 ▸ 649 字 ▸ 22 課</p>
 <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:6px;font-size:16px">
 <span style="background:#dbeafe;color:#1e40af;padding:3px 10px;border-radius:12px;font-weight:700">🟦 國一南一 199字</span>
@@ -7617,58 +7617,78 @@ window.TJ_WS = window.TJ_WS || {};
 
 <style id="matisse-override">
 /* ══════════════════════════════════════════════════════════
-   珍珠光澤・內斂優雅 主題 (Understated Pearlescent Luster)
+   🎀 少女漫畫夢幻風・Sweet Shojo Manga Romantic Theme ✨
    ══════════════════════════════════════════════════════════ */
 
-/* ── 全局柔光珍珠背景 ── */
+/* ── 全局粉漾夢幻背景 (Pastel Strawberry Milk & Lavender Glow) ── */
 body {
-  background: radial-gradient(120% 120% at 20% 10%, #FDFCF9 0%, #F8F5F0 35%, #F2ECE3 70%, #ECE4D8 100%) fixed !important;
-  color: #2D2621 !important;
+  background: radial-gradient(120% 120% at 20% 10%, #FFF5F7 0%, #FFF0F5 30%, #FDF2F8 60%, #F5F3FF 100%) fixed !important;
+  color: #4A2234 !important;
   padding-top: 0 !important;
 }
 
-/* ── 大標題橫幅：內斂真珠琉璃 (Understated Pearl Header) ── */
+/* ── 頂部浪漫漫畫橫幅 (Dreamy Shojo Hero Banner) ── */
 .hd {
   text-align: center !important;
-  padding: 36px 20px 28px !important;
-  background: linear-gradient(135deg, #FAF7F2 0%, #F3ECE1 50%, #ECE4D6 100%) !important;
-  border-bottom: 1.5px solid rgba(210, 196, 180, 0.7) !important;
-  box-shadow: 0 4px 20px rgba(160, 135, 115, 0.08), inset 0 1px 0 #FFFFFF !important;
-  border-radius: 0 0 24px 24px !important;
-  margin-bottom: 10px !important;
+  padding: 38px 20px 28px !important;
+  background: linear-gradient(135deg, #FFF0F5 0%, #FCE7F3 45%, #F3E8FF 100%) !important;
+  border-bottom: 2.5px dashed #F472B6 !important;
+  box-shadow: 0 8px 30px rgba(244, 114, 182, 0.15), inset 0 1px 0 #FFFFFF !important;
+  border-radius: 0 0 28px 28px !important;
+  margin-bottom: 12px !important;
+  position: relative !important;
 }
 .hd h1 {
   font-family: 'Nunito', sans-serif !important;
-  font-size: 38px !important;
+  font-size: 40px !important;
   font-weight: 900 !important;
-  color: #362D24 !important;
-  letter-spacing: 0.5px !important;
-  margin: 12px 0 6px !important;
+  color: #9D174D !important;
+  letter-spacing: 1px !important;
+  margin: 14px 0 6px !important;
+  text-shadow: 0 2px 10px rgba(244, 114, 182, 0.28) !important;
 }
 .hd p {
   font-size: 19px !important;
-  color: #726252 !important;
+  color: #BE185D !important;
   margin: 0 0 12px !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
 }
 .hd div span, .hd span:not(.av) {
-  background: rgba(255, 255, 255, 0.85) !important;
-  border: 1px solid rgba(215, 202, 188, 0.6) !important;
-  box-shadow: 0 2px 6px rgba(160, 135, 115, 0.05), inset 0 1px 0 #FFFFFF !important;
-  padding: 4px 12px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1.5px solid #FBCFE8 !important;
+  box-shadow: 0 2px 8px rgba(244, 114, 182, 0.14), inset 0 1px 0 #FFFFFF !important;
+  padding: 5px 14px !important;
   font-size: 15px !important;
-  font-weight: 700 !important;
-  color: #4D4136 !important;
-  border-radius: 12px !important;
+  font-weight: 800 !important;
+  color: #9D174D !important;
+  border-radius: 16px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
 }
 
-/* ── 頂部導航列：霧面珍珠玻璃 (Frosted Pearl Glass) ── */
+/* ── Q版明芬頭像：魔法少女粉漾光圈 (Magical Girl Halo) ── */
+.av {
+  border-radius: 50% !important;
+  border: 3.5px solid #F472B6 !important;
+  box-shadow: 0 0 0 4px rgba(251, 207, 232, 0.7), 0 8px 24px rgba(244, 114, 182, 0.35) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-color: #FFF0F5 !important;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+.av:hover {
+  transform: scale(1.08) rotate(3deg) !important;
+}
+
+/* ── 頂部分頁導航：草莓泡泡糖膠囊 (Pastel Candy Tabs) ── */
 div.tabs {
-  background: rgba(253, 251, 248, 0.94) !important;
-  backdrop-filter: blur(20px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
-  border-bottom: 1.5px solid rgba(215, 202, 188, 0.65) !important;
-  box-shadow: 0 4px 20px -2px rgba(160, 140, 120, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+  background: rgba(255, 245, 248, 0.94) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-bottom: 2px solid #FBCFE8 !important;
+  box-shadow: 0 4px 20px rgba(244, 114, 182, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
   padding: 10px 18px !important;
   display: flex !important;
   gap: 8px !important;
@@ -7679,64 +7699,72 @@ div.tabs {
 }
 
 button.tab {
-  background: rgba(255, 255, 255, 0.75) !important;
-  color: #5C4F42 !important;
-  border: 1px solid rgba(218, 204, 190, 0.7) !important;
-  border-radius: 14px !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  color: #831843 !important;
+  border: 1.5px solid #FBCFE8 !important;
+  border-radius: 18px !important;
   font-weight: 800 !important;
   font-size: 19px !important;
   padding: 10px 22px !important;
   margin: 2px 4px !important;
   cursor: pointer !important;
-  transition: all 0.25s ease !important;
-  box-shadow: 0 2px 8px rgba(160, 135, 115, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  box-shadow: 0 2px 8px rgba(244, 114, 182, 0.08), inset 0 1px 0 #FFFFFF !important;
 }
 
 button.tab:hover {
   background: #FFFFFF !important;
-  color: #2D231A !important;
-  border-color: #C4B09A !important;
-  box-shadow: 0 4px 14px rgba(160, 135, 115, 0.12) !important;
+  color: #BE185D !important;
+  border-color: #F472B6 !important;
+  box-shadow: 0 4px 14px rgba(244, 114, 182, 0.22) !important;
+  transform: translateY(-2px) !important;
 }
 
 button.tab.on {
-  background: linear-gradient(135deg, #FFFFFF 0%, #F6EFE6 45%, #EBE1D2 100%) !important;
-  color: #2D231A !important;
-  border: 1.5px solid #C4B09A !important;
-  box-shadow: 0 4px 16px rgba(170, 140, 115, 0.22), inset 0 1.5px 0 #FFFFFF, 0 0 12px rgba(240, 225, 205, 0.45) !important;
+  background: linear-gradient(135deg, #FFF1F2 0%, #FCE7F3 45%, #F5D0FE 100%) !important;
+  color: #831843 !important;
+  border: 2px solid #EC4899 !important;
+  box-shadow: 0 4px 18px rgba(236, 72, 153, 0.3), inset 0 1.5px 0 #FFFFFF, 0 0 12px rgba(244, 114, 182, 0.45) !important;
   font-weight: 900 !important;
-  transform: translateY(-1px) !important;
+  transform: translateY(-2px) scale(1.03) !important;
 }
 
-/* ── 搜尋欄位：珍珠膠囊 ── */
+/* ── 搜尋欄位：棉花糖泡泡膠囊 ── */
 .sbox, .sbi, input[type="text"].sbi, .sbox input, input#sbi {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%) !important;
-  border: 1.5px solid rgba(215, 202, 188, 0.75) !important;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF5F8 100%) !important;
+  border: 2px solid #FBCFE8 !important;
   border-radius: 28px !important;
-  box-shadow: 0 4px 16px rgba(160, 135, 115, 0.07), inset 0 1px 0 #FFFFFF !important;
-  color: #332C26 !important;
+  box-shadow: 0 4px 18px rgba(244, 114, 182, 0.12), inset 0 1px 0 #FFFFFF !important;
+  color: #4A2234 !important;
   font-size: 20px !important;
   padding: 12px 24px !important;
+  transition: all 0.2s ease !important;
+}
+.sbox input:focus, input#sbi:focus {
+  border-color: #EC4899 !important;
+  box-shadow: 0 0 0 4px rgba(244, 114, 182, 0.25) !important;
+  outline: none !important;
 }
 
-/* ── 課程卡片：圓潤珍珠貝卡片 (Pearlescent Oyster Shell Cards) ── */
+/* ── 課程卡片：夢幻粉彩圓角卡片 (Shojo Romantic Cards) ── */
 details.lb {
-  border-radius: 20px !important;
-  border: 1px solid rgba(218, 204, 190, 0.75) !important;
-  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%) !important;
-  box-shadow: 0 8px 30px -4px rgba(150, 130, 110, 0.08), 0 2px 8px rgba(0, 0, 0, 0.02), inset 0 1px 0 #FFFFFF !important;
-  margin: 20px 0 !important;
+  border-radius: 24px !important;
+  border: 1.5px solid #FBCFE8 !important;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF8FA 100%) !important;
+  box-shadow: 0 10px 32px rgba(244, 114, 182, 0.1), 0 2px 6px rgba(0, 0, 0, 0.02), inset 0 1px 0 #FFFFFF !important;
+  margin: 22px 0 !important;
   overflow: hidden !important;
   transition: all 0.3s ease !important;
 }
 details.lb:hover {
-  box-shadow: 0 12px 36px -4px rgba(150, 130, 110, 0.12), inset 0 1px 0 #FFFFFF !important;
+  box-shadow: 0 14px 40px rgba(244, 114, 182, 0.18), inset 0 1px 0 #FFFFFF !important;
+  transform: translateY(-2px) !important;
 }
 
 summary.ls {
-  border-radius: 20px 20px 0 0 !important;
+  border-radius: 24px 24px 0 0 !important;
   padding: 16px 24px !important;
-  border-bottom: 1px solid rgba(220, 208, 195, 0.6) !important;
+  border-bottom: 1.5px dashed #FBCFE8 !important;
   list-style: none !important;
   cursor: pointer !important;
   font-size: 21px !important;
@@ -7747,147 +7775,158 @@ summary.ls {
 }
 summary.ls::marker, summary.ls::-webkit-details-marker { display: none !important; }
 
-/* ── 年級專屬珍珠寶石配色 ── */
-/* 國一 (G7) — 藍月珍珠 (Pearl Moonstone Blue) */
-#t-g7 details.lb { border-left: 7px solid #486E88 !important; }
-#t-g7 summary.ls { background: linear-gradient(135deg, #F3F8FB 0%, #E8F0F5 100%) !important; color: #214358 !important; }
+/* ── 少女漫畫專屬主題色調 (Pastel Magical Palette) ── */
+/* 國一 (G7) — 夢幻星空藍莓 (Starry Periwinkle Blue) */
+#t-g7 details.lb { border-left: 8px solid #818CF8 !important; }
+#t-g7 summary.ls { background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%) !important; color: #312E81 !important; }
 
-/* 國二 (G8) — 碧璽珍珠 (Pearl Tourmaline Green) */
-#t-g8 details.lb { border-left: 7px solid #487256 !important; }
-#t-g8 summary.ls { background: linear-gradient(135deg, #F3F8F5 0%, #E6F0E9 100%) !important; color: #20482E !important; }
+/* 國二 (G8) — 薄荷馬卡龍 (Mint Macaron Fairy Green) */
+#t-g8 details.lb { border-left: 8px solid #34D399 !important; }
+#t-g8 summary.ls { background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%) !important; color: #064E3B !important; }
 
-/* 高一 (G10) — 薔薇珍珠 (Pearl Rose Rhodolite) */
-#t-g10 details.lb { border-left: 7px solid #8A4656 !important; }
-#t-g10 summary.ls { background: linear-gradient(135deg, #FAF4F6 0%, #F3E7EA 100%) !important; color: #5C2230 !important; }
+/* 高一 (G10) — 草莓櫻花粉 (Sweet Sakura Pink) */
+#t-g10 details.lb { border-left: 8px solid #F472B6 !important; }
+#t-g10 summary.ls { background: linear-gradient(135deg, #FFF1F2 0%, #FFE4E6 100%) !important; color: #831843 !important; }
 
-/* 高三 (G12) — 藍晶珍珠 (Pearl Tanzanite) */
-#t-g12 details.lb { border-left: 7px solid #54517A !important; }
-#t-g12 summary.ls { background: linear-gradient(135deg, #F5F4FA 0%, #E9E7F4 100%) !important; color: #322E58 !important; }
+/* 高三 (G12) — 薰衣草魔女紫 (Lavender Magic Purple) */
+#t-g12 details.lb { border-left: 8px solid #C084FC !important; }
+#t-g12 summary.ls { background: linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 100%) !important; color: #581C87 !important; }
 
-/* 台江 (TJ) — 翡翠珍珠 (Pearl Emerald Jade) */
-#t-tj details.lb { border-left: 7px solid #336B4F !important; }
-#t-tj summary.ls { background: linear-gradient(135deg, #F2F8F5 0%, #E4EFE8 100%) !important; color: #1B4B32 !important; }
+/* 台江 (TJ) — 翡翠人魚綠 (Mermaid Lagoon Aqua) */
+#t-tj details.lb { border-left: 8px solid #2DD4BF !important; }
+#t-tj summary.ls { background: linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 100%) !important; color: #134E4A !important; }
 
-/* 教案 (TU) — 琥珀珍珠 (Pearl Amber Champagne) */
-#t-tu details.lb { border-left: 7px solid #A86E38 !important; }
-#t-tu summary.ls { background: linear-gradient(135deg, #FAF6F1 0%, #F5ECDF 100%) !important; color: #6E3F17 !important; }
+/* 教案 (TU) — 焦糖蜜桃奶茶 (Caramel Peach Milk Tea) */
+#t-tu details.lb { border-left: 8px solid #FBBF24 !important; }
+#t-tu summary.ls { background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%) !important; color: #78350F !important; }
 
 /* ── 子摺疊區塊 (summary.st) ── */
 summary.st {
-  border-radius: 12px !important;
-  font-weight: 700 !important;
+  border-radius: 16px !important;
+  font-weight: 800 !important;
   font-size: 20px !important;
-  padding: 12px 20px !important;
-  background: linear-gradient(135deg, #FAF7F2 0%, #EFE8DE 100%) !important;
-  color: #383028 !important;
-  border: 1px solid rgba(215, 200, 185, 0.6) !important;
-  box-shadow: 0 2px 6px rgba(150, 130, 110, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  padding: 12px 22px !important;
+  background: linear-gradient(135deg, #FFF5F7 0%, #FDF2F8 100%) !important;
+  color: #831843 !important;
+  border: 1.5px solid #FCE7F3 !important;
+  box-shadow: 0 2px 8px rgba(244, 114, 182, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
   margin: 10px 0 !important;
   list-style: none !important;
 }
 summary.st::marker, summary.st::-webkit-details-marker { display: none !important; }
 
-/* ── 軟化亮黃提點框 ── */
+/* ── 提點框：香甜草莓牛奶盒 ── */
 div[style*="background:#fef3c7"], div[style*="background:#fef9c3"] {
-  background: linear-gradient(135deg, #FAF7ED 0%, #F5EED8 100%) !important;
-  border: 1.5px solid #E2D3B2 !important;
-  color: #6E5325 !important;
-  border-radius: 16px !important;
-  box-shadow: 0 4px 14px rgba(160, 140, 110, 0.06), inset 0 1px 0 #FFFFFF !important;
-}
-
-/* ── Q版明芬頭像貼紙：珍珠光環圓框 (Miffy Avatars) ── */
-.av {
-  border-radius: 50% !important;
-  border: 3px solid #D5C4B2 !important;
-  box-shadow: 0 4px 16px rgba(160, 135, 115, 0.22) !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
+  background: linear-gradient(135deg, #FFF5F7 0%, #FDF2F8 100%) !important;
+  border: 1.5px solid #FBCFE8 !important;
+  color: #831843 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 4px 16px rgba(244, 114, 182, 0.1), inset 0 1px 0 #FFFFFF !important;
 }
 
 /* ── 頂層板書條 (BB Panel) ── */
 #bb-panel {
-  background: linear-gradient(135deg, rgba(253, 251, 248, 0.96) 0%, rgba(246, 240, 232, 0.96) 100%) !important;
-  border-bottom: 1.5px solid rgba(215, 202, 188, 0.6) !important;
-  box-shadow: 0 2px 10px rgba(160, 140, 120, 0.05), inset 0 1px 0 #FFFFFF !important;
+  background: linear-gradient(135deg, rgba(255, 245, 248, 0.96) 0%, rgba(253, 242, 248, 0.96) 100%) !important;
+  border-bottom: 2px solid #FBCFE8 !important;
+  box-shadow: 0 2px 10px rgba(244, 114, 182, 0.08), inset 0 1px 0 #FFFFFF !important;
   padding: 8px 18px !important;
 }
-#bb-panel span { color: #5D4734 !important; font-weight: 800 !important; }
+#bb-panel span { color: #831843 !important; font-weight: 800 !important; }
 #bb-panel button {
-  background: linear-gradient(135deg, #FAF5EE 0%, #EFE5D5 100%) !important;
-  color: #5D4327 !important;
-  border: 1px solid #C8B69F !important;
-  border-radius: 10px !important;
-  box-shadow: 0 2px 6px rgba(170, 140, 105, 0.12), inset 0 1px 0 #FFFFFF !important;
+  background: linear-gradient(135deg, #FFF1F2 0%, #FCE7F3 100%) !important;
+  color: #9D174D !important;
+  border: 1.5px solid #F472B6 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 2px 8px rgba(244, 114, 182, 0.2), inset 0 1px 0 #FFFFFF !important;
   font-weight: 800 !important;
-  padding: 6px 16px !important;
+  padding: 6px 18px !important;
   cursor: pointer !important;
 }
 
 /* ── Cheat Code 膠囊按鈕與彈出視窗 ── */
 .cc-btn {
-  background: linear-gradient(135deg, #FAF5EE 0%, #EFE5D5 100%) !important;
-  border: 1px solid #C8B69F !important;
-  color: #5D4327 !important;
-  box-shadow: 0 2px 8px rgba(170, 140, 105, 0.15), inset 0 1px 0 #FFFFFF !important;
+  background: linear-gradient(135deg, #FFF1F2 0%, #FCE7F3 100%) !important;
+  border: 1.5px solid #F472B6 !important;
+  color: #9D174D !important;
+  box-shadow: 0 2px 8px rgba(244, 114, 182, 0.22), inset 0 1px 0 #FFFFFF !important;
   border-radius: 20px !important;
   padding: 5px 16px !important;
   font-weight: 800 !important;
   font-size: 14px !important;
 }
+.cc-btn:hover {
+  transform: translateY(-2px) scale(1.04) !important;
+  box-shadow: 0 4px 14px rgba(244, 114, 182, 0.32) !important;
+}
 #cc-box {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%) !important;
-  border: 1.5px solid #C8B6A2 !important;
-  border-radius: 22px !important;
-  box-shadow: 0 16px 48px rgba(120, 95, 75, 0.25), inset 0 1px 0 #FFFFFF !important;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF5F8 100%) !important;
+  border: 2px solid #F472B6 !important;
+  border-radius: 26px !important;
+  box-shadow: 0 16px 48px rgba(244, 114, 182, 0.25), inset 0 1px 0 #FFFFFF !important;
   overflow: hidden !important;
-  color: #2D251F !important;
+  color: #4A2234 !important;
 }
 #cc-header {
-  background: linear-gradient(135deg, #FAF4EB 0%, #EFE4D2 100%) !important;
-  color: #5D4327 !important;
-  border-bottom: 1.5px solid #D5C4B0 !important;
+  background: linear-gradient(135deg, #FFF1F2 0%, #FCE7F3 100%) !important;
+  color: #9D174D !important;
+  border-bottom: 2px dashed #FBCFE8 !important;
   padding: 14px 22px !important;
 }
 
 /* ── 單字語塊卡片 (Vocab Chunk Cards) ── */
 .vocab-chunk-card {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%) !important;
-  border: 1px solid rgba(215, 202, 188, 0.65) !important;
-  border-radius: 16px !important;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF8FA 100%) !important;
+  border: 1.5px solid #FBCFE8 !important;
+  border-radius: 20px !important;
   padding: 18px 22px !important;
   margin-bottom: 16px !important;
-  box-shadow: 0 4px 18px -2px rgba(150, 130, 110, 0.07), inset 0 1px 0 #FFFFFF !important;
+  box-shadow: 0 4px 18px rgba(244, 114, 182, 0.08), inset 0 1px 0 #FFFFFF !important;
 }
 .vocab-word-title {
   font-size: 24px !important;
   font-weight: 800 !important;
-  color: #1F5A52 !important;
+  color: #BE185D !important;
   font-family: Georgia, serif !important;
 }
 .vocab-ex-box {
-  background: linear-gradient(135deg, #FBF9F6 0%, #F4EFE8 100%) !important;
-  border-left: 4px solid #8E7A68 !important;
-  border-top: 1px solid rgba(225, 215, 205, 0.45) !important;
-  border-right: 1px solid rgba(225, 215, 205, 0.45) !important;
-  border-bottom: 1px solid rgba(225, 215, 205, 0.45) !important;
-  border-radius: 0 10px 10px 0 !important;
-  padding: 12px 18px !important;
+  background: linear-gradient(135deg, #FFF5F7 0%, #FDF2F8 100%) !important;
+  border-left: 5px solid #F472B6 !important;
+  border-top: 1.5px solid #FCE7F3 !important;
+  border-right: 1.5px solid #FCE7F3 !important;
+  border-bottom: 1.5px solid #FCE7F3 !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 14px 18px !important;
   margin: 10px 0 !important;
   font-size: 21px !important;
   font-family: Georgia, serif !important;
-  color: #2D251F !important;
+  color: #4A2234 !important;
   line-height: 1.85 !important;
 }
 .vocab-colloc-box {
-  background: linear-gradient(135deg, #FAF7ED 0%, #F5EED8 100%) !important;
-  border: 1px solid #E5D7B7 !important;
-  color: #6E5325 !important;
+  background: linear-gradient(135deg, #FFF1F2 0%, #FFE4E6 100%) !important;
+  border: 1.5px solid #FECDD3 !important;
+  color: #9F1239 !important;
   padding: 10px 16px !important;
-  border-radius: 10px !important;
+  border-radius: 12px !important;
   font-size: 18px !important;
   line-height: 1.6 !important;
+}
+
+/* ── 浮動按鈕：魔法少女愛心糖果泡泡 (Magic Girl Bubbles) ── */
+#proj-btn, #bb-float-btn {
+  background: linear-gradient(135deg, #FFF1F2 0%, #FCE7F3 100%) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 2px solid #F472B6 !important;
+  color: #831843 !important;
+  box-shadow: 0 8px 26px rgba(244, 114, 182, 0.32), inset 0 1px 0 #FFFFFF !important;
+  border-radius: 28px !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+#proj-btn:hover, #bb-float-btn:hover {
+  background: #FFFFFF !important;
+  box-shadow: 0 12px 32px rgba(236, 72, 153, 0.45) !important;
+  transform: translateY(-3px) scale(1.05) !important;
 }
 
 /* ── 護眼老花友善字級與排版 ── */
@@ -7918,7 +7957,7 @@ div[style*="background:#fef3c7"], div[style*="background:#fef9c3"] {
 
 /* ── 投影模式 ── */
 body.proj {
-  background: radial-gradient(120% 120% at 20% 10%, #FDFCF9 0%, #F6F2EC 100%) fixed !important;
+  background: radial-gradient(120% 120% at 20% 10%, #FFF5F7 0%, #FDF2F8 100%) fixed !important;
   overflow-x: hidden !important;
 }
 body.proj * { font-size: 38px !important; line-height: 1.8 !important; }
