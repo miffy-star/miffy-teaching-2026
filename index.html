@@ -13640,7 +13640,7 @@ document.getElementById('cc-modal').addEventListener('click', function(e) {
       <div class="stage-right-content">
         <!-- 0. 課文逐句解剖區 (Default in Stage) -->
         <div id="stage-pane-reading" style="display:none">
-    <div class="reading-deck-container" style="background:#FFF5F7;border:2px solid #FBCFE8;border-radius:18px;padding:16px;margin-bottom:16px;box-shadow:0 4px 16px rgba(244,114,182,0.1)">
+    <div id="deck-U04" class="reading-deck-container" style="background:#FFF5F7;border:2px solid #FBCFE8;border-radius:18px;padding:16px;margin-bottom:16px;box-shadow:0 4px 16px rgba(244,114,182,0.1)">
       <!-- Deck Header -->
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
         <div style="display:flex;align-items:center;gap:8px">
@@ -14891,6 +14891,118 @@ document.getElementById('cc-modal').addEventListener('click', function(e) {
         
       </div>
     </div>
+    
+
+    <div id="deck-U06" class="reading-deck-container" style="background:#FFFFFF;border:2.5px solid #F59E0B;border-radius:20px;padding:20px;margin-bottom:16px;box-shadow:0 8px 24px rgba(245,158,11,0.08)">
+      <!-- Deck Header -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:28px">📖</span>
+          <div>
+            <div style="font-size:22px;font-weight:900;color:#1E3A8A">三民高一 U06 課文逐句互動解剖台（The Real Price of Plastic）</div>
+            <div style="font-size:15px;color:#92400E;font-weight:700">官方課文全 5 大段落：塑膠危機、海洋浩劫、微塑膠傳播、生態受難與全球行動</div>
+          </div>
+        </div>
+        <!-- Paragraph Filter Pills -->
+        <div class="para-filter-bar" style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="para-pill active" onclick="filterReadingPara(this, 'all')">全部段落 (全篇)</button>
+          <button class="para-pill" onclick="filterReadingPara(this, '1')">第 1 段 (塑膠氾濫)</button>
+          <button class="para-pill" onclick="filterReadingPara(this, '2')">第 2 段 (海洋浩劫)</button>
+          <button class="para-pill" onclick="filterReadingPara(this, '3')">第 3 段 (微塑膠排水)</button>
+          <button class="para-pill" onclick="filterReadingPara(this, '4')">第 4 段 (食物鏈毒害)</button>
+          <button class="para-pill" onclick="filterReadingPara(this, '5')">第 5 段 (拯救地球行動)</button>
+        </div>
+      </div>
+
+      <!-- 段落內容展示 -->
+      <div class="reading-sentences-stream" style="display:flex;flex-direction:column;gap:14px">
+
+        <!-- Paragraph 1 -->
+        <div class="reading-sent-card" data-para="1" style="background:#F8FAFC;border:2px solid #E2E8F0;border-radius:14px;padding:14px 18px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span style="background:#1D4ED8;color:#fff;font-size:13px;font-weight:800;padding:2px 8px;border-radius:6px">Para 1-1</span>
+            <span style="color:#64748B;font-size:14px;font-weight:700">一次性塑膠問題</span>
+          </div>
+          <div style="font-size:21px;line-height:1.8;color:#0F172A">
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#DBEAFE;padding:2px 8px;border-radius:6px;margin:2px">Plastic items</span>
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#FEF08A;padding:2px 8px;border-radius:6px;margin:2px">are commonly used only once</span>
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#FEE2E2;padding:2px 8px;border-radius:6px;margin:2px">and then thrown away.</span>
+          </div>
+          <div style="font-size:16px;color:#475569;margin-top:6px">中文：塑膠製品通常只被使用一次就被隨手丟棄。</div>
+        </div>
+
+        <div class="reading-sent-card" data-para="1" style="background:#F8FAFC;border:2px solid #E2E8F0;border-radius:14px;padding:14px 18px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span style="background:#1D4ED8;color:#fff;font-size:13px;font-weight:800;padding:2px 8px;border-radius:6px">Para 1-2</span>
+            <span style="color:#64748B;font-size:14px;font-weight:700">驚人數字統計</span>
+          </div>
+          <div style="font-size:21px;line-height:1.8;color:#0F172A">
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#DBEAFE;padding:2px 8px;border-radius:6px;margin:2px">In fact, every week,</span>
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#FEF08A;padding:2px 8px;border-radius:6px;margin:2px">Americans discard</span>
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#D1FAE5;padding:2px 8px;border-radius:6px;margin:2px;font-weight:700;border-bottom:2px solid #059669">350 million plastic bottles.</span>
+          </div>
+          <div style="font-size:16px;color:#475569;margin-top:6px">中文：事實上，美國人每週就丟棄三億五千萬個寶特瓶。</div>
+        </div>
+
+        <!-- Paragraph 2 -->
+        <div class="reading-sent-card" data-para="2" style="background:#F8FAFC;border:2px solid #E2E8F0;border-radius:14px;padding:14px 18px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span style="background:#DC2626;color:#fff;font-size:13px;font-weight:800;padding:2px 8px;border-radius:6px">Para 2-1</span>
+            <span style="color:#64748B;font-size:14px;font-weight:700">海洋淪為受害者</span>
+          </div>
+          <div style="font-size:21px;line-height:1.8;color:#0F172A">
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#DBEAFE;padding:2px 8px;border-radius:6px;margin:2px">This problem is</span>
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#FEE2E2;padding:2px 8px;border-radius:6px;margin:2px;font-weight:700;border-bottom:2px solid #DC2626">an environmental disaster,</span>
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#FEF08A;padding:2px 8px;border-radius:6px;margin:2px">and the ocean has fallen victim to it.</span>
+          </div>
+          <div style="font-size:16px;color:#475569;margin-top:6px">中文：這個問題是一場環境災難，而海洋已經淪為其受害者。</div>
+        </div>
+
+        <!-- Paragraph 3 -->
+        <div class="reading-sent-card" data-para="3" style="background:#F8FAFC;border:2px solid #E2E8F0;border-radius:14px;padding:14px 18px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span style="background:#D97706;color:#fff;font-size:13px;font-weight:800;padding:2px 8px;border-radius:6px">Para 3-1</span>
+            <span style="color:#64748B;font-size:14px;font-weight:700">微塑膠進入排水系統</span>
+          </div>
+          <div style="font-size:21px;line-height:1.8;color:#0F172A">
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#DBEAFE;padding:2px 8px;border-radius:6px;margin:2px">Plastic is contained</span>
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#FEF08A;padding:2px 8px;border-radius:6px;margin:2px">in common household products,</span>
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#D1FAE5;padding:2px 8px;border-radius:6px;margin:2px">such as toothpaste and face scrubs.</span>
+          </div>
+          <div style="font-size:16px;color:#475569;margin-top:6px">中文：塑膠包含在常見的家庭用品中，例如牙膏和洗面磨砂膏。</div>
+        </div>
+
+        <!-- Paragraph 4 -->
+        <div class="reading-sent-card" data-para="4" style="background:#F8FAFC;border:2px solid #E2E8F0;border-radius:14px;padding:14px 18px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span style="background:#7C3AED;color:#fff;font-size:13px;font-weight:800;padding:2px 8px;border-radius:6px">Para 4-1</span>
+            <span style="color:#64748B;font-size:14px;font-weight:700">塑膠濃湯與生物誤食</span>
+          </div>
+          <div style="font-size:21px;line-height:1.8;color:#0F172A">
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#DBEAFE;padding:2px 8px;border-radius:6px;margin:2px">Biologists now even call</span>
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#FEE2E2;padding:2px 8px;border-radius:6px;margin:2px;font-weight:700;border-bottom:2px solid #7C3AED">the ocean "plastic soup"</span>
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#FEF08A;padding:2px 8px;border-radius:6px;margin:2px">owing to the plastic everywhere.</span>
+          </div>
+          <div style="font-size:16px;color:#475569;margin-top:6px">中文：生物學家現在甚至因為到處都是塑膠，而稱海洋為「塑膠濃湯」。</div>
+        </div>
+
+        <!-- Paragraph 5 -->
+        <div class="reading-sent-card" data-para="5" style="background:#F8FAFC;border:2px solid #E2E8F0;border-radius:14px;padding:14px 18px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span style="background:#059669;color:#fff;font-size:13px;font-weight:800;padding:2px 8px;border-radius:6px">Para 5-1</span>
+            <span style="color:#64748B;font-size:14px;font-weight:700">挽救地球的行動方案</span>
+          </div>
+          <div style="font-size:21px;line-height:1.8;color:#0F172A">
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#DBEAFE;padding:2px 8px;border-radius:6px;margin:2px">Each of us has the power</span>
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#D1FAE5;padding:2px 8px;border-radius:6px;margin:2px;font-weight:700;border-bottom:2px solid #059669">to change the world.</span>
+            <span class="chunk" style="display:inline-block;white-space:nowrap;background:#FEF08A;padding:2px 8px;border-radius:6px;margin:2px">Let\'s begin today and work together to save our planet.</span>
+          </div>
+          <div style="font-size:16px;color:#475569;margin-top:6px">中文：我們每個人都有改變世界的力量。讓我們從今天開始，攜手合作拯救我們的地球。</div>
+        </div>
+
+      </div>
+    </div>
+
     </div>
         <!-- 1. 單字語塊區 -->
         <div id="stage-pane-vocab" style="display:block"></div>
@@ -15037,7 +15149,8 @@ function loadStageUnit(unitKey) {
   }
 
   // 3. Update Reading Deck in Pane (📖 Tab 1) - PREVENT DESYNC
-  var readingPane = document.getElementById('stage-pane-reading');
+  var d4 = document.getElementById('deck-U04');
+  var d6 = document.getElementById('deck-U06');
   var btnReading = document.getElementById('rtab-btn-reading');
   var btnVocab = document.getElementById('rtab-btn-vocab');
 
@@ -15045,23 +15158,13 @@ function loadStageUnit(unitKey) {
     btnVocab.innerHTML = "🎯 " + unitKey + " 課本單字例句 (Words for Production)";
   }
 
-  if(readingPane) {
-    if(unitKey === 'U06') {
-      var deckU6 = document.getElementById('deck-U06');
-      if(deckU6) {
-        readingPane.innerHTML = deckU6.outerHTML;
-      }
-      if(btnReading) btnReading.innerHTML = "📖 U06 課文逐句解剖 (5大段落)";
-    } else if(unitKey === 'U04') {
-      var deckU4 = document.querySelector('#t-g10 .reading-deck-container');
-      if(deckU4) {
-        readingPane.innerHTML = deckU4.outerHTML;
-      }
-      if(btnReading) btnReading.innerHTML = "📖 U04 課文逐句解剖 (25句)";
-    } else {
-      readingPane.innerHTML = '<div style="padding:24px;text-align:center;color:#475569;font-size:18px;"><div style="font-size:36px;margin-bottom:8px">📖</div><b>' + unitKey + ' 課文逐句解剖準備中</b><br><span style="font-size:15px;color:#64748B">老師可直接點選上方【🎯 ' + unitKey + ' 課本單字例句】檢視本課 Words for Production 核心例句！</span></div>';
-      if(btnReading) btnReading.innerHTML = "📖 " + unitKey + " 課文解剖";
-    }
+  if(d4) d4.style.display = (unitKey === 'U04') ? 'block' : 'none';
+  if(d6) d6.style.display = (unitKey === 'U06') ? 'block' : 'none';
+
+  if(btnReading) {
+    if(unitKey === 'U06') btnReading.innerHTML = "📖 U06 課文逐句解剖 (5大段落)";
+    else if(unitKey === 'U04') btnReading.innerHTML = "📖 U04 課文逐句解剖 (25句)";
+    else btnReading.innerHTML = "📖 " + unitKey + " 課文解剖";
   }
 
   // 4. Default to Vocab Tab (Words for Production) as requested by teacher!
