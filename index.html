@@ -13582,7 +13582,7 @@ document.getElementById('cc-modal').addEventListener('click', function(e) {
   <!-- 頂部控制列 -->
   <div class="stage-topbar">
     <div class="stage-title">
-      <span>✨ 🎀 課堂雙欄投影講台 🎀 ✨</span>
+      <span>🎨 ✂️ 課堂雙欄投影講台 🌿 ✨</span>
     </div>
 
     <!-- 單元下拉選單 -->
@@ -13590,9 +13590,9 @@ document.getElementById('cc-modal').addEventListener('click', function(e) {
       <option value="U01">高一 U01 — The First Day of School Around the World</option>
       <option value="U02">高一 U02 — A Lesson in Forgiveness</option>
       <option value="U03">高一 U03 — Making Society Work</option>
-      <option value="U04" selected>高一 U04 — A Colorful Life</option>
+      <option value="U04">高一 U04 — A Colorful Life</option>
       <option value="U05">高一 U05 — Go to Bed!</option>
-      <option value="U06">高一 U06 — The Real Price of Plastic</option>
+      <option value="U06" selected>高一 U06 — The Real Price of Plastic</option>
       <option value="U07">高一 U07 — A Little Science Works a Lot of Magic</option>
       <option value="U08">高一 U08 — Customs and Superstitions Everywhere</option>
       <option value="U09">高一 U09 — The World's Love Affair with Chocolate</option>
@@ -13619,11 +13619,11 @@ document.getElementById('cc-modal').addEventListener('click', function(e) {
     <!-- 左欄：課本 PDF 專區 -->
     <div id="stage-left">
       <div class="stage-pdf-toolbar">
-        <span id="stage-pdf-title">📖 三民高一第一冊 課本 PDF</span>
+        <span id="stage-pdf-title">📖 高一 U06 — The Real Price of Plastic</span>
         <button class="stage-btn-pill" style="padding:2px 10px;font-size:13px;margin-left:auto" onclick="reloadStagePdf()">🔄 重新載入</button>
         <button class="stage-btn-pill" style="padding:2px 10px;font-size:13px" onclick="openPdfNewTab()">↗️ 另開全頁</button>
       </div>
-      <iframe id="stage-pdf-frame" src="pdf/g10_U04.pdf"></iframe>
+      <iframe id="stage-pdf-frame" src="pdf/g10_U06.pdf"></iframe>
     </div>
 
     <!-- 右欄：語塊單字例句 ＆ 即席句構板書 -->
@@ -15005,8 +15005,518 @@ document.getElementById('cc-modal').addEventListener('click', function(e) {
 
     </div>
         <!-- 1. 單字語塊區 -->
-        <div id="stage-pane-vocab" style="display:block"></div>
+        <div id="stage-pane-vocab" style="display:block">
 
+  <div style="background:#fff;border-left:5px solid #059669;padding:14px 18px;border-radius:0 8px 8px 0;margin-bottom:18px;box-shadow:0 2px 6px rgba(0,0,0,0.03)">
+    <div style="font-weight:800;color:#047857;font-size:18px;margin-bottom:6px">💡 明芬老師課堂重點提示（Words for Production 官方例句）：</div>
+    <div style="color:#334155;font-size:17px">
+      下方為三民高一 U06 課本官方 <b>Words for Production 精選 10 大核心單字例句</b>（涵蓋 40% 以上段考克漏字命題），已為同學做好語塊劃分，請大聲唸出！
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div class="vocab-chunk-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap">
+        <span style="background:#0f766e;color:#fff;font-weight:900;padding:2px 10px;border-radius:6px;font-size:15px">重點 01</span>
+        <span class="vocab-word-title">plastic</span>
+        <span style="font-size:18px;color:#64748b;font-weight:600">[n. [U] 塑膠]</span>
+        <span style="font-size:18px;color:#0d9488;font-weight:700">★ 塑膠製品；塑膠材質</span>
+      </div>
+      <div class="vocab-ex-box">
+        
+        <!-- 句構模式切換列 -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:6px">
+          <div style="font-size:15px;color:#0f766e;font-weight:800;display:flex;align-items:center;gap:6px">
+            <span>📖 課本原句 (Words for Production)</span>
+          </div>
+          <div class="stx-mode-bar" data-card-id="U06_01">
+            <button class="stx-mbtn active" onclick="switchCardMode(this, 'chunk')">🔄 語塊模式</button>
+            <button class="stx-mbtn btn-xray" onclick="switchCardMode(this, 'xray')">🦴 骨架透視 (淡化修飾)</button>
+            <button class="stx-mbtn btn-mask" onclick="switchCardMode(this, 'mask')">🎯 問答遮罩</button>
+          </div>
+        </div>
+
+        <!-- 句子舞台（三模式原地切換） -->
+        <div class="card-sentence-stage">
+          <div class="mode-chunk">
+            <div><span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">The spaghetti</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#f1f5f9;padding:4px 10px;border-radius:6px;margin:3px;">in the window display</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">is not real.</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">It is made of</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#dcfce7;padding:4px 10px;border-radius:6px;margin:3px;border-bottom:3px solid #16a34a;font-weight:700;">plastic.</span></div>
+          </div>
+          <div class="mode-xray" style="display:none">
+            <div class="stx-xray-box" style="font-size:24px;line-height:1.8;padding:6px 0"><span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">S 主詞</span>The spaghetti</span> <span class="stx-token stx-m-faded"><span class="tag-badge" style="background:#64748B">修飾語</span>in the window display</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V 核心動詞</span>is not</span> <span class="stx-token stx-o"><span class="tag-badge" style="background:#059669">SC 主詞補語</span>real</span> <span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">S 主詞</span>It</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V 核心動詞</span>is made of</span> <span class="stx-token stx-o"><span class="tag-badge" style="background:#059669">O 核心受詞</span>plastic</span></div>
+          </div>
+          <div class="mode-mask" style="display:none">
+            <div class="stx-mask-box" style="font-size:24px;line-height:2.2;padding:6px 0"><span class="mask-slot" data-role="s"><button onclick="revealMaskSlot(this, 'U06_01', 's')" class="stx-mask-pill">❓ 主詞是什麼？</button></span> <span class="mask-slot" data-role="v"><button onclick="revealMaskSlot(this, 'U06_01', 'v')" class="stx-mask-pill">❓ 核心動詞是什麼？</button></span> <span class="mask-slot" data-role="o"><button onclick="revealMaskSlot(this, 'U06_01', 'o')" class="stx-mask-pill">❓ 核心單字是什麼？</button></span>
+              <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                <button onclick="revealAllMaskSlots(this, 'U06_01')" style="background:#EC4899;color:#fff;border:none;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">✨ 一鍵全揭曉</button>
+                <button onclick="resetMaskSlots(this, 'U06_01')" style="background:#FFF0F5;color:#BE185D;border:1px solid #FBCFE8;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">🔒 重新蓋上遮罩</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 明芬老師導讀避雷指南 -->
+        <div class="stx-card-tip" style="display:none">
+          <span class="av av-xs av-teach" style="width:28px;height:28px;flex-shrink:0" role="img"></span>
+          <span class="stx-tip-text"><b>🦴 明芬老師骨架透視：</b>💡 <b>be made of + 原料</b>：看得出原材料（如塑膠、玻璃）；<b>be made from + 原料</b>：看不出原材料（如小麥做成麵包）。</span>
+        </div>
+        
+        <div class="vocab-colloc-box">
+          ⚡ <b>段考必考焦點：</b> be made of plastic（由塑膠製成）｜ microplastics（塑膠微粒）
+        </div>
+      </div>
+    </div>
+    <div class="vocab-chunk-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap">
+        <span style="background:#0f766e;color:#fff;font-weight:900;padding:2px 10px;border-radius:6px;font-size:15px">重點 02</span>
+        <span class="vocab-word-title">lay</span>
+        <span style="font-size:18px;color:#64748b;font-weight:600">[vt. (laid-laid-laying) 放置]</span>
+        <span style="font-size:18px;color:#0d9488;font-weight:700">★ 輕輕平放、下蛋</span>
+      </div>
+      <div class="vocab-ex-box">
+        
+        <!-- 句構模式切換列 -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:6px">
+          <div style="font-size:15px;color:#0f766e;font-weight:800;display:flex;align-items:center;gap:6px">
+            <span>📖 課本原句 (Words for Production)</span>
+          </div>
+          <div class="stx-mode-bar" data-card-id="U06_02">
+            <button class="stx-mbtn active" onclick="switchCardMode(this, 'chunk')">🔄 語塊模式</button>
+            <button class="stx-mbtn btn-xray" onclick="switchCardMode(this, 'xray')">🦴 骨架透視 (淡化修飾)</button>
+            <button class="stx-mbtn btn-mask" onclick="switchCardMode(this, 'mask')">🎯 問答遮罩</button>
+          </div>
+        </div>
+
+        <!-- 句子舞台（三模式原地切換） -->
+        <div class="card-sentence-stage">
+          <div class="mode-chunk">
+            <div><span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">The mother</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#dcfce7;padding:4px 10px;border-radius:6px;margin:3px;border-bottom:3px solid #16a34a;font-weight:700;">laid the baby</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#f1f5f9;padding:4px 10px;border-radius:6px;margin:3px;">in the cradle,</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#f1f5f9;padding:4px 10px;border-radius:6px;margin:3px;">and he soon</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">fell asleep.</span></div>
+          </div>
+          <div class="mode-xray" style="display:none">
+            <div class="stx-xray-box" style="font-size:24px;line-height:1.8;padding:6px 0"><span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">S 主詞</span>The mother</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V 核心動詞</span>laid</span> <span class="stx-token stx-o"><span class="tag-badge" style="background:#059669">O 受詞</span>the baby</span> <span class="stx-token stx-m-faded"><span class="tag-badge" style="background:#64748B">修飾語</span>in the cradle</span> <span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">S 主詞</span>he</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V 動詞</span>fell</span> <span class="stx-token stx-o"><span class="tag-badge" style="background:#059669">SC 補語</span>asleep</span></div>
+          </div>
+          <div class="mode-mask" style="display:none">
+            <div class="stx-mask-box" style="font-size:24px;line-height:2.2;padding:6px 0"><span class="mask-slot" data-role="s"><button onclick="revealMaskSlot(this, 'U06_02', 's')" class="stx-mask-pill">❓ 主詞是誰？</button></span> <span class="mask-slot" data-role="v"><button onclick="revealMaskSlot(this, 'U06_02', 'v')" class="stx-mask-pill">❓ 動詞是哪個？(注意三態！)</button></span> <span class="mask-slot" data-role="o"><button onclick="revealMaskSlot(this, 'U06_02', 'o')" class="stx-mask-pill">❓ 受詞與地點是什麼？</button></span>
+              <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                <button onclick="revealAllMaskSlots(this, 'U06_02')" style="background:#EC4899;color:#fff;border:none;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">✨ 一鍵全揭曉</button>
+                <button onclick="resetMaskSlots(this, 'U06_02')" style="background:#FFF0F5;color:#BE185D;border:1px solid #FBCFE8;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">🔒 重新蓋上遮罩</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 明芬老師導讀避雷指南 -->
+        <div class="stx-card-tip" style="display:none">
+          <span class="av av-xs av-teach" style="width:28px;height:28px;flex-shrink:0" role="img"></span>
+          <span class="stx-tip-text"><b>🦴 明芬老師骨架透視：</b>💡 <b>大考三態大魔王：</b> lay - laid - laid（及物：放置、產卵）；lie - lay - lain（不及物：躺、位於）；lie - lied - lied（說謊）！</span>
+        </div>
+        
+        <div class="vocab-colloc-box">
+          ⚡ <b>段考必考焦點：</b> lay O in/on N（將...平放在...上）｜ lay an egg（下蛋）
+        </div>
+      </div>
+    </div>
+    <div class="vocab-chunk-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap">
+        <span style="background:#0f766e;color:#fff;font-weight:900;padding:2px 10px;border-radius:6px;font-size:15px">重點 03</span>
+        <span class="vocab-word-title">disaster</span>
+        <span style="font-size:18px;color:#64748b;font-weight:600">[n. [C] 災難，災害]</span>
+        <span style="font-size:18px;color:#0d9488;font-weight:700">★ 重大天災或人為浩劫</span>
+      </div>
+      <div class="vocab-ex-box">
+        
+        <!-- 句構模式切換列 -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:6px">
+          <div style="font-size:15px;color:#0f766e;font-weight:800;display:flex;align-items:center;gap:6px">
+            <span>📖 課本原句 (Words for Production)</span>
+          </div>
+          <div class="stx-mode-bar" data-card-id="U06_03">
+            <button class="stx-mbtn active" onclick="switchCardMode(this, 'chunk')">🔄 語塊模式</button>
+            <button class="stx-mbtn btn-xray" onclick="switchCardMode(this, 'xray')">🦴 骨架透視 (淡化修飾)</button>
+            <button class="stx-mbtn btn-mask" onclick="switchCardMode(this, 'mask')">🎯 問答遮罩</button>
+          </div>
+        </div>
+
+        <!-- 句子舞台（三模式原地切換） -->
+        <div class="card-sentence-stage">
+          <div class="mode-chunk">
+            <div><span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">A large earthquake</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">hit Italy in 2016,</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">and more than 200 people</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">died in</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#dcfce7;padding:4px 10px;border-radius:6px;margin:3px;border-bottom:3px solid #16a34a;font-weight:700;">the terrible disaster.</span></div>
+          </div>
+          <div class="mode-xray" style="display:none">
+            <div class="stx-xray-box" style="font-size:24px;line-height:1.8;padding:6px 0"><span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">S 主詞</span>A large earthquake</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V 動詞</span>hit</span> <span class="stx-token stx-o"><span class="tag-badge" style="background:#059669">O 受詞</span>Italy</span> <span class="stx-token stx-m-faded"><span class="tag-badge" style="background:#64748B">修飾語</span>in 2016</span> <span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">S 主詞</span>more than 200 people</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V 動詞</span>died</span> <span class="stx-token stx-m-faded"><span class="tag-badge" style="background:#64748B">修飾語</span>in the terrible disaster</span></div>
+          </div>
+          <div class="mode-mask" style="display:none">
+            <div class="stx-mask-box" style="font-size:24px;line-height:2.2;padding:6px 0"><span class="mask-slot" data-role="s"><button onclick="revealMaskSlot(this, 'U06_03', 's')" class="stx-mask-pill">❓ 主詞是什麼？</button></span> <span class="mask-slot" data-role="v"><button onclick="revealMaskSlot(this, 'U06_03', 'v')" class="stx-mask-pill">❓ 核心動詞是誰？</button></span> <span class="mask-slot" data-role="o"><button onclick="revealMaskSlot(this, 'U06_03', 'o')" class="stx-mask-pill">❓ 發生了什麼災難？</button></span>
+              <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                <button onclick="revealAllMaskSlots(this, 'U06_03')" style="background:#EC4899;color:#fff;border:none;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">✨ 一鍵全揭曉</button>
+                <button onclick="resetMaskSlots(this, 'U06_03')" style="background:#FFF0F5;color:#BE185D;border:1px solid #FBCFE8;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">🔒 重新蓋上遮罩</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 明芬老師導讀避雷指南 -->
+        <div class="stx-card-tip" style="display:none">
+          <span class="av av-xs av-teach" style="width:28px;height:28px;flex-shrink:0" role="img"></span>
+          <span class="stx-tip-text"><b>🦴 明芬老師骨架透視：</b>💡 <b>natural disaster</b>（天然災害，如地震、海嘯）；<b>environmental disaster</b>（環境浩劫）。搭配動詞用 <b>hit / strike</b>！</span>
+        </div>
+        
+        <div class="vocab-colloc-box">
+          ⚡ <b>段考必考焦點：</b> die in the disaster（在災難中喪生）｜ environmental disaster（環境災難）
+        </div>
+      </div>
+    </div>
+    <div class="vocab-chunk-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap">
+        <span style="background:#0f766e;color:#fff;font-weight:900;padding:2px 10px;border-radius:6px;font-size:15px">重點 04</span>
+        <span class="vocab-word-title">litter</span>
+        <span style="font-size:18px;color:#64748b;font-weight:600">[n. [U] (公共場所棄置的) 垃圾]</span>
+        <span style="font-size:18px;color:#0d9488;font-weight:700">★ 隨地亂丟的廢棄物</span>
+      </div>
+      <div class="vocab-ex-box">
+        
+        <!-- 句構模式切換列 -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:6px">
+          <div style="font-size:15px;color:#0f766e;font-weight:800;display:flex;align-items:center;gap:6px">
+            <span>📖 課本原句 (Words for Production)</span>
+          </div>
+          <div class="stx-mode-bar" data-card-id="U06_04">
+            <button class="stx-mbtn active" onclick="switchCardMode(this, 'chunk')">🔄 語塊模式</button>
+            <button class="stx-mbtn btn-xray" onclick="switchCardMode(this, 'xray')">🦴 骨架透視 (淡化修飾)</button>
+            <button class="stx-mbtn btn-mask" onclick="switchCardMode(this, 'mask')">🎯 問答遮罩</button>
+          </div>
+        </div>
+
+        <!-- 句子舞台（三模式原地切換） -->
+        <div class="card-sentence-stage">
+          <div class="mode-chunk">
+            <div><span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">If you drop</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#dcfce7;padding:4px 10px;border-radius:6px;margin:3px;border-bottom:3px solid #16a34a;font-weight:700;">any litter</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#f1f5f9;padding:4px 10px;border-radius:6px;margin:3px;">in a national park,</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">you will be fined</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#fef08a;padding:4px 10px;border-radius:6px;margin:3px;">NT$3,000.</span></div>
+          </div>
+          <div class="mode-xray" style="display:none">
+            <div class="stx-xray-box" style="font-size:24px;line-height:1.8;padding:6px 0"><span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">S 主詞</span>you</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V 動詞</span>drop</span> <span class="stx-token stx-o"><span class="tag-badge" style="background:#059669">O 受詞</span>any litter</span> <span class="stx-token stx-m-faded"><span class="tag-badge" style="background:#64748B">修飾語</span>in a national park</span> <span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">S 主句主詞</span>you</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V 被動動詞</span>will be fined</span> <span class="stx-token stx-o"><span class="tag-badge" style="background:#059669">金額</span>NT$3,000</span></div>
+          </div>
+          <div class="mode-mask" style="display:none">
+            <div class="stx-mask-box" style="font-size:24px;line-height:2.2;padding:6px 0"><span class="mask-slot" data-role="s"><button onclick="revealMaskSlot(this, 'U06_04', 's')" class="stx-mask-pill">❓ 條件句受詞是什麼？</button></span> <span class="mask-slot" data-role="v"><button onclick="revealMaskSlot(this, 'U06_04', 'v')" class="stx-mask-pill">❓ 主句動詞被動態是什麼？</button></span> <span class="mask-slot" data-role="o"><button onclick="revealMaskSlot(this, 'U06_04', 'o')" class="stx-mask-pill">❓ 罰鍰金額是多少？</button></span>
+              <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                <button onclick="revealAllMaskSlots(this, 'U06_04')" style="background:#EC4899;color:#fff;border:none;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">✨ 一鍵全揭曉</button>
+                <button onclick="resetMaskSlots(this, 'U06_04')" style="background:#FFF0F5;color:#BE185D;border:1px solid #FBCFE8;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">🔒 重新蓋上遮罩</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 明芬老師導讀避雷指南 -->
+        <div class="stx-card-tip" style="display:none">
+          <span class="av av-xs av-teach" style="width:28px;height:28px;flex-shrink:0" role="img"></span>
+          <span class="stx-tip-text"><b>🦴 明芬老師骨架透視：</b>💡 <b>litter 是不可數名詞 [U]</b>！指丟在地上的垃圾。<b>fine 作動詞是「處罰款」</b>，被動式為 <b>be fined + 金額</b>。</span>
+        </div>
+        
+        <div class="vocab-colloc-box">
+          ⚡ <b>段考必考焦點：</b> drop litter（亂丟垃圾）＝ litter (v.)｜ be fined + 金額（被處以罰款）
+        </div>
+      </div>
+    </div>
+    <div class="vocab-chunk-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap">
+        <span style="background:#0f766e;color:#fff;font-weight:900;padding:2px 10px;border-radius:6px;font-size:15px">重點 05</span>
+        <span class="vocab-word-title">tide</span>
+        <span style="font-size:18px;color:#64748b;font-weight:600">[n. [C] 潮汐，潮水]</span>
+        <span style="font-size:18px;color:#0d9488;font-weight:700">★ 海水漲落規律</span>
+      </div>
+      <div class="vocab-ex-box">
+        
+        <!-- 句構模式切換列 -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:6px">
+          <div style="font-size:15px;color:#0f766e;font-weight:800;display:flex;align-items:center;gap:6px">
+            <span>📖 課本原句 (Words for Production)</span>
+          </div>
+          <div class="stx-mode-bar" data-card-id="U06_05">
+            <button class="stx-mbtn active" onclick="switchCardMode(this, 'chunk')">🔄 語塊模式</button>
+            <button class="stx-mbtn btn-xray" onclick="switchCardMode(this, 'xray')">🦴 骨架透視 (淡化修飾)</button>
+            <button class="stx-mbtn btn-mask" onclick="switchCardMode(this, 'mask')">🎯 問答遮罩</button>
+          </div>
+        </div>
+
+        <!-- 句子舞台（三模式原地切換） -->
+        <div class="card-sentence-stage">
+          <div class="mode-chunk">
+            <div><span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">The road</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#f1f5f9;padding:4px 10px;border-radius:6px;margin:3px;">to that island</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">disappears</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#dcfce7;padding:4px 10px;border-radius:6px;margin:3px;border-bottom:3px solid #16a34a;font-weight:700;">when the tide rises.</span></div>
+          </div>
+          <div class="mode-xray" style="display:none">
+            <div class="stx-xray-box" style="font-size:24px;line-height:1.8;padding:6px 0"><span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">S 主詞</span>The road</span> <span class="stx-token stx-m-faded"><span class="tag-badge" style="background:#64748B">修飾語</span>to that island</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V 不及物動詞</span>disappears</span> <span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">時間子句 S</span>the tide</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">時間子句 V</span>rises</span></div>
+          </div>
+          <div class="mode-mask" style="display:none">
+            <div class="stx-mask-box" style="font-size:24px;line-height:2.2;padding:6px 0"><span class="mask-slot" data-role="s"><button onclick="revealMaskSlot(this, 'U06_05', 's')" class="stx-mask-pill">❓ 主詞核心是什麼？</button></span> <span class="mask-slot" data-role="v"><button onclick="revealMaskSlot(this, 'U06_05', 'v')" class="stx-mask-pill">❓ 核心動詞是什麼？</button></span> <span class="mask-slot" data-role="m0"><button onclick="revealMaskSlot(this, 'U06_05', 'm0')" class="stx-mask-pill">❓ 什麼時候會消失？</button></span>
+              <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                <button onclick="revealAllMaskSlots(this, 'U06_05')" style="background:#EC4899;color:#fff;border:none;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">✨ 一鍵全揭曉</button>
+                <button onclick="resetMaskSlots(this, 'U06_05')" style="background:#FFF0F5;color:#BE185D;border:1px solid #FBCFE8;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">🔒 重新蓋上遮罩</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 明芬老師導讀避雷指南 -->
+        <div class="stx-card-tip" style="display:none">
+          <span class="av av-xs av-teach" style="width:28px;height:28px;flex-shrink:0" role="img"></span>
+          <span class="stx-tip-text"><b>🦴 明芬老師骨架透視：</b>💡 潮汐動詞搭配：<b>the tide rises</b>（漲潮） / <b>the tide falls</b>（退潮）。名詞常用 <b>high tide</b>（滿潮） / <b>low tide</b>（乾潮）。</span>
+        </div>
+        
+        <div class="vocab-colloc-box">
+          ⚡ <b>段考必考焦點：</b> when the tide rises/falls（當潮水漲起／退去時）｜ turn the tide（扭轉局勢）
+        </div>
+      </div>
+    </div>
+    <div class="vocab-chunk-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap">
+        <span style="background:#0f766e;color:#fff;font-weight:900;padding:2px 10px;border-radius:6px;font-size:15px">重點 06</span>
+        <span class="vocab-word-title">contain</span>
+        <span style="font-size:18px;color:#64748b;font-weight:600">[vt. 含有，容納]</span>
+        <span style="font-size:18px;color:#0d9488;font-weight:700">★ 內部包含某成分或物質</span>
+      </div>
+      <div class="vocab-ex-box">
+        
+        <!-- 句構模式切換列 -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:6px">
+          <div style="font-size:15px;color:#0f766e;font-weight:800;display:flex;align-items:center;gap:6px">
+            <span>📖 課本原句 (Words for Production)</span>
+          </div>
+          <div class="stx-mode-bar" data-card-id="U06_06">
+            <button class="stx-mbtn active" onclick="switchCardMode(this, 'chunk')">🔄 語塊模式</button>
+            <button class="stx-mbtn btn-xray" onclick="switchCardMode(this, 'xray')">🦴 骨架透視 (淡化修飾)</button>
+            <button class="stx-mbtn btn-mask" onclick="switchCardMode(this, 'mask')">🎯 問答遮罩</button>
+          </div>
+        </div>
+
+        <!-- 句子舞台（三模式原地切換） -->
+        <div class="card-sentence-stage">
+          <div class="mode-chunk">
+            <div><span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">Darcy is on a diet.</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">He has quit fried chicken</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">and any drink</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#dcfce7;padding:4px 10px;border-radius:6px;margin:3px;border-bottom:3px solid #16a34a;font-weight:700;">that contains sugar.</span></div>
+          </div>
+          <div class="mode-xray" style="display:none">
+            <div class="stx-xray-box" style="font-size:24px;line-height:1.8;padding:6px 0"><span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">S 主詞</span>He</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V 動詞</span>has quit</span> <span class="stx-token stx-o"><span class="tag-badge" style="background:#059669">O1 受詞一</span>fried chicken</span> <span class="stx-token stx-o"><span class="tag-badge" style="background:#059669">O2 受詞二</span>any drink</span> <span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">關係子句 S</span>that</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">關係子句 V</span>contains</span> <span class="stx-token stx-o"><span class="tag-badge" style="background:#059669">關係子句 O</span>sugar</span></div>
+          </div>
+          <div class="mode-mask" style="display:none">
+            <div class="stx-mask-box" style="font-size:24px;line-height:2.2;padding:6px 0"><span class="mask-slot" data-role="s"><button onclick="revealMaskSlot(this, 'U06_06', 's')" class="stx-mask-pill">❓ 主詞戒了什麼？</button></span> <span class="mask-slot" data-role="v"><button onclick="revealMaskSlot(this, 'U06_06', 'v')" class="stx-mask-pill">❓ 關係子句動詞是什麼？</button></span> <span class="mask-slot" data-role="o"><button onclick="revealMaskSlot(this, 'U06_06', 'o')" class="stx-mask-pill">❓ 含有什麼成分？</button></span>
+              <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                <button onclick="revealAllMaskSlots(this, 'U06_06')" style="background:#EC4899;color:#fff;border:none;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">✨ 一鍵全揭曉</button>
+                <button onclick="resetMaskSlots(this, 'U06_06')" style="background:#FFF0F5;color:#BE185D;border:1px solid #FBCFE8;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">🔒 重新蓋上遮罩</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 明芬老師導讀避雷指南 -->
+        <div class="stx-card-tip" style="display:none">
+          <span class="av av-xs av-teach" style="width:28px;height:28px;flex-shrink:0" role="img"></span>
+          <span class="stx-tip-text"><b>🦴 明芬老師骨架透視：</b>💡 <b>contain</b>（內部包含某物，如飲料含糖）；衍生名詞 <b>container</b>（容器）。注意 <b>quit + V-ing / N</b>（戒掉某習慣）。</span>
+        </div>
+        
+        <div class="vocab-colloc-box">
+          ⚡ <b>段考必考焦點：</b> contain microplastics（含有塑膠微粒）｜ airtight containers（密封容器）
+        </div>
+      </div>
+    </div>
+    <div class="vocab-chunk-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap">
+        <span style="background:#0f766e;color:#fff;font-weight:900;padding:2px 10px;border-radius:6px;font-size:15px">重點 07</span>
+        <span class="vocab-word-title">pollute</span>
+        <span style="font-size:18px;color:#64748b;font-weight:600">[vt. 汙染 (空氣、水等)]</span>
+        <span style="font-size:18px;color:#0d9488;font-weight:700">★ 使環境受毒害</span>
+      </div>
+      <div class="vocab-ex-box">
+        
+        <!-- 句構模式切換列 -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:6px">
+          <div style="font-size:15px;color:#0f766e;font-weight:800;display:flex;align-items:center;gap:6px">
+            <span>📖 課本原句 (Words for Production)</span>
+          </div>
+          <div class="stx-mode-bar" data-card-id="U06_07">
+            <button class="stx-mbtn active" onclick="switchCardMode(this, 'chunk')">🔄 語塊模式</button>
+            <button class="stx-mbtn btn-xray" onclick="switchCardMode(this, 'xray')">🦴 骨架透視 (淡化修飾)</button>
+            <button class="stx-mbtn btn-mask" onclick="switchCardMode(this, 'mask')">🎯 問答遮罩</button>
+          </div>
+        </div>
+
+        <!-- 句子舞台（三模式原地切換） -->
+        <div class="card-sentence-stage">
+          <div class="mode-chunk">
+            <div><span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">Industrial waste</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#f1f5f9;padding:4px 10px;border-radius:6px;margin:3px;">from the factory</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#dcfce7;padding:4px 10px;border-radius:6px;margin:3px;border-bottom:3px solid #16a34a;font-weight:700;">has polluted the river</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">and killed a lot of fish.</span></div>
+          </div>
+          <div class="mode-xray" style="display:none">
+            <div class="stx-xray-box" style="font-size:24px;line-height:1.8;padding:6px 0"><span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">S 主詞</span>Industrial waste</span> <span class="stx-token stx-m-faded"><span class="tag-badge" style="background:#64748B">修飾語</span>from the factory</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V1 動詞一</span>has polluted</span> <span class="stx-token stx-o"><span class="tag-badge" style="background:#059669">O1 受詞一</span>the river</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V2 動詞二</span>killed</span> <span class="stx-token stx-o"><span class="tag-badge" style="background:#059669">O2 受詞二</span>a lot of fish</span></div>
+          </div>
+          <div class="mode-mask" style="display:none">
+            <div class="stx-mask-box" style="font-size:24px;line-height:2.2;padding:6px 0"><span class="mask-slot" data-role="s"><button onclick="revealMaskSlot(this, 'U06_07', 's')" class="stx-mask-pill">❓ 主詞是什麼？</button></span> <span class="mask-slot" data-role="v"><button onclick="revealMaskSlot(this, 'U06_07', 'v')" class="stx-mask-pill">❓ 動詞一是什麼？</button></span> <span class="mask-slot" data-role="o"><button onclick="revealMaskSlot(this, 'U06_07', 'o')" class="stx-mask-pill">❓ 造成了什麼後果？</button></span>
+              <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                <button onclick="revealAllMaskSlots(this, 'U06_07')" style="background:#EC4899;color:#fff;border:none;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">✨ 一鍵全揭曉</button>
+                <button onclick="resetMaskSlots(this, 'U06_07')" style="background:#FFF0F5;color:#BE185D;border:1px solid #FBCFE8;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">🔒 重新蓋上遮罩</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 明芬老師導讀避雷指南 -->
+        <div class="stx-card-tip" style="display:none">
+          <span class="av av-xs av-teach" style="width:28px;height:28px;flex-shrink:0" role="img"></span>
+          <span class="stx-tip-text"><b>🦴 明芬老師骨架透視：</b>💡 <b>fish 單複數同形</b>（a lot of fish 毋須加 -es）！名詞為 <b>pollution [U]</b>（如 air / ocean pollution）。</span>
+        </div>
+        
+        <div class="vocab-colloc-box">
+          ⚡ <b>段考必考焦點：</b> pollute the ocean/river（汙染海洋／河流）｜ industrial pollution（工業汙染）
+        </div>
+      </div>
+    </div>
+    <div class="vocab-chunk-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap">
+        <span style="background:#0f766e;color:#fff;font-weight:900;padding:2px 10px;border-radius:6px;font-size:15px">重點 08</span>
+        <span class="vocab-word-title">consume</span>
+        <span style="font-size:18px;color:#64748b;font-weight:600">[vt. 吃喝，攝取；消耗]</span>
+        <span style="font-size:18px;color:#0d9488;font-weight:700">★ 大量消費或吃下肚</span>
+      </div>
+      <div class="vocab-ex-box">
+        
+        <!-- 句構模式切換列 -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:6px">
+          <div style="font-size:15px;color:#0f766e;font-weight:800;display:flex;align-items:center;gap:6px">
+            <span>📖 課本原句 (Words for Production)</span>
+          </div>
+          <div class="stx-mode-bar" data-card-id="U06_08">
+            <button class="stx-mbtn active" onclick="switchCardMode(this, 'chunk')">🔄 語塊模式</button>
+            <button class="stx-mbtn btn-xray" onclick="switchCardMode(this, 'xray')">🦴 骨架透視 (淡化修飾)</button>
+            <button class="stx-mbtn btn-mask" onclick="switchCardMode(this, 'mask')">🎯 問答遮罩</button>
+          </div>
+        </div>
+
+        <!-- 句子舞台（三模式原地切換） -->
+        <div class="card-sentence-stage">
+          <div class="mode-chunk">
+            <div><span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">People who consume</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#dcfce7;padding:4px 10px;border-radius:6px;margin:3px;border-bottom:3px solid #16a34a;font-weight:700;">too much red meat</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">are more likely to</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#fef08a;padding:4px 10px;border-radius:6px;margin:3px;">develop heart disease</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#fef08a;padding:4px 10px;border-radius:6px;margin:3px;">and high blood pressure.</span></div>
+          </div>
+          <div class="mode-xray" style="display:none">
+            <div class="stx-xray-box" style="font-size:24px;line-height:1.8;padding:6px 0"><span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">S 主詞</span>People</span> <span class="stx-token stx-m-faded"><span class="tag-badge" style="background:#64748B">關係子句</span>who consume too much red meat</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V 連綴動詞</span>are</span> <span class="stx-token stx-o"><span class="tag-badge" style="background:#059669">SC 補語</span>more likely to develop</span> <span class="stx-token stx-o"><span class="tag-badge" style="background:#059669">受詞</span>heart disease and high blood pressure</span></div>
+          </div>
+          <div class="mode-mask" style="display:none">
+            <div class="stx-mask-box" style="font-size:24px;line-height:2.2;padding:6px 0"><span class="mask-slot" data-role="s"><button onclick="revealMaskSlot(this, 'U06_08', 's')" class="stx-mask-pill">❓ 誰是主詞先行詞？</button></span> <span class="mask-slot" data-role="v"><button onclick="revealMaskSlot(this, 'U06_08', 'v')" class="stx-mask-pill">❓ 關係子句動詞與受詞是什麼？</button></span> <span class="mask-slot" data-role="o"><button onclick="revealMaskSlot(this, 'U06_08', 'o')" class="stx-mask-pill">❓ 容易罹患什麼疾病？</button></span>
+              <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                <button onclick="revealAllMaskSlots(this, 'U06_08')" style="background:#EC4899;color:#fff;border:none;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">✨ 一鍵全揭曉</button>
+                <button onclick="resetMaskSlots(this, 'U06_08')" style="background:#FFF0F5;color:#BE185D;border:1px solid #FBCFE8;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">🔒 重新蓋上遮罩</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 明芬老師導讀避雷指南 -->
+        <div class="stx-card-tip" style="display:none">
+          <span class="av av-xs av-teach" style="width:28px;height:28px;flex-shrink:0" role="img"></span>
+          <span class="stx-tip-text"><b>🦴 明芬老師骨架透視：</b>💡 大考超高頻片語：<b>be likely to + V</b>（很有可能做某事）。衍生名詞 <b>consumer</b>（消費者）與 <b>consumption</b>（消費量）。</span>
+        </div>
+        
+        <div class="vocab-colloc-box">
+          ⚡ <b>段考必考焦點：</b> consume red meat / gasoline（攝取紅肉／消耗汽油）｜ consumer rights（消費者權益）
+        </div>
+      </div>
+    </div>
+    <div class="vocab-chunk-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap">
+        <span style="background:#0f766e;color:#fff;font-weight:900;padding:2px 10px;border-radius:6px;font-size:15px">重點 09</span>
+        <span class="vocab-word-title">harmful</span>
+        <span style="font-size:18px;color:#64748b;font-weight:600">[adj. 有害的]</span>
+        <span style="font-size:18px;color:#0d9488;font-weight:700">★ 對人體或環境造成傷害</span>
+      </div>
+      <div class="vocab-ex-box">
+        
+        <!-- 句構模式切換列 -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:6px">
+          <div style="font-size:15px;color:#0f766e;font-weight:800;display:flex;align-items:center;gap:6px">
+            <span>📖 課本原句 (Words for Production)</span>
+          </div>
+          <div class="stx-mode-bar" data-card-id="U06_09">
+            <button class="stx-mbtn active" onclick="switchCardMode(this, 'chunk')">🔄 語塊模式</button>
+            <button class="stx-mbtn btn-xray" onclick="switchCardMode(this, 'xray')">🦴 骨架透視 (淡化修飾)</button>
+            <button class="stx-mbtn btn-mask" onclick="switchCardMode(this, 'mask')">🎯 問答遮罩</button>
+          </div>
+        </div>
+
+        <!-- 句子舞台（三模式原地切換） -->
+        <div class="card-sentence-stage">
+          <div class="mode-chunk">
+            <div><span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">Eating fast food too often</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">can be</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#dcfce7;padding:4px 10px;border-radius:6px;margin:3px;border-bottom:3px solid #16a34a;font-weight:700;">harmful to</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">our health.</span></div>
+          </div>
+          <div class="mode-xray" style="display:none">
+            <div class="stx-xray-box" style="font-size:24px;line-height:1.8;padding:6px 0"><span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">S 動名詞主詞</span>Eating fast food too often</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V 動詞</span>can be</span> <span class="stx-token stx-o"><span class="tag-badge" style="background:#059669">SC 補語</span>harmful</span> <span class="stx-token stx-m-faded"><span class="tag-badge" style="background:#64748B">修飾語</span>to our health</span></div>
+          </div>
+          <div class="mode-mask" style="display:none">
+            <div class="stx-mask-box" style="font-size:24px;line-height:2.2;padding:6px 0"><span class="mask-slot" data-role="s"><button onclick="revealMaskSlot(this, 'U06_09', 's')" class="stx-mask-pill">❓ 主詞是什麼？(注意動名詞！)</button></span> <span class="mask-slot" data-role="v"><button onclick="revealMaskSlot(this, 'U06_09', 'v')" class="stx-mask-pill">❓ 動詞是什麼？</button></span> <span class="mask-slot" data-role="o"><button onclick="revealMaskSlot(this, 'U06_09', 'o')" class="stx-mask-pill">❓ 核心片語是什麼？</button></span>
+              <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                <button onclick="revealAllMaskSlots(this, 'U06_09')" style="background:#EC4899;color:#fff;border:none;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">✨ 一鍵全揭曉</button>
+                <button onclick="resetMaskSlots(this, 'U06_09')" style="background:#FFF0F5;color:#BE185D;border:1px solid #FBCFE8;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">🔒 重新蓋上遮罩</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 明芬老師導讀避雷指南 -->
+        <div class="stx-card-tip" style="display:none">
+          <span class="av av-xs av-teach" style="width:28px;height:28px;flex-shrink:0" role="img"></span>
+          <span class="stx-tip-text"><b>🦴 明芬老師骨架透視：</b>💡 必背換句話說：<b>be harmful to = do harm to = cause harm to</b>（對...造成危害），介系詞一律搭配 <b>to</b>！</span>
+        </div>
+        
+        <div class="vocab-colloc-box">
+          ⚡ <b>段考必考焦點：</b> be harmful to one's health（對某人的健康有害）｜ cause harm to N（對...造成傷害）
+        </div>
+      </div>
+    </div>
+    <div class="vocab-chunk-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap">
+        <span style="background:#0f766e;color:#fff;font-weight:900;padding:2px 10px;border-radius:6px;font-size:15px">重點 10</span>
+        <span class="vocab-word-title">recycle</span>
+        <span style="font-size:18px;color:#64748b;font-weight:600">[vt. 回收，再利用]</span>
+        <span style="font-size:18px;color:#0d9488;font-weight:700">★ 將廢棄物循環再生</span>
+      </div>
+      <div class="vocab-ex-box">
+        
+        <!-- 句構模式切換列 -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:6px">
+          <div style="font-size:15px;color:#0f766e;font-weight:800;display:flex;align-items:center;gap:6px">
+            <span>📖 課本原句 (Words for Production)</span>
+          </div>
+          <div class="stx-mode-bar" data-card-id="U06_10">
+            <button class="stx-mbtn active" onclick="switchCardMode(this, 'chunk')">🔄 語塊模式</button>
+            <button class="stx-mbtn btn-xray" onclick="switchCardMode(this, 'xray')">🦴 骨架透視 (淡化修飾)</button>
+            <button class="stx-mbtn btn-mask" onclick="switchCardMode(this, 'mask')">🎯 問答遮罩</button>
+          </div>
+        </div>
+
+        <!-- 句子舞台（三模式原地切換） -->
+        <div class="card-sentence-stage">
+          <div class="mode-chunk">
+            <div><span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">Those glass bottles</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#dcfce7;padding:4px 10px;border-radius:6px;margin:3px;border-bottom:3px solid #16a34a;font-weight:700;">can be recycled</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#e0f2fe;padding:4px 10px;border-radius:6px;margin:3px;">and should be separated</span> <span class="chunk" style="display:inline-block;white-space:nowrap;background:#f1f5f9;padding:4px 10px;border-radius:6px;margin:3px;">from the other trash.</span></div>
+          </div>
+          <div class="mode-xray" style="display:none">
+            <div class="stx-xray-box" style="font-size:24px;line-height:1.8;padding:6px 0"><span class="stx-token stx-s"><span class="tag-badge" style="background:#1E40AF">S 主詞</span>Those glass bottles</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V1 被動動詞一</span>can be recycled</span> <span class="stx-token stx-v"><span class="tag-badge" style="background:#DC2626">V2 被動動詞二</span>should be separated</span> <span class="stx-token stx-m-faded"><span class="tag-badge" style="background:#64748B">修飾語</span>from the other trash</span></div>
+          </div>
+          <div class="mode-mask" style="display:none">
+            <div class="stx-mask-box" style="font-size:24px;line-height:2.2;padding:6px 0"><span class="mask-slot" data-role="s"><button onclick="revealMaskSlot(this, 'U06_10', 's')" class="stx-mask-pill">❓ 主詞是什麼？</button></span> <span class="mask-slot" data-role="v"><button onclick="revealMaskSlot(this, 'U06_10', 'v')" class="stx-mask-pill">❓ 兩組被動動詞是什麼？</button></span> <span class="mask-slot" data-role="o"><button onclick="revealMaskSlot(this, 'U06_10', 'o')" class="stx-mask-pill">❓ 應該與什麼區隔開來？</button></span>
+              <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                <button onclick="revealAllMaskSlots(this, 'U06_10')" style="background:#EC4899;color:#fff;border:none;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">✨ 一鍵全揭曉</button>
+                <button onclick="resetMaskSlots(this, 'U06_10')" style="background:#FFF0F5;color:#BE185D;border:1px solid #FBCFE8;padding:4px 14px;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer">🔒 重新蓋上遮罩</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 明芬老師導讀避雷指南 -->
+        <div class="stx-card-tip" style="display:none">
+          <span class="av av-xs av-teach" style="width:28px;height:28px;flex-shrink:0" role="img"></span>
+          <span class="stx-tip-text"><b>🦴 明芬老師骨架透視：</b>💡 <b>separate A from B</b>（將 A 與 B 區隔開來），被動式為 <b>be separated from B</b>。字首 <b>re-</b> 表示再次（again），如 <b>reuse</b>、<b>reduce</b>。</span>
+        </div>
+        
+        <div class="vocab-colloc-box">
+          ⚡ <b>段考必考焦點：</b> be recycled（被回收）｜ separate A from B（將 A 與 B 區隔開來）
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
         <!-- 2. 即席句構板書區 -->
         <div id="stage-pane-bb" style="display:none">
           <div style="background:#FFF0F5;border:1.5px solid #FBCFE8;border-radius:14px;padding:12px;margin-bottom:14px">
@@ -15060,7 +15570,7 @@ var STAGE_UNITS = {
   "U10": { title: "高一 U10 — A Hero Called Frankenstein", pdf: "pdf/g10_U10.pdf", driveId: "16HHsMrBSUR2ANS64a1Zz4wj3tSZrNetp" }
 };
 
-var stageCurUnit = "U04";
+var stageCurUnit = "U06";
 var stageCurPdfUrl = "";
 
 
