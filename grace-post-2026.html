@@ -67,9 +67,12 @@
         body.mode-chinese-only .eng-block {
             display: none !important;
         }
-        /* Smooth scrolling */
+        /* Smooth scrolling & ample scroll offset for sticky header */
         html {
             scroll-behavior: smooth;
+        }
+        article[id], section[id] {
+            scroll-margin-top: 160px !important;
         }
         /* Hide scrollbars for clean mobile tab navigation */
         .no-scrollbar::-webkit-scrollbar {
