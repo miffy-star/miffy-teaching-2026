@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miffy 老師高一2英文時事特輯 2026 | 第二次段考閱讀測驗專題（Grace Post 楊苓週報雙語逐段精讀 & 即測即評）</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti for Instant Quiz -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        /* Custom styling for interactive vocabulary */
+        .vocab-hl {
+            background-color: #fef08a;
+            color: #854d0e;
+            padding: 0.15rem 0.4rem;
+            border-radius: 0.375rem;
+            font-weight: 700;
+            cursor: pointer;
+            border-bottom: 2px solid #eab308;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+        .vocab-hl:hover {
+            background-color: #fde047;
+            color: #713f12;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(234, 179, 8, 0.35);
+        }
+        /* Chibi image protection */
+        img.chibi-img {
+            color: transparent;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+        /* Bouncing keyframe */
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-gentle-bounce {
+            animation: gentle-bounce 2.2s infinite ease-in-out;
+        }
+        @keyframes peek-wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-4deg); }
+            75% { transform: rotate(4deg); }
+        }
+        .animate-peek-wiggle {
+            animation: peek-wiggle 3s infinite ease-in-out;
+        }
+        /* View mode filters */
+        body.mode-english-only .trans-block {
+            display: none !important;
+        }
+        body.mode-chinese-only .eng-block {
+            display: none !important;
+        }
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white pb-16">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-indigo-800 via-indigo-700 to-purple-700 text-white text-xs sm:text-sm py-2 px-4 shadow-sm text-center font-medium">
+        <span>✨ 歡迎高一2同學來到 Miffy 老師的英語教室 ｜《Grace Post 楊苓週報》三期雙語逐段精讀 ＆ 第二次段考閱讀即測即評</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center space-x-3.5">
+                <!-- Chibi Avatar with gentle bounce -->
+                <div class="relative w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center p-1 shadow-md overflow-hidden">
+                    <img id="header-chibi" src="https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/avatar_01.png" alt="" onerror="this.style.display='none'" class="chibi-img w-full h-full object-contain">
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-base sm:text-xl font-black text-slate-800 tracking-tight">
+                            Miffy 老師高一英文時事特輯
+                        </h1>
+                        <span class="text-xs bg-indigo-100 text-indigo-700 font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap">第二次段考閱讀精讀特輯</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-0.5">置頂雙語逐段精讀 • 閱讀關鍵句構剖析 • 15 題段考閱讀即測即評 • 考前單字 Cheat Sheet</p>
+                </div>
+            </div>
+
+            <!-- View Modes & Actions -->
+            <div class="flex items-center flex-wrap gap-2">
+                <!-- Mode Switcher -->
+                <div class="bg-slate-100 p-1 rounded-xl flex items-center text-xs font-bold text-slate-600 border border-slate-200">
+                    <button onclick="setViewMode('bilingual')" id="btn-mode-bilingual" class="px-2.5 py-1.5 rounded-lg bg-white text-indigo-700 shadow-xs transition">
+                        <i class="fa-solid fa-language mr-1"></i>中英對照
+                    </button>
+                    <button onclick="setViewMode('english')" id="btn-mode-english" class="px-2.5 py-1.5 rounded-lg text-slate-600 hover:text-indigo-600 transition">
+                        <i class="fa-solid fa-book-open mr-1"></i>純英沉浸
+                    </button>
+                    <button onclick="setViewMode('chinese')" id="btn-mode-chinese" class="px-2.5 py-1.5 rounded-lg text-slate-600 hover:text-indigo-600 transition">
+                        <i class="fa-solid fa-align-left mr-1"></i>純中速讀
+                    </button>
+                </div>
+
+                <a href="#quiz-section" class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs transition">
+                    <i class="fa-solid fa-pen-to-square"></i> 即測即評 (15題)
+                </a>
+            </div>
+        </div>
+
+        <!-- Quick Section Jumper Tabs -->
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-2.5 pt-1 border-t border-slate-100 flex items-center justify-between overflow-x-auto gap-2">
+            <div class="flex items-center space-x-2 text-xs sm:text-sm font-semibold">
+                <a href="#article-1" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-700 transition whitespace-nowrap flex items-center gap-1.5">
+                    <i class="fa-solid fa-plane-departure text-red-500"></i> 1. 杜拜劫機風雲
+                </a>
+                <a href="#article-2" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-700 transition whitespace-nowrap flex items-center gap-1.5">
+                    <i class="fa-solid fa-train-subway text-teal-600"></i> 2. 全球最佳運輸
+                </a>
+                <a href="#article-3" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-700 transition whitespace-nowrap flex items-center gap-1.5">
+                    <i class="fa-solid fa-shield-virus text-rose-500"></i> 3. 台灣流感季
+                </a>
+                <a href="#quiz-section" class="px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold hover:bg-indigo-100 transition whitespace-nowrap flex items-center gap-1.5">
+                    <i class="fa-solid fa-circle-check text-indigo-600"></i> 即測即評 (15題)
+                </a>
+                <a href="#cheatsheet-section" class="px-3 py-1.5 rounded-lg bg-amber-50 text-amber-800 font-bold hover:bg-amber-100 transition whitespace-nowrap flex items-center gap-1.5">
+                    <i class="fa-solid fa-bolt text-amber-600"></i> 考前 Cheat Sheet
+                </a>
+            </div>
+            <div class="hidden md:flex items-center text-xs text-slate-400 gap-1 font-medium">
+                <i class="fa-solid fa-hand-pointer text-amber-500"></i> 點選黃色生詞可即時查詢發音與搭配詞
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12 flex-1 w-full">
+
+        <!-- ======================================================== -->
+        <!-- SECTION 1: HERO GUIDANCE BANNER                          -->
+        <!-- ======================================================== -->
+        <section class="bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-900 text-white rounded-3xl p-6 sm:p-9 shadow-xl border border-indigo-800/60 relative overflow-hidden">
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-3 max-w-3xl">
+                    <div class="inline-flex items-center gap-2 bg-indigo-500/20 text-indigo-300 border border-indigo-400/30 text-xs px-3.5 py-1.5 rounded-full font-bold">
+                        <i class="fa-solid fa-feather-pointed"></i> Miffy 老師 × 高一2 英文時事深度精讀
+                    </div>
+                    <h2 class="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
+                        《Grace Post 楊苓週報》雙語逐段精讀專區
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        高一2同學好！本期精選三篇重要時事專題，全篇均採用 <strong>逐段中英雙語對照</strong> 呈現，每一段落皆附上 <strong>Miffy 老師重點句構剖析</strong> 與 <strong>核心生詞即點即查</strong>。讀通全文後，請務必挑戰下方的 <strong>15 題段考閱讀測驗即測即評</strong>，檢驗你的文章理解與破題答題力！
+                    </p>
+                    <div class="flex flex-wrap items-center gap-3 pt-1">
+                        <span class="inline-flex items-center gap-1 text-xs bg-white/10 px-3 py-1.5 rounded-xl border border-white/10 text-slate-200">
+                            <i class="fa-solid fa-check text-emerald-400"></i> 12 段精準中文翻譯
+                        </span>
+                        <span class="inline-flex items-center gap-1 text-xs bg-white/10 px-3 py-1.5 rounded-xl border border-white/10 text-slate-200">
+                            <i class="fa-solid fa-check text-emerald-400"></i> 18 組核心大考搭配詞
+                        </span>
+                        <span class="inline-flex items-center gap-1 text-xs bg-white/10 px-3 py-1.5 rounded-xl border border-white/10 text-slate-200">
+                            <i class="fa-solid fa-check text-emerald-400"></i> 15 題即時評量與詳解
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Dynamic Animated Chibi Miffy -->
+                <div class="flex-shrink-0 text-center relative group">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 relative flex items-center justify-center p-2 rounded-3xl bg-indigo-800/30 border border-indigo-400/20 backdrop-blur-xs">
+                        <img id="hero-miffy-chibi" src="https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/happy_01.png" alt="" onerror="this.style.display='none'" class="chibi-img w-full h-full object-contain animate-gentle-bounce">
+                    </div>
+                    <span class="text-xs text-indigo-300 font-bold block mt-2">Miffy 老師陪你讀時事 ✨</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- ARTICLE 1: FLYDUBAI HIJACKING                            -->
+        <!-- ======================================================== -->
+        <article id="article-1" class="bg-white rounded-3xl p-6 sm:p-9 shadow-sm border border-slate-200 space-y-7 scroll-mt-28">
+            <!-- Article Header Meta -->
+            <div class="border-b border-slate-100 pb-5">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+                    <div class="flex items-center gap-2">
+                        <span class="bg-red-50 text-red-600 border border-red-200 text-xs font-black px-3 py-1 rounded-lg uppercase">
+                            時事精讀 01
+                        </span>
+                        <span class="text-xs text-slate-500 font-medium">
+                            <i class="fa-regular fa-calendar-days mr-1"></i> Oct. 25, 2026 – Oct. 31, 2026
+                        </span>
+                    </div>
+                    <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-md font-semibold">
+                        Grace Post 楊苓週報 • 授課引導：Miffy 老師
+                    </span>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2.5">
+                    <i class="fa-solid fa-plane-departure text-red-500"></i>
+                    <span>杜拜劫機風雲 (Flydubai Hijacking)</span>
+                </h3>
+            </div>
+
+            <!-- Paragraph-by-Paragraph Bilingual Container -->
+            <div class="space-y-6">
+
+                <!-- Article 1: Paragraph 1 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-3.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-red-600 bg-red-100/70 px-2.5 py-1 rounded-md">
+                            Paragraph 1 • 突發急墜與孤狼襲擊
+                        </span>
+                        <button onclick="toggleTrans(this)" class="text-xs font-bold text-slate-500 hover:text-indigo-600 transition flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-down"></i> <span>收合/展開翻譯</span>
+                        </button>
+                    </div>
+
+                    <!-- English Text -->
+                    <div class="eng-block text-slate-800 leading-relaxed text-base sm:text-lg">
+                        <p>
+                            On September 30, 2026, Flydubai Flight 1073 became a scene of 
+                            <span class="vocab-hl" onclick="showVocab('absolute', 'adj. 絕對的；完全的 [ˈæbsəluːt]', 'absolute trust (完全信任) / absolute terror (極度恐懼)')">absolute</span> 
+                            terror when an Omani co-pilot attempted to hijack and crash a Boeing 737 MAX 8 aircraft. En route from Dubai to Tel Aviv with 174 passengers, the plane suddenly plunged over 17,000 feet near the Saudi-Jordanian border. This catastrophic dive 
+                            <span class="vocab-hl" onclick="showVocab('commence', 'v. 開始；著手 [kəˈmens]', 'The meeting will commence promptly at 9:00 a.m.')">commenced</span> 
+                            after the co-pilot, Hamam al-Hammami, 
+                            <span class="vocab-hl" onclick="showVocab('viciously', 'adv. 殘暴地；兇狠地 [ˈvɪʃəsli]', 'attack viciously (兇狠地攻擊)')">viciously</span> 
+                            attacked flight captain Smit Machhachar using the cockpit’s emergency crash ax. Israeli intelligence later revealed that al-Hammami, 
+                            <span class="vocab-hl" onclick="showVocab('acting as', 'phr. 擔任；充當', 'acting as a dangerous lone wolf (扮演危險的孤狼角色)')">acting as</span> 
+                            a dangerous lone wolf driven by extremist 
+                            <span class="vocab-hl" onclick="showVocab('radicalization', 'n. 激進化 [ˌrædɪkələˈzeɪʃn]', 'This was a period of growing radicalization.')">radicalization</span>, 
+                            planned to quietly 
+                            <span class="vocab-hl" onclick="showVocab('assassinate', 'v. 暗殺 [əˈsæsɪneɪt]', 'assassinate the president / assassinate the pilot')">assassinate</span> 
+                            the pilot before 
+                            <span class="vocab-hl" onclick="showVocab('steer', 'v. 駕駛；掌舵；引導 [stɪr]', 'steer the car around the potholes')">steering</span> 
+                            the 
+                            <span class="vocab-hl" onclick="showVocab('commercial', 'adj. 商業的；商務的 [kəˈmɜːrʃl]', 'commercial jetliner (商用噴射客機)')">commercial</span> 
+                            jetliner directly into high-rise skyscrapers across downtown Tel Aviv.
+                        </p>
+                    </div>
+
+                    <!-- Chinese Translation & Key Points -->
+                    <div class="trans-block bg-white p-4 sm:p-5 rounded-xl border border-red-100 shadow-xs space-y-2.5">
+                        <div class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold text-xs mt-0.5"><i class="fa-solid fa-language"></i> 繁中逐段翻譯：</span>
+                            <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                2026 年 9 月 30 日，杜拜航空（Flydubai）第 1073 號航班驚爆極度恐慌的劫機驚魂——一名阿曼籍副駕駛企圖劫持一架波音 737 MAX 8 客機並將其撞毀。該航班載有 174 名乘客，原定自杜拜飛往特拉維夫，卻在沙烏地阿拉伯與約旦邊界附近突然從高空劇烈俯衝急降超過 17,000 英呎。這場災難性的急速下墜，起因於副駕駛哈馬姆・艾爾哈馬米（Hamam al-Hammami）手持駕駛艙內的緊急撞擊斧，兇殘襲擊正機長史密特・瑪查查爾（Smit Machhachar）。以色列情報單位事後揭露，艾爾哈馬米受到極端主義洗腦，以危險的「孤狼」角色行動，密謀在駕駛艙悄悄暗殺機長後，親自操縱客機直接衝撞特拉維夫市中心的高聳摩天大樓。
+                            </p>
+                        </div>
+                        <div class="bg-red-50/60 p-3 rounded-lg text-xs text-red-900 border border-red-100">
+                            📌 <strong>Miffy 老師句型點評：</strong> <code>acting as a dangerous lone wolf driven by extremist radicalization</code> 為現在分詞同位修飾，其中 <code>driven by</code> 為過去分詞修飾 lone wolf，描述其受偏激思想驅使之犯罪動機。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 1: Paragraph 2 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-3.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-red-600 bg-red-100/70 px-2.5 py-1 rounded-md">
+                            Paragraph 2 • 機長反擊與英勇迫降
+                        </span>
+                        <button onclick="toggleTrans(this)" class="text-xs font-bold text-slate-500 hover:text-indigo-600 transition flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-down"></i> <span>收合/展開翻譯</span>
+                        </button>
+                    </div>
+
+                    <!-- English Text -->
+                    <div class="eng-block text-slate-800 leading-relaxed text-base sm:text-lg">
+                        <p>
+                            A devastating disaster was narrowly 
+                            <span class="vocab-hl" onclick="showVocab('avert', 'v. 防止；避免 [əˈvɜːrt]', 'avert a disaster (避免災難) / avert gaze (移開目光)')">averted</span> 
+                            due to the incredible heroism of the wounded captain and proactive passengers. Despite suffering multiple deep wounds, Captain Machhachar opened the locked cockpit door, allowing an off-duty flight crew and travelers to force their way inside. The team 
+                            <span class="vocab-hl" onclick="showVocab('scramble', 'v. 奮力搶救；爭先恐後 [ˈskræmbl]', 'The team scrambled to overpower the rogue co-pilot.')">scrambled</span> 
+                            to overpower the 
+                            <span class="vocab-hl" onclick="showVocab('rogue', 'adj. 脫序的；流氓的 [roʊɡ]', 'rogue co-pilot (脫序不受控的副駕駛)')">rogue</span> 
+                            co-pilot, who reportedly screamed for his captors to kill him during the 
+                            <span class="vocab-hl" onclick="showVocab('frantic', 'adj. 發狂的；狂亂的 [ˈfræntɪk]', 'frantic struggle (殊死狂亂的搏鬥)')">frantic</span> 
+                            struggle. A backup crew successfully stabilized the plunging aircraft and broadcasted emergency squawk code 7500 for unlawful 
+                            <span class="vocab-hl" onclick="showVocab('interference', 'n. 干涉；干擾 [ˌɪntərˈfɪrəns]', 'unlawful interference (非法干擾劫機)')">interference</span>, 
+                            before executing an emergency landing in Tabuk, Saudi Arabia, where Saudi security forces immediately arrested the criminal 
+                            <span class="vocab-hl" onclick="showVocab('suspect', 'n. 嫌疑犯 [ˈsʌspekt]', 'He is the chief suspect at present.')">suspect</span>.
+                        </p>
+                    </div>
+
+                    <!-- Chinese Translation & Key Points -->
+                    <div class="trans-block bg-white p-4 sm:p-5 rounded-xl border border-red-100 shadow-xs space-y-2.5">
+                        <div class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold text-xs mt-0.5"><i class="fa-solid fa-language"></i> 繁中逐段翻譯：</span>
+                            <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                所幸在負傷機長的英勇反抗與機上乘客的積極挺身之下，一場毀滅性的浩劫得以千鈞一髮化險為夷。儘管機長瑪查查爾身中多處深創，仍強忍劇痛打開上鎖的駕駛艙門，讓一名休假中的機組員及多名乘客得以破門而入。眾人爭先恐後奮力制伏脫序失控的副駕駛，據報該名副駕駛在殊死搏鬥中甚至不斷朝制服他的人狂吼求死。隨後，備用機組員順利穩住急劇俯衝的客機，並發送代表受到非法干擾的緊急應答機代碼「Squawk 7500」，最終成功緊急迫降於沙烏地阿拉伯的塔布克（Tabuk），沙國安全部隊隨即登機將該名犯罪嫌疑人逮捕歸案。
+                            </p>
+                        </div>
+                        <div class="bg-red-50/60 p-3 rounded-lg text-xs text-red-900 border border-red-100">
+                            📌 <strong>Miffy 老師句型點評：</strong> <code>Despite suffering multiple deep wounds, S + V...</code> 為大考高頻介系詞用法，Despite 後方接 V-ing 或名詞，不可接完整子句；航空專用代號 <code>Squawk 7500</code> 即代表客機遭受非法劫持（Hijacking / Unlawful Interference）。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 1: Paragraph 3 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-3.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-red-600 bg-red-100/70 px-2.5 py-1 rounded-md">
+                            Paragraph 3 • 審查漏洞與情報斷層
+                        </span>
+                        <button onclick="toggleTrans(this)" class="text-xs font-bold text-slate-500 hover:text-indigo-600 transition flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-down"></i> <span>收合/展開翻譯</span>
+                        </button>
+                    </div>
+
+                    <!-- English Text -->
+                    <div class="eng-block text-slate-800 leading-relaxed text-base sm:text-lg">
+                        <p>
+                            The horrifying incident has ignited intense 
+                            <span class="vocab-hl" onclick="showVocab('scrutiny', 'n. 嚴格審查；細看 [ˈskruːtəni]', 'bear closer scrutiny (承受更嚴密之檢驗)')">scrutiny</span> 
+                            over glaring vulnerabilities within global aviation security and pilot vetting 
+                            <span class="vocab-hl" onclick="showVocab('procedure', 'n. 程序；步驟 [prəˈsiːdʒər]', 'follow correct procedure during operation')">procedures</span>. 
+                            Investigations revealed that al-Hammami had been fired from Oman Air last year due to his radical beliefs and extremist online behavior. Furthermore, Australian Federal Police launched an independent investigation into his communications, discovering he previously studied engineering in Melbourne before his visa was canceled in 2019. Aviation analysts are now heavily criticizing the international failure to share critical anti-terrorism intelligence across borders, while questioning the wisdom of keeping lethal tools like crash axes unsecured inside flight decks.
+                        </p>
+                    </div>
+
+                    <!-- Chinese Translation & Key Points -->
+                    <div class="trans-block bg-white p-4 sm:p-5 rounded-xl border border-red-100 shadow-xs space-y-2.5">
+                        <div class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold text-xs mt-0.5"><i class="fa-solid fa-language"></i> 繁中逐段翻譯：</span>
+                            <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                這起駭人聽聞的事件，引發了全球對民航飛安防線與機師身家背景審查流程重大漏洞的嚴厲檢視與檢討。調查發現，艾爾哈馬米去年就因偏激思想及網路極端言論遭阿曼航空（Oman Air）開除；此外，澳洲聯邦警察對其通訊紀錄展開獨立調查後更查出，他早年曾在墨爾本攻讀工程學位，但其簽證於 2019 年遭澳洲政府撤銷。民航分析專家目前正強烈抨擊各國未能即時跨國共享關鍵反恐情報的嚴重疏失，同時也強烈質疑在駕駛艙內放置未上鎖撞擊斧等致命工具的安全性。
+                            </p>
+                        </div>
+                        <div class="bg-red-50/60 p-3 rounded-lg text-xs text-red-900 border border-red-100">
+                            📌 <strong>Miffy 老師句型點評：</strong> <code>questioning the wisdom of + V-ing</code> 意為「質疑做某事的明智性／質疑某做法是否妥當」，在素養評論文中為常見的批判性思考句型。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 1: Paragraph 4 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-3.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-red-600 bg-red-100/70 px-2.5 py-1 rounded-md">
+                            Paragraph 4 • 政壇究責與安全改革
+                        </span>
+                        <button onclick="toggleTrans(this)" class="text-xs font-bold text-slate-500 hover:text-indigo-600 transition flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-down"></i> <span>收合/展開翻譯</span>
+                        </button>
+                    </div>
+
+                    <!-- English Text -->
+                    <div class="eng-block text-slate-800 leading-relaxed text-base sm:text-lg">
+                        <p>
+                            Politically, the fallout has triggered a major governmental crisis within Israel, as opposition leaders demand immediate accountability for the catastrophic intelligence breakdown. Former Prime Minister Naftali Bennett heavily criticized the current administration, linking the security lapse to prior failures and demanding the 
+                            <span class="vocab-hl" onclick="showVocab('prompt', 'adj. 立即的；即時的 [prɑːmpt]', 'prompt resignation (立即引咎辭職)')">prompt</span> 
+                            resignation of Transportation Minister Miri Regev. While Flydubai has suspended all flights to Tel Aviv pending a comprehensive investigation, the harrowing event has 
+                            <span class="vocab-hl" onclick="showVocab('fundamentally', 'adv. 根本地 [ˌfʌndəˈmentəli]', 'fundamentally changed the conversation')">fundamentally</span> 
+                            changed the conversation around international airline safety. The 
+                            <span class="vocab-hl" onclick="showVocab('narrow escape', 'phr. 死裡逃生；千鈞一髮', 'We got out in time, but it was a narrow escape.')">narrow escape</span> 
+                            highlights an urgent global need for routine 
+                            <span class="vocab-hl" onclick="showVocab('psychological', 'adj. 心理的 [ˌsaɪkəˈlɑːdʒɪkl]', 'psychological profiling (心理側寫與評估)')">psychological</span> 
+                            profiling, 
+                            <span class="vocab-hl" onclick="showVocab('synchronized', 'adj. 同步的 [ˈsɪŋkrənaɪzd]', 'synchronized background checks (跨國同步背景審查)')">synchronized</span> 
+                            background checks, and modernized cockpit safety 
+                            <span class="vocab-hl" onclick="showVocab('protocol', 'n. 協議；規範；處置流程 [ˈproʊtəkɑːl]', 'protocol for handling emergencies (應變標準處置流程)')">protocols</span> 
+                            to protect innocent travelers.
+                        </p>
+                    </div>
+
+                    <!-- Chinese Translation & Key Points -->
+                    <div class="trans-block bg-white p-4 sm:p-5 rounded-xl border border-red-100 shadow-xs space-y-2.5">
+                        <div class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold text-xs mt-0.5"><i class="fa-solid fa-language"></i> 繁中逐段翻譯：</span>
+                            <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                在政治效應方面，這起事件引爆了以色列內部的重大政壇危機，在野黨領袖強烈要求政府必須為這次災難性的情報崩盤立即究責。前總理納夫塔利・班奈特（Naftali Bennett）重砲抨擊現任內閣，將此次國安疏漏與先前的維安失誤相提並論，並要求交通部長米莉・雷格夫（Miri Regev）立即引咎辭職。儘管杜拜航空已在全面調查結果出爐前全面暫停所有飛往特拉維夫的航班，這場驚魂動魄的事件已徹底顛覆全球對民航安全的傳統認知。這起死裡逃生的空難危機凸顯出全球刻不容緩的改革需求——必須定期實施心理評估側寫、落實跨國同步背景審查，並徹底升級現代化駕駛艙安全防護準則，以捍衛無辜旅客的生命安全。
+                            </p>
+                        </div>
+                        <div class="bg-red-50/60 p-3 rounded-lg text-xs text-red-900 border border-red-100">
+                            📌 <strong>Miffy 老師句型點評：</strong> <code>highlights an urgent global need for A, B, and C</code>，後接三組對等著名詞片語：心理側寫（psychological profiling）、同步背景審查（synchronized background checks）以及駕駛艙處置流程（cockpit protocols），是第二次段考閱讀測驗理解長難句必備的句構剖析。
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Miffy 老師重點回顧卡片 -->
+            <div class="bg-gradient-to-br from-rose-50 to-orange-50 rounded-2xl p-6 border border-rose-200 space-y-3">
+                <div class="flex items-center gap-2.5 text-rose-800 font-black text-lg">
+                    <img src="https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/happy_14.png" alt="" onerror="this.style.display='none'" class="chibi-img w-9 h-9 object-contain">
+                    <span>Miffy 老師大白話重點解析：事件核心速讀</span>
+                </div>
+                <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                    本案發生在杜拜飛往特拉維夫的波音 737 MAX 8 客機上。飛機在 17,000 英呎高空突然以劇烈俯衝之勢急降，起因並非機械故障，而是受極端主義洗腦的阿曼籍副駕駛手持緊急撞擊斧（crash ax）猛烈襲擊正機長，意圖暗殺正駕駛後直接駕駛客機衝撞特拉維夫市中心摩天樓。身負重傷的正機長忍痛解鎖艙門，乘客與休假機組員破門壓制，發送 <strong>Squawk 7500</strong> 成功迫降沙烏地阿拉伯境內，全機 174 人化險為夷。
+                </p>
+                <div class="bg-white/80 p-3 rounded-xl border border-rose-200 text-xs sm:text-sm text-rose-900 font-medium">
+                    💡 <strong>段考閱讀測驗核心反思：</strong> 調查揭露副駕駛早在前一年就因極端言論被前東家開除，且曾被澳洲警方通報，突顯出「跨國情報未能同步（synchronized）」與「機艙致命工具未上鎖」兩大飛安致命漏洞。
+                </div>
+            </div>
+        </article>
+
+        <!-- ======================================================== -->
+        <!-- ARTICLE 2: THE BEST TRANSIT IN THE WORLD                 -->
+        <!-- ======================================================== -->
+        <article id="article-2" class="bg-white rounded-3xl p-6 sm:p-9 shadow-sm border border-slate-200 space-y-7 scroll-mt-28">
+            <!-- Article Header Meta -->
+            <div class="border-b border-slate-100 pb-5">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+                    <div class="flex items-center gap-2">
+                        <span class="bg-teal-50 text-teal-700 border border-teal-200 text-xs font-black px-3 py-1 rounded-lg uppercase">
+                            時事精讀 02
+                        </span>
+                        <span class="text-xs text-slate-500 font-medium">
+                            <i class="fa-regular fa-calendar-days mr-1"></i> Nov. 08, 2026 – Nov. 14, 2026
+                        </span>
+                    </div>
+                    <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-md font-semibold">
+                        Grace Post 楊苓週報 • 授課引導：Miffy 老師
+                    </span>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2.5">
+                    <i class="fa-solid fa-train-subway text-teal-600"></i>
+                    <span>全球最佳運輸 (The Best Transit in the World)</span>
+                </h3>
+            </div>
+
+            <!-- Paragraph-by-Paragraph Bilingual Container -->
+            <div class="space-y-6">
+
+                <!-- Article 2: Paragraph 1 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-3.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-100/70 px-2.5 py-1 rounded-md">
+                            Paragraph 1 • 榮登全球榜首與國際調查
+                        </span>
+                        <button onclick="toggleTrans(this)" class="text-xs font-bold text-slate-500 hover:text-indigo-600 transition flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-down"></i> <span>收合/展開翻譯</span>
+                        </button>
+                    </div>
+
+                    <!-- English Text -->
+                    <div class="eng-block text-slate-800 leading-relaxed text-base sm:text-lg">
+                        <p>
+                            Taipei has officially claimed the first-place crown as the world’s best city for public transport, according to a 
+                            <span class="vocab-hl" onclick="showVocab('prestigious', 'adj. 享負盛名的；著名的 [preˈstɪdʒəs]', 'a prestigious global resident survey')">prestigious</span> 
+                            global resident survey published by Time Out in October 2026. This comprehensive international ranking evaluated the public transit networks of major metropolitan hubs based on a series of detailed operational 
+                            <span class="vocab-hl" onclick="showVocab('criteria', 'n. 評選標準 (複數) [kraɪˈtɪriə]', 'Our criteria belong to the past. (單數形為 criterion)')">criteria</span>, 
+                            drawing on valuable feedback from over 24,000 
+                            <span class="vocab-hl" onclick="showVocab('urbanite', 'n. 都市人；都市居民 [ˈɜːrbənaɪt]', 'The typical urbanite seeks convenience.')">urbanites</span> 
+                            worldwide. Securing a remarkable 95 percent positive satisfaction rating from its locals, Taiwan’s 
+                            <span class="vocab-hl" onclick="showVocab('vibrant', 'adj. 充滿活力的 [ˈvaɪbrənt]', 'Taiwan\'s vibrant capital')">vibrant</span> 
+                            capital outshone 
+                            <span class="vocab-hl" onclick="showVocab('legendary', 'adj. 傳奇的；著名的 [ˈledʒənderi]', 'legendary global transit powerhouses')">legendary</span> 
+                            global transit powerhouses including Singapore, Hong Kong, and Seoul. This 
+                            <span class="vocab-hl" onclick="showVocab('extraordinary', 'adj. 非凡的；卓越的 [ɪkˈstrɔːrdəneri]', 'Her voice had an extraordinary hypnotic quality.')">extraordinary</span> 
+                            milestone highlights Taipei’s emergence as an 
+                            <span class="vocab-hl" onclick="showVocab('undeniable', 'adj. 無可否認的 [ˌʌndɪˈnaɪəbl]', 'an undeniable model for elite urban planning')">undeniable</span> 
+                            model for highly 
+                            <span class="vocab-hl" onclick="showVocab('sustainable', 'adj. 可持續的；永續的 [səˈsteɪnəbl]', 'sustainable urban planning')">sustainable</span>, 
+                            accessible, and elite urban planning.
+                        </p>
+                    </div>
+
+                    <!-- Chinese Translation & Key Points -->
+                    <div class="trans-block bg-white p-4 sm:p-5 rounded-xl border border-teal-100 shadow-xs space-y-2.5">
+                        <div class="flex items-start gap-2">
+                            <span class="text-teal-600 font-bold text-xs mt-0.5"><i class="fa-solid fa-language"></i> 繁中逐段翻譯：</span>
+                            <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                根據國際權威生活雜誌《Time Out》於 2026 年 10 月發布的全球知名居民調查，台北市正式榮登「全球大眾運輸最佳城市」榜首寶座。這項全面的國際評比彙整了全球超過 2.4 萬名都會居民的寶貴回饋，依據一系列嚴謹的營運評選標準對全球主要大都會的公共運輸網絡進行綜合評估。這座充滿活力的台灣首善之都獲得本地居民高達 95% 的極高滿意度，一舉超越了包括新加坡、香港及首爾在內的傳奇大眾運輸強權。這項非凡的里程碑，凸顯出台北已無可置疑地成為高度永續、便民且頂尖的現代都市規劃典範。
+                            </p>
+                        </div>
+                        <div class="bg-teal-50/60 p-3 rounded-lg text-xs text-teal-900 border border-teal-100">
+                            📌 <strong>Miffy 老師句型點評：</strong> <code>Securing a remarkable 95% satisfaction rating, S + V...</code> 為經典「現在分詞構句（Participle Clause）」，省略主詞 Taiwan's capital 與連接詞 As/Because，使文筆精鍊俐落。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 2: Paragraph 2 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-3.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-100/70 px-2.5 py-1 rounded-md">
+                            Paragraph 2 • 站體整潔與排隊自律
+                        </span>
+                        <button onclick="toggleTrans(this)" class="text-xs font-bold text-slate-500 hover:text-indigo-600 transition flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-down"></i> <span>收合/展開翻譯</span>
+                        </button>
+                    </div>
+
+                    <!-- English Text -->
+                    <div class="eng-block text-slate-800 leading-relaxed text-base sm:text-lg">
+                        <p>
+                            The undisputed centerpiece of this world-class infrastructure is the Taipei Mass Rapid Transit network, locally celebrated as the MRT. Unlike the dark or complex subterranean transit webs found in many comparable Western capitals, Taipei’s 
+                            <span class="vocab-hl" onclick="showVocab('magnificent', 'adj. 壯麗的；極出色的 [mæɡˈnɪfɪsnt]', 'Taipei\'s magnificent metro system')">magnificent</span> 
+                            metro system offers an exceptionally refreshing, welcoming user experience. Local and international commuters 
+                            <span class="vocab-hl" onclick="showVocab('continuously', 'adv. 連續不斷地 [kənˈtɪnjuəsli]', 'commuters continuously praise the network')">continuously</span> 
+                            praise the network for its remarkably 
+                            <span class="vocab-hl" onclick="showVocab('pristine', 'adj. 極乾淨的；原始一塵不染的 [prɪˈstiːn]', 'pristine stations')">pristine</span> 
+                            stations, perfectly clear multilingual signage, and outstanding daily operational reliability. The survey particularly emphasized the city’s unique cultural 
+                            <span class="vocab-hl" onclick="showVocab('discipline', 'n. 紀律；自律 [ˈdɪsəplɪn]', 'unique cultural discipline')">discipline</span>, 
+                            highlighting the clear queuing guidelines painted across platforms that effectively guarantee neat, respectful boarding processes during even the most frantic morning rush hours.
+                        </p>
+                    </div>
+
+                    <!-- Chinese Translation & Key Points -->
+                    <div class="trans-block bg-white p-4 sm:p-5 rounded-xl border border-teal-100 shadow-xs space-y-2.5">
+                        <div class="flex items-start gap-2">
+                            <span class="text-teal-600 font-bold text-xs mt-0.5"><i class="fa-solid fa-language"></i> 繁中逐段翻譯：</span>
+                            <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                支撐這座世界級基礎建設的核心靈魂，毫無爭議正是被在地人熱烈讚譽為「北捷」的台北大眾捷運系統（MRT）。不同於歐美許多同級首都地鐵常見的陰暗污穢或動線複雜等地下網絡，台北出色的捷運系統為乘客提供了無比舒適明亮、賓至如歸的搭乘體驗。無論是本地通勤族或國際旅客，均持續盛讚北捷一塵不染的車站環境、清晰明確的多語指標系統，以及日復一日卓越穩健的營運可靠度。該調查更特別盛讚台北獨特的文化自律，強調月台地面上繪製鮮明的排隊候車標線，確保了即使在最匆忙混亂的早尖峰時段，乘客仍能維持井然有序、相互尊重的搭乘禮節。
+                            </p>
+                        </div>
+                        <div class="bg-teal-50/60 p-3 rounded-lg text-xs text-teal-900 border border-teal-100">
+                            📌 <strong>Miffy 老師句型點評：</strong> <code>Unlike the dark or complex subterranean transit webs found in Western capitals...</code> 善用介系詞 Unlike 形成強烈對比；<code>praise A for B</code>（因 B 事蹟而稱讚 A）為第二次段考閱讀測驗高頻動詞搭配。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 2: Paragraph 3 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-3.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-100/70 px-2.5 py-1 rounded-md">
+                            Paragraph 3 • 驚人運量與多元網絡整合
+                        </span>
+                        <button onclick="toggleTrans(this)" class="text-xs font-bold text-slate-500 hover:text-indigo-600 transition flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-down"></i> <span>收合/展開翻譯</span>
+                        </button>
+                    </div>
+
+                    <!-- English Text -->
+                    <div class="eng-block text-slate-800 leading-relaxed text-base sm:text-lg">
+                        <p>
+                            Furthermore, Taipei’s transit success 
+                            <span class="vocab-hl" onclick="showVocab('rely on', 'phr. 仰賴；依靠', 'rely on seamless network integration')">relies on</span> 
+                            seamless network integration and staggering operational capacity. In 2025, the metro safely transported over 767 million passengers, handling a daily average of 
+                            <span class="vocab-hl" onclick="showVocab('approximately', 'adv. 大約；概略地 [əˈprɑːksɪmətli]', 'handling approximately 2.1 million riders')">approximately</span> 
+                            2.1 million riders without sacrificing any structural efficiency, speed, or commuter safety. This immense railway grid is perfectly 
+                            <span class="vocab-hl" onclick="showVocab('complement', 'v. 補充；使健全相輔相成 [ˈkɑːmplɪment]', 'The music complemented her voice perfectly.')">complemented</span> 
+                            by a dense network of nearly 400 municipal bus routes and a 
+                            <span class="vocab-hl" onclick="showVocab('robust', 'adj. 強健的；健全的 [roʊˈbʌst]', 'a robust green fleet of over 1,000 electric buses')">robust</span> 
+                            green fleet of over 1,000 public electric buses. Everything is effortlessly bound together by the 
+                            <span class="vocab-hl" onclick="showVocab('versatile', 'adj. 多才多藝的；多功能的 [ˈvɜːrsətl]', 'versatile contactless EasyCard payment system')">versatile</span>, 
+                            contactless EasyCard payment system, which grants immediate access across metros, modern urban buses, and the widely popular YouBike public bicycle sharing infrastructure.
+                        </p>
+                    </div>
+
+                    <!-- Chinese Translation & Key Points -->
+                    <div class="trans-block bg-white p-4 sm:p-5 rounded-xl border border-teal-100 shadow-xs space-y-2.5">
+                        <div class="flex items-start gap-2">
+                            <span class="text-teal-600 font-bold text-xs mt-0.5"><i class="fa-solid fa-language"></i> 繁中逐段翻譯：</span>
+                            <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                此外，台北大眾運輸的卓越成功，亦仰賴無縫緊密的網絡串接與龐大驚人的運載效能。在 2025 年間，台北捷運安全載送了超過 7.67 億人次的乘客，平均每日乘載約 210 萬人次，且絲毫未犧牲任何系統效率、行車速度與通勤安全。這張綿密龐大的軌道路網，與市區近 400 條市區公車路線及超過 1,000 輛綠能電動公車車隊形成了相得益彰的互補優勢。而這一切便民服務，全靠功能多元的非接觸式悠遊卡（EasyCard）電子支付系統緊密串聯，讓民眾能一卡在手暢行於捷運、新型市區公車與廣受大眾喜愛的 YouBike 公共自行車網絡之間。
+                            </p>
+                        </div>
+                        <div class="bg-teal-50/60 p-3 rounded-lg text-xs text-teal-900 border border-teal-100">
+                            📌 <strong>Miffy 老師句型點評：</strong> <code>be complemented by...</code> 意為「被……相輔相成地補充與健全」；<code>which grants immediate access across A, B, and C</code> 用非限定關代補充說明悠遊卡串聯三大公共載具的無縫功能。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 2: Paragraph 4 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-3.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-100/70 px-2.5 py-1 rounded-md">
+                            Paragraph 4 • 以人為本與永續城市典範
+                        </span>
+                        <button onclick="toggleTrans(this)" class="text-xs font-bold text-slate-500 hover:text-indigo-600 transition flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-down"></i> <span>收合/展開翻譯</span>
+                        </button>
+                    </div>
+
+                    <!-- English Text -->
+                    <div class="eng-block text-slate-800 leading-relaxed text-base sm:text-lg">
+                        <p>
+                            Ultimately, this prestigious first-place 
+                            <span class="vocab-hl" onclick="showVocab('recognition', 'n. 認可；表彰；讚譽 [ˌrekəɡˈnɪʃn]', 'first-place recognition')">recognition</span> 
+                            stands as a powerful 
+                            <span class="vocab-hl" onclick="showVocab('testament to', 'phr. 有力證明；見證', 'stands as a powerful testament to civilian-first urban development')">testament to</span> 
+                            the city’s 
+                            <span class="vocab-hl" onclick="showVocab('unwavering', 'adj. 堅定不移的 [ʌnˈweɪvərɪŋ]', 'unwavering commitment')">unwavering</span> 
+                            <span class="vocab-hl" onclick="showVocab('commitment', 'n. 承諾；投入承擔 [kəˈmɪtmənt]', 'commitment to civilian-first urban development')">commitment</span> 
+                            to civilian-first urban development. By prioritizing consistent public investments, strict operational discipline, and sustainable eco-friendly infrastructure like the regional TPASS commuter pass, Taipei has managed to turn daily commuting into a highly convenient, affordable, and pleasant experience. While other large global cities struggle with chronic delays, aging infrastructure, and heavy traffic 
+                            <span class="vocab-hl" onclick="showVocab('congestion', 'n. 擁擠；交通堵塞 [kənˈdʒestʃən]', 'traffic congestion')">congestion</span>, 
+                            Taipei offers a highly functional blueprint for municipal mobility. For international urban planners and transit authorities, Taiwan’s capital has officially 
+                            <span class="vocab-hl" onclick="showVocab('set a standard', 'phr. 樹立標準；立下典範', 'set a brilliant new standard for global public transport')">set a standard</span> 
+                            for global public transport.
+                        </p>
+                    </div>
+
+                    <!-- Chinese Translation & Key Points -->
+                    <div class="trans-block bg-white p-4 sm:p-5 rounded-xl border border-teal-100 shadow-xs space-y-2.5">
+                        <div class="flex items-start gap-2">
+                            <span class="text-teal-600 font-bold text-xs mt-0.5"><i class="fa-solid fa-language"></i> 繁中逐段翻譯：</span>
+                            <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                歸根結底，這項全球第一的殊榮肯定，有力見證了這座城市對「以人為本」都市發展始終堅定不移的承諾與付出。藉由長期持續的公共投資、嚴格的營運紀律，以及推行區域型 TPASS 通勤月票等綠色永續政策，台北成功將枯燥繁重的日常通勤轉化為極其便捷、親民平價且愉悅舒適的美好體驗。在全球許多一線大城仍飽受長期誤點、設施老舊與嚴重交通壅塞之苦的當下，台北展現了一套機能完備的都會交通藍圖。對全球各國都市規劃專家與運輸主管機關而言，台灣的首都已正式為全球大眾運輸樹立了頂尖典範。
+                            </p>
+                        </div>
+                        <div class="bg-teal-50/60 p-3 rounded-lg text-xs text-teal-900 border border-teal-100">
+                            📌 <strong>Miffy 老師句型點評：</strong> <code>stands as a powerful testament to...</code>（有力證明了…）與 <code>set a standard for...</code>（為…立下標竿）是描寫市政治理成就與社會進步時最亮眼的高階英文片語！
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Miffy 老師重點回顧卡片 -->
+            <div class="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl p-6 border border-teal-200 space-y-3">
+                <div class="flex items-center gap-2.5 text-teal-800 font-black text-lg">
+                    <img src="https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/happy_28.png" alt="" onerror="this.style.display='none'" class="chibi-img w-9 h-9 object-contain">
+                    <span>Miffy 老師大白話重點解析：北捷致勝關鍵要素</span>
+                </div>
+                <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                    根據國際權威雜誌《Time Out》針對全球 24,000 名居民進行的評比，台北捷運獲得本地居民高達 <strong>95% 滿意度</strong>，超越新加坡、香港及首爾登上全球大眾運輸第一名。致勝關鍵在於：車站一塵不染（pristine）、多語指標明確、營運高度穩定，以及享譽國際的月台「排隊文化與自律規範」。搭配 400 條市區公車、電動公車、YouBike 與悠遊卡/TPASS 的緊密整合，樹立了永續都市規劃的標竿。
+                </p>
+                <div class="bg-white/80 p-3 rounded-xl border border-teal-200 text-xs sm:text-sm text-teal-900 font-medium">
+                    💡 <strong>閱讀理解亮點提示：</strong> 欲描繪公共治理與永續建設成效時，可熟記片語 <code>stands as a powerful testament to...</code>（有力佐證了…）與 <code>set a standard for...</code>（為…樹立高標準典範）。
+                </div>
+            </div>
+        </article>
+
+        <!-- ======================================================== -->
+        <!-- ARTICLE 3: TAIWAN FLU SEASON                             -->
+        <!-- ======================================================== -->
+        <article id="article-3" class="bg-white rounded-3xl p-6 sm:p-9 shadow-sm border border-slate-200 space-y-7 scroll-mt-28">
+            <!-- Article Header Meta -->
+            <div class="border-b border-slate-100 pb-5">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+                    <div class="flex items-center gap-2">
+                        <span class="bg-amber-50 text-amber-700 border border-amber-200 text-xs font-black px-3 py-1 rounded-lg uppercase">
+                            時事精讀 03
+                        </span>
+                        <span class="text-xs text-slate-500 font-medium">
+                            <i class="fa-regular fa-calendar-days mr-1"></i> Oct. 11, 2026 – Oct. 17, 2026
+                        </span>
+                    </div>
+                    <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-md font-semibold">
+                        Grace Post 楊苓週報 • 授課引導：Miffy 老師
+                    </span>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2.5">
+                    <i class="fa-solid fa-shield-virus text-rose-500"></i>
+                    <span>台灣流感季 (Taiwan Flu Season)</span>
+                </h3>
+            </div>
+
+            <!-- Paragraph-by-Paragraph Bilingual Container -->
+            <div class="space-y-6">
+
+                <!-- Article 3: Paragraph 1 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-3.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-100/70 px-2.5 py-1 rounded-md">
+                            Paragraph 1 • 疫情爆發與突破門檻
+                        </span>
+                        <button onclick="toggleTrans(this)" class="text-xs font-bold text-slate-500 hover:text-indigo-600 transition flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-down"></i> <span>收合/展開翻譯</span>
+                        </button>
+                    </div>
+
+                    <!-- English Text -->
+                    <div class="eng-block text-slate-800 leading-relaxed text-base sm:text-lg">
+                        <p>
+                            In September 2026, the Taiwan Centers for Disease Control (CDC) officially announced that the country had entered a 
+                            <span class="vocab-hl" onclick="showVocab('severe', 'adj. 嚴重的；劇烈的 [səˈvɪr]', 'severe flu epidemic period')">severe</span> 
+                            flu 
+                            <span class="vocab-hl" onclick="showVocab('epidemic', 'n. 傳染病；流行病 [ˌepɪˈdemɪk]', 'The flu epidemic resulted in school closures.')">epidemic</span> 
+                            period as weekly 
+                            <span class="vocab-hl" onclick="showVocab('transmission', 'n. 傳播；傳染 [trænzˈmɪʃn]', 'transmission of the virus through physical contact')">transmissions</span> 
+                            crossed critical 
+                            <span class="vocab-hl" onclick="showVocab('threshold', 'n. 門檻；界限；閾值 [ˈθreʃhoʊld]', 'cross critical thresholds / boredom threshold')">thresholds</span>. 
+                            Health authorities registered a sharp surge in medical 
+                            <span class="vocab-hl" onclick="showVocab('consultation', 'n. 諮詢；診斷 [ˌkɑːnslˈteɪʃn]', 'surge in medical consultations')">consultations</span>, 
+                            with weekly visits for flu-like illnesses leaping from 115,136 to a staggering 136,796 outpatient and emergency visits, 
+                            <span class="vocab-hl" onclick="showVocab('represent', 'v. 代表；相當於 [ˌreprɪˈzent]', 'representing a 16.5% week-on-week increase')">representing</span> 
+                            a 16.5% week-on-week increase. This surge caused flu cases to 
+                            <span class="vocab-hl" onclick="showVocab('account for', 'phr. 佔有(比例)；解釋', 'account for 12% of emergency room visits')">account for</span> 
+                            12% of emergency room visits, comfortably 
+                            <span class="vocab-hl" onclick="showVocab('breach', 'v. 突破；違反 [briːtʃ]', 'breach the contract / breach the 11% epidemic baseline')">breaching</span> 
+                            the nation’s 11% epidemic baseline. 
+                            <span class="vocab-hl" onclick="showVocab('cumulative', 'adj. 累積的 [ˈkjuːmjəleɪtɪv]', 'Cumulative data for the season')">Cumulative</span> 
+                            data for the season revealed a grim toll of 1,329 severe cases and 253 deaths, with a striking 68.6% of those experiencing severe illness having missed their seasonal influenza vaccination.
+                        </p>
+                    </div>
+
+                    <!-- Chinese Translation & Key Points -->
+                    <div class="trans-block bg-white p-4 sm:p-5 rounded-xl border border-amber-100 shadow-xs space-y-2.5">
+                        <div class="flex items-start gap-2">
+                            <span class="text-amber-700 font-bold text-xs mt-0.5"><i class="fa-solid fa-language"></i> 繁中逐段翻譯：</span>
+                            <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                2026 年 9 月，衛福部疾病管制署（CDC）正式宣布台灣已邁入流感流行重度高峰期，單週傳播病例數已正式跨越關鍵警戒門檻。衛生主管機關監測到就醫看診人次急劇攀升，單週門急診類流感就診人次從 115,136 人大幅跳升至令人震驚的 136,796 人次，週增幅高達 16.5%。這波就醫潮導致流感個案佔急診總就醫人次比例達 12%，直接突破全國 11% 的流行預警基準線。當季累計數據更揭露了令人沉痛的疫情代價——共出現 1,329 例重症個案與 253 例死亡病例，更驚人的是，高達 68.6% 的重症患者均未接種當季流感疫苗。
+                            </p>
+                        </div>
+                        <div class="bg-amber-50/60 p-3 rounded-lg text-xs text-amber-950 border border-amber-100">
+                            📌 <strong>Miffy 老師句型點評：</strong> <code>account for + 百分比</code> 表示「佔了……比例」；後方 <code>with a striking 68.6% having missed their vaccination</code> 為「with + 受詞 + 分詞」之獨立分詞構句，修飾前方的沉痛疫情代價。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 3: Paragraph 2 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-3.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-100/70 px-2.5 py-1 rounded-md">
+                            Paragraph 2 • 主導病毒株與重症警訊
+                        </span>
+                        <button onclick="toggleTrans(this)" class="text-xs font-bold text-slate-500 hover:text-indigo-600 transition flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-down"></i> <span>收合/展開翻譯</span>
+                        </button>
+                    </div>
+
+                    <!-- English Text -->
+                    <div class="eng-block text-slate-800 leading-relaxed text-base sm:text-lg">
+                        <p>
+                            Laboratory monitoring confirmed that Influenza A(H1N1) remains the 
+                            <span class="vocab-hl" onclick="showVocab('dominant', 'adj. 主導的；佔優勢的 [ˈdɑːmɪnənt]', 'dominant strain driving the outbreak')">dominant</span> 
+                            strain driving the outbreak across local communities, accounting for 82.2% of positive tests over a four-week period. The high 
+                            <span class="vocab-hl" onclick="showVocab('virulence', 'n. 毒力；致病性 [ˈvɪrələns]', 'The virulence of the disease is causing great concern.')">virulence</span> 
+                            of this strain 
+                            <span class="vocab-hl" onclick="showVocab('manifest', 'v. 顯現；表明 [ˈmænɪfest]', 'manifested in a dramatic spike in severe outcomes')">manifested</span> 
+                            in a dramatic spike in severe outcomes, highlighted by a single week recording 92 severe cases and 21 flu-related deaths, which marked the highest weekly 
+                            <span class="vocab-hl" onclick="showVocab('mortality', 'n. 死亡率；死亡人數 [mɔːrˈtæləti]', 'highest weekly mortality toll')">mortality</span> 
+                            toll of the entire season. While the vast 
+                            <span class="vocab-hl" onclick="showVocab('majority', 'n. 大多數 [məˈdʒɔːrəti]', 'the vast majority of life-threatening complications')">majority</span> 
+                            of life-threatening complications targeted elderly citizens aged 65 or older and individuals with 
+                            <span class="vocab-hl" onclick="showVocab('chronic', 'adj. 慢性的；長期的 [ˈkrɑːnɪk]', 'chronic health conditions / chronic pain')">chronic</span> 
+                            health conditions, young populations were not spared. A tragic case emerged involving a one-year-old boy who developed dangerous influenza-related encephalitis and acute brain edema, requiring urgent 
+                            <span class="vocab-hl" onclick="showVocab('intensive', 'adj. 加護的；密集的 [ɪnˈtensɪv]', 'intensive care unit (加護病房)')">intensive</span> 
+                            care.
+                        </p>
+                    </div>
+
+                    <!-- Chinese Translation & Key Points -->
+                    <div class="trans-block bg-white p-4 sm:p-5 rounded-xl border border-amber-100 shadow-xs space-y-2.5">
+                        <div class="flex items-start gap-2">
+                            <span class="text-amber-700 font-bold text-xs mt-0.5"><i class="fa-solid fa-language"></i> 繁中逐段翻譯：</span>
+                            <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                實驗室病毒監測結果證實，A 型流感（H1N1）仍是引爆社區疫情的主導病毒株，在近四週陽性檢驗個案中佔比高達 82.2%。該病毒株的高致病力（毒力）顯現在重症與死亡人數的急遽飆升上，最嚴峻的單週曾創下 92 例重症與 21 例流感死亡個案，寫下整季單週死亡人數最高紀錄。儘管危及生命的併發症絕大多數集中於 65 歲以上長者及慢性病病患，但年輕族群亦無法倖免——臨床出現一名年僅一歲的男童感染後併發危急的流感腦炎與急性腦水腫，緊急送入加護病房救治的痛心病例。
+                            </p>
+                        </div>
+                        <div class="bg-amber-50/60 p-3 rounded-lg text-xs text-amber-950 border border-amber-100">
+                            📌 <strong>Miffy 老師句型點評：</strong> <code>manifested in...</code> 表示「具體顯現在……層面上」；<code>young populations were not spared</code>（年輕族群亦未被倖免）為被動態的精妙運用。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 3: Paragraph 3 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-3.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-100/70 px-2.5 py-1 rounded-md">
+                            Paragraph 3 • 三重病毒夾擊公衛量能
+                        </span>
+                        <button onclick="toggleTrans(this)" class="text-xs font-bold text-slate-500 hover:text-indigo-600 transition flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-down"></i> <span>收合/展開翻譯</span>
+                        </button>
+                    </div>
+
+                    <!-- English Text -->
+                    <div class="eng-block text-slate-800 leading-relaxed text-base sm:text-lg">
+                        <p>
+                            <span class="vocab-hl" onclick="showVocab('compound', 'v. 使加重；使惡化 [kəmˈpaʊnd]', 'Compounding the public health crisis...')">Compounding</span> 
+                            the public health crisis, Taiwan’s medical infrastructure is 
+                            <span class="vocab-hl" onclick="showVocab('simultaneously', 'adv. 同時地 [ˌsaɪmlˈteɪniəsli]', 'simultaneously battling co-circulating pathogens')">simultaneously</span> 
+                            battling co-circulating pathogens, notably COVID-19 and enterovirus. Although COVID-19 infections demonstrated a downward trend—dropping 13.3% to 17,847 weekly visits—the virus remains firmly at epidemic levels, logging 53 severe cases and 18 deaths under the dominance of the NB.1.8.1 and PQ.16.1.1 strains. 
+                            <span class="vocab-hl" onclick="showVocab('concurrently', 'adv. 同時發生地 [kənˈkɜːrəntli]', 'Concurrently, the start of the semester triggered a spike.')">Concurrently</span>, 
+                            the start of the new school semester triggered an 18.1% spike in enterovirus infections, pushing weekly consultations to 10,203 cases. CDC officials project that enterovirus will officially enter its own epidemic phase immediately, threatening to compound the strain on local clinical networks.
+                        </p>
+                    </div>
+
+                    <!-- Chinese Translation & Key Points -->
+                    <div class="trans-block bg-white p-4 sm:p-5 rounded-xl border border-amber-100 shadow-xs space-y-2.5">
+                        <div class="flex items-start gap-2">
+                            <span class="text-amber-700 font-bold text-xs mt-0.5"><i class="fa-solid fa-language"></i> 繁中逐段翻譯：</span>
+                            <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                使這場公衛危機更雪上加霜的是，台灣的醫療體系正面臨多重病原體同時傳播（共流行）的嚴峻挑戰，特別是新冠肺炎（COVID-19）與腸病毒。儘管新冠疫情稍呈降溫走勢——單週就診人次下滑 13.3% 至 17,847 人，但在 NB.1.8.1 及 PQ.16.1.1 變異株主導下，仍穩居流行高峰，通報了 53 例重症與 18 例死亡。與此同時，新學期開學誘發了校園傳播，腸病毒感染單週激增 18.1%，推升週門診量達 10,203 人次。疾管署官員預估腸病毒亦將立即邁入流行高峰期，恐將進一步加劇基層醫療體系與急診的沉重負擔。
+                            </p>
+                        </div>
+                        <div class="bg-amber-50/60 p-3 rounded-lg text-xs text-amber-950 border border-amber-100">
+                            📌 <strong>Miffy 老師句型點評：</strong> <code>Compounding the crisis, S + V...</code> 是第二次段考閱讀測驗高頻出現的轉折分詞構句，相當於「What makes the crisis even worse is that...」，讀懂它就能秒殺細節理解題！
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 3: Paragraph 4 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-3.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-100/70 px-2.5 py-1 rounded-md">
+                            Paragraph 4 • 中秋高峰預警與就醫徵兆
+                        </span>
+                        <button onclick="toggleTrans(this)" class="text-xs font-bold text-slate-500 hover:text-indigo-600 transition flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-down"></i> <span>收合/展開翻譯</span>
+                        </button>
+                    </div>
+
+                    <!-- English Text -->
+                    <div class="eng-block text-slate-800 leading-relaxed text-base sm:text-lg">
+                        <p>
+                            CDC Deputy Director-General Lin Min-Cheng warned that seasonal flu cases will continue to rise rapidly, forecasted to peak at 150,000 to 160,000 weekly visits around the upcoming Mid-Autumn Festival holiday. 
+                            <span class="vocab-hl" onclick="showVocab('due to', 'phr. 由於；因為', 'Due to the high volume of family gatherings')">Due to</span> 
+                            the high volume of family gatherings and cross-regional travel, authorities are strongly 
+                            <span class="vocab-hl" onclick="showVocab('urge sb to', 'phr. 力勸；呼籲某人做...', 'urging the public to maintain strict hygiene')">urging</span> 
+                            the public to maintain strict hand 
+                            <span class="vocab-hl" onclick="showVocab('hygiene', 'n. 衛生 [ˈhaɪdʒiːn]', 'maintain strict hand hygiene')">hygiene</span>, 
+                            follow cough 
+                            <span class="vocab-hl" onclick="showVocab('etiquette', 'n. 禮儀；規範 [ˈetɪkət]', 'cough etiquette (咳嗽禮節)')">etiquette</span>, 
+                            and 
+                            <span class="vocab-hl" onclick="showVocab('voluntarily', 'adv. 自願地 [ˈvɑːlənterəli]', 'voluntarily wear masks in dense settings')">voluntarily</span> 
+                            wear masks in dense settings. Additionally, health officials advised citizens to seek immediate emergency treatment if they experience critical warning signs such as difficulty breathing, chest pain, confusion, low blood pressure, or a high fever persisting for more than 72 hours.
+                        </p>
+                    </div>
+
+                    <!-- Chinese Translation & Key Points -->
+                    <div class="trans-block bg-white p-4 sm:p-5 rounded-xl border border-amber-100 shadow-xs space-y-2.5">
+                        <div class="flex items-start gap-2">
+                            <span class="text-amber-700 font-bold text-xs mt-0.5"><i class="fa-solid fa-language"></i> 繁中逐段翻譯：</span>
+                            <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                                疾管署副署長林敏成示警，季節性流感病例數將持續快速竄升，預估將在中秋節連續假期前後達到最高峰，單週就診可能突破 15 萬至 16 萬人次大關。鑑於連假期間家庭聚會頻繁且跨區人流密集，主管機關強烈呼籲民眾務必維持勤洗手的手部衛生習慣、嚴格恪守咳嗽禮節，並於人潮擁擠場所主動配戴口罩。此外，衛生官員提醒民眾，若出現呼吸困難急促、劇烈胸痛、意識不清混亂、低血壓，或發燒高燒持續超過 72 小時等重症危險前兆，應立即就醫前往急診接受治療。
+                            </p>
+                        </div>
+                        <div class="bg-amber-50/60 p-3 rounded-lg text-xs text-amber-950 border border-amber-100">
+                            📌 <strong>Miffy 老師句型點評：</strong> <code>urge sb to + VR</code> 為段考閱讀測驗必出之動詞用法；五大危險徵兆中的 <code>persisting for more than 72 hours</code> 為現在分詞片語修飾 a high fever。
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Miffy 老師重點回顧卡片 -->
+            <div class="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-6 border border-amber-200 space-y-3">
+                <div class="flex items-center gap-2.5 text-amber-900 font-black text-lg">
+                    <img src="https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/body_06.png" alt="" onerror="this.style.display='none'" class="chibi-img w-9 h-9 object-contain">
+                    <span>Miffy 老師大白話重點解析：公衛危機與重症警訊</span>
+                </div>
+                <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+                    疾管署（CDC）正式公告台灣進入流感流行高峰期。單週門急診類流感就診人次激增至 13.6 萬以上，急診比例（12%）直接跨越 11% 預警門檻。本季主導病毒株為高致病性的 A 型 H1N1（佔陽性個案 82.2%），臨床甚至出現一歲幼童引發急性腦炎與腦水腫之重症。
+                </p>
+                <div class="bg-white/80 p-3 rounded-xl border border-amber-200 text-xs sm:text-sm text-amber-900 font-medium">
+                    🚨 <strong>就醫危險徵兆：</strong> 若出現呼吸急促困難、劇烈胸痛、意識不清、血壓偏低，或<strong>高燒持續超過 72 小時</strong>，應立即至急診治療；此外，累積重症患者中高達 68.6% 未接種流感疫苗，顯示疫苗保護力的關鍵性。
+                </div>
+            </div>
+        </article>
+
+        <!-- ======================================================== -->
+        <!-- SECTION 2: 15-QUESTION INTERACTIVE QUIZ (即測即評測驗系統) -->
+        <!-- ======================================================== -->
+        <section id="quiz-section" class="scroll-mt-24 space-y-6">
+
+            <!-- Quiz Top Header & Scoreboard -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div class="max-w-xl">
+                        <div class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full mb-2">
+                            <i class="fa-solid fa-award"></i> 課後素養即測即評系統（全 15 題）
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-black text-slate-900">
+                            第二次段考閱讀測驗：即測即評實戰挑戰
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                            每題點選後立即批改給分！涵蓋主旨判斷、細節因果、字彙推論、批判性思考與段考閱讀理解。
+                        </p>
+                    </div>
+
+                    <!-- Score Card -->
+                    <div class="flex items-center gap-3">
+                        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-200 px-5 py-3 rounded-2xl text-center shadow-xs">
+                            <span class="text-xs text-indigo-600 font-bold block">目前答對題數</span>
+                            <span id="quiz-score" class="text-3xl font-black text-indigo-700">0 / 15</span>
+                        </div>
+                        <button onclick="resetQuiz()" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-2xl text-xs font-bold transition flex items-center gap-1.5 shadow-xs">
+                            <i class="fa-solid fa-rotate-left"></i> 全部重測
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="space-y-1.5">
+                    <div class="flex justify-between text-xs font-bold text-slate-500">
+                        <span id="quiz-progress-text">已作答：0 / 15 題</span>
+                        <span id="quiz-accuracy-text">正確率：0%</span>
+                    </div>
+                    <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                        <div id="quiz-progress-bar" class="bg-gradient-to-r from-indigo-600 to-purple-600 h-full w-0 transition-all duration-300"></div>
+                    </div>
+                </div>
+
+                <!-- Category Filter Tabs -->
+                <div class="flex items-center flex-wrap gap-2 pt-2 border-t border-slate-100">
+                    <span class="text-xs font-bold text-slate-400 mr-1"><i class="fa-solid fa-filter"></i> 題目篩選：</span>
+                    <button onclick="filterQuizCategory('all')" class="quiz-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-xs transition" data-cat="all">
+                        全部 15 題
+                    </button>
+                    <button onclick="filterQuizCategory('art1')" class="quiz-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-cat="art1">
+                        篇章 1 杜拜劫機 (Q1-Q5)
+                    </button>
+                    <button onclick="filterQuizCategory('art2')" class="quiz-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-cat="art2">
+                        篇章 2 台北捷運 (Q6-Q10)
+                    </button>
+                    <button onclick="filterQuizCategory('art3')" class="quiz-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-cat="art3">
+                        篇章 3 台灣流感 (Q11-Q15)
+                    </button>
+                    <button onclick="filterQuizCategory('wrong')" class="quiz-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-rose-50 text-rose-700 hover:bg-rose-100 transition" data-cat="wrong">
+                        <i class="fa-solid fa-triangle-exclamation mr-1"></i>僅看錯題
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Questions Container -->
+            <div id="quiz-cards-container" class="space-y-5">
+
+                <!-- ------------------- ARTICLE 1 QUESTIONS (Q1 - Q5) ------------------- -->
+
+                <!-- Q1 -->
+                <div class="quiz-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200" data-qid="1" data-cat="art1">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-0.5 rounded-md">Q1 • 篇章 1</span>
+                            <span class="text-xs text-slate-400 font-medium">主旨大意題 (Main Purpose)</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-300">Flydubai 1073</span>
+                    </div>
+                    <p class="text-slate-800 font-semibold mb-4 text-sm sm:text-base">
+                        What is the primary objective of the news report concerning Flydubai Flight 1073?
+                    </p>
+                    <div class="space-y-2.5 options-group">
+                        <button onclick="checkAnswer(1, 'A')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">A</span>
+                            <span>To explain the mechanical engine malfunctions observed on Boeing 737 MAX 8 aircraft.</span>
+                        </button>
+                        <button onclick="checkAnswer(1, 'B')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">B</span>
+                            <span>To narrate how an attempted lone-wolf hijacking was thwarted and examine glaring vulnerabilities in international aviation vetting.</span>
+                        </button>
+                        <button onclick="checkAnswer(1, 'C')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">C</span>
+                            <span>To urge airlines to eliminate all emergency crash axes permanently from modern cockpits.</span>
+                        </button>
+                        <button onclick="checkAnswer(1, 'D')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">D</span>
+                            <span>To criticize Saudi Arabia’s border security forces for mishandling criminal extradition.</span>
+                        </button>
+                    </div>
+                    <div class="explanation mt-4 hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="quiz-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200" data-qid="2" data-cat="art1">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-0.5 rounded-md">Q2 • 篇章 1</span>
+                            <span class="text-xs text-slate-400 font-medium">事實與情報題 (Factual Background)</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-300">Flydubai 1073</span>
+                    </div>
+                    <p class="text-slate-800 font-semibold mb-4 text-sm sm:text-base">
+                        According to paragraph 3, what shocking past record of co-pilot al-Hammami was uncovered by international investigators?
+                    </p>
+                    <div class="space-y-2.5 options-group">
+                        <button onclick="checkAnswer(2, 'A')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">A</span>
+                            <span>He had been dismissed from Oman Air for radicalization and monitored in Australia, yet cross-border intelligence failed to flag him.</span>
+                        </button>
+                        <button onclick="checkAnswer(2, 'B')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">B</span>
+                            <span>He had previously hijacked a military transport helicopter during his student training in Tel Aviv.</span>
+                        </button>
+                        <button onclick="checkAnswer(2, 'C')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">C</span>
+                            <span>He forged all commercial pilot credentials and never attended any aeronautical engineering school.</span>
+                        </button>
+                        <button onclick="checkAnswer(2, 'D')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">D</span>
+                            <span>He was an undercover official dispatched directly by the Israeli transportation authority.</span>
+                        </button>
+                    </div>
+                    <div class="explanation mt-4 hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="quiz-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200" data-qid="3" data-cat="art1">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-0.5 rounded-md">Q3 • 篇章 1</span>
+                            <span class="text-xs text-slate-400 font-medium">字彙語意題 (Vocabulary in Context)</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-300">Flydubai 1073</span>
+                    </div>
+                    <p class="text-slate-800 font-semibold mb-4 text-sm sm:text-base">
+                        In paragraph 2, what does the word "<span class="text-red-600 font-bold underline">averted</span>" mean in the phrase "A devastating disaster was narrowly <span class="text-red-600 font-bold">averted</span>"?
+                    </p>
+                    <div class="space-y-2.5 options-group">
+                        <button onclick="checkAnswer(3, 'A')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">A</span>
+                            <span>Commenced or initiated (開始著手)</span>
+                        </button>
+                        <button onclick="checkAnswer(3, 'B')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">B</span>
+                            <span>Prevented or avoided (化解；避免)</span>
+                        </button>
+                        <button onclick="checkAnswer(3, 'C')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">C</span>
+                            <span>Exaggerated dramatically (誇大其詞)</span>
+                        </button>
+                        <button onclick="checkAnswer(3, 'D')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">D</span>
+                            <span>Underestimated (低估忽略)</span>
+                        </button>
+                    </div>
+                    <div class="explanation mt-4 hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="quiz-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200" data-qid="4" data-cat="art1">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-0.5 rounded-md">Q4 • 篇章 1</span>
+                            <span class="text-xs text-slate-400 font-medium">飛安盲點推論 (Critical Security Flaw)</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-300">Flydubai 1073</span>
+                    </div>
+                    <p class="text-slate-800 font-semibold mb-4 text-sm sm:text-base">
+                        What critical flight deck equipment issue did aviation analysts explicitly question after the hijacking attempt?
+                    </p>
+                    <div class="space-y-2.5 options-group">
+                        <button onclick="checkAnswer(4, 'A')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">A</span>
+                            <span>Keeping lethal emergency tools like crash axes unsecured inside flight decks.</span>
+                        </button>
+                        <button onclick="checkAnswer(4, 'B')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">B</span>
+                            <span>Equipping Boeing 737 MAX 8 cockpits with automated squawk 7500 transmitters.</span>
+                        </button>
+                        <button onclick="checkAnswer(4, 'C')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">C</span>
+                            <span>Allowing off-duty flight attendants to sit inside passenger cabins.</span>
+                        </button>
+                        <button onclick="checkAnswer(4, 'D')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">D</span>
+                            <span>Installing reinforced bulletproof cockpit doors that can be opened manually.</span>
+                        </button>
+                    </div>
+                    <div class="explanation mt-4 hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="quiz-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200" data-qid="5" data-cat="art1">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-0.5 rounded-md">Q5 • 篇章 1</span>
+                            <span class="text-xs text-slate-400 font-medium">政治效應題 (Political Impact)</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-300">Flydubai 1073</span>
+                    </div>
+                    <p class="text-slate-800 font-semibold mb-4 text-sm sm:text-base">
+                        What domestic political demand was triggered in Israel following the Flydubai intelligence failure?
+                    </p>
+                    <div class="space-y-2.5 options-group">
+                        <button onclick="checkAnswer(5, 'A')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">A</span>
+                            <span>Immediate dissolution of all international civil aviation alliances.</span>
+                        </button>
+                        <button onclick="checkAnswer(5, 'B')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">B</span>
+                            <span>Opposition leaders and former PM Bennett demanding the prompt resignation of Transportation Minister Miri Regev.</span>
+                        </button>
+                        <button onclick="checkAnswer(5, 'C')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">C</span>
+                            <span>A permanent ban on all commercial flights passing near the Saudi-Jordanian border.</span>
+                        </button>
+                        <button onclick="checkAnswer(5, 'D')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">D</span>
+                            <span>A government subsidy to replace all Boeing 737 aircraft with Airbus jetliners.</span>
+                        </button>
+                    </div>
+                    <div class="explanation mt-4 hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                </div>
+
+                <!-- ------------------- ARTICLE 2 QUESTIONS (Q6 - Q10) ------------------- -->
+
+                <!-- Q6 -->
+                <div class="quiz-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200" data-qid="6" data-cat="art2">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-teal-100 text-teal-800 text-xs font-bold px-2.5 py-0.5 rounded-md">Q6 • 篇章 2</span>
+                            <span class="text-xs text-slate-400 font-medium">調查評比細節題 (Survey Recognition)</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-300">Taipei Transit</span>
+                    </div>
+                    <p class="text-slate-800 font-semibold mb-4 text-sm sm:text-base">
+                        According to the Time Out October 2026 survey, what notable accomplishment did Taipei achieve?
+                    </p>
+                    <div class="space-y-2.5 options-group">
+                        <button onclick="checkAnswer(6, 'A')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">A</span>
+                            <span>It ranked first worldwide with a 95% satisfaction rating, outshining hubs like Singapore, Hong Kong, and Seoul.</span>
+                        </button>
+                        <button onclick="checkAnswer(6, 'B')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">B</span>
+                            <span>It built the deepest subterranean metro tunnels in Asia to survive major earthquakes.</span>
+                        </button>
+                        <button onclick="checkAnswer(6, 'C')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">C</span>
+                            <span>It became the first global metropolis to make public transportation completely fare-free.</span>
+                        </button>
+                        <button onclick="checkAnswer(6, 'D')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">D</span>
+                            <span>It retired all municipal bus networks to prioritize underground rail grids exclusively.</span>
+                        </button>
+                    </div>
+                    <div class="explanation mt-4 hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="quiz-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200" data-qid="7" data-cat="art2">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-teal-100 text-teal-800 text-xs font-bold px-2.5 py-0.5 rounded-md">Q7 • 篇章 2</span>
+                            <span class="text-xs text-slate-400 font-medium">核心特質題 (Key Success Factors)</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-300">Taipei Transit</span>
+                    </div>
+                    <p class="text-slate-800 font-semibold mb-4 text-sm sm:text-base">
+                        Which of the following factors is explicitly highlighted as a hallmark of Taipei’s unique commuter culture?
+                    </p>
+                    <div class="space-y-2.5 options-group">
+                        <button onclick="checkAnswer(7, 'A')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">A</span>
+                            <span>Compulsory silent zones enforced by transit security officers on every train carriage.</span>
+                        </button>
+                        <button onclick="checkAnswer(7, 'B')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">B</span>
+                            <span>Remarkably pristine stations and platform queuing guidelines that guarantee neat, respectful boarding even during frantic rush hours.</span>
+                        </button>
+                        <button onclick="checkAnswer(7, 'C')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">C</span>
+                            <span>Providing free dining facilities across all transfer stations.</span>
+                        </button>
+                        <button onclick="checkAnswer(7, 'D')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">D</span>
+                            <span>Restricting elderly commuters during morning peak hours to alleviate congestion.</span>
+                        </button>
+                    </div>
+                    <div class="explanation mt-4 hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="quiz-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200" data-qid="8" data-cat="art2">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-teal-100 text-teal-800 text-xs font-bold px-2.5 py-0.5 rounded-md">Q8 • 篇章 2</span>
+                            <span class="text-xs text-slate-400 font-medium">對比推論題 (Comparative Contrast)</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-300">Taipei Transit</span>
+                    </div>
+                    <p class="text-slate-800 font-semibold mb-4 text-sm sm:text-base">
+                        How does the author contrast Taipei’s MRT network with subway systems in many comparable Western capital cities?
+                    </p>
+                    <div class="space-y-2.5 options-group">
+                        <button onclick="checkAnswer(8, 'A')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">A</span>
+                            <span>Taipei is significantly cleaner, brighter, and more welcoming than the dark or complex subterranean transit webs in Western capitals.</span>
+                        </button>
+                        <button onclick="checkAnswer(8, 'B')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">B</span>
+                            <span>Western metros carry substantially fewer daily passengers than Taipei's 2.1 million daily riders.</span>
+                        </button>
+                        <button onclick="checkAnswer(8, 'C')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">C</span>
+                            <span>Taipei's metro tracks are much older and require constant emergency repairs compared to European networks.</span>
+                        </button>
+                        <button onclick="checkAnswer(8, 'D')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">D</span>
+                            <span>Western capitals possess a superior contactless smart-card ecosystem compared to Taipei's EasyCard.</span>
+                        </button>
+                    </div>
+                    <div class="explanation mt-4 hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="quiz-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200" data-qid="9" data-cat="art2">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-teal-100 text-teal-800 text-xs font-bold px-2.5 py-0.5 rounded-md">Q9 • 篇章 2</span>
+                            <span class="text-xs text-slate-400 font-medium">綠能與載具整合 (Multimodal Ecosystem)</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-300">Taipei Transit</span>
+                    </div>
+                    <p class="text-slate-800 font-semibold mb-4 text-sm sm:text-base">
+                        According to paragraph 3, what infrastructure seamlessly complements Taipei’s massive MRT rail grid?
+                    </p>
+                    <div class="space-y-2.5 options-group">
+                        <button onclick="checkAnswer(9, 'A')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">A</span>
+                            <span>Nearly 400 municipal bus routes, a green fleet of over 1,000 electric buses, YouBike sharing, and the EasyCard system.</span>
+                        </button>
+                        <button onclick="checkAnswer(9, 'B')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">B</span>
+                            <span>A fleet of autonomous electric air taxis operating between skyscrapers.</span>
+                        </button>
+                        <button onclick="checkAnswer(9, 'C')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">C</span>
+                            <span>Privately operated shared motorcycles subsidized exclusively for high school students.</span>
+                        </button>
+                        <button onclick="checkAnswer(9, 'D')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">D</span>
+                            <span>Elevated maglev train express tracks connecting all international airports.</span>
+                        </button>
+                    </div>
+                    <div class="explanation mt-4 hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="quiz-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200" data-qid="10" data-cat="art2">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-teal-100 text-teal-800 text-xs font-bold px-2.5 py-0.5 rounded-md">Q10 • 篇章 2</span>
+                            <span class="text-xs text-slate-400 font-medium">字彙語意題 (Vocabulary in Context)</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-300">Taipei Transit</span>
+                    </div>
+                    <p class="text-slate-800 font-semibold mb-4 text-sm sm:text-base">
+                        In paragraph 4, what is the best synonym for "<span class="text-teal-700 font-bold underline">unwavering</span>" in the phrase "the city’s <span class="text-teal-700 font-bold">unwavering</span> commitment"?
+                    </p>
+                    <div class="space-y-2.5 options-group">
+                        <button onclick="checkAnswer(10, 'A')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">A</span>
+                            <span>Resolute, steady, and steadfast (堅定不移的)</span>
+                        </button>
+                        <button onclick="checkAnswer(10, 'B')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">B</span>
+                            <span>Hesitant and volatile (猶豫不定的)</span>
+                        </button>
+                        <button onclick="checkAnswer(10, 'C')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">C</span>
+                            <span>Brief and transitory (短暫的)</span>
+                        </button>
+                        <button onclick="checkAnswer(10, 'D')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">D</span>
+                            <span>Theoretical and unproven (純理論的)</span>
+                        </button>
+                    </div>
+                    <div class="explanation mt-4 hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                </div>
+
+                <!-- ------------------- ARTICLE 3 QUESTIONS (Q11 - Q15) ------------------- -->
+
+                <!-- Q11 -->
+                <div class="quiz-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200" data-qid="11" data-cat="art3">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-0.5 rounded-md">Q11 • 篇章 3</span>
+                            <span class="text-xs text-slate-400 font-medium">公衛門檻判定 (Epidemic Threshold)</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-300">Taiwan Flu</span>
+                    </div>
+                    <p class="text-slate-800 font-semibold mb-4 text-sm sm:text-base">
+                        What epidemiological metric prompted the Taiwan CDC to officially declare that the country had entered a severe flu epidemic?
+                    </p>
+                    <div class="space-y-2.5 options-group">
+                        <button onclick="checkAnswer(11, 'A')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">A</span>
+                            <span>Weekly visits surged by 16.5% to 136,796, causing flu cases to account for 12% of ER visits and breaching the 11% baseline.</span>
+                        </button>
+                        <button onclick="checkAnswer(11, 'B')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">B</span>
+                            <span>More than half of elementary schools nationwide reported student infection rates exceeding 50%.</span>
+                        </button>
+                        <button onclick="checkAnswer(11, 'C')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">C</span>
+                            <span>Emergency vaccine stockpiles were completely depleted in northern Taiwan.</span>
+                        </button>
+                        <button onclick="checkAnswer(11, 'D')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">D</span>
+                            <span>A newly identified avian flu mutant escaped pharmaceutical quarantine facilities.</span>
+                        </button>
+                    </div>
+                    <div class="explanation mt-4 hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                </div>
+
+                <!-- Q12 -->
+                <div class="quiz-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200" data-qid="12" data-cat="art3">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-0.5 rounded-md">Q12 • 篇章 3</span>
+                            <span class="text-xs text-slate-400 font-medium">病毒株與重症臨床 (Dominant Strain & Clinical Impact)</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-300">Taiwan Flu</span>
+                    </div>
+                    <p class="text-slate-800 font-semibold mb-4 text-sm sm:text-base">
+                        What virus strain is identified as the primary culprit driving the outbreak, and what tragic case illustrates its virulence among youth?
+                    </p>
+                    <div class="space-y-2.5 options-group">
+                        <button onclick="checkAnswer(12, 'A')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">A</span>
+                            <span>Influenza A(H1N1) accounting for 82.2% of positive cases, with a one-year-old boy suffering acute encephalitis and brain edema.</span>
+                        </button>
+                        <button onclick="checkAnswer(12, 'B')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">B</span>
+                            <span>Influenza B Yamagata lineage, causing widespread myocarditis among senior high school athletes.</span>
+                        </button>
+                        <button onclick="checkAnswer(12, 'C')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">C</span>
+                            <span>H3N2 superstrain, causing chronic memory impairment exclusively in infants under six months.</span>
+                        </button>
+                        <button onclick="checkAnswer(12, 'D')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">D</span>
+                            <span>NB.1.8.1 respiratory syncytial virus, causing complete lung failure in vaccinated teenagers.</span>
+                        </button>
+                    </div>
+                    <div class="explanation mt-4 hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                </div>
+
+                <!-- Q13 -->
+                <div class="quiz-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200" data-qid="13" data-cat="art3">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-0.5 rounded-md">Q13 • 篇章 3</span>
+                            <span class="text-xs text-slate-400 font-medium">段考細節數據題 (Vaccination Significance)</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-300">Taiwan Flu</span>
+                    </div>
+                    <p class="text-slate-800 font-semibold mb-4 text-sm sm:text-base">
+                        What crucial statistic in paragraph 1 emphasizes the indispensable role of seasonal flu vaccination?
+                    </p>
+                    <div class="space-y-2.5 options-group">
+                        <button onclick="checkAnswer(13, 'A')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">A</span>
+                            <span>A striking 68.6% of those experiencing severe illness had missed their seasonal influenza vaccination.</span>
+                        </button>
+                        <button onclick="checkAnswer(13, 'B')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">B</span>
+                            <span>Only 10% of elderly citizens agreed to receive booster injections.</span>
+                        </button>
+                        <button onclick="checkAnswer(13, 'C')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">C</span>
+                            <span>Over 90% of vaccinated patients still developed high fever lasting more than 72 hours.</span>
+                        </button>
+                        <button onclick="checkAnswer(13, 'D')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">D</span>
+                            <span>Flu vaccines failed to trigger any antibodies against Influenza A strains.</span>
+                        </button>
+                    </div>
+                    <div class="explanation mt-4 hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                </div>
+
+                <!-- Q14 -->
+                <div class="quiz-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200" data-qid="14" data-cat="art3">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-0.5 rounded-md">Q14 • 篇章 3</span>
+                            <span class="text-xs text-slate-400 font-medium">多重病原挑戰 (Co-circulating Pathogens)</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-300">Taiwan Flu</span>
+                    </div>
+                    <p class="text-slate-800 font-semibold mb-4 text-sm sm:text-base">
+                        Besides Influenza A, what other viral infections are simultaneously straining Taiwan’s healthcare infrastructure?
+                    </p>
+                    <div class="space-y-2.5 options-group">
+                        <button onclick="checkAnswer(14, 'A')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">A</span>
+                            <span>COVID-19 (maintaining epidemic levels with 53 severe cases) and enterovirus (surging 18.1% with school reopening).</span>
+                        </button>
+                        <button onclick="checkAnswer(14, 'B')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">B</span>
+                            <span>Seasonal chickenpox and hand-foot-and-mouth disease among university dormitories.</span>
+                        </button>
+                        <button onclick="checkAnswer(14, 'C')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">C</span>
+                            <span>Dengue fever transmitted by a sharp surge in mosquitoes following autumn typhoons.</span>
+                        </button>
+                        <button onclick="checkAnswer(14, 'D')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">D</span>
+                            <span>Bacterial pneumonia caused by defective air conditioning in hospital wards.</span>
+                        </button>
+                    </div>
+                    <div class="explanation mt-4 hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                </div>
+
+                <!-- Q15 -->
+                <div class="quiz-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200" data-qid="15" data-cat="art3">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-0.5 rounded-md">Q15 • 篇章 3</span>
+                            <span class="text-xs text-slate-400 font-medium">段考關鍵字彙與句構 (Advanced Grammar & Meaning)</span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-300">Taiwan Flu</span>
+                    </div>
+                    <p class="text-slate-800 font-semibold mb-4 text-sm sm:text-base">
+                        What is the precise meaning of "<span class="text-amber-800 font-bold underline">Compounding</span>" in the sentence "<span class="text-amber-800 font-bold">Compounding</span> the public health crisis, Taiwan's medical infrastructure is simultaneously battling co-circulating pathogens..."?
+                    </p>
+                    <div class="space-y-2.5 options-group">
+                        <button onclick="checkAnswer(15, 'A')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">A</span>
+                            <span>Mitigating, resolving, or alleviating (緩和；消除)</span>
+                        </button>
+                        <button onclick="checkAnswer(15, 'B')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">B</span>
+                            <span>Aggravating, worsening, or adding to (使惡化；雪上加霜)</span>
+                        </button>
+                        <button onclick="checkAnswer(15, 'C')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">C</span>
+                            <span>Synthesizing medical drugs mathematically (調製藥物)</span>
+                        </button>
+                        <button onclick="checkAnswer(15, 'D')" class="opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3">
+                            <span class="font-bold text-slate-400">D</span>
+                            <span>Postponing an investigation indefinitely (無限期延期)</span>
+                        </button>
+                    </div>
+                    <div class="explanation mt-4 hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- SECTION 3: CHEAT SHEET (大考高頻字彙卡與句型錦囊)         -->
+        <!-- ======================================================== -->
+        <section id="cheatsheet-section" class="scroll-mt-24 space-y-6">
+            <!-- Header with Live Search Filter -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-4">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 bg-amber-50 px-3 py-1 rounded-full mb-2">
+                        <i class="fa-solid fa-bolt"></i> 第二次段考閱讀測驗必背
+                    </div>
+                    <h2 class="text-2xl font-black text-slate-800">
+                        考前必看 Cheat Sheet 神級錦囊
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                        精選三篇週報核心 18 組單字卡與第二次段考閱讀測驗 6 大關鍵破題句型。支援單字即時檢索與一鍵複製功能！
+                    </p>
+                </div>
+
+                <div class="flex items-center gap-2.5 w-full sm:w-auto">
+                    <div class="relative flex-1 sm:w-64">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+                        <input type="text" id="vocab-search" oninput="filterVocab()" placeholder="搜尋單字、音標或中文..." class="w-full pl-9 pr-3.5 py-2 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <button onclick="copyCheatSheet()" id="copy-btn" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm whitespace-nowrap">
+                        <i class="fa-regular fa-copy"></i> 複製清單
+                    </button>
+                </div>
+            </div>
+
+            <!-- Vocabulary Cards by Article -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Hijack Vocab Card Group -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-3">
+                    <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
+                        <span class="w-7 h-7 rounded-lg bg-red-100 text-red-600 flex items-center justify-center text-xs font-bold">1</span>
+                        <h4 class="font-bold text-slate-800 text-sm">篇章 1：杜拜劫機精選</h4>
+                    </div>
+                    <div class="space-y-2.5 divide-y divide-slate-100 text-xs sm:text-sm">
+                        <div class="pt-2 vocab-card-item" data-keyword="absolute 絕對的 完全的">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>absolute [ˈæbsəluːt]</span>
+                                <span class="text-xs text-red-600 bg-red-50 px-2 py-0.5 rounded">adj. 絕對的</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: absolute terror / trust</p>
+                        </div>
+                        <div class="pt-2 vocab-card-item" data-keyword="avert 防止 避免 避開">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>avert [əˈvɜːrt]</span>
+                                <span class="text-xs text-red-600 bg-red-50 px-2 py-0.5 rounded">v. 防止；避免</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: avert a catastrophe (化解浩劫)</p>
+                        </div>
+                        <div class="pt-2 vocab-card-item" data-keyword="scramble 奮力搶救 爭先恐後">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>scramble [ˈskræmbl]</span>
+                                <span class="text-xs text-red-600 bg-red-50 px-2 py-0.5 rounded">v. 奮力搶救</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: scramble to overpower</p>
+                        </div>
+                        <div class="pt-2 vocab-card-item" data-keyword="rogue 脫序的 流氓的">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>rogue [roʊɡ]</span>
+                                <span class="text-xs text-red-600 bg-red-50 px-2 py-0.5 rounded">adj. 脫序的</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: rogue pilot / rogue state</p>
+                        </div>
+                        <div class="pt-2 vocab-card-item" data-keyword="scrutiny 審查 嚴格檢驗">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>scrutiny [ˈskruːtəni]</span>
+                                <span class="text-xs text-red-600 bg-red-50 px-2 py-0.5 rounded">n. 嚴密審查</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: bear close scrutiny</p>
+                        </div>
+                        <div class="pt-2 vocab-card-item" data-keyword="protocol 規範 處置流程 協議">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>protocol [ˈproʊtəkɑːl]</span>
+                                <span class="text-xs text-red-600 bg-red-50 px-2 py-0.5 rounded">n. 安全規範</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: emergency protocols</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transit Vocab Card Group -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-3">
+                    <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
+                        <span class="w-7 h-7 rounded-lg bg-teal-100 text-teal-700 flex items-center justify-center text-xs font-bold">2</span>
+                        <h4 class="font-bold text-slate-800 text-sm">篇章 2：北捷第一精選</h4>
+                    </div>
+                    <div class="space-y-2.5 divide-y divide-slate-100 text-xs sm:text-sm">
+                        <div class="pt-2 vocab-card-item" data-keyword="prestigious 享負盛名的 著名的">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>prestigious [preˈstɪdʒəs]</span>
+                                <span class="text-xs text-teal-600 bg-teal-50 px-2 py-0.5 rounded">adj. 享負盛名的</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: prestigious global survey</p>
+                        </div>
+                        <div class="pt-2 vocab-card-item" data-keyword="criteria 標準 評選標準">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>criteria [kraɪˈtɪriə]</span>
+                                <span class="text-xs text-teal-600 bg-teal-50 px-2 py-0.5 rounded">n. 評選標準(複)</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Note: 單數形為 criterion</p>
+                        </div>
+                        <div class="pt-2 vocab-card-item" data-keyword="pristine 極乾淨的 一塵不染的">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>pristine [prɪˈstiːn]</span>
+                                <span class="text-xs text-teal-600 bg-teal-50 px-2 py-0.5 rounded">adj. 極乾淨的</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: pristine stations (一塵不染)</p>
+                        </div>
+                        <div class="pt-2 vocab-card-item" data-keyword="complement 補充 相輔相成">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>complement [ˈkɑːmplɪment]</span>
+                                <span class="text-xs text-teal-600 bg-teal-50 px-2 py-0.5 rounded">v. 相輔相成</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: be complemented by</p>
+                        </div>
+                        <div class="pt-2 vocab-card-item" data-keyword="robust 強健的 穩固的 健全的">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>robust [roʊˈbʌst]</span>
+                                <span class="text-xs text-teal-600 bg-teal-50 px-2 py-0.5 rounded">adj. 健全的</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: robust network (健全網絡)</p>
+                        </div>
+                        <div class="pt-2 vocab-card-item" data-keyword="unwavering 堅定不移的 不動搖的">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>unwavering [ʌnˈweɪvərɪŋ]</span>
+                                <span class="text-xs text-teal-600 bg-teal-50 px-2 py-0.5 rounded">adj. 堅定不移的</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: unwavering commitment</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flu Vocab Card Group -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-3">
+                    <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
+                        <span class="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-bold">3</span>
+                        <h4 class="font-bold text-slate-800 text-sm">篇章 3：流感季精選</h4>
+                    </div>
+                    <div class="space-y-2.5 divide-y divide-slate-100 text-xs sm:text-sm">
+                        <div class="pt-2 vocab-card-item" data-keyword="epidemic 流行病 傳染病">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>epidemic [ˌepɪˈdemɪk]</span>
+                                <span class="text-xs text-amber-700 bg-amber-50 px-2 py-0.5 rounded">n. 流行病</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: enter an epidemic period</p>
+                        </div>
+                        <div class="pt-2 vocab-card-item" data-keyword="threshold 門檻 閾值 界限">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>threshold [ˈθreʃhoʊld]</span>
+                                <span class="text-xs text-amber-700 bg-amber-50 px-2 py-0.5 rounded">n. 門檻；閾值</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: cross/breach the threshold</p>
+                        </div>
+                        <div class="pt-2 vocab-card-item" data-keyword="dominant 佔優勢的 主導的 主要的">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>dominant [ˈdɑːmɪnənt]</span>
+                                <span class="text-xs text-amber-700 bg-amber-50 px-2 py-0.5 rounded">adj. 主導的</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: dominant strain (主要病毒株)</p>
+                        </div>
+                        <div class="pt-2 vocab-card-item" data-keyword="manifest 表明 顯現 展現">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>manifest [ˈmænɪfest]</span>
+                                <span class="text-xs text-amber-700 bg-amber-50 px-2 py-0.5 rounded">v. 顯現；表明</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: manifest in symptoms</p>
+                        </div>
+                        <div class="pt-2 vocab-card-item" data-keyword="compound 使惡化 使加重 複合">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>compound [kəmˈpaʊnd]</span>
+                                <span class="text-xs text-amber-700 bg-amber-50 px-2 py-0.5 rounded">v. 使惡化；加劇</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: compound the strain/crisis</p>
+                        </div>
+                        <div class="pt-2 vocab-card-item" data-keyword="etiquette 禮節 規範 禮儀">
+                            <div class="flex justify-between font-bold text-slate-800">
+                                <span>etiquette [ˈetɪkət]</span>
+                                <span class="text-xs text-amber-700 bg-amber-50 px-2 py-0.5 rounded">n. 禮節；規範</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Collocation: cough etiquette (咳嗽禮節)</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 6 High-Frequency Sentence Formulas -->
+            <div class="bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-900 text-white rounded-3xl p-6 sm:p-8 shadow-md space-y-4">
+                <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-amber-400 text-slate-900 flex items-center justify-center font-black text-sm">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </span>
+                    <h3 class="text-lg sm:text-xl font-bold">
+                        第二次段考閱讀測驗關鍵句型（閱讀測驗破題 6 大關鍵結構）
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+                    <div class="bg-white/5 p-4 rounded-2xl border border-white/10 space-y-1.5">
+                        <span class="text-amber-300 font-bold block">公式 1：Despite + N / V-ing</span>
+                        <p class="text-slate-300 text-xs">「儘管遭受到……，主詞仍然……」</p>
+                        <p class="text-indigo-200 italic font-mono text-xs">Despite suffering deep wounds, the captain unlocked the cockpit door.</p>
+                    </div>
+
+                    <div class="bg-white/5 p-4 rounded-2xl border border-white/10 space-y-1.5">
+                        <span class="text-amber-300 font-bold block">公式 2：A stands as a testament to B</span>
+                        <p class="text-slate-300 text-xs">「A 是證明 B 最佳的有力證據」</p>
+                        <p class="text-indigo-200 italic font-mono text-xs">Taipei MRT stands as a powerful testament to civil discipline.</p>
+                    </div>
+
+                    <div class="bg-white/5 p-4 rounded-2xl border border-white/10 space-y-1.5">
+                        <span class="text-amber-300 font-bold block">公式 3：Compounding the N, S + V</span>
+                        <p class="text-slate-300 text-xs">「現在分詞句首：使某事更雪上加霜的是……」</p>
+                        <p class="text-indigo-200 italic font-mono text-xs">Compounding the crisis, enterovirus spiked by 18.1%.</p>
+                    </div>
+
+                    <div class="bg-white/5 p-4 rounded-2xl border border-white/10 space-y-1.5">
+                        <span class="text-amber-300 font-bold block">公式 4：account for + 比例/原因</span>
+                        <p class="text-slate-300 text-xs">「佔了……百分比 / 構成……原因」</p>
+                        <p class="text-indigo-200 italic font-mono text-xs">H1N1 cases accounted for 82.2% of all positive viral tests.</p>
+                    </div>
+
+                    <div class="bg-white/5 p-4 rounded-2xl border border-white/10 space-y-1.5">
+                        <span class="text-amber-300 font-bold block">公式 5：V-ing..., S + V...</span>
+                        <p class="text-slate-300 text-xs">「主動現在分詞構句，修飾主詞」</p>
+                        <p class="text-indigo-200 italic font-mono text-xs">Securing a 95% satisfaction rating, Taipei claimed the crown.</p>
+                    </div>
+
+                    <div class="bg-white/5 p-4 rounded-2xl border border-white/10 space-y-1.5">
+                        <span class="text-amber-300 font-bold block">公式 6：urge sb to + VR</span>
+                        <p class="text-slate-300 text-xs">「官方/專家強烈呼籲大眾去做……」</p>
+                        <p class="text-indigo-200 italic font-mono text-xs">Authorities urge citizens to maintain strict respiratory etiquette.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating Interactive Companion (右下角散步伴學明芬) -->
+    <div id="floating-miffy" class="fixed bottom-5 right-5 z-40 flex items-end gap-2 group">
+        <!-- Motivation Tooltip Bubble -->
+        <div id="miffy-bubble" class="bg-white/95 backdrop-blur-xs text-slate-800 text-xs py-2 px-3.5 rounded-2xl shadow-xl border border-indigo-100 max-w-xs transition-all duration-300 hidden group-hover:block">
+            <span class="font-bold text-indigo-700 block mb-0.5"><i class="fa-solid fa-sparkles text-amber-500 mr-1"></i> Miffy 老師學習加油站：</span>
+            <span id="miffy-bubble-text">逐段對照精讀 + 做測驗，第二次段考閱讀測驗穩拿滿分！點我可以聽學習叮嚀喔！</span>
+        </div>
+        <!-- Walking Animated Chibi Button -->
+        <button onclick="miffyCheer()" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/90 backdrop-blur-xs shadow-2xl border-2 border-indigo-200 p-1 flex items-center justify-center hover:scale-110 active:scale-95 transition cursor-pointer">
+            <img id="walking-chibi" src="https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/walk_01.png" alt="" onerror="this.style.display='none'" class="chibi-img w-full h-full object-contain">
+        </button>
+    </div>
+
+    <!-- Interactive Vocabulary Modal Popup -->
+    <div id="vocab-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl border border-slate-200 space-y-4 relative">
+            <div class="flex justify-between items-start">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h4 id="modal-word" class="text-2xl font-black text-indigo-700">Word</h4>
+                        <button onclick="speakWord()" class="w-8 h-8 rounded-full bg-indigo-50 hover:bg-indigo-100 text-indigo-600 flex items-center justify-center transition" title="朗讀發音">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+                    </div>
+                    <p id="modal-def" class="text-slate-700 text-sm font-semibold mt-1">Definition</p>
+                </div>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-700 text-xl p-1">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="bg-indigo-50 p-3.5 rounded-xl border border-indigo-100 text-xs text-indigo-900 space-y-1">
+                <span class="font-bold block"><i class="fa-solid fa-lightbulb text-amber-500 mr-1"></i> 大考高頻搭配詞 (Collocation)：</span>
+                <p id="modal-colloc" class="font-mono text-xs text-indigo-800">example collocations</p>
+            </div>
+            <div class="text-xs text-slate-400 flex items-center gap-1.5">
+                <i class="fa-solid fa-circle-check text-emerald-500"></i> Miffy 老師特別標記為第二次段考閱讀必考字彙
+            </div>
+            <button onclick="closeModal()" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold transition shadow-sm">
+                我學會了 (Got it!)
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notification for Copy -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 text-white px-4 py-3 rounded-2xl text-xs font-semibold shadow-2xl hidden items-center gap-2.5 z-50 border border-slate-700">
+        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span>已複製 Miffy 老師的 Cheat Sheet 清單到剪貼簿！</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-16 py-8 text-center text-xs text-slate-500 space-y-1.5">
+        <p class="font-bold text-slate-700">
+            楊苓英文 Grace English Institute ｜ 高一專題特輯規劃與導讀：Miffy 老師
+        </p>
+        <p>
+            Miffy's English Classroom 2026 ｜ 專供高中英語課堂教學、補救教學與學生課後自主學習使用
+        </p>
+    </footer>
+
+    <!-- JavaScript Interactive Logic -->
+    <script>
+        // ----------------------------------------------------
+        // 1. DYNAMIC CHIBI FRAME-SWITCHING ANIMATION
+        // ----------------------------------------------------
+        const walkFrames = [
+            'https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/walk_01.png',
+            'https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/walk_02.png',
+            'https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/walk_03.png',
+            'https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/walk_04.png',
+            'https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/walk_05.png',
+            'https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/walk_06.png',
+            'https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/walk_07.png',
+            'https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/walk_08.png'
+        ];
+        let currentWalkIdx = 0;
+        setInterval(() => {
+            const el = document.getElementById('walking-chibi');
+            if (el && el.style.display !== 'none') {
+                currentWalkIdx = (currentWalkIdx + 1) % walkFrames.length;
+                el.src = walkFrames[currentWalkIdx];
+            }
+        }, 180);
+
+        const heroFrames = [
+            'https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/happy_01.png',
+            'https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/happy_02.png',
+            'https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/happy_03.png',
+            'https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/happy_04.png',
+            'https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/happy_05.png'
+        ];
+        let currentHeroIdx = 0;
+        setInterval(() => {
+            const el = document.getElementById('hero-miffy-chibi');
+            if (el && el.style.display !== 'none') {
+                currentHeroIdx = (currentHeroIdx + 1) % heroFrames.length;
+                el.src = heroFrames[currentHeroIdx];
+            }
+        }, 320);
+
+        // Miffy Companion Motivation Quotes
+        const miffyQuotes = [
+            '✨ 每一篇時事都是第二次段考閱讀測驗的命題核心，穩紮穩打讀懂它！',
+            '💡 記住：儘管 (Despite) 後方只加名詞或 V-ing，段考閱讀題很常見喔！',
+            '🏆 台北捷運 95% 滿意度，背起 stands as a testament to 就對了！',
+            '🚨 流感季來臨，記得勤洗手、遵守咳嗽禮節 (cough etiquette)！',
+            '💪 做完測驗立即看解析，錯題正是進步最快的地方！',
+            '🎯 考前熟記 Cheat Sheet 6 大句型結構，段考閱讀測驗輕鬆破題！'
+        ];
+        let quoteIdx = 0;
+        function miffyCheer() {
+            quoteIdx = (quoteIdx + 1) % miffyQuotes.length;
+            const bubble = document.getElementById('miffy-bubble');
+            const bubbleText = document.getElementById('miffy-bubble-text');
+            bubbleText.innerText = miffyQuotes[quoteIdx];
+            bubble.classList.remove('hidden');
+            if (window.confetti) {
+                confetti({
+                    particleCount: 25,
+                    spread: 60,
+                    origin: { x: 0.9, y: 0.9 }
+                });
+            }
+            setTimeout(() => {
+                bubble.classList.add('hidden');
+            }, 5000);
+        }
+
+        // ----------------------------------------------------
+        // 2. VIEW MODE SWITCHER (中英對照 / 純英 / 純中)
+        // ----------------------------------------------------
+        function setViewMode(mode) {
+            const body = document.body;
+            body.classList.remove('mode-english-only', 'mode-chinese-only');
+            
+            const btnBi = document.getElementById('btn-mode-bilingual');
+            const btnEng = document.getElementById('btn-mode-english');
+            const btnChi = document.getElementById('btn-mode-chinese');
+
+            [btnBi, btnEng, btnChi].forEach(b => {
+                b.className = 'px-2.5 py-1.5 rounded-lg text-slate-600 hover:text-indigo-600 transition';
+            });
+
+            if (mode === 'english') {
+                body.classList.add('mode-english-only');
+                btnEng.className = 'px-2.5 py-1.5 rounded-lg bg-white text-indigo-700 shadow-xs transition font-bold';
+            } else if (mode === 'chinese') {
+                body.classList.add('mode-chinese-only');
+                btnChi.className = 'px-2.5 py-1.5 rounded-lg bg-white text-indigo-700 shadow-xs transition font-bold';
+            } else {
+                btnBi.className = 'px-2.5 py-1.5 rounded-lg bg-white text-indigo-700 shadow-xs transition font-bold';
+            }
+        }
+
+        // Toggle Single Paragraph Translation
+        function toggleTrans(btn) {
+            const card = btn.closest('.p-5, .p-6');
+            const transBlock = card.querySelector('.trans-block');
+            if (transBlock) {
+                transBlock.classList.toggle('hidden');
+                const span = btn.querySelector('span');
+                const icon = btn.querySelector('i');
+                if (transBlock.classList.contains('hidden')) {
+                    span.innerText = '顯示翻譯';
+                    icon.className = 'fa-solid fa-chevron-right';
+                } else {
+                    span.innerText = '收合翻譯';
+                    icon.className = 'fa-solid fa-chevron-down';
+                }
+            }
+        }
+
+        // ----------------------------------------------------
+        // 3. VOCABULARY MODAL & SPEECH SYNTHESIS
+        // ----------------------------------------------------
+        let currentModalWord = '';
+        function showVocab(word, definition, collocation) {
+            currentModalWord = word;
+            document.getElementById('modal-word').innerText = word;
+            document.getElementById('modal-def').innerText = definition;
+            document.getElementById('modal-colloc').innerText = collocation || '常用於第二次段考閱讀測驗關鍵語境';
+            document.getElementById('vocab-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('vocab-modal').classList.add('hidden');
+        }
+
+        function speakWord() {
+            if ('speechSynthesis' in window && currentModalWord) {
+                const utterance = new SpeechSynthesisUtterance(currentModalWord);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // ----------------------------------------------------
+        // 4. 15-QUESTION INSTANT SCORING QUIZ ENGINE (即測即評)
+        // ----------------------------------------------------
+        const quizDatabase = {
+            1: {
+                correct: 'B',
+                explanation: '【解析】(B) 正確。篇章 1 全文報導 Flydubai 1073 號航班如何化解阿曼籍副駕駛的自殺性孤狼劫機攻擊，並深入檢討國際防恐情報未能同步共享與副駕駛身家審查機制（vetting procedures）的嚴重漏洞。'
+            },
+            2: {
+                correct: 'A',
+                explanation: '【解析】(A) 正確。第 3 段指出該名阿曼籍副駕駛前一年就因激進言論被阿曼航空開除，且其通訊與簽證曾受澳洲聯邦警察獨立調查通報，但跨國安全情資未能即時共享，導致他順利進入民航體系。'
+            },
+            3: {
+                correct: 'B',
+                explanation: '【解析】(B) 正確。avert [əˈvɜːrt] 意為「防止、避開（浩劫或災難）」，同義詞為 prevent 或 avoid。'
+            },
+            4: {
+                correct: 'A',
+                explanation: '【解析】(A) 正確。第 3 段末尾提到，民航分析專家質疑將「緊急撞擊斧（crash ax）」這類致命工具未上鎖地放置於駕駛艙內的明智性與安全性。'
+            },
+            5: {
+                correct: 'B',
+                explanation: '【解析】(B) 正確。第 4 段指出，以色列前總理班奈特重砲抨擊內閣情報崩潰，並要求交通部長雷格夫（Miri Regev）立即引咎辭職。'
+            },
+            6: {
+                correct: 'A',
+                explanation: '【解析】(A) 正確。篇章 2 第 1 段指出台北市在 2026 年 10 月 Time Out 針對全球 2.4 萬居民的調查中榮登全球第一，獲得 95% 超高滿意度，超越新加坡、香港及首爾。'
+            },
+            7: {
+                correct: 'B',
+                explanation: '【解析】(B) 正確。第 2 段特別盛讚台北捷運站體一塵不染（pristine stations），以及月台清楚標示的「排隊文化與自律（queuing guidelines）」，確保了尖峰時段上下車井然有序。'
+            },
+            8: {
+                correct: 'A',
+                explanation: '【解析】(A) 正確。第 2 段開頭對比了西方許多首都地鐵常見的「陰暗複雜地下動線（dark or complex subterranean transit webs）」，台北捷運則以明亮乾淨、賓至如歸（welcoming）聞名。'
+            },
+            9: {
+                correct: 'A',
+                explanation: '【解析】(A) 正確。第 3 段詳述北捷龐大軌道路網由「近 400 條市區公車路線、逾 1,000 輛綠能電動公車、YouBike 與非接觸式悠遊卡」緊密互補串聯。'
+            },
+            10: {
+                correct: 'A',
+                explanation: '【解析】(A) 正確。unwavering [ʌnˈweɪvərɪŋ] 意為「堅定不移的、動搖不了的」，同義字為 resolute, steady, steadfast。'
+            },
+            11: {
+                correct: 'A',
+                explanation: '【解析】(A) 正確。篇章 3 第 1 段指出疾管署宣布流感進入重度流行期，因為就診人數週增 16.5% 飆至 13.6 萬人次，急診佔比達 12%，突破 11% 警戒門檻。'
+            },
+            12: {
+                correct: 'A',
+                explanation: '【解析】(A) 正確。第 2 段明確指出 Influenza A(H1N1) 佔比達 82.2%，並舉出一名一歲男童感染後併發危急的流感腦炎與急性腦水腫的重症實例。'
+            },
+            13: {
+                correct: 'A',
+                explanation: '【解析】(A) 正確。第 1 段末尾明確指出：「with a striking 68.6% of those experiencing severe illness having missed their seasonal influenza vaccination.」（近七成重症患者未施打當季流感疫苗）。'
+            },
+            14: {
+                correct: 'A',
+                explanation: '【解析】(A) 正確。第 3 段指出台灣醫療正面臨三重病原交織挑戰：除了流感外，COVID-19 仍通報 53 例重症，而開學季亦引發腸病毒單週激增 18.1%。'
+            },
+            15: {
+                correct: 'B',
+                explanation: '【解析】(B) 正確。compound 當及物動詞表示「使加劇；使惡化 (= worsen, aggravate, add to)」。全句意為「使這場公衛危機更雪上加霜的是……」。'
+            }
+        };
+
+        let userAnswers = {}; // { 1: true/false }
+
+        function checkAnswer(qid, selectedOpt) {
+            const card = document.querySelector(`.quiz-card[data-qid="${qid}"]`);
+            if (!card) return;
+            const optBtns = card.querySelectorAll('.opt-btn');
+            const expBox = card.querySelector('.explanation');
+            const qData = quizDatabase[qid];
+            if (!qData) return;
+
+            const isCorrect = (selectedOpt === qData.correct);
+            userAnswers[qid] = isCorrect;
+
+            optBtns.forEach(btn => {
+                const optLetter = btn.querySelector('span:first-child').innerText.trim();
+                btn.disabled = true;
+                btn.classList.remove('hover:bg-slate-50', 'border-slate-200');
+
+                if (optLetter === qData.correct) {
+                    btn.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-900', 'font-semibold');
+                    btn.querySelector('span:first-child').classList.add('text-emerald-600');
+                } else if (optLetter === selectedOpt && !isCorrect) {
+                    btn.classList.add('bg-rose-50', 'border-rose-400', 'text-rose-900');
+                    btn.querySelector('span:first-child').classList.add('text-rose-600');
+                } else {
+                    btn.classList.add('opacity-40');
+                }
+            });
+
+            expBox.classList.remove('hidden');
+            if (isCorrect) {
+                expBox.className = 'explanation mt-4 p-4 rounded-xl text-xs sm:text-sm leading-relaxed bg-emerald-50 border border-emerald-200 text-emerald-900';
+                expBox.innerHTML = `<strong>🎉 恭喜答對！</strong><br>${qData.explanation}`;
+                // Trigger celebratory confetti on correct answer!
+                if (window.confetti) {
+                    confetti({
+                        particleCount: 30,
+                        spread: 50,
+                        origin: { y: 0.7 }
+                    });
+                }
+            } else {
+                expBox.className = 'explanation mt-4 p-4 rounded-xl text-xs sm:text-sm leading-relaxed bg-rose-50 border border-rose-200 text-rose-900';
+                expBox.innerHTML = `<strong>⚠️ 答錯囉！正確答案是 (${qData.correct})</strong><br>${qData.explanation}`;
+            }
+
+            updateScoreboard();
+        }
+
+        function updateScoreboard() {
+            const total = 15;
+            let answered = Object.keys(userAnswers).length;
+            let correct = 0;
+            for (let q in userAnswers) {
+                if (userAnswers[q] === true) correct++;
+            }
+
+            const pct = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+            const overallPct = Math.round((answered / total) * 100);
+
+            document.getElementById('quiz-score').innerText = `${correct} / ${total}`;
+            document.getElementById('quiz-progress-text').innerText = `已作答：${answered} / ${total} 題`;
+            document.getElementById('quiz-accuracy-text').innerText = `目前正確率：${pct}%`;
+            document.getElementById('quiz-progress-bar').style.width = `${overallPct}%`;
+
+            if (answered === total) {
+                // Completed all questions!
+                setTimeout(() => {
+                    if (window.confetti) {
+                        confetti({
+                            particleCount: 100,
+                            spread: 80,
+                            origin: { y: 0.5 }
+                        });
+                    }
+                    alert(`🎊 恭喜完成全部 15 題測驗！\n你的總得分為：${correct} / 15 (${pct}%)\n${correct >= 13 ? '🏆 太頂尖了！時事素養滿分大師！' : '💪 表現優異！複習一下錯題解析就更完美囉！'}`);
+                }, 500);
+            }
+        }
+
+        function resetQuiz() {
+            userAnswers = {};
+            document.getElementById('quiz-score').innerText = '0 / 15';
+            document.getElementById('quiz-progress-text').innerText = '已作答：0 / 15 題';
+            document.getElementById('quiz-accuracy-text').innerText = '正確率：0%';
+            document.getElementById('quiz-progress-bar').style.width = '0%';
+
+            const cards = document.querySelectorAll('.quiz-card');
+            cards.forEach(card => {
+                card.style.display = 'block';
+                const btns = card.querySelectorAll('.opt-btn');
+                btns.forEach(btn => {
+                    btn.disabled = false;
+                    btn.className = 'opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex items-start gap-3';
+                    const spanLetter = btn.querySelector('span:first-child');
+                    spanLetter.className = 'font-bold text-slate-400';
+                });
+                const expBox = card.querySelector('.explanation');
+                expBox.classList.add('hidden');
+                expBox.innerHTML = '';
+            });
+            filterQuizCategory('all');
+        }
+
+        function filterQuizCategory(cat) {
+            const btns = document.querySelectorAll('.quiz-filter-btn');
+            btns.forEach(b => {
+                if (b.getAttribute('data-cat') === cat) {
+                    b.className = 'quiz-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-xs transition';
+                } else if (b.getAttribute('data-cat') === 'wrong') {
+                    b.className = 'quiz-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-rose-50 text-rose-700 hover:bg-rose-100 transition';
+                } else {
+                    b.className = 'quiz-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition';
+                }
+            });
+
+            const cards = document.querySelectorAll('.quiz-card');
+            cards.forEach(card => {
+                const qid = card.getAttribute('data-qid');
+                const cardCat = card.getAttribute('data-cat');
+                if (cat === 'all') {
+                    card.style.display = 'block';
+                } else if (cat === 'wrong') {
+                    if (userAnswers[qid] === false) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                } else if (cardCat === cat) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // ----------------------------------------------------
+        // 5. VOCAB SEARCH FILTER & CHEAT SHEET COPY
+        // ----------------------------------------------------
+        function filterVocab() {
+            const query = document.getElementById('vocab-search').value.toLowerCase().trim();
+            const items = document.querySelectorAll('.vocab-card-item');
+            items.forEach(el => {
+                const kw = (el.getAttribute('data-keyword') || '').toLowerCase();
+                const content = el.innerText.toLowerCase();
+                if (kw.includes(query) || content.includes(query)) {
+                    el.style.display = 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+        }
+
+        function copyCheatSheet() {
+            const summary = `【Grace Post 楊苓週報 第二次段考閱讀測驗必背核心單字庫 (Miffy 老師整理)】
+1. absolute [ˈæbsəluːt] (adj.) 絕對的；完全的 (absolute terror / trust)
+2. avert [əˈvɜːrt] (v.) 防止；避開 (avert a disaster)
+3. scramble [ˈskræmbl] (v.) 奮力爭先；搶救
+4. rogue [roʊɡ] (adj.) 脫序的；流氓的 (rogue co-pilot)
+5. scrutiny [ˈskruːtəni] (n.) 嚴格審查 (bear close scrutiny)
+6. protocol [ˈproʊtəkɑːl] (n.) 安全規範；處置流程
+7. prestigious [preˈstɪdʒəs] (adj.) 享負盛名的
+8. criteria [kraɪˈtɪriə] (n.) 評選標準 (複數，單數 criterion)
+9. pristine [prɪˈstiːn] (adj.) 極乾淨原始的 (pristine stations)
+10. complement [ˈkɑːmplɪment] (v.) 補充；相輔相成
+11. robust [roʊˈbʌst] (adj.) 健全的；強固的
+12. unwavering [ʌnˈweɪvərɪŋ] (adj.) 堅定不移的
+13. epidemic [ˌepɪˈdemɪk] (n.) 流行病；傳染病
+14. threshold [ˈθreʃhoʊld] (n.) 門檻；界限 (breach the threshold)
+15. dominant [ˈdɑːmɪnənt] (adj.) 佔優勢的；主導的
+16. manifest [ˈmænɪfest] (v.) 顯現；表明
+17. compound [kəmˈpaʊnd] (v.) 使加重；使惡化
+18. etiquette [ˈetɪkət] (n.) 禮節；禮儀 (cough etiquette)
+
+【第二次段考閱讀測驗 6 大關鍵破題句型】
+- Despite + N / V-ing (儘管...)
+- A stands as a powerful testament to B (A 是 B 的有力證明)
+- Compounding the problem/crisis, S + V (使問題雪上加霜的是...)
+- account for + 數字/比例 (佔了...比例)
+- Securing + O, S + V (現在分詞構句)
+- urge sb to + VR (呼籲某人做...)`;
+
+            const dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = summary;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+
+            const toast = document.getElementById('toast');
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
