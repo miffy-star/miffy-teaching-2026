@@ -71,31 +71,50 @@
         html {
             scroll-behavior: smooth;
         }
+        /* Hide scrollbars for clean mobile tab navigation */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Mobile safe-area bottom padding so content is never covered */
+        body {
+            padding-bottom: max(6rem, calc(env(safe-area-inset-bottom) + 5rem)) !important;
+        }
+        /* Inline display for vocabulary to flow naturally on mobile */
+        .vocab-hl {
+            display: inline;
+            padding: 0.1rem 0.35rem;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white pb-16">
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-gradient-to-r from-indigo-800 via-indigo-700 to-purple-700 text-white text-xs sm:text-sm py-2 px-4 shadow-sm text-center font-medium">
-        <span>✨ 歡迎高一2同學來到 Miffy 老師的英語教室 ｜《Grace Post 楊苓週報》三期雙語逐段精讀 ＆ 第二次段考閱讀即測即評</span>
+    <!-- Top Announcement Bar (Compact on mobile) -->
+    <div class="bg-gradient-to-r from-indigo-800 via-indigo-700 to-purple-700 text-white text-xs py-1.5 px-3 sm:py-2 sm:px-4 shadow-sm text-center font-medium line-clamp-1 sm:line-clamp-none">
+        <span>✨ 高一2 專屬 ｜《Grace Post 楊苓週報》雙語逐段精讀 ＆ 第二次段考閱讀即測即評</span>
     </div>
 
-    <!-- Navigation Header -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
-            <div class="flex items-center space-x-3.5">
-                <!-- Chibi Avatar with gentle bounce -->
-                <div class="relative w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center p-1 shadow-md overflow-hidden">
+    <!-- Navigation Header (Mobile Optimized, Low Height) -->
+    <header class="bg-white/98 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 sm:py-3 flex items-center justify-between gap-2">
+            <div class="flex items-center space-x-2.5">
+                <!-- Chibi Avatar -->
+                <div class="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center p-0.5 shadow-sm overflow-hidden flex-shrink-0">
                     <img id="header-chibi" src="https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/avatar_01.png" alt="" onerror="this.style.display='none'" class="chibi-img w-full h-full object-contain">
                 </div>
                 <div>
-                    <div class="flex items-center gap-2">
-                        <h1 class="text-base sm:text-xl font-black text-slate-800 tracking-tight">
-                            Miffy 老師高一英文時事特輯
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <h1 class="text-sm sm:text-lg font-black text-slate-800 tracking-tight leading-tight">
+                            Miffy 老師高一2時事特輯
                         </h1>
-                        <span class="text-xs bg-indigo-100 text-indigo-700 font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap">第二次段考閱讀精讀特輯</span>
+                        <span class="hidden xs:inline-block text-[10px] sm:text-xs bg-indigo-100 text-indigo-700 font-bold px-2 py-0.5 rounded-full whitespace-nowrap">段考閱讀</span>
                     </div>
-                    <p class="text-xs text-slate-500 mt-0.5">置頂雙語逐段精讀 • 閱讀關鍵句構剖析 • 15 題段考閱讀即測即評 • 考前單字 Cheat Sheet</p>
+                    <p class="hidden sm:block text-xs text-slate-500 mt-0.5">置頂雙語逐段精讀 • 閱讀關鍵句構剖析 • 15 題段考閱讀即測即評 • 考前單字 Cheat Sheet</p>
                 </div>
             </div>
 
@@ -120,8 +139,8 @@
             </div>
         </div>
 
-        <!-- Quick Section Jumper Tabs -->
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-2.5 pt-1 border-t border-slate-100 flex items-center justify-between overflow-x-auto gap-2">
+        <!-- Quick Section Jumper Tabs (Horizontal Swipe on Mobile) -->
+        <nav class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-1.5 border-t border-slate-100 flex items-center justify-between overflow-x-auto gap-1.5 no-scrollbar">
             <div class="flex items-center space-x-2 text-xs sm:text-sm font-semibold">
                 <a href="#article-1" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-700 transition whitespace-nowrap flex items-center gap-1.5">
                     <i class="fa-solid fa-plane-departure text-red-500"></i> 1. 杜拜劫機風雲
@@ -189,7 +208,7 @@
         <!-- ======================================================== -->
         <!-- ARTICLE 1: FLYDUBAI HIJACKING                            -->
         <!-- ======================================================== -->
-        <article id="article-1" class="bg-white rounded-3xl p-6 sm:p-9 shadow-sm border border-slate-200 space-y-7 scroll-mt-28">
+        <article id="article-1" class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-9 shadow-sm border border-slate-200 space-y-6 sm:space-y-7 scroll-mt-36 sm:scroll-mt-32">
             <!-- Article Header Meta -->
             <div class="border-b border-slate-100 pb-5">
                 <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
@@ -405,7 +424,7 @@
         <!-- ======================================================== -->
         <!-- ARTICLE 2: THE BEST TRANSIT IN THE WORLD                 -->
         <!-- ======================================================== -->
-        <article id="article-2" class="bg-white rounded-3xl p-6 sm:p-9 shadow-sm border border-slate-200 space-y-7 scroll-mt-28">
+        <article id="article-2" class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-9 shadow-sm border border-slate-200 space-y-6 sm:space-y-7 scroll-mt-36 sm:scroll-mt-32">
             <!-- Article Header Meta -->
             <div class="border-b border-slate-100 pb-5">
                 <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
@@ -623,7 +642,7 @@
         <!-- ======================================================== -->
         <!-- ARTICLE 3: TAIWAN FLU SEASON                             -->
         <!-- ======================================================== -->
-        <article id="article-3" class="bg-white rounded-3xl p-6 sm:p-9 shadow-sm border border-slate-200 space-y-7 scroll-mt-28">
+        <article id="article-3" class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-9 shadow-sm border border-slate-200 space-y-6 sm:space-y-7 scroll-mt-36 sm:scroll-mt-32">
             <!-- Article Header Meta -->
             <div class="border-b border-slate-100 pb-5">
                 <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
@@ -843,7 +862,7 @@
         <!-- ======================================================== -->
         <!-- SECTION 2: 15-QUESTION INTERACTIVE QUIZ (即測即評測驗系統) -->
         <!-- ======================================================== -->
-        <section id="quiz-section" class="scroll-mt-24 space-y-6">
+        <section id="quiz-section" class="scroll-mt-36 sm:scroll-mt-32 space-y-6">
 
             <!-- Quiz Top Header & Scoreboard -->
             <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
@@ -1415,7 +1434,7 @@
         <!-- ======================================================== -->
         <!-- SECTION 3: CHEAT SHEET (大考高頻字彙卡與句型錦囊)         -->
         <!-- ======================================================== -->
-        <section id="cheatsheet-section" class="scroll-mt-24 space-y-6">
+        <section id="cheatsheet-section" class="scroll-mt-36 sm:scroll-mt-32 space-y-6">
             <!-- Header with Live Search Filter -->
             <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-4">
                 <div>
@@ -1655,22 +1674,36 @@
 
     </main>
 
-    <!-- Floating Interactive Companion (右下角散步伴學明芬) -->
-    <div id="floating-miffy" class="fixed bottom-5 right-5 z-40 flex items-end gap-2 group">
-        <!-- Motivation Tooltip Bubble -->
-        <div id="miffy-bubble" class="bg-white/95 backdrop-blur-xs text-slate-800 text-xs py-2 px-3.5 rounded-2xl shadow-xl border border-indigo-100 max-w-xs transition-all duration-300 hidden group-hover:block">
-            <span class="font-bold text-indigo-700 block mb-0.5"><i class="fa-solid fa-sparkles text-amber-500 mr-1"></i> Miffy 老師學習加油站：</span>
-            <span id="miffy-bubble-text">逐段對照精讀 + 做測驗，第二次段考閱讀測驗穩拿滿分！點我可以聽學習叮嚀喔！</span>
+    <!-- Floating Interactive Companion (手機防遮擋優化版) -->
+    <div id="floating-miffy-container" class="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end">
+        <!-- Motivation Notification Toast (At bottom but above button, auto-closes and has close button) -->
+        <div id="miffy-bubble" class="hidden mb-2 bg-slate-900/95 text-white text-xs py-2.5 px-3.5 rounded-2xl shadow-2xl border border-slate-700 max-w-[280px] sm:max-w-xs transition-all relative">
+            <button onclick="closeBubble()" class="absolute top-1.5 right-2 text-slate-400 hover:text-white text-sm p-1 leading-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <span class="font-bold text-amber-400 block mb-0.5 pr-4"><i class="fa-solid fa-sparkles mr-1"></i> Miffy 老師學習加油站：</span>
+            <span id="miffy-bubble-text" class="text-slate-200 leading-relaxed">逐段對照精讀 + 做測驗，段考閱讀穩拿滿分！</span>
         </div>
-        <!-- Walking Animated Chibi Button -->
-        <button onclick="miffyCheer()" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/90 backdrop-blur-xs shadow-2xl border-2 border-indigo-200 p-1 flex items-center justify-center hover:scale-110 active:scale-95 transition cursor-pointer">
-            <img id="walking-chibi" src="https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/walk_01.png" alt="" onerror="this.style.display='none'" class="chibi-img w-full h-full object-contain">
-        </button>
+        
+        <div class="flex items-center gap-1.5 bg-white/90 backdrop-blur-md p-1 pl-2 rounded-full shadow-lg border border-indigo-100">
+            <!-- Small label on desktop, hides on mobile -->
+            <button onclick="miffyCheer()" class="hidden sm:inline-block text-[11px] font-bold text-indigo-700 hover:text-indigo-900 pr-1">
+                點擊明芬打氣 ✨
+            </button>
+            <!-- Walking Animated Chibi Button (Compact) -->
+            <button onclick="miffyCheer()" title="點我打氣" class="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-gradient-to-tr from-indigo-50 to-purple-50 p-1 flex items-center justify-center hover:scale-105 active:scale-95 transition cursor-pointer">
+                <img id="walking-chibi" src="https://miffy-star.github.io/miffy-teaching-2026/web_photos/chibi/walk_01.png" alt="" onerror="this.style.display='none'" class="chibi-img w-full h-full object-contain">
+            </button>
+            <!-- Minimize / Hide toggle button so student can completely clear view -->
+            <button onclick="toggleMiffyWidget()" title="收起/展開" class="w-6 h-6 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 flex items-center justify-center text-xs transition">
+                <i id="miffy-toggle-icon" class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
     </div>
 
     <!-- Interactive Vocabulary Modal Popup -->
     <div id="vocab-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 hidden">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl border border-slate-200 space-y-4 relative">
+        <div class="bg-white rounded-3xl max-w-md w-full max-h-[88vh] overflow-y-auto p-5 sm:p-7 shadow-2xl border border-slate-200 space-y-4 relative">
             <div class="flex justify-between items-start">
                 <div>
                     <div class="flex items-center gap-2">
@@ -1764,6 +1797,7 @@
             '🎯 考前熟記 Cheat Sheet 6 大句型結構，段考閱讀測驗輕鬆破題！'
         ];
         let quoteIdx = 0;
+        let bubbleTimer = null;
         function miffyCheer() {
             quoteIdx = (quoteIdx + 1) % miffyQuotes.length;
             const bubble = document.getElementById('miffy-bubble');
@@ -1772,14 +1806,39 @@
             bubble.classList.remove('hidden');
             if (window.confetti) {
                 confetti({
-                    particleCount: 25,
-                    spread: 60,
-                    origin: { x: 0.9, y: 0.9 }
+                    particleCount: 20,
+                    spread: 45,
+                    origin: { x: 0.85, y: 0.85 }
                 });
             }
-            setTimeout(() => {
+            clearTimeout(bubbleTimer);
+            bubbleTimer = setTimeout(() => {
                 bubble.classList.add('hidden');
-            }, 5000);
+            }, 4000);
+        }
+
+        function closeBubble() {
+            clearTimeout(bubbleTimer);
+            const bubble = document.getElementById('miffy-bubble');
+            if (bubble) bubble.classList.add('hidden');
+        }
+
+        let miffyMinimized = false;
+        function toggleMiffyWidget() {
+            const container = document.getElementById('floating-miffy-container');
+            const icon = document.getElementById('miffy-toggle-icon');
+            const bubble = document.getElementById('miffy-bubble');
+            closeBubble();
+            miffyMinimized = !miffyMinimized;
+            if (miffyMinimized) {
+                container.style.transform = 'translateX(calc(100% - 24px))';
+                container.style.opacity = '0.5';
+                icon.className = 'fa-solid fa-chevron-left';
+            } else {
+                container.style.transform = 'translateX(0)';
+                container.style.opacity = '1';
+                icon.className = 'fa-solid fa-chevron-right';
+            }
         }
 
         // ----------------------------------------------------
