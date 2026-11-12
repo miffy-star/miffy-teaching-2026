@@ -1677,7 +1677,7 @@
     <!-- Floating Interactive Companion (手機防遮擋優化版) -->
     <div id="floating-miffy-container" class="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end">
         <!-- Motivation Notification Toast (At bottom but above button, auto-closes and has close button) -->
-        <div id="miffy-bubble" class="hidden mb-2 bg-slate-900/95 text-white text-xs py-2.5 px-3.5 rounded-2xl shadow-2xl border border-slate-700 max-w-[280px] sm:max-w-xs transition-all relative">
+        <div id="miffy-bubble" style="display: none !important;" class="mb-2 bg-slate-900/95 text-white text-xs py-2.5 px-3.5 rounded-2xl shadow-2xl border border-slate-700 max-w-[280px] sm:max-w-xs transition-all relative">
             <button onclick="closeBubble()" class="absolute top-1.5 right-2 text-slate-400 hover:text-white text-sm p-1 leading-none">
                 <i class="fa-solid fa-xmark"></i>
             </button>
@@ -1702,7 +1702,7 @@
     </div>
 
     <!-- Interactive Vocabulary Modal Popup -->
-    <div id="vocab-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 hidden">
+    <div id="vocab-modal" style="display: none !important;" onclick="if(event.target===this)closeModal()" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs items-center justify-center p-4 z-50">
         <div class="bg-white rounded-3xl max-w-md w-full max-h-[88vh] overflow-y-auto p-5 sm:p-7 shadow-2xl border border-slate-200 space-y-4 relative">
             <div class="flex justify-between items-start">
                 <div>
@@ -1732,7 +1732,7 @@
     </div>
 
     <!-- Toast Notification for Copy -->
-    <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 text-white px-4 py-3 rounded-2xl text-xs font-semibold shadow-2xl hidden items-center gap-2.5 z-50 border border-slate-700">
+    <div id="toast" style="display: none !important;" class="fixed bottom-6 right-6 bg-slate-900 text-white px-4 py-3 rounded-2xl text-xs font-semibold shadow-2xl items-center gap-2.5 z-50 border border-slate-700">
         <i class="fa-solid fa-circle-check text-emerald-400"></i>
         <span>已複製 Miffy 老師的 Cheat Sheet 清單到剪貼簿！</span>
     </div>
@@ -1803,7 +1803,7 @@
             const bubble = document.getElementById('miffy-bubble');
             const bubbleText = document.getElementById('miffy-bubble-text');
             bubbleText.innerText = miffyQuotes[quoteIdx];
-            bubble.classList.remove('hidden');
+            bubble.style.setProperty('display', 'block', 'important');
             if (window.confetti) {
                 confetti({
                     particleCount: 20,
@@ -1813,14 +1813,14 @@
             }
             clearTimeout(bubbleTimer);
             bubbleTimer = setTimeout(() => {
-                bubble.classList.add('hidden');
+                bubble.style.setProperty('display', 'none', 'important');
             }, 4000);
         }
 
         function closeBubble() {
             clearTimeout(bubbleTimer);
             const bubble = document.getElementById('miffy-bubble');
-            if (bubble) bubble.classList.add('hidden');
+            if (bubble) bubble.style.setProperty('display', 'none', 'important');
         }
 
         let miffyMinimized = false;
@@ -1894,11 +1894,13 @@
             document.getElementById('modal-word').innerText = word;
             document.getElementById('modal-def').innerText = definition;
             document.getElementById('modal-colloc').innerText = collocation || '常用於第二次段考閱讀測驗關鍵語境';
-            document.getElementById('vocab-modal').classList.remove('hidden');
+            const m = document.getElementById('vocab-modal');
+            m.style.setProperty('display', 'flex', 'important');
         }
 
         function closeModal() {
-            document.getElementById('vocab-modal').classList.add('hidden');
+            const m = document.getElementById('vocab-modal');
+            m.style.setProperty('display', 'none', 'important');
         }
 
         function speakWord() {
@@ -2170,11 +2172,9 @@
             document.body.removeChild(dummy);
 
             const toast = document.getElementById('toast');
-            toast.classList.remove('hidden');
-            toast.classList.add('flex');
+            toast.style.setProperty('display', 'flex', 'important');
             setTimeout(() => {
-                toast.classList.add('hidden');
-                toast.classList.remove('flex');
+                toast.style.setProperty('display', 'none', 'important');
             }, 2500);
         }
     </script>
