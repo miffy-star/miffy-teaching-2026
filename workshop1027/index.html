@@ -392,6 +392,24 @@
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-coral-400 selection:text-white">
+    <!-- Kiosk Mode Auto-play Smooth Progress Bar -->
+    <div id="autoPlayProgressBarContainer" class="fixed top-0 left-0 right-0 h-1.5 bg-slate-200/40 z-[60] overflow-hidden pointer-events-none hidden">
+        <div id="autoPlayProgressBar" class="h-full bg-gradient-to-r from-teal-400 via-amber-400 to-orange-500 w-0 transition-none shadow-[0_0_8px_#f59e0b]"></div>
+    </div>
+
+    <!-- Kiosk Mode Toast Notification -->
+    <div id="kioskStatusToast" class="fixed top-5 left-1/2 transform -translate-x-1/2 z-[70] bg-slate-900/95 backdrop-blur-md text-white px-5 py-2.5 rounded-2xl shadow-2xl flex items-center gap-3 text-xs md:text-sm font-bold opacity-0 transition-opacity duration-300 pointer-events-none border border-slate-700">
+        <span id="kioskToastIcon" class="text-base">⏸️</span>
+        <span id="kioskToastMsg">已暫停輪播 ｜ 明芬老師講解中</span>
+    </div>
+
+    <!-- Welcome Ribbon for Parents (Open Day / Admissions) -->
+    <div id="parentsWelcomeBanner" class="fixed top-3 left-4 z-40 hidden lg:flex items-center gap-2 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border-2 border-amber-300 shadow-md select-none transition-all">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-xs font-black text-slate-800">🌸 歡迎小六家長蒞臨 · 瀛海雙語教學特展</span>
+        <span class="text-[10px] bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded-full border border-amber-200">展覽模式</span>
+    </div>
+
 
     <!-- Top Progress Bar -->
     <div class="progress-bar-container">
@@ -3506,6 +3524,20 @@
             <span class="font-black text-white">下一頁</span>
             <i class="fa-solid fa-chevron-right text-xs"></i>
         </button>
+        <!-- Kiosk Mode Auto-Play / Pause Button -->
+        <button id="btnAutoPlayToggle" type="button" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black text-xs md:text-sm cursor-pointer shadow-md transition hover:scale-105 active:scale-95 border-2 border-amber-200 select-none shrink-0" title="開啟／暫停家長自動輪播 (快捷鍵 Space 或 A)">
+            <i id="autoPlayIcon" class="fa-solid fa-play text-xs text-amber-950"></i>
+            <span id="autoPlayLabel" class="font-black">家長輪播</span>
+        </button>
+
+        <!-- Kiosk Speed Dropdown -->
+        <select id="autoPlaySpeedSelect" class="bg-amber-50 hover:bg-amber-100 text-slate-900 text-xs font-bold border border-amber-300 rounded-full px-2 py-1 outline-none cursor-pointer hidden sm:inline-block shadow-2xs" title="調整每頁輪播停留秒數">
+            <option value="5000">5秒/頁</option>
+            <option value="7000" selected>7秒/頁 (建議)</option>
+            <option value="10000">10秒/頁</option>
+            <option value="15000">15秒/頁</option>
+        </select>
+
 
         <button id="btnToggleTools" type="button" onclick="document.getElementById('extraToolsTray').classList.toggle('hidden')" class="tool-pill-btn !px-2.5 !py-1 text-xs" title="展開／收合投影筆與畫筆工具列">
             <i class="fa-solid fa-wand-magic-sparkles text-coral-500"></i>
@@ -3855,6 +3887,7 @@
 
             let isNavigating = false;
             function nextSlide() {
+                if (isAutoPlaying) scheduleNextKioskSlide();
                 if (isNavigating) return;
                 isNavigating = true;
                 setTimeout(() => { isNavigating = false; }, 250);
@@ -3866,6 +3899,7 @@
             }
 
             function prevSlide() {
+                if (isAutoPlaying) scheduleNextKioskSlide();
                 if (isNavigating) return;
                 isNavigating = true;
                 setTimeout(() => { isNavigating = false; }, 250);
@@ -4223,7 +4257,131 @@
             if (btnTimerToggle) btnTimerToggle.addEventListener('click', toggleRehearsalTimer);
             if (btnTimerReset) btnTimerReset.addEventListener('click', resetRehearsalTimer);
 
-            document.addEventListener('keydown', (e) => {
+            
+            // =========================================================
+            // Kiosk Auto-Play & Teacher Pause / Explanation Controller
+            // =========================================================
+            let isAutoPlaying = false;
+            let autoPlayIntervalMs = 7000;
+            let autoPlayTimer = null;
+            let progressStartTime = 0;
+            let progressRaf = null;
+
+            const btnAutoPlay = document.getElementById('btnAutoPlayToggle');
+            const autoPlayIcon = document.getElementById('autoPlayIcon');
+            const autoPlayLabel = document.getElementById('autoPlayLabel');
+            const autoPlayProgressContainer = document.getElementById('autoPlayProgressBarContainer');
+            const autoPlayProgressBar = document.getElementById('autoPlayProgressBar');
+            const speedSelect = document.getElementById('autoPlaySpeedSelect');
+            const toastEl = document.getElementById('kioskStatusToast');
+            const toastIcon = document.getElementById('kioskToastIcon');
+            const toastMsg = document.getElementById('kioskToastMsg');
+            const welcomeBanner = document.getElementById('parentsWelcomeBanner');
+
+            function showKioskToast(icon, msg) {
+                if (!toastEl) return;
+                toastIcon.textContent = icon;
+                toastMsg.textContent = msg;
+                toastEl.classList.remove('opacity-0');
+                toastEl.classList.add('opacity-100');
+                clearTimeout(toastEl._timer);
+                toastEl._timer = setTimeout(() => {
+                    toastEl.classList.remove('opacity-100');
+                    toastEl.classList.add('opacity-0');
+                }, 1800);
+            }
+
+            function startAutoPlay() {
+                isAutoPlaying = true;
+                if (speedSelect) autoPlayIntervalMs = parseInt(speedSelect.value, 10) || 7000;
+                
+                if (btnAutoPlay) {
+                    btnAutoPlay.className = "flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-400 hover:to-rose-500 text-white font-black text-xs md:text-sm cursor-pointer shadow-md transition hover:scale-105 active:scale-95 border-2 border-rose-300 select-none shrink-0 ring-2 ring-rose-400/50";
+                    if (autoPlayIcon) autoPlayIcon.className = "fa-solid fa-pause text-xs text-white";
+                    if (autoPlayLabel) autoPlayLabel.textContent = "暫停講解";
+                }
+                if (autoPlayProgressContainer) autoPlayProgressContainer.classList.remove('hidden');
+                if (welcomeBanner) welcomeBanner.classList.remove('hidden');
+
+                showKioskToast("▶️", "自動輪播已啟動 (" + (autoPlayIntervalMs/1000) + "秒/頁)");
+                scheduleNextKioskSlide();
+            }
+
+            function pauseAutoPlay(reason = "講解模式") {
+                if (!isAutoPlaying) return;
+                isAutoPlaying = false;
+                clearTimeout(autoPlayTimer);
+                if (progressRaf) cancelAnimationFrame(progressRaf);
+                
+                if (btnAutoPlay) {
+                    btnAutoPlay.className = "flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black text-xs md:text-sm cursor-pointer shadow-md transition hover:scale-105 active:scale-95 border-2 border-amber-200 select-none shrink-0";
+                    if (autoPlayIcon) autoPlayIcon.className = "fa-solid fa-play text-xs text-amber-950";
+                    if (autoPlayLabel) autoPlayLabel.textContent = "家長輪播";
+                }
+                if (autoPlayProgressContainer) autoPlayProgressContainer.classList.add('hidden');
+                if (autoPlayProgressBar) autoPlayProgressBar.style.width = '0%';
+
+                showKioskToast("⏸️", );
+            }
+
+            function toggleAutoPlay() {
+                if (isAutoPlaying) {
+                    pauseAutoPlay("手動暫停");
+                } else {
+                    startAutoPlay();
+                }
+            }
+
+            function scheduleNextKioskSlide() {
+                clearTimeout(autoPlayTimer);
+                if (progressRaf) cancelAnimationFrame(progressRaf);
+                if (!isAutoPlaying) return;
+
+                progressStartTime = performance.now();
+                function animateProgress(now) {
+                    if (!isAutoPlaying) return;
+                    const elapsed = now - progressStartTime;
+                    const pct = Math.min(100, (elapsed / autoPlayIntervalMs) * 100);
+                    if (autoPlayProgressBar) autoPlayProgressBar.style.width = pct + '%';
+                    if (elapsed < autoPlayIntervalMs) {
+                        progressRaf = requestAnimationFrame(animateProgress);
+                    }
+                }
+                progressRaf = requestAnimationFrame(animateProgress);
+
+                autoPlayTimer = setTimeout(() => {
+                    if (isAutoPlaying) {
+                        nextSlide();
+                        scheduleNextKioskSlide();
+                    }
+                }, autoPlayIntervalMs);
+            }
+
+            if (btnAutoPlay) {
+                btnAutoPlay.addEventListener('click', toggleAutoPlay);
+            }
+
+            if (speedSelect) {
+                speedSelect.addEventListener('change', (e) => {
+                    autoPlayIntervalMs = parseInt(e.target.value, 10) || 7000;
+                    if (isAutoPlaying) {
+                        scheduleNextKioskSlide();
+                        showKioskToast("⏱️", "輪播速度切換為 " + (autoPlayIntervalMs/1000) + " 秒/頁");
+                    }
+                });
+            }
+
+            // Expose globally
+            window.startAutoPlay = startAutoPlay;
+            window.pauseAutoPlay = pauseAutoPlay;
+            window.toggleAutoPlay = toggleAutoPlay;
+
+            // Automatically check URL parameters: ?kiosk=1 or ?autoplay=1
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('kiosk') === '1' || urlParams.get('autoplay') === '1') {
+                setTimeout(() => { startAutoPlay(); }, 1000);
+            }
+document.addEventListener('keydown', (e) => {
                 if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
                 if (e.key === 'Escape') {
@@ -4254,7 +4412,17 @@
                 } else if (e.key === 'f' || e.key === 'F') {
                     e.preventDefault();
                     btnFullscreen.click();
-                } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+                } else if (e.key === 'a' || e.key === 'A') {
+                    e.preventDefault();
+                    toggleAutoPlay();
+                } else if (e.key === ' ') {
+                    e.preventDefault();
+                    if (isAutoPlaying) {
+                        pauseAutoPlay('空白鍵暫停');
+                    } else {
+                        nextSlide();
+                    }
+                } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
                     e.preventDefault();
                     nextSlide();
                 } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
