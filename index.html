@@ -14881,12 +14881,609 @@ document.getElementById('cc-modal').addEventListener('click', function(e) {
   <div class="stage-body">
     <!-- 左欄：課本 PDF 專區 -->
     <div id="stage-left">
-      <div class="stage-pdf-toolbar">
-        <span id="stage-pdf-title">📖 高一 U06 — The Real Price of Plastic</span>
-        <button class="stage-btn-pill" style="padding:2px 10px;font-size:13px;margin-left:auto" onclick="reloadStagePdf()">🔄 重新載入</button>
-        <button class="stage-btn-pill" style="padding:2px 10px;font-size:13px" onclick="openPdfNewTab()">↗️ 另開全頁</button>
+      <div class="stage-pdf-toolbar" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <span id="stage-pdf-title" style="font-weight:900;color:#1E3A8A">📖 高一 U06 課堂黑板</span>
+        <button class="stage-btn-pill active" id="btn-left-reading" style="padding:4px 12px;font-size:13px;font-weight:900;background:#F59E0B;color:#0F172A;border:2px solid #D97706" onclick="switchStageLeftMode('reading')">📖 課文大字黑板（免看PDF）</button>
+        <button class="stage-btn-pill" id="btn-left-pdf" style="padding:4px 12px;font-size:13px;font-weight:700" onclick="switchStageLeftMode('pdf')">📄 傳統課本PDF</button>
+        <a href="u06-reading.html" target="_blank" class="stage-btn-pill" style="padding:4px 12px;font-size:13px;font-weight:800;text-decoration:none;margin-left:auto;background:#2563EB;color:#fff">↗️ 另開獨立全螢幕黑板</a>
       </div>
-      <iframe id="stage-pdf-frame" src="pdf/g10_U06.pdf"></iframe>
+      <!-- Mode 1: 課文大字黑板 (Default, Native HTML, Zero PDF Dependency) -->
+      <div id="stage-left-reading" style="height:calc(100vh - 120px);overflow-y:auto;padding:16px;background:#FDFBF7">
+        
+<!-- ════════ U06 課文逐段精讀・翻譯・每段重點・英檢提問・段考抓題 ════════ -->
+<details class="stg" open style="margin-bottom:20px;border:3px solid #1D4ED8;border-radius:16px;background:#F8FAFC;box-shadow:0 6px 20px rgba(29,78,216,0.08);overflow:hidden">
+<summary class="st" style="background:linear-gradient(135deg,#0F172A 0%,#1E3A8A 60%,#1D4ED8 100%);color:#FFFBEB;padding:16px 22px;font-size:24px;font-weight:900;cursor:pointer;display:flex;align-items:center;gap:12px">
+  <span style="font-size:28px">📖</span>
+  <span>高一 U06 課文精讀・逐段翻譯・結構重點・英檢提問 ＆ 段考神抓題</span>
+  <span style="font-size:14px;font-weight:700;background:#F59E0B;color:#0F172A;padding:4px 14px;border-radius:20px;margin-left:auto">The Real Price of Plastic · 全 5 段解剖</span>
+</summary>
+<div class="sb" style="padding:22px;color:#0F172A;line-height:1.8">
+
+  <!-- 導讀指引標籤 -->
+  <div style="background:#EFF6FF;border-left:6px solid #1D4ED8;padding:16px 20px;border-radius:0 12px 12px 0;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,0.03)">
+    <div style="font-weight:900;color:#1E3A8A;font-size:20px;display:flex;align-items:center;gap:8px;margin-bottom:6px">
+      <span>🎨 明芬老師課文精讀指引：</span>
+      <span style="font-size:14px;color:#059669;background:#DCFCE7;padding:2px 10px;border-radius:12px;font-weight:800">馬蒂斯色彩導航 × 段考命題透視</span>
+    </div>
+    <div style="font-size:16px;color:#334155;line-height:1.7">
+      讀課文不是死記死背！請同學依循每段的<b>「① 語塊原文 ➔ ② 流暢中文翻譯 ➔ ③ 篇章與搭配詞焦點 ➔ ④ 全英文 Comprehension Check ➔ ⑤ 段考神抓題」</b>，一次把段考 50% 篇章結構與克漏字題型打通關！
+    </div>
+  </div>
+
+  
+  <!-- 🎨 語塊色彩標記指南 (Color Legend) -->
+  <div style="background:#FFFFFF;border:2px solid #CBD5E1;border-radius:12px;padding:14px 18px;margin-bottom:20px;box-shadow:0 2px 6px rgba(0,0,0,0.03)">
+    <div style="font-weight:900;color:#0F172A;font-size:16px;margin-bottom:10px;display:flex;align-items:center;gap:8px">
+      <span style="font-size:20px">🎨</span>
+      <span>課文語塊（Chunk）色彩分類指南：一眼掌握長句骨架</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;font-size:14px">
+      <div style="background:#EFF6FF;border:1.5px solid #93C5FD;border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:8px">
+        <span style="background:#DBEAFE;color:#1E40AF;font-weight:900;padding:2px 8px;border-radius:4px;border:1px solid #93C5FD">🟦 藍色語塊</span>
+        <span style="color:#1E3A8A;font-weight:700"><b>主詞核心・主角事物</b>（Who/What，如 Plastic items）</span>
+      </div>
+      <div style="background:#FEFCE8;border:1.5px solid #FDE047;border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:8px">
+        <span style="background:#FEF08A;color:#854D0E;font-weight:900;padding:2px 8px;border-radius:4px;border:1px solid #FACC15">🟨 黃色語塊</span>
+        <span style="color:#713F12;font-weight:700"><b>動作狀態・頻率修飾</b>（Action/How，如 only once, laid end to end）</span>
+      </div>
+      <div style="background:#FEF2F2;border:1.5px solid #FCA5A5;border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:8px">
+        <span style="background:#FEE2E2;color:#991B1B;font-weight:900;padding:2px 8px;border-radius:4px;border:1px solid #F87171">🟥 紅色語塊</span>
+        <span style="color:#7F1D1D;font-weight:700"><b>環境危機・受害者・致命後果</b>（Crisis/Victim，如 thrown away, plastic soup）</span>
+      </div>
+      <div style="background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:8px">
+        <span style="background:#D1FAE5;color:#065F46;font-weight:900;padding:2px 8px;border-radius:4px;border:1px solid #4ADE80">🟩 綠色語塊</span>
+        <span style="color:#14532D;font-weight:700"><b>關鍵數據・綠色解方行動</b>（Data/Solution，如 350 million, reusable containers）</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════ PARAGRAPH 1 ═════════ -->
+  <div class="reading-para-card" style="background:#FFFFFF;border:2px solid #CBD5E1;border-radius:14px;padding:20px;margin-bottom:24px;box-shadow:0 4px 12px rgba(0,0,0,0.04)">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;border-bottom:2px dashed #E2E8F0;padding-bottom:10px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="background:#1D4ED8;color:#FFFFFF;font-weight:900;font-size:16px;padding:4px 14px;border-radius:8px">Paragraph 1</span>
+        <span style="font-weight:900;font-size:19px;color:#1E3A8A">塑膠危機與一次性氾濫（The Plastic Crisis）</span>
+      </div>
+      <span style="font-size:13px;font-weight:700;color:#64748B;background:#F1F5F9;padding:2px 10px;border-radius:6px">課本 p. 114 · 破題段</span>
+    </div>
+
+    <!-- 英文課文與 Chunk -->
+    <div style="font-size:20px;line-height:1.9;color:#0F172A;margin-bottom:14px;background:#F8FAFC;padding:16px;border-radius:10px;border-left:4px solid #F59E0B">
+      <span style="background:#DBEAFE;padding:2px 6px;border-radius:4px;font-weight:700">Plastic items</span> are commonly used <span style="background:#FEF08A;padding:2px 6px;border-radius:4px;font-weight:700">only once</span> and then <span style="background:#FEE2E2;padding:2px 6px;border-radius:4px;font-weight:700">thrown away</span>. In fact, every week, Americans discard <span style="background:#D1FAE5;padding:2px 6px;border-radius:4px;font-weight:800;border-bottom:2px solid #059669">350 million plastic bottles</span>. These are <span style="background:#E0E7FF;padding:2px 6px;border-radius:4px;font-weight:700">long enough to circle the earth five times</span> when they are <span style="background:#FDE68A;padding:2px 6px;border-radius:4px;font-weight:800">laid end to end</span>. This large amount of plastic waste has made it <span style="background:#FCE7F3;padding:2px 6px;border-radius:4px;font-weight:700">one of the biggest environmental problems</span> of our age.
+    </div>
+
+    <!-- 中文流暢翻譯 -->
+    <div style="background:#FFFBEB;border:1px solid #FDE68A;padding:12px 16px;border-radius:8px;margin-bottom:16px">
+      <div style="font-weight:800;color:#92400E;font-size:15px;margin-bottom:4px">🇹🇼 中文流暢對照翻譯：</div>
+      <div style="font-size:16px;color:#78350F;line-height:1.7">
+        塑膠製品通常只被使用一次就被隨手丟棄。事實上，美國人每週就丟棄三億五千萬個寶特瓶。若將這些寶特瓶頭尾相連，其長度足以環繞地球五圈。如此龐大的塑膠廢棄物量，已使其成為我們這個時代最大的環境問題之一。
+      </div>
+    </div>
+
+    <!-- 每段重點解析 (結構 / 搭配詞 / 克漏字) -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:16px">
+      <div style="background:#F0FDF4;border:1px solid #BBF7D0;padding:12px 14px;border-radius:8px">
+        <div style="font-weight:900;color:#166534;font-size:15px;margin-bottom:6px">🏗️ 篇章與段落結構 (Discourse Structure)</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;color:#14532D;line-height:1.6">
+          <li><b>主題句 (Topic Sentence)</b>：引出「一次性塑膠（single-use plastics）」普遍被隨手拋棄的現況。</li>
+          <li><b>具體論據 (Supporting Evidence)</b>：運用驚人統計（每週 3.5 億瓶、繞地球 5 圈）具象化問題嚴重度。</li>
+          <li><b>結論定調 (Conclusion)</b>：將問題提升為「當代最重大環境危機（environmental problem of our age）」。</li>
+        </ul>
+      </div>
+
+      <div style="background:#EFF6FF;border:1px solid #BFDBFE;padding:12px 14px;border-radius:8px">
+        <div style="font-weight:900;color:#1E40AF;font-size:15px;margin-bottom:6px">🔗 核心必考搭配詞 (Collocations)</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;color:#1E3A8A;line-height:1.6">
+          <li><code>use only once</code> / <code>single-use</code> 一次性使用</li>
+          <li><code>throw away</code> / <code>discard</code> 拋棄；丟掉</li>
+          <li><code>laid end to end</code> 頭尾相連排列（lay-laid-laid 被動態）</li>
+          <li><code>environmental problem / disaster</code> 環境問題／災難</li>
+        </ul>
+      </div>
+
+      <div style="background:#FAF5FF;border:1px solid #E9D5FF;padding:12px 14px;border-radius:8px">
+        <div style="font-weight:900;color:#6B21A8;font-size:15px;margin-bottom:6px">🎯 克漏字語法焦點 (Cloze & Grammar)</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;color:#581C87;line-height:1.6">
+          <li><code>adj. + enough + to V</code>：<i>long enough to circle the earth</i>（足夠長以至於能繞地球）。</li>
+          <li>分詞片語簡化：<i>when they are laid end to end</i> ➔ 可省略主詞與 be 動詞簡化為 <i>when laid end to end</i>。</li>
+          <li>動詞使役句型：<code>make + O + OC</code>：<i>has made [it] [one of the biggest problems]</i>。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Comprehension Check (英文提問) -->
+    <div style="background:#F1F5F9;border:1px solid #CBD5E1;padding:14px 16px;border-radius:10px;margin-bottom:14px">
+      <div style="font-weight:900;color:#0F172A;font-size:16px;display:flex;align-items:center;gap:6px;margin-bottom:8px">
+        <span>❓ Comprehension Check (All in English)</span>
+      </div>
+      <div style="font-size:16px;font-weight:700;color:#1E293B;margin-bottom:8px">
+        Q1: Why does the author mention that discarded bottles are "long enough to circle the earth five times"?
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;font-size:15px;color:#334155;margin-bottom:10px">
+        <div>(A) To praise the superior quality and durability of American bottles.</div>
+        <div>(B) To encourage global tourists to travel around the world five times.</div>
+        <div>(C) To provide a vivid visual comparison that illustrates the staggering volume of plastic waste.</div>
+        <div>(D) To show that plastic recycling systems in America have reached perfection.</div>
+      </div>
+      <button class="ans-toggle-btn" onclick="toggleAns(this)" style="background:#1D4ED8;color:#fff;border:none;padding:6px 14px;border-radius:6px;font-weight:800;font-size:14px;cursor:pointer">💡 Reveal Answer & Explanation</button>
+      <div class="ans-box" style="display:none;margin-top:10px;background:#FFFFFF;border-left:4px solid #10B981;padding:10px 14px;border-radius:0 6px 6px 0;font-size:15px;color:#065F46">
+        <b>✅ Correct Answer: (C)</b><br>
+        <i>English Explanation:</i> The author presents this striking visual image so that readers can instantly comprehend how astronomical the amount of plastic waste really is, rather than just reading an abstract number like 350 million.
+      </div>
+    </div>
+
+    <!-- 段考神抓題 -->
+    <div style="background:#FFF1F2;border:1px solid #FECDD3;padding:14px 16px;border-radius:10px">
+      <div style="font-weight:900;color:#BE123C;font-size:16px;display:flex;align-items:center;gap:6px;margin-bottom:8px">
+        <span>⚡ 老師幫你抓題（段考必考神預測）</span>
+      </div>
+      <div style="font-size:15px;color:#881337;line-height:1.7;margin-bottom:8px">
+        <b>【考點 1：動詞三態陷阱克漏字】</b><br>
+        Every week, millions of bottles are discarded. These bottles are long enough to circle the globe when they are ______ end to end.<br>
+        (A) lay &nbsp;&nbsp; (B) laid &nbsp;&nbsp; (C) lying &nbsp;&nbsp; (D) lain
+      </div>
+      <button class="ans-toggle-btn" onclick="toggleAns(this)" style="background:#BE123C;color:#fff;border:none;padding:5px 12px;border-radius:6px;font-weight:800;font-size:13px;cursor:pointer">🔍 觀看解題秘笈</button>
+      <div class="ans-box" style="display:none;margin-top:8px;background:#FFFFFF;border-left:4px solid #E11D48;padding:8px 12px;border-radius:0 6px 6px 0;font-size:14px;color:#9F1239">
+        <b>🎯 正解：(B) laid</b><br>
+        <b>破題關鍵：</b>及物動詞 lay（放置/擺放）的三態為 <b>lay - laid - laid</b>；不及物動詞 lie（躺/位於）為 <b>lie - lay - lain</b>。此處被動態 <code>are + p.p.</code> 指瓶子「被頭尾相接擺放」，故選過去分詞 <b>laid</b>。段考超愛考這個陷阱！
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════ PARAGRAPH 2 ═════════ -->
+  <div class="reading-para-card" style="background:#FFFFFF;border:2px solid #CBD5E1;border-radius:14px;padding:20px;margin-bottom:24px;box-shadow:0 4px 12px rgba(0,0,0,0.04)">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;border-bottom:2px dashed #E2E8F0;padding-bottom:10px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="background:#059669;color:#FFFFFF;font-weight:900;font-size:16px;padding:4px 14px;border-radius:8px">Paragraph 2</span>
+        <span style="font-weight:900;font-size:19px;color:#065F46">塑膠流入海洋的兩大途徑（Routes to the Ocean）</span>
+      </div>
+      <span style="font-size:13px;font-weight:700;color:#64748B;background:#F1F5F9;padding:2px 10px;border-radius:6px">課本 p. 114 · 因果推進段</span>
+    </div>
+
+    <!-- 英文課文與 Chunk -->
+    <div style="font-size:20px;line-height:1.9;color:#0F172A;margin-bottom:14px;background:#F8FAFC;padding:16px;border-radius:10px;border-left:4px solid #059669">
+      This problem is <span style="background:#FEE2E2;padding:2px 6px;border-radius:4px;font-weight:700">an environmental disaster</span>, and the ocean has <span style="background:#FEF08A;padding:2px 6px;border-radius:4px;font-weight:800;border-bottom:2px solid #D97706">fallen victim to it</span>. Plastic litter is <span style="background:#DBEAFE;padding:2px 6px;border-radius:4px;font-weight:700">carried by rainwater</span> from land into rivers, and the rivers then <span style="background:#D1FAE5;padding:2px 6px;border-radius:4px;font-weight:700">run into the sea</span>. In addition, plastic trash that is <span style="background:#E0E7FF;padding:2px 6px;border-radius:4px;font-weight:700">left on beaches</span> is <span style="background:#FDE68A;padding:2px 6px;border-radius:4px;font-weight:700">taken into the ocean</span> when <span style="background:#FCE7F3;padding:2px 6px;border-radius:4px;font-weight:800">tides rise and fall</span>.
+    </div>
+
+    <!-- 中文流暢翻譯 -->
+    <div style="background:#FFFBEB;border:1px solid #FDE68A;padding:12px 16px;border-radius:8px;margin-bottom:16px">
+      <div style="font-weight:800;color:#92400E;font-size:15px;margin-bottom:4px">🇹🇼 中文流暢對照翻譯：</div>
+      <div style="font-size:16px;color:#78350F;line-height:1.7">
+        這個問題是一場環境災難，而海洋已經淪為其受害者。陸地上的塑膠垃圾被雨水沖刷帶進河流，而河流接著流入大海。此外，遺留在沙灘上的塑膠垃圾，也在潮起潮落時被捲入海洋。
+      </div>
+    </div>
+
+    <!-- 每段重點解析 -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:16px">
+      <div style="background:#F0FDF4;border:1px solid #BBF7D0;padding:12px 14px;border-radius:8px">
+        <div style="font-weight:900;color:#166534;font-size:15px;margin-bottom:6px">🏗️ 篇章與段落結構 (Discourse Structure)</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;color:#14532D;line-height:1.6">
+          <li><b>核心承接句</b>：承接第一段的危機，指出海洋是最大受害者（fallen victim to）。</li>
+          <li><b>路徑一（雨水沖刷）</b>：陸地 ➔ 雨水帶入河流 ➔ 河流匯入大海。</li>
+          <li><b>路徑二（潮汐捲入）</b>：海灘遊客遺留垃圾 ➔ 潮起潮落（tides rise and fall）捲入大洋。</li>
+        </ul>
+      </div>
+
+      <div style="background:#EFF6FF;border:1px solid #BFDBFE;padding:12px 14px;border-radius:8px">
+        <div style="font-weight:900;color:#1E40AF;font-size:15px;margin-bottom:6px">🔗 核心必考搭配詞 (Collocations)</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;color:#1E3A8A;line-height:1.6">
+          <li><code>fall victim to...</code> 淪為...的受害者／犧牲品（介系詞必用 to）</li>
+          <li><code>be carried by rainwater</code> 被雨水沖刷運送</li>
+          <li><code>run into the sea</code> 匯流入海</li>
+          <li><code>tides rise and fall</code> 潮水漲落（高頻對稱詞組）</li>
+        </ul>
+      </div>
+
+      <div style="background:#FAF5FF;border:1px solid #E9D5FF;padding:12px 14px;border-radius:8px">
+        <div style="font-weight:900;color:#6B21A8;font-size:15px;margin-bottom:6px">🎯 克漏字語法焦點 (Cloze & Grammar)</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;color:#581C87;line-height:1.6">
+          <li>關係代名詞主格：<i>plastic trash [that is left on beaches]</i> 修飾不可數名詞 trash。可簡化為過去分詞片語 <i>plastic trash [left on beaches]</i>。</li>
+          <li>轉折遞進詞：<code>In addition</code> = <code>Furthermore</code> = <code>Moreover</code>，段考篇章結構核心考點。</li>
+          <li>代名詞指涉：<i>fallen victim to <b>it</b></i> 中的 <b>it</b> 指代前面的 <i>this problem / environmental disaster</i>。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Comprehension Check (英文提問) -->
+    <div style="background:#F1F5F9;border:1px solid #CBD5E1;padding:14px 16px;border-radius:10px;margin-bottom:14px">
+      <div style="font-weight:900;color:#0F172A;font-size:16px;display:flex;align-items:center;gap:6px;margin-bottom:8px">
+        <span>❓ Comprehension Check (All in English)</span>
+      </div>
+      <div style="font-size:16px;font-weight:700;color:#1E293B;margin-bottom:8px">
+        Q2: According to Paragraph 2, how does land litter eventually reach the open ocean?
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;font-size:15px;color:#334155;margin-bottom:10px">
+        <div>(A) High winds evaporate plastic items into the ozone layer.</div>
+        <div>(B) Rainwater washes land litter into rivers, which subsequently carry it into the sea.</div>
+        <div>(C) Marine animals deliberately travel inland to gather trash.</div>
+        <div>(D) Ocean currents suck plastic directly out of city recycling factories.</div>
+      </div>
+      <button class="ans-toggle-btn" onclick="toggleAns(this)" style="background:#059669;color:#fff;border:none;padding:6px 14px;border-radius:6px;font-weight:800;font-size:14px;cursor:pointer">💡 Reveal Answer & Explanation</button>
+      <div class="ans-box" style="display:none;margin-top:10px;background:#FFFFFF;border-left:4px solid #10B981;padding:10px 14px;border-radius:0 6px 6px 0;font-size:15px;color:#065F46">
+        <b>✅ Correct Answer: (B)</b><br>
+        <i>English Explanation:</i> The paragraph explicitly states the sequential process: rainwater transports land litter into riverways, and those rivers flow directly out to sea, complemented by beach rubbish washed away by tides.
+      </div>
+    </div>
+
+    <!-- 段考神抓題 -->
+    <div style="background:#FFF1F2;border:1px solid #FECDD3;padding:14px 16px;border-radius:10px">
+      <div style="font-weight:900;color:#BE123C;font-size:16px;display:flex;align-items:center;gap:6px;margin-bottom:8px">
+        <span>⚡ 老師幫你抓題（段考必考神預測）</span>
+      </div>
+      <div style="font-size:15px;color:#881337;line-height:1.7;margin-bottom:8px">
+        <b>【考點 2：介系詞搭配克漏字】</b><br>
+        Due to reckless human habits, thousands of marine species have fallen victim ______ severe water contamination.<br>
+        (A) at &nbsp;&nbsp; (B) with &nbsp;&nbsp; (C) to &nbsp;&nbsp; (D) from
+      </div>
+      <button class="ans-toggle-btn" onclick="toggleAns(this)" style="background:#BE123C;color:#fff;border:none;padding:5px 12px;border-radius:6px;font-weight:800;font-size:13px;cursor:pointer">🔍 觀看解題秘笈</button>
+      <div class="ans-box" style="display:none;margin-top:8px;background:#FFFFFF;border-left:4px solid #E11D48;padding:8px 12px;border-radius:0 6px 6px 0;font-size:14px;color:#9F1239">
+        <b>🎯 正解：(C) to</b><br>
+        <b>破題關鍵：</b>固定片語 <code>fall victim to + N</code>（成為...的受害者／罹難者），介系詞必定搭配 <b>to</b>，千萬不能被中文「從...受害」誤導選 from！
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════ PARAGRAPH 3 ═════════ -->
+  <div class="reading-para-card" style="background:#FFFFFF;border:2px solid #CBD5E1;border-radius:14px;padding:20px;margin-bottom:24px;box-shadow:0 4px 12px rgba(0,0,0,0.04)">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;border-bottom:2px dashed #E2E8F0;padding-bottom:10px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="background:#D97706;color:#FFFFFF;font-weight:900;font-size:16px;padding:4px 14px;border-radius:8px">Paragraph 3</span>
+        <span style="font-weight:900;font-size:19px;color:#92400E">隱形威脅：排水溝與微塑膠（The Invisible Drain Threat）</span>
+      </div>
+      <span style="font-size:13px;font-weight:700;color:#64748B;background:#F1F5F9;padding:2px 10px;border-radius:6px">課本 p. 115 · 細節深究段</span>
+    </div>
+
+    <!-- 英文課文與 Chunk -->
+    <div style="font-size:20px;line-height:1.9;color:#0F172A;margin-bottom:14px;background:#F8FAFC;padding:16px;border-radius:10px;border-left:4px solid #D97706">
+      Moreover, plastic is also <span style="background:#DBEAFE;padding:2px 6px;border-radius:4px;font-weight:700">fed into the ocean by drains</span>. Plastic is <span style="background:#FEF08A;padding:2px 6px;border-radius:4px;font-weight:700">contained in common household products</span>, such as <span style="background:#D1FAE5;padding:2px 6px;border-radius:4px;font-weight:800">toothpaste and face scrubs</span>. Tiny plastic beads, <span style="background:#FDE68A;padding:2px 6px;border-radius:4px;font-weight:800;border-bottom:2px solid #D97706">which are also called microplastics</span>, can be found in these products. Clothes also contain microplastics <span style="background:#E0E7FF;padding:2px 6px;border-radius:4px;font-weight:700">in the shape of plastic fibers</span>. When people wash their clothes, these substances go into the water. The polluted water then <span style="background:#FEE2E2;padding:2px 6px;border-radius:4px;font-weight:700">goes down the drains</span>. From there, it will one day <span style="background:#FCE7F3;padding:2px 6px;border-radius:4px;font-weight:800">enter the ocean</span>.
+    </div>
+
+    <!-- 中文流暢翻譯 -->
+    <div style="background:#FFFBEB;border:1px solid #FDE68A;padding:12px 16px;border-radius:8px;margin-bottom:16px">
+      <div style="font-weight:800;color:#92400E;font-size:15px;margin-bottom:4px">🇹🇼 中文流暢對照翻譯：</div>
+      <div style="font-size:16px;color:#78350F;line-height:1.7">
+        此外，塑膠也經由排水管道流入海洋。常見的家用生活用品中含有塑膠，例如牙膏和洗面磨砂膏。在這些產品中可以發現被稱為「塑膠微粒（微塑膠）」的細小塑膠珠。衣服也含有塑膠纖維形式的微塑膠。當人們清洗衣物時，這些物質便流入水中。受污染的水隨後順著排水管流下，並從那裡最終匯入汪洋大海。
+      </div>
+    </div>
+
+    <!-- 每段重點解析 -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:16px">
+      <div style="background:#F0FDF4;border:1px solid #BBF7D0;padding:12px 14px;border-radius:8px">
+        <div style="font-weight:900;color:#166534;font-size:15px;margin-bottom:6px">🏗️ 篇章與段落結構 (Discourse Structure)</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;color:#14532D;line-height:1.6">
+          <li><b>路徑三（隱形生活排水）</b>：轉折詞 <code>Moreover</code> 引入大家容易忽略的家戶排水溝（drains）。</li>
+          <li><b>日常微塑膠來源 (Two Daily Sources)</b>：
+            <br>1. 個人護理清潔用品：磨砂膏、牙膏中的塑膠微粒珠（tiny plastic beads）。
+            <br>2. 人造纖維衣物：洗衣服時脫落的人造纖維（plastic fibers）。
+          </li>
+          <li><b>生活鏈接</b>：洗滌 ➔ 污水進排水管 ➔ 污水處理無法過濾 ➔ 匯入海洋。</li>
+        </ul>
+      </div>
+
+      <div style="background:#EFF6FF;border:1px solid #BFDBFE;padding:12px 14px;border-radius:8px">
+        <div style="font-weight:900;color:#1E40AF;font-size:15px;margin-bottom:6px">🔗 核心必考搭配詞 (Collocations)</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;color:#1E3A8A;line-height:1.6">
+          <li><code>be fed into...</code> 被注入／流入...（feed-fed-fed）</li>
+          <li><code>household products</code> 家用生活用品</li>
+          <li><code>face scrubs</code> 洗面磨砂膏</li>
+          <li><code>in the shape of...</code> 以...的形狀／形式呈現</li>
+          <li><code>go down the drains</code> 順著排水管流走</li>
+        </ul>
+      </div>
+
+      <div style="background:#FAF5FF;border:1px solid #E9D5FF;padding:12px 14px;border-radius:8px">
+        <div style="font-weight:900;color:#6B21A8;font-size:15px;margin-bottom:6px">🎯 克漏字語法焦點 (Cloze & Grammar)</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;color:#581C87;line-height:1.6">
+          <li>非限定關係代名詞子句：<i>Tiny plastic beads, <b>which</b> are also called microplastics, can be found...</i>（逗號後必用 which，絕不能寫 that！段考大考萬年必考）。</li>
+          <li>過去分詞當形容詞：<i>The <b>polluted</b> water then goes down...</i>（被污染的水）。</li>
+          <li>被動語態：<i>Plastic <b>is contained in</b>...</i> 亦可主動表達為 <i>...contain plastic</i>。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Comprehension Check (英文提問) -->
+    <div style="background:#F1F5F9;border:1px solid #CBD5E1;padding:14px 16px;border-radius:10px;margin-bottom:14px">
+      <div style="font-weight:900;color:#0F172A;font-size:16px;display:flex;align-items:center;gap:6px;margin-bottom:8px">
+        <span>❓ Comprehension Check (All in English)</span>
+      </div>
+      <div style="font-size:16px;font-weight:700;color:#1E293B;margin-bottom:8px">
+        Q3: How do synthetic clothes contribute to microplastic pollution in our waterways?
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;font-size:15px;color:#334155;margin-bottom:10px">
+        <div>(A) When dried in the sun, clothes produce poisonous chemical fumes.</div>
+        <div>(B) Washing clothes sheds tiny synthetic fibers that travel with wastewater down household drains into the sea.</div>
+        <div>(C) People throw away their entire wardrobes directly into local lakes every month.</div>
+        <div>(D) Microscopic bacteria on clothes transform cotton into hard plastic beads.</div>
+      </div>
+      <button class="ans-toggle-btn" onclick="toggleAns(this)" style="background:#D97706;color:#fff;border:none;padding:6px 14px;border-radius:6px;font-weight:800;font-size:14px;cursor:pointer">💡 Reveal Answer & Explanation</button>
+      <div class="ans-box" style="display:none;margin-top:10px;background:#FFFFFF;border-left:4px solid #10B981;padding:10px 14px;border-radius:0 6px 6px 0;font-size:15px;color:#065F46">
+        <b>✅ Correct Answer: (B)</b><br>
+        <i>English Explanation:</i> The text explains that synthetic fabrics shed microplastics shaped as fibers during regular laundry cycles, which slip through household drainage systems and eventually pollute ocean waters.
+      </div>
+    </div>
+
+    <!-- 段考神抓題 -->
+    <div style="background:#FFF1F2;border:1px solid #FECDD3;padding:14px 16px;border-radius:10px">
+      <div style="font-weight:900;color:#BE123C;font-size:16px;display:flex;align-items:center;gap:6px;margin-bottom:8px">
+        <span>⚡ 老師幫你抓題（段考必考神預測）</span>
+      </div>
+      <div style="font-size:15px;color:#881337;line-height:1.7;margin-bottom:8px">
+        <b>【考點 3：關係代名詞逗號非限定用法克漏字】</b><br>
+        Cosmetic products often contain microscopic beads, ______ are too small to be trapped by standard wastewater filtration.<br>
+        (A) that &nbsp;&nbsp; (B) what &nbsp;&nbsp; (C) which &nbsp;&nbsp; (D) whose
+      </div>
+      <button class="ans-toggle-btn" onclick="toggleAns(this)" style="background:#BE123C;color:#fff;border:none;padding:5px 12px;border-radius:6px;font-weight:800;font-size:13px;cursor:pointer">🔍 觀看解題秘笈</button>
+      <div class="ans-box" style="display:none;margin-top:8px;background:#FFFFFF;border-left:4px solid #E11D48;padding:8px 12px;border-radius:0 6px 6px 0;font-size:14px;color:#9F1239">
+        <b>🎯 正解：(C) which</b><br>
+        <b>破題關鍵：</b>逗號後面為<b>「非限定子句（補充說明）」</b>，先行詞為 beads（事物），關係代名詞<b>絕不可使用 that</b>！此外 what 前不能有先行詞，故唯一正確答案為 <b>which</b>。高中三年必考題！
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════ PARAGRAPH 4 ═════════ -->
+  <div class="reading-para-card" style="background:#FFFFFF;border:2px solid #CBD5E1;border-radius:14px;padding:20px;margin-bottom:24px;box-shadow:0 4px 12px rgba(0,0,0,0.04)">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;border-bottom:2px dashed #E2E8F0;padding-bottom:10px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="background:#DC2626;color:#FFFFFF;font-weight:900;font-size:16px;padding:4px 14px;border-radius:8px">Paragraph 4</span>
+        <span style="font-weight:900;font-size:19px;color:#991B1B">生態浩劫：海洋塑膠濃湯與生物鏈中毒（Plastic Soup）</span>
+      </div>
+      <span style="font-size:13px;font-weight:700;color:#64748B;background:#F1F5F9;padding:2px 10px;border-radius:6px">課本 p. 115 · 核心高潮段</span>
+    </div>
+
+    <!-- 英文課文與 Chunk -->
+    <div style="font-size:20px;line-height:1.9;color:#0F172A;margin-bottom:14px;background:#F8FAFC;padding:16px;border-radius:10px;border-left:4px solid #DC2626">
+      According to the UN, about <span style="background:#FEF08A;padding:2px 6px;border-radius:4px;font-weight:800">80 percent of ocean garbage</span> is plastic. Thus, biologists now even call the ocean <span style="background:#FEE2E2;padding:2px 6px;border-radius:4px;font-weight:900;color:#991B1B;border-bottom:2px solid #DC2626">"plastic soup"</span> <span style="background:#DBEAFE;padding:2px 6px;border-radius:4px;font-weight:800">owing to</span> the plastic everywhere. This pollution is <span style="background:#D1FAE5;padding:2px 6px;border-radius:4px;font-weight:700">having a terrible effect on</span> marine life. Millions of plastic items are floating in the ocean, and this may <span style="background:#FDE68A;padding:2px 6px;border-radius:4px;font-weight:800">lead birds and fish to mistake them for food</span>. The birds pick up these pieces of trash and <span style="background:#E0E7FF;padding:2px 6px;border-radius:4px;font-weight:700">feed them to their young</span>. As a result, many chicks aren't getting enough real food and may <span style="background:#FCE7F3;padding:2px 6px;border-radius:4px;font-weight:800;border-bottom:2px solid #E11D48">end up starving to death</span>. Likewise, a fish that consumes plastic can become terribly sick and may die because <span style="background:#FEF3C7;padding:2px 6px;border-radius:4px;font-weight:700">harmful chemicals are released</span> into its body.
+    </div>
+
+    <!-- 中文流暢翻譯 -->
+    <div style="background:#FFFBEB;border:1px solid #FDE68A;padding:12px 16px;border-radius:8px;margin-bottom:16px">
+      <div style="font-weight:800;color:#92400E;font-size:15px;margin-bottom:4px">🇹🇼 中文流暢對照翻譯：</div>
+      <div style="font-size:16px;color:#78350F;line-height:1.7">
+        根據聯合國統計，約有百分之八十的海洋垃圾是塑膠。因此，由於塑膠無所不在，生物學家現在甚至將海洋稱為「塑膠濃湯」。這種污染對海洋生物造成了可怕的衝擊。數以百萬計的塑膠物品在海中漂浮，這可能導致鳥類與魚類誤將它們當作食物。成鳥撿起這些垃圾碎片並餵食給幼雛。結果，許多幼鳥沒有攝取到足夠的真正食物，最終可能活活餓死。同樣地，吃進塑膠的魚類會病入膏肓甚至死亡，因為有害化學物質已釋放到其體內。
+      </div>
+    </div>
+
+    <!-- 每段重點解析 -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:16px">
+      <div style="background:#F0FDF4;border:1px solid #BBF7D0;padding:12px 14px;border-radius:8px">
+        <div style="font-weight:900;color:#166534;font-size:15px;margin-bottom:6px">🏗️ 篇章與段落結構 (Discourse Structure)</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;color:#14532D;line-height:1.6">
+          <li><b>權威數據定論</b>：引用 UN（聯合國）80% 數據 ➔ 生物學家命名「塑膠濃湯（Plastic Soup）」。</li>
+          <li><b>雙重受害案例 (Parallel Biological Victims)</b>：
+            <br>• 海鳥：誤食塑膠 ➔ 餵給幼鳥 ➔ 佔滿胃囊無法進食 ➔ 餓死（starve to death）。
+            <br>• 魚類：轉折詞 <code>Likewise</code>（同樣地）串連 ➔ 吞下塑膠 ➔ 釋放有害毒素 ➔ 重病身亡。
+          </li>
+          <li><b>食物鏈迴力鏢</b>：暗示毒素最終可能透過海鮮回到人類餐桌。</li>
+        </ul>
+      </div>
+
+      <div style="background:#EFF6FF;border:1px solid #BFDBFE;padding:12px 14px;border-radius:8px">
+        <div style="font-weight:900;color:#1E40AF;font-size:15px;margin-bottom:6px">🔗 核心必考搭配詞 (Collocations)</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;color:#1E3A8A;line-height:1.6">
+          <li><code>owing to + N/Ving</code> 由於；因為（= due to / because of）</li>
+          <li><code>have an effect on...</code> 對...造成影響</li>
+          <li><code>lead sb to V</code> 導致某人去做...</li>
+          <li><code>mistake A for B</code> 誤認 A 為 B</li>
+          <li><code>feed A to B</code> 將 A 餵給 B</li>
+          <li><code>end up + Ving</code> 結果變成...；最後淪落為...</li>
+          <li><code>starve to death</code> 活活餓死</li>
+        </ul>
+      </div>
+
+      <div style="background:#FAF5FF;border:1px solid #E9D5FF;padding:12px 14px;border-radius:8px">
+        <div style="font-weight:900;color:#6B21A8;font-size:15px;margin-bottom:6px">🎯 克漏字語法焦點 (Cloze & Grammar)</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;color:#581C87;line-height:1.6">
+          <li>因果與轉折連貫副詞連發：<code>Thus</code>（因此）➔ <code>As a result</code>（結果）➔ <code>Likewise</code>（同樣地），這三字是段考篇章結構與選填必考！</li>
+          <li><code>end up + V-ing</code>：<i>end up <b>starving</b> to death</i>，受詞必接動名詞。</li>
+          <li>關係代名詞省略：<i>a fish [that consumes plastic]</i> 為限定關係子句修飾 a fish。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Comprehension Check (英文提問) -->
+    <div style="background:#F1F5F9;border:1px solid #CBD5E1;padding:14px 16px;border-radius:10px;margin-bottom:14px">
+      <div style="font-weight:900;color:#0F172A;font-size:16px;display:flex;align-items:center;gap:6px;margin-bottom:8px">
+        <span>❓ Comprehension Check (All in English)</span>
+      </div>
+      <div style="font-size:16px;font-weight:700;color:#1E293B;margin-bottom:8px">
+        Q4: What causes young bird chicks to end up "starving to death" even though their stomachs are full?
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;font-size:15px;color:#334155;margin-bottom:10px">
+        <div>(A) The parents refuse to feed them out of fear of human predators.</div>
+        <div>(B) The chicks choke on sharp fish bones caught in strong ocean storms.</div>
+        <div>(C) Their parents feed them pieces of plastic mistaken for food, leaving no room for genuine nutritious food.</div>
+        <div>(D) Chicks develop a rare genetic allergy to all marine seafood.</div>
+      </div>
+      <button class="ans-toggle-btn" onclick="toggleAns(this)" style="background:#DC2626;color:#fff;border:none;padding:6px 14px;border-radius:6px;font-weight:800;font-size:14px;cursor:pointer">💡 Reveal Answer & Explanation</button>
+      <div class="ans-box" style="display:none;margin-top:10px;background:#FFFFFF;border-left:4px solid #10B981;padding:10px 14px;border-radius:0 6px 6px 0;font-size:15px;color:#065F46">
+        <b>✅ Correct Answer: (C)</b><br>
+        <i>English Explanation:</i> As explained in Paragraph 4, parent birds mistake floating debris for real food and deliver it to their nests. The chicks' stomachs become packed with indigestible plastic, preventing them from obtaining actual nourishment and tragically causing them to starve.
+      </div>
+    </div>
+
+    <!-- 段考神抓題 -->
+    <div style="background:#FFF1F2;border:1px solid #FECDD3;padding:14px 16px;border-radius:10px">
+      <div style="font-weight:900;color:#BE123C;font-size:16px;display:flex;align-items:center;gap:6px;margin-bottom:8px">
+        <span>⚡ 老師幫你抓題（段考必考神預測）</span>
+      </div>
+      <div style="font-size:15px;color:#881337;line-height:1.7;margin-bottom:8px">
+        <b>【考點 4：篇章結構轉折詞與動名詞片語雙重考點】</b><br>
+        Seabirds mistake floating bottle caps for edible fish and feed them to their nestlings. ________, these chicks are deprived of nutrition and may end up ________ to death.<br>
+        (A) However ; starve &nbsp;&nbsp; (B) As a result ; starving &nbsp;&nbsp; (C) Otherwise ; starved &nbsp;&nbsp; (D) Moreover ; to starve
+      </div>
+      <button class="ans-toggle-btn" onclick="toggleAns(this)" style="background:#BE123C;color:#fff;border:none;padding:5px 12px;border-radius:6px;font-weight:800;font-size:13px;cursor:pointer">🔍 觀看解題秘笈</button>
+      <div class="ans-box" style="display:none;margin-top:8px;background:#FFFFFF;border-left:4px solid #E11D48;padding:8px 12px;border-radius:0 6px 6px 0;font-size:14px;color:#9F1239">
+        <b>🎯 正解：(B) As a result ; starving</b><br>
+        <b>破題關鍵：</b>前句「親鳥餵食塑膠」與後句「幼雛缺乏營養」是直接的因果關係，轉折副詞應選 <b>As a result</b>（結果）；而片語 <code>end up + V-ing</code> 規定必須接動名詞，故填 <b>starving</b>。兩大考點合一，是段考超級考法！
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════ PARAGRAPH 5 ═════════ -->
+  <div class="reading-para-card" style="background:#FFFFFF;border:2px solid #CBD5E1;border-radius:14px;padding:20px;margin-bottom:24px;box-shadow:0 4px 12px rgba(0,0,0,0.04)">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;border-bottom:2px dashed #E2E8F0;padding-bottom:10px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="background:#7C3AED;color:#FFFFFF;font-weight:900;font-size:16px;padding:4px 14px;border-radius:8px">Paragraph 5</span>
+        <span style="font-weight:900;font-size:19px;color:#5B21B6">全球解方與公民行動（Taking Action to Save Our Planet）</span>
+      </div>
+      <span style="font-size:13px;font-weight:700;color:#64748B;background:#F1F5F9;padding:2px 10px;border-radius:6px">課本 p. 116 · 結論號召段</span>
+    </div>
+
+    <!-- 英文課文與 Chunk -->
+    <div style="font-size:20px;line-height:1.9;color:#0F172A;margin-bottom:14px;background:#F8FAFC;padding:16px;border-radius:10px;border-left:4px solid #7C3AED">
+      Both the ocean and the marine life are now <span style="background:#FEE2E2;padding:2px 6px;border-radius:4px;font-weight:800;border-bottom:2px solid #DC2626">paying a terrible price</span> for our overuse of plastic. However, it is <span style="background:#D1FAE5;padding:2px 6px;border-radius:4px;font-weight:700">not too late to take action</span>. For instance, we can reuse plastic bags or <span style="background:#FEF08A;padding:2px 6px;border-radius:4px;font-weight:700">bring our own bags</span> when we shop. We can also stop buying bottled water and start <span style="background:#DBEAFE;padding:2px 6px;border-radius:4px;font-weight:800">using reusable containers instead</span>. Of course, we should recycle plastic items. It is also important <span style="background:#FDE68A;padding:2px 6px;border-radius:4px;font-weight:800">not to use products</span> that contain microplastics. In addition, we can support environmental organizations and volunteer to help them. These groups are <span style="background:#E0E7FF;padding:2px 6px;border-radius:4px;font-weight:800">not only asking manufacturers to use less plastic</span> in their products and packaging <span style="background:#FCE7F3;padding:2px 6px;border-radius:4px;font-weight:800">but also calling on governments</span> to start programs to clean the ocean. <span style="background:#FEF3C7;padding:2px 6px;border-radius:4px;font-weight:900;color:#92400E">Each of us has the power to change the world.</span> Let's begin today and work together to save our planet.
+    </div>
+
+    <!-- 中文流暢翻譯 -->
+    <div style="background:#FFFBEB;border:1px solid #FDE68A;padding:12px 16px;border-radius:8px;margin-bottom:16px">
+      <div style="font-weight:800;color:#92400E;font-size:15px;margin-bottom:4px">🇹🇼 中文流暢對照翻譯：</div>
+      <div style="font-size:16px;color:#78350F;line-height:1.7">
+        海洋與海洋生物如今正在為我們過度使用塑膠付出慘痛的代價。然而，採取行動永遠不嫌晚。例如，我們可以在購物時重複使用塑膠袋或自備環保袋。我們也可以停止購買瓶裝水，改用可重複使用的環保容器。當然，我們應當做好塑膠回收。更重要的是，不要使用含有塑膠微粒的產品。此外，我們可以支持環保團體並自願擔任志工協助他們。這些組織不僅要求製造商在產品與包裝中減少塑膠用量，也呼籲政府啟動海洋清潔計畫。我們每個人都有改變世界的力量。讓我們從今天開始，攜手合作拯救我們的地球！
+      </div>
+    </div>
+
+    <!-- 每段重點解析 -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:16px">
+      <div style="background:#F0FDF4;border:1px solid #BBF7D0;padding:12px 14px;border-radius:8px">
+        <div style="font-weight:900;color:#166534;font-size:15px;margin-bottom:6px">🏗️ 篇章與段落結構 (Discourse Structure)</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;color:#14532D;line-height:1.6">
+          <li><b>承上啟下轉折句</b>：<code>However, it is not too late to take action.</code> 轉為正面行動號召。</li>
+          <li><b>個人行動層面 (Individual Solutions)</b>：
+            <br>• 購物自備袋（bring our own bags）、自備水壺容器（reusable containers）。
+            <br>• 落實回收（recycle）、拒買含微塑膠去角質商品。
+          </li>
+          <li><b>社會制度層面 (Systemic Solutions)</b>：
+            <br>• 支持環保團體（environmental NGOs）。
+            <br>• 要求製造商減塑包裝（manufacturers use less plastic）。
+            <br>• 敦促政府啟動海洋清理專案（governments start clean-up programs）。
+          </li>
+          <li><b>振奮人心結尾 (Empowering Call to Action)</b>：每個人都能改變世界。</li>
+        </ul>
+      </div>
+
+      <div style="background:#EFF6FF;border:1px solid #BFDBFE;padding:12px 14px;border-radius:8px">
+        <div style="font-weight:900;color:#1E40AF;font-size:15px;margin-bottom:6px">🔗 核心必考搭配詞 (Collocations)</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;color:#1E3A8A;line-height:1.6">
+          <li><code>pay a (heavy/terrible) price for...</code> 為...付出慘痛代價</li>
+          <li><code>take action</code> 採取行動</li>
+          <li><code>reusable containers</code> 可重複使用的環保容器／杯</li>
+          <li><code>volunteer to V</code> 自願／自告奮勇做...</li>
+          <li><code>call on sb to V</code> 號召／呼籲某人做...</li>
+          <li><code>work together to V</code> 齊心協力做...</li>
+        </ul>
+      </div>
+
+      <div style="background:#FAF5FF;border:1px solid #E9D5FF;padding:12px 14px;border-radius:8px">
+        <div style="font-weight:900;color:#6B21A8;font-size:15px;margin-bottom:6px">🎯 克漏字語法焦點 (Cloze & Grammar)</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;color:#581C87;line-height:1.6">
+          <li>否定不定詞位置：<i>It is also important <b>not to use</b> products...</i>（否定詞 not 永遠放在 to 前面，絕不可寫 to not use 或 don't use）。</li>
+          <li>對等連接詞平行結構：<i><b>not only</b> asking manufacturers... <b>but also</b> calling on governments...</i>（前後動名詞 asking 與 calling on 必須嚴格平行對稱）。</li>
+          <li><code>stop V-ing</code> vs. <code>stop to V</code>：<i>stop buying bottled water</i>（停止買瓶裝水這個動作）。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Comprehension Check (英文提問) -->
+    <div style="background:#F1F5F9;border:1px solid #CBD5E1;padding:14px 16px;border-radius:10px;margin-bottom:14px">
+      <div style="font-weight:900;color:#0F172A;font-size:16px;display:flex;align-items:center;gap:6px;margin-bottom:8px">
+        <span>❓ Comprehension Check (All in English)</span>
+      </div>
+      <div style="font-size:16px;font-weight:700;color:#1E293B;margin-bottom:8px">
+        Q5: Which of the following collective actions initiated by environmental groups is highlighted in Paragraph 5?
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;font-size:15px;color:#334155;margin-bottom:10px">
+        <div>(A) Forcing all supermarkets to permanently shut down worldwide.</div>
+        <div>(B) Urging manufacturers to reduce plastic packaging and urging governments to launch ocean clean-up programs.</div>
+        <div>(C) Demanding that all citizens stop washing their clothing entirely.</div>
+        <div>(D) Imposing heavy monetary fines on everyone who travels to the beach.</div>
+      </div>
+      <button class="ans-toggle-btn" onclick="toggleAns(this)" style="background:#7C3AED;color:#fff;border:none;padding:6px 14px;border-radius:6px;font-weight:800;font-size:14px;cursor:pointer">💡 Reveal Answer & Explanation</button>
+      <div class="ans-box" style="display:none;margin-top:10px;background:#FFFFFF;border-left:4px solid #10B981;padding:10px 14px;border-radius:0 6px 6px 0;font-size:15px;color:#065F46">
+        <b>✅ Correct Answer: (B)</b><br>
+        <i>English Explanation:</i> Paragraph 5 clearly highlights two systemic demands pushed by environmental groups: (1) demanding manufacturers minimize plastic packaging, and (2) calling on governments to establish clean-up programs.
+      </div>
+    </div>
+
+    <!-- 段考神抓題 -->
+    <div style="background:#FFF1F2;border:1px solid #FECDD3;padding:14px 16px;border-radius:10px">
+      <div style="font-weight:900;color:#BE123C;font-size:16px;display:flex;align-items:center;gap:6px;margin-bottom:8px">
+        <span>⚡ 老師幫你抓題（段考必考神預測）</span>
+      </div>
+      <div style="font-size:15px;color:#881337;line-height:1.7;margin-bottom:8px">
+        <b>【考點 5：平行結構與片語動詞克漏字】</b><br>
+        Green activists are not only urging companies to cut plastic use, but also ________ on authorities to enact stricter regulations.<br>
+        (A) call &nbsp;&nbsp; (B) called &nbsp;&nbsp; (C) calling &nbsp;&nbsp; (D) to call
+      </div>
+      <button class="ans-toggle-btn" onclick="toggleAns(this)" style="background:#BE123C;color:#fff;border:none;padding:5px 12px;border-radius:6px;font-weight:800;font-size:13px;cursor:pointer">🔍 觀看解題秘笈</button>
+      <div class="ans-box" style="display:none;margin-top:8px;background:#FFFFFF;border-left:4px solid #E11D48;padding:8px 12px;border-radius:0 6px 6px 0;font-size:14px;color:#9F1239">
+        <b>🎯 正解：(C) calling</b><br>
+        <b>破題關鍵：</b>對等連接詞片語 <code>not only A but also B</code> 要求 A 與 B 結構必須完全對稱！前方是 <b>urging</b>（現在分詞/動名詞），後方就必須填 <b>calling</b>。此外片語 <code>call on sb to V</code> 表示「號召／呼籲某人做某事」，段考必考高頻片語！
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════ 全課段考衝刺大補帖與全篇閱讀挑戰 ═════════ -->
+  <div style="background:linear-gradient(135deg,#0F172A 0%,#1E293B 100%);color:#FFFFFF;border-radius:16px;padding:24px;margin-top:20px;border:3px solid #F59E0B">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;border-bottom:2px solid rgba(245,158,11,0.4);padding-bottom:12px">
+      <span style="font-size:32px">🏆</span>
+      <div>
+        <div style="font-size:22px;font-weight:900;color:#FDE68A">U06 全課篇章結構與段考命題總架構（Discourse Mindmap）</div>
+        <div style="font-size:14px;color:#CBD5E1">考試前 5 分鐘看這張思維導圖，篇章結構與文意選填滿分拿定！</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px">
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:14px">
+        <div style="color:#93C5FD;font-weight:800;font-size:15px;margin-bottom:4px">Para 1: 現象與規模</div>
+        <div style="font-size:13px;color:#E2E8F0">一次性塑膠氾濫<br>每週 3.5 億瓶繞地 5 圈<br>成當代嚴峻環境問題</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:14px">
+        <div style="color:#6EE7B7;font-weight:800;font-size:15px;margin-bottom:4px">Para 2: 海洋流入路徑</div>
+        <div style="font-size:13px;color:#E2E8F0">海洋淪為受害者<br>陸地垃圾雨水沖入河<br>沙灘垃圾隨潮汐入海</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:14px">
+        <div style="color:#FDE68A;font-weight:800;font-size:15px;margin-bottom:4px">Para 3: 隱形排水微塑</div>
+        <div style="font-size:13px;color:#E2E8F0">牙膏磨砂膏塑膠珠<br>人造纖維洗滌脫落<br>排水管直通大洋</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:14px">
+        <div style="color:#FCA5A5;font-weight:800;font-size:15px;margin-bottom:4px">Para 4: 濃湯與生態屠殺</div>
+        <div style="font-size:13px;color:#E2E8F0">80% 垃圾為塑膠<br>海鳥誤食餵雛餓死<br>魚類攝入毒素致命</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:14px">
+        <div style="color:#C4B5FD;font-weight:800;font-size:15px;margin-bottom:4px">Para 5: 全球與個人行動</div>
+        <div style="font-size:13px;color:#E2E8F0">自備環保袋與水杯<br>拒絕微塑膠製品<br>促請企業減塑與政府淨海</div>
+      </div>
+    </div>
+
+    <!-- 終極段考抓題挑戰 -->
+    <div style="background:rgba(245,158,11,0.15);border:2px solid #F59E0B;border-radius:12px;padding:18px">
+      <div style="font-weight:900;color:#FDE68A;font-size:18px;margin-bottom:10px">🔥 U06 段考終極篇章結構抓題挑戰（閱讀測驗素養題）</div>
+      <div style="font-size:15px;line-height:1.8;color:#FFFFFF;margin-bottom:12px">
+        <b>Reading Question:</b> What is the overall organizational structure of this article?<br>
+        (A) Chronological order of how plastic was invented in the 19th century.<br>
+        (B) Problem–Causes/Routes–Effects–Solutions structure (問題 ➔ 成因與途徑 ➔ 生態影響 ➔ 解方行動).<br>
+        (C) Comparing plastic packaging with paper packaging in retail sales.<br>
+        (D) A personal diary of a biologist traveling across the Pacific Ocean.
+      </div>
+      <button class="ans-toggle-btn" onclick="toggleAns(this)" style="background:#F59E0B;color:#0F172A;border:none;padding:6px 16px;border-radius:6px;font-weight:900;font-size:14px;cursor:pointer">🎯 查看全篇架構正解與解析</button>
+      <div class="ans-box" style="display:none;margin-top:10px;background:#0F172A;border-left:4px solid #F59E0B;padding:12px 16px;border-radius:0 8px 8px 0;font-size:14px;color:#FEF3C7">
+        <b>✅ 正解：(B) Problem–Causes/Routes–Effects–Solutions</b><br>
+        <b>高中英文篇章思維：</b>此篇是典型的大學學測與段考常考論說文結構：<br>
+        • Para 1 提出問題（Problem: 塑膠氾濫）<br>
+        • Para 2–3 分析成因與進入海洋的三條路徑（Causes & Pathways: 雨水、潮汐、排水微塑）<br>
+        • Para 4 描述悲劇後果（Effects: 海鳥餓死、魚類中毒）<br>
+        • Para 5 提出個人與體制解方並號召行動（Solutions: 減塑、回收、立法淨海）。
+      </div>
+    </div>
+  </div>
+
+</div>
+</details>
+<!-- ════════ END U06 課文精讀 ════════ -->
+
+      </div>
+      <!-- Mode 2: 傳統課本PDF (Hidden by default) -->
+      <iframe id="stage-pdf-frame" src="pdf/g10_U06.pdf" style="display:none;width:100%;height:calc(100vh - 120px);border:none"></iframe>
     </div>
 
     <!-- 右欄：語塊單字例句 ＆ 即席句構板書 -->
